@@ -1,0 +1,45 @@
+2024-01-18T17:46:05+00:00 CRITICAL Unclosed '{' on line 2332 in C:\xampp\htdocs\florishstaging\wp-content\themes\florish\functions.php on line 2688
+
+2024-01-18T17:47:49+00:00 CRITICAL Unclosed '{' on line 2332 in C:\xampp\htdocs\florishstaging\wp-content\themes\florish\functions.php on line 2688
+
+2024-01-18T17:48:04+00:00 CRITICAL Unclosed '{' on line 2332 in C:\xampp\htdocs\florishstaging\wp-content\themes\florish\functions.php on line 2665
+
+2024-01-18T17:48:28+00:00 CRITICAL Unclosed '{' on line 2332 in C:\xampp\htdocs\florishstaging\wp-content\themes\florish\functions.php on line 2501
+
+2024-01-18T17:48:53+00:00 CRITICAL Uncaught TypeError: in_array(): Argument #2 ($haystack) must be of type array, bool given in C:\xampp\htdocs\florishstaging\wp-content\themes\florish\functions.php:1643
+Stack trace:
+#0 C:\xampp\htdocs\florishstaging\wp-content\themes\florish\functions.php(1643): in_array(1521, false)
+#1 C:\xampp\htdocs\florishstaging\wp-content\themes\florish\functions.php(1622): check_plant_exists(1521)
+#2 C:\xampp\htdocs\florishstaging\wp-includes\class-wp-hook.php(324): customer_update_zipcode('')
+#3 C:\xampp\htdocs\florishstaging\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#4 C:\xampp\htdocs\florishstaging\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\xampp\htdocs\florishstaging\wp-settings.php(643): do_action('init')
+#6 C:\xampp\htdocs\florishstaging\wp-config.php(104): require_once('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\florishstaging\wp-load.php(50): require_once('C:\\xampp\\htdocs...')
+#8 C:\xampp\htdocs\florishstaging\wp-blog-header.php(13): require_once('C:\\xampp\\htdocs...')
+#9 C:\xampp\htdocs\florishstaging\index.php(17): require('C:\\xampp\\htdocs...')
+#10 {main}
+  thrown in C:\xampp\htdocs\florishstaging\wp-content\themes\florish\functions.php on line 1643
+
+2024-01-18T17:49:32+00:00 CRITICAL Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\florishstaging\wp-content\themes\florish\front-page.php:225
+Stack trace:
+#0 C:\xampp\htdocs\florishstaging\wp-includes\template-loader.php(106): include()
+#1 C:\xampp\htdocs\florishstaging\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\florishstaging\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\florishstaging\wp-content\themes\florish\front-page.php on line 225
+
+2024-01-18T17:52:38+00:00 CRITICAL Unclosed '{' on line 2332 in C:\xampp\htdocs\florishstaging\wp-content\themes\florish\functions.php on line 2688
+
+2024-01-18T17:52:51+00:00 CRITICAL Unclosed '{' on line 2332 in C:\xampp\htdocs\florishstaging\wp-content\themes\florish\functions.php on line 2688
+
+2024-01-18T17:53:50+00:00 CRITICAL Unclosed '{' on line 2332 in C:\xampp\htdocs\florishstaging\wp-content\themes\florish\functions.php on line 2688
+
+2024-01-18T17:55:51+00:00 CRITICAL Unclosed '{' on line 2332 in C:\xampp\htdocs\florishstaging\wp-content\themes\florish\functions.php on line 2688
+
+2024-01-18T17:57:52+00:00 CRITICAL Unclosed '{' on line 2332 in C:\xampp\htdocs\florishstaging\wp-content\themes\florish\functions.php on line 2688
+
+2024-01-18T17:59:53+00:00 CRITICAL Unclosed '{' on line 2332 in C:\xampp\htdocs\florishstaging\wp-content\themes\florish\functions.php on line 2688
+
+2024-01-18T18:01:54+00:00 CRITICAL Unclosed '{' on line 2332 in C:\xampp\htdocs\florishstaging\wp-content\themes\florish\functions.php on line 2688
+
