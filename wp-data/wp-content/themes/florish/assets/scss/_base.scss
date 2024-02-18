@@ -1,0 +1,81 @@
+body {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Manrope", sans-serif;
+  line-height: 1.2;
+  font-weight: 300;
+}
+
+h1 {
+  font-size: 100px;
+}
+h2 {
+  font-size: 60px;
+}
+h3 {
+  font-size: 45px;
+}
+h4 {
+  font-size: 25px;
+}
+h5 {
+  font-size: 22px;
+}
+h6 {
+  font-size: 20px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+// Common classes
+.cmn-gap {
+  padding: 100px 0;
+}
+.cs-mb {
+  margin-bottom: 100px;
+}
+
+.cmn-btn {
+  position: relative;
+  display: inline-block;
+  font-family: "Manrope", sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: 0.1em;
+  color: var(--white);
+  background: var(--theme-color);
+  text-transform: uppercase;
+  padding: 15px 35px;
+  border-radius: 50px;
+  transition: 0.5s;
+
+  :hover {
+    color: var(--black);
+    background: var(--white);
+  }
+}
+
+.pac-container {
+  z-index: 10000 !important;
+}
+
+// Remove arrows from number input
+// https://stackoverflow.com/questions/44590932/number-type-input-element-spinner-css-style
+// Todo: scope this to the input fields that need it only
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

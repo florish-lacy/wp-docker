@@ -1,0 +1,20 @@
+{
+  "plugins": ["stylelint-scss"],
+
+  "ignoreFiles": ["assets/scss/_normalize.scss"],
+  "rules": {
+    "font-family-no-missing-generic-family-keyword": null,
+    "no-descending-specificity": null,
+    "block-no-empty": null,
+    "no-duplicate-selectors": null,
+    "font-family-no-duplicate-names": null,
+    "selector-class-pattern": null,
+    "function-url-quotes": "always",
+    "font-family-name-quotes": "always-unless-keyword",
+
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": true,
+    "scss/dollar-variable-pattern": "^foo",
+    "scss/selector-no-redundant-nesting-selector": true
+  }
+}

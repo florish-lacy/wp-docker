@@ -1,0 +1,78 @@
+/*==== About Start =======*/
+.hm-about {
+  background: url("../images/hm-ab-back.png") no-repeat left bottom;
+  background-size: cover;
+}
+.hm-about .container {
+  position: relative;
+}
+.hm-about .text-wrap {
+  padding-top: 150px;
+}
+.hm-about .text-wrap h6 {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--theme-color);
+  background: url("../images/about-sape.svg") no-repeat right top;
+  display: inline-block;
+  background-size: 50px;
+  padding: 8px 20px 10px 0px;
+}
+.hm-about .text-wrap h2 {
+  color: #25400c;
+  margin-bottom: 60px;
+}
+.hm-about .text-wrap h2 span {
+  display: block;
+}
+.hm-about .img-info img {
+  width: 100%;
+}
+.hm-about .icon-wrapper {
+  position: absolute;
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  background: rgba(255, 255, 255, 0.95);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 2px;
+  padding: 48px 62px;
+  margin: 0 auto;
+  bottom: 100px;
+  left: 0;
+  right: 0;
+}
+.hm-about .icon-wrapper .box {
+  width: 33.33%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.hm-about .icon-wrapper .box .icon {
+  width: 105px;
+  height: 105px;
+  border-radius: 50%;
+  border: 1px solid rgba(231, 231, 231, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hm-about .icon-wrapper .box .text {
+  width: calc(100% - 105px);
+  padding-left: 25px;
+}
+.hm-about .icon-wrapper .box .text h5 {
+  font-size: 22px;
+  letter-spacing: 0.02em;
+  color: #25400c;
+}
+.hm-about .icon-wrapper .box .text p {
+  font-size: 17px;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  color: var(--fade-color);
+  margin: 0;
+}

@@ -1,0 +1,147 @@
+/*==== Contact Us Page Start ====*/
+.get-in {
+  padding: 0;
+  margin: 0;
+}
+.get-in .inn {
+  width: 90%;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  margin: -85px auto 100px;
+}
+.get-in .inn .text-pnl {
+  background: url("../images/contbg1.png") no-repeat right bottom / cover;
+  height: 100%;
+  padding: 65px 75px;
+}
+.get-in .inn .text-pnl h3 {
+  font-family: "Inter", sans-serif;
+  font-size: 35px;
+  color: #25400c;
+  margin-bottom: 25px;
+}
+.get-in .inn .text-pnl p {
+  width: 80%;
+  color: #4d4d4d;
+  margin-bottom: 50px;
+}
+/*-------*/
+.get-in .inn .text-pnl .contact-us-frm {
+  padding: 0;
+  margin: 0;
+}
+.get-in .inn .text-pnl .contact-us-frm .gfield {
+  position: relative;
+}
+.get-in
+  .inn
+  .text-pnl
+  .contact-us-frm
+  .gform_wrapper.gravity-theme
+  .gform_fields {
+  grid-row-gap: 29px;
+}
+.get-in .inn .text-pnl .contact-us-frm .gfield .gfield_label {
+  position: absolute;
+  top: -10px;
+  left: 26px;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #787878;
+  background: #fff;
+  padding: 0 5px;
+}
+.get-in .inn .text-pnl .contact-us-frm .gfield .gfield_label .gfield_required {
+  display: none;
+}
+.get-in .inn .text-pnl .contact-us-frm .gfield .ginput_container .large {
+  font-family: "Manrope", sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #787878;
+  height: 60px;
+  background: var(--white);
+  border: 1px solid #e1e1e1;
+  border-radius: 2px;
+  outline: none;
+  padding: 0 15px;
+}
+.get-in
+  .inn
+  .text-pnl
+  .contact-us-frm
+  .gfield
+  .ginput_container
+  textarea.large {
+  height: 105px;
+  resize: none;
+  padding: 20px;
+}
+.get-in .inn .text-pnl .contact-us-frm .gform_footer input[type="submit"] {
+  font-family: "Manrope", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: #648863;
+  border-radius: 50px;
+  border: none;
+  padding: 13px 35px;
+}
+
+.get-in .inn .address {
+  background: url("../images/contbg2.png") no-repeat right bottom / cover;
+  height: 100%;
+  padding: 65px 50px;
+}
+.get-in .inn .address h4 {
+  color: var(--white);
+  margin-bottom: 40px;
+}
+.get-in .inn .address .block {
+  display: flex;
+  margin-top: 40px;
+}
+.get-in .inn .address .block .img {
+  width: 20px;
+}
+.get-in .inn .address .block .text {
+  width: calc(100% - 20px);
+  padding-left: 20px;
+}
+.get-in .inn .address .block .text h6 {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--white);
+  margin-bottom: 15px;
+}
+.get-in .inn .address .block .text p {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 0;
+}
+.get-in .inn .address .block .text p a {
+  color: var(--white);
+  display: block;
+}
+.get-in .inn .address .block:nth-child(4) .text p a:nth-child(2) {
+  padding-top: 8px;
+}
+
+.gform_validation_errors {
+  display: none !important;
+}
+.gform_wrapper.gravity-theme .gfield_validation_message,
+.gform_wrapper.gravity-theme .validation_message {
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+}
