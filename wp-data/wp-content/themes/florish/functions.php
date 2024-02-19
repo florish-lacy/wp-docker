@@ -101,10 +101,7 @@ function florish_scripts()
 	//aos include
 	wp_enqueue_style('florish-aos-theme-style', get_template_directory_uri() . '/assets/css/aos.css', array());
 
-	//Theme main custom style
-	wp_enqueue_style('florish-main-style', get_template_directory_uri() . '/assets/css/style.css', array());
-
-	// Load our main stylesheet.
+	// Load our main theme stylesheet.
 	wp_enqueue_style('florish-style', get_stylesheet_uri());
 
 
@@ -613,8 +610,9 @@ function wc_refresh_mini_cart_count($fragments)
 {
 	ob_start();
 	$items_count = WC()->cart->get_cart_contents_count();
+	$items_count = $items_count ? $items_count : ''; // We hide the empty count via css
 	?>
-	<span class="num_count" id="mini-cart-count"><?php echo $items_count ? $items_count : '0'; ?></span>
+	<span class="num_count" id="mini-cart-count"><?php echo $items_count; ?></span>
 <?php
 	$fragments['#mini-cart-count'] = ob_get_clean();
 	return $fragments;

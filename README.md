@@ -37,4 +37,48 @@ docker-compose down --volumes
 -  MySQL database host: `db:3306`
 
 
+## Development
 
+The `wp-content` folder is mounted to the `wp-data` folder. This allows you to edit the files locally and see the changes in real-time.
+
+### Theme Development
+
+The theme files are located in the `wp-content/themes/florish` folder. Run `npm i` to install the required packages:
+
+```sh
+# From the root directory
+cd wp-data/wp-content/themes/florish
+
+# then...
+npm install
+```
+
+### Styles
+
+The `style.css` file is located in the `wp-content/themes/florish` folder. Styles are written in SCSS in the `assets/scss` folder and compiled to CSS.
+
+Run the following commands to compile scss or watch the changes:
+
+```sh
+# From the theme directory...
+
+# To compile the scss
+npm run compile:css
+
+# To watch for changes
+npm run watch
+```
+
+#### BEM Naming Convention
+
+The [Block Element Modifier](http://getbem.com/naming/) (BEM) naming convention is used for the CSS classes.
+
+```scss
+.block {
+  &__element {
+	&--modifier {
+	  // styles...
+	}
+  }
+}
+```

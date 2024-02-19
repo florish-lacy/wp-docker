@@ -1,3 +1,5 @@
+/* DEPRECATED IN FAVOR OF wp-content/themes/florish/style.css */
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Koh+Santepheap:wght@100;300;400;700;900&display=swap');
@@ -29,17 +31,17 @@ h5{ font-family: 'Manrope', sans-serif; font-size:22px; line-height:1.2; font-we
 h6{ font-family: 'Manrope', sans-serif; font-size:20px; line-height:1.2; font-weight:300; }
 p{ font-size:16px; line-height:1.7; }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .cmn-gap{ padding:100px 0; }
 .cs-mb{ margin-bottom:100px; }
 
 .cmn-btn{ position:relative; display:inline-block; font-family: 'Manrope', sans-serif; font-size:18px; font-weight:300;
- line-height:1.2; letter-spacing:0.1em; color:var(--white); background:var(--theme-color); text-transform:uppercase; padding:15px 35px; border-radius:50px; transition:0.5s; } 
+ line-height:1.2; letter-spacing:0.1em; color:var(--white); background:var(--theme-color); text-transform:uppercase; padding:15px 35px; border-radius:50px; transition:0.5s; }
 .cmn-btn:hover{ color:var(--white); background:var(--black); }
 
 .pac-container{ z-index:10000 !important; }
@@ -651,7 +653,7 @@ a.button.wc-forward:hover{ background:var(--black) !important; }
  .manage-mrkt-wrap .accordion-info .accordion-content .nursery-nm .accordion-content .table-responsive .table tbody tr td { text-align:center; padding:12px; }
 .nursery-dash .tab-content .tab-pane .manage-mrkt-wrap .accordion-info .accordion-content .nursery-nm .accordion-content .table-responsive .table tbody tr td:nth-child(1){ text-align:left; }
 .nursery-dash .tab-content .tab-pane .manage-mrkt-wrap .accordion-info .accordion-content .nursery-nm .accordion-content .table-responsive .table{ margin:0; }
- 
+
 .manage-mrkt-wrap .accordion-info .accordion-content .nursery-nm .accordion-content .table-responsive .table tbody tr:nth-child(1) th:nth-child(1){ text-align:left; }
 
 .nflmrkt_bx{ margin-bottom:30px; }
@@ -680,7 +682,7 @@ a.button.wc-forward:hover{ background:var(--black) !important; }
 .nursery-dash .tab-content .market-box .left-wrap .input-fld .input-control{ position:relative; }
 .nursery-dash .tab-content .market-box .left-wrap .input-fld .input-control .form-control{ width:100%; height:38px; border:1px solid rgba(0,0,0,0.1); background:var(--white); outline:none; padding:15px; }
 .nursery-dash .tab-content .market-box .left-wrap .input-fld .name-field-error{ font-size:14px; font-weight:400; color:red; position:absolute; bottom:-22px; left:0;  }
-.nursery-dash .tab-content .market-box .left-wrap .input-fld .field{ width:100%; } 
+.nursery-dash .tab-content .market-box .left-wrap .input-fld .field{ width:100%; }
 .nursery-dash .tab-content .market-box .left-wrap .pac-card #input-control #location-error{ font-size:14px; font-weight:400; color:red; position:absolute; left:0; bottom:0; }
 
 .nursery-dash .tab-content .market-box .left-wrap .submit-fld button{ display:none; }
@@ -697,7 +699,7 @@ a.button.wc-forward:hover{ background:var(--black) !important; }
   border:1px solid rgba(0,0,0,0.1); padding:10px; }
   .nursery-dash .tab-content .tab-pane .market-box .right-wrap #map #pac-input::placeholder{ font-size:18px; font-weight:400; color:var(--black); }
 
-  
+
 
 .modal-header{ border-bottom:none !important; }
 .modal-content{ border:none !important; }
@@ -721,8 +723,8 @@ a.button.wc-forward:hover{ background:var(--black) !important; }
 
 /*==== Error Page ====*/
 .error{ background:#F8F8F8; }
-.error h2{ font-size:100px; color:#466628; text-shadow: 
-    1px 1px 1px #344f1b,    
+.error h2{ font-size:100px; color:#466628; text-shadow:
+    1px 1px 1px #344f1b,
     2px 2px 1px #344f1b,
     3px 3px 1px #344f1b,
     4px 4px 1px #344f1b,
@@ -732,7 +734,7 @@ a.button.wc-forward:hover{ background:var(--black) !important; }
     8px 8px 1px #344f1b,
     25px 25px 8px rgba(0,0,0, 0.2); }
 .error p{ font-size:20px; font-weight:500; color:var(--fade-color); margin-bottom:30px; }
-.error a{ font-family: 'Manrope', sans-serif; font-size:16px; font-weight:400; line-height:1.2; letter-spacing:0.1em; color:var(--white); background:var(--theme-color); border-radius:50px; display:inline-block; transition:0.5s; padding:15px 30px;  } 
+.error a{ font-family: 'Manrope', sans-serif; font-size:16px; font-weight:400; line-height:1.2; letter-spacing:0.1em; color:var(--white); background:var(--theme-color); border-radius:50px; display:inline-block; transition:0.5s; padding:15px 30px;  }
 .error a:hover{ color:var(--white); background:var(--black); }
 
 
@@ -770,7 +772,7 @@ p.woocommerce-notice.woocommerce-notice--success.woocommerce-thankyou-order-rece
 .nursery-wrap .gform-body .gfield .ginput_container .gfield_description{ display:none; }
 .gform_wrapper.gravity-theme .gfield_error [aria-invalid=true] { border: 1px solid #E1E1E1 !important; }
 .nursery-wrap .gform-body #field_4_22 ,.nursery-wrap form .gform-body #field_4_24 ,.nursery-wrap form .gform-body #field_4_21{ margin:0 0 5px 0; }
-.nursery-wrap .gform-body .gfield .ginput_container textarea::placeholder{ font-size:16px; } 
+.nursery-wrap .gform-body .gfield .ginput_container textarea::placeholder{ font-size:16px; }
 .nursery-wrap .gform-body .gfield .ginput_container textarea#input_4_4{ height:105px; resize: none; padding:20px; }
 .nursery-wrap .gform-body .gfield .gfield_label ,.nursery-wrap form .gform-body .gfield .ginput_complex .gform-field-label{ width:auto; position:absolute;
 top:-10px; left:26px; font-size:17px; font-weight:400; line-height:1.2; color:#787878; background:#fff; padding:0 5px; z-index:9;  }
@@ -788,7 +790,7 @@ top:-10px; left:26px; font-size:17px; font-weight:400; line-height:1.2; color:#7
 .nursery-wrap .gform-body .gfield .gfield_checkbox > button{ background:#F4F4F4; padding:9px 20px; font-family: 'Manrope', sans-serif;
   font-size:14px; font-weight:400; line-height:1.2; letter-spacing:0.1em; color: var(--black); border-radius:50px;
   border:1px solid rgba(0,0,0,0.01); margin:0; }
-.nursery-wrap .gform_footer{ padding:0 !important; margin:0 !important; } 
+.nursery-wrap .gform_footer{ padding:0 !important; margin:0 !important; }
 .nursery-wrap .gform_footer .gform_button{ font-family:'Manrope', sans-serif; font-size:18px !important; line-height:1 !important; font-weight:300 !important; color:var(--white) !important; letter-spacing:0.1em; text-transform:uppercase; background:#648863 !important; border-radius:40px !important; border:0 !important; transition:all 0.5s; padding:16px 35px !important; margin-top:15px !important; }
 
 .nursery-wrap legend.gfield_label { position:inherit !important; left:0 !important; margin-bottom:0 !important; padding:0 !important; }
@@ -800,7 +802,7 @@ top:-10px; left:26px; font-size:17px; font-weight:400; line-height:1.2; color:#7
 .widecolumn p{ margin:0; line-height:1.9; }
 
 
-/*=== Nursery Reset Password Page ===*/ 
+/*=== Nursery Reset Password Page ===*/
 .woocommerce-account .woocommerce{ padding:70px 60px; }
 .woocommerce-account .woocommerce p{ font-size:18px; }
 .woocommerce-account .woocommerce .woocommerce-form-row{ font-size:15px;  }
@@ -844,13 +846,13 @@ top:-10px; left:26px; font-size:17px; font-weight:400; line-height:1.2; color:#7
 #view-nursery-popup .nursery-full-content .accordion-info .accordion-toggle:after,#view-nursery-popup .nursery-full-content .card_bxfl .accordion-toggle:after{ position:absolute; content:'\f078'; font-family:"fontawesome"; top:50%; right:20px; transform:translateY(-50%); font-size:16px; color:var(--white); }
 
 #view-nursery-popup .nursery-full-content .accordion-info .accordion-toggle.open:after,#view-nursery-popup .nursery-full-content .card_bxfl .accordion-toggle.open:after{ content:'\f106'; }
-#view-nursery-popup .nursery-full-content .accordion-info .accordion-toggle h3,#view-nursery-popup .nursery-full-content .card_bxfl .accordion-toggle h3{ font-size:18px; color:var(--white); margin:0; } 
+#view-nursery-popup .nursery-full-content .accordion-info .accordion-toggle h3,#view-nursery-popup .nursery-full-content .card_bxfl .accordion-toggle h3{ font-size:18px; color:var(--white); margin:0; }
 #view-nursery-popup .nursery-full-content .accordion-info .order_desc { display:none; padding:10px 10px 10px 30px !important; }
 #view-nursery-popup .nursery-full-content .card_bxfl{ border:0; margin-bottom:0; }
 #view-nursery-popup .nursery-full-content .card_bxfl .add_new_plants{ margin-top:20px; display:none; }
 #view-nursery-popup .nursery-full-content .card_bxfl .add_new_plants .row{ --bs-gutter-y:30px; }
 #view-nursery-popup .nursery-full-content .card_bxfl .add_new_plants .box{ border:1px solid rgba(0,0,0,0.1); border-radius:10px; overflow:hidden; }
-#view-nursery-popup .nursery-full-content .card_bxfl .add_new_plants .box .title{ width:100%; position:relative; display:block; text-align:center; padding:10px; font-size: 15px; color:var(--black); transition:0.5;} 
+#view-nursery-popup .nursery-full-content .card_bxfl .add_new_plants .box .title{ width:100%; position:relative; display:block; text-align:center; padding:10px; font-size: 15px; color:var(--black); transition:0.5;}
 #view-nursery-popup .nursery-full-content .card_bxfl .add_new_plants .box .title:hover{ color:var(--theme-color); }
 
 
@@ -987,7 +989,7 @@ top:-10px; left:26px; font-size:17px; font-weight:400; line-height:1.2; color:#7
 .flo-step-pnl .form-wrap ul.plant-name{ display:flex; flex-wrap:wrap; gap:20px; }
 .flo-step-pnl .form-wrap ul.plant-name > li{ width:calc(25% - 20px); font-size:16px; line-height:1.1; font-weight:400; color:#000;  }
 
-.flo-step-pnl .form-wrap ul.plant-name > li .jj{ display:flex; align-items:center; flex-wrap:wrap; 
+.flo-step-pnl .form-wrap ul.plant-name > li .jj{ display:flex; align-items:center; flex-wrap:wrap;
   background:rgba(0,0,0,0.05); border-bottom:1px solid rgba(0,0,0,0.1); padding:8px 8px; border-radius:5px; }
 .flo-step-pnl .form-wrap ul.plant-name > li .jj label{ width: calc(100% - 55px); padding-left:6px; }
 .flo-step-pnl .form-wrap ul.plant-name > li .jj input{ margin-top:2px; }
