@@ -44,6 +44,7 @@ jobs:
         with:
           node-version: ${{ steps.get-node-version.outputs.nodeversion }}
           cache: "npm"
+          working-directory: ./Florish/wp-content/themes/florish
 
       - name: Install Dependencies
         run: |
