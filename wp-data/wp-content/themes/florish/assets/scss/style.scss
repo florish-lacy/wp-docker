@@ -6,15 +6,16 @@
 @import "fonts";
 @import "base";
 
-@import "header";
-@import "banner";
+@import "components/header";
+@import "components/footer";
+@import "components/banner";
+@import "components/cardbox";
 
 @import "about";
 @import "featured";
 @import "create";
 @import "product";
 @import "blog";
-@import "footer";
 @import "about-us";
 @import "we-work";
 @import "blog-page";
@@ -30,6 +31,5 @@
 @import "nursery";
 @import "customer-registration";
 
-@import "cardbox";
 @import "woocommerce-fix";
 @import "responsive";
