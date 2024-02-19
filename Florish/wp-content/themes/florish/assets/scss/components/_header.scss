@@ -1,0 +1,292 @@
+// BEM SYNTAX
+// https://getbem.com/introduction/
+
+/* ==== Header Start ==== */
+
+.navbar {
+  &__inner {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: .5rem 1rem;
+    background: var(--white);
+  }
+
+  &-brand {
+    transform: translateY(-16px);
+  }
+
+  .rt-side {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+
+    ul.navbar-nav {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      justify-content: space-between;
+
+      li {
+        a {
+          position: relative;
+          z-index: 1;
+          transition: all .5s;
+
+          &::after {
+            position: absolute;
+            top: -22px;
+            left: -20px;
+            z-index: -1;
+            width: 60px;
+            height: 60px;
+            content: "";
+            background: rgba(100, 134, 99, .1);
+            border-radius: 50%;
+            transition: all .2s;
+            transform: scale(0);
+          }
+
+          &:hover::after {
+            transform: scale(1);
+          }
+        }
+      }
+    }
+  }
+
+  .growing-btn a {
+    display: inline-flex;
+    gap: 1rem;
+    align-items: center;
+    padding: .25rem .5rem;
+    font-size: 11px;
+    color: var(--black);
+    text-transform: capitalize;
+
+    // border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-rounded);
+
+    transition:
+      border-color var(--transition-duration)
+      var(--transition-timing-function);
+    &:hover,
+    &:focus,
+    &:active {
+      border-color: var(--border-color-active);
+    }
+
+    &::after {
+      font-family: "fontawesome";
+      font-size: 13px;
+      color: var(--gray-700);
+      content: "\f107";
+    }
+    &::before {
+      font-family: "fontawesome";
+      font-size: 17px;
+      color: var(--primary);
+      content: "\f3c5";
+    }
+
+    span {
+      line-height: 1.2;
+    }
+  }
+
+  .login {
+    position: relative;
+
+    a {
+      display: flex;
+      gap: .5rem;
+      align-items: center;
+      &:hover {
+        color: var(--hover-color);
+
+        span.log-out {
+          display: block;
+        }
+      }
+    }
+
+    // Dropdown menu for the login button
+    span.log-out {
+      position: absolute;
+      z-index: 1;
+      display: none;
+      min-width: 100%;
+      padding: 1rem;
+      background-color: var(--gray-100);
+      border-radius: 0 15px;
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .1);
+    }
+
+    &:hover span.log-out {
+      display: block;
+    }
+  }
+
+  // Place a cart count badge on the cart icon with a total count of items in the cart
+  .cart a {
+    position: relative;
+    span.num_count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+
+      display: grid;
+      place-items: center;
+      width: 20px;
+      height: 20px;
+      font-size: 10px;
+      color: var(--white);
+      background: #648863;
+      border-radius: 50%;
+
+      // Hide the cart count if it's empty
+      &:empty {
+        display: none;
+      }
+    }
+
+    :hover span.num_count {
+      background: #25400c;
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .navbar-toggler {
+    width: 33px;
+    height: 28px;
+    // outline: none !important;
+    // border: none !important;
+    // box-shadow: none !important;
+  }
+
+  .navbar-nav .clickD {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    background: url("../images/down_arrow_img.svg") center center no-repeat;
+    background-size: 10px;
+  }
+  .navbar-nav .clickD.toggled {
+    transform: rotate(180deg);
+  }
+
+  /* .sub-menu>li.menu-item-has-children .clickD { top:8px; right:5px; -webkit-transform: rotate(-90deg); transform: rotate(-90deg); }
+.sub-menu>li.menu-item-has-children .clickD.toggled { -webkit-transform: rotate(180deg); transform: rotate(180deg); }
+.navbar-nav li .sub-menu{ position:inherit !important; width:100% !important; box-shadow:none; }
+.navbar-nav li:hover > .sub-menu{ display:none; } */
+
+  .navbar-collapse {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    display: block !important;
+    width: 290px;
+    height: 100% !important;
+    margin: 0;
+    overflow-y: auto;
+    background: #fff;
+    box-shadow: 0 11px 47px rgba(0, 0, 0, .18);
+    transition: inherit !important;
+    transition: transform .2s ease-in-out !important;
+    transform: translateX(100%);
+  }
+  .navbar-collapse.show,
+  .navbar-collapse.collapsing {
+    display: block !important;
+    transition: transform .2s ease-in-out !important;
+    transform: translateX(0);
+  }
+  .navbar-collapse .navbar-toggler {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: block;
+  }
+  .navbar ul.navbar-nav.ms-auto {
+    margin-top: 80px;
+  }
+
+  .navbar .navbar-brand {
+    width: 125px;
+  }
+  .navbar .rt-side .login {
+    padding: 0 14px;
+  }
+  .navbar .rt-side .login a img {
+    display: none;
+  }
+  .navbar .rt-side .cart a {
+    position: relative;
+  }
+  .navbar .rt-side .cart a span.num_count {
+    position: absolute;
+    top: 7px;
+    right: -10px;
+  }
+  .navbar-toggler {
+    width: 25px;
+    height: 20px;
+  }
+
+  // Animated Hamburger Menu
+  .stick,
+  .stick::after,
+  .stick::before {
+    position: absolute;
+    top: auto;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background: #000;
+    border-radius: 5px;
+    transition: all .6s;
+  }
+  .stick::before {
+    top: -10px;
+    left: 0;
+    content: "";
+  }
+  .stick::after {
+    top: 10px;
+    left: 0;
+    content: "";
+  }
+  .stick.open {
+    background: transparent;
+    transform: translateX(-50px);
+  }
+  .stick.open::before {
+    left: 2px;
+    transform: rotate(45deg) translate(42px, -28px);
+  }
+  .stick.open::after {
+    left: 2px;
+    transform: rotate(-45deg) translate(42px, 28px);
+  }
+  .stick,
+  .stick::after,
+  .stick::before {
+    width: 25px;
+  }
+  .stick::after {
+    top: 10px;
+  }
+  .stick::before {
+    top: -9px;
+  }
+}

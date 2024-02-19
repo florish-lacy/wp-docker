@@ -1,0 +1,48 @@
+{
+  "name": "florish",
+  "version": "1.0.0",
+  "description": "Florish WP Theme",
+  "author": "Florish",
+  "keywords": [
+    "WordPress",
+    "Theme"
+  ],
+  "devDependencies": {
+    "@wordpress/scripts": "^27.2.0",
+    "autoprefixer": "^10.4.17",
+    "bootstrap": "^5.3.2",
+    "dir-archiver": "^2.1.0",
+    "node-sass": "^9.0.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.35",
+    "postcss-cli": "^11.0.0",
+    "prettier": "^3.2.5",
+    "rtlcss": "^4.1.1",
+    "stylelint": "^16.2.1",
+    "stylelint-config-standard-scss": "^13.0.0",
+    "stylelint-config-twbs-bootstrap": "^14.0.0"
+  },
+  "rtlcssConfig": {
+    "options": {
+      "autoRename": false,
+      "autoRenameStrict": false,
+      "blacklist": {},
+      "clean": true,
+      "greedy": false,
+      "processUrls": false,
+      "stringMap": []
+    },
+    "plugins": [],
+    "map": false
+  },
+  "scripts": {
+    "bundle": "dir-archiver --src . --dest ../theme.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map yarn.lock",
+    "watch": "node-sass assets/scss/ -o ./assets/css --source-map true --output-style expanded --indent-type tab --indent-width 1 -w",
+    "css:compile": "node-sass assets/scss/ -o ./assets/css",
+    "css:rtl": "rtlcss assets/css/style.css assets/css/style-rtl.css",
+    "css:lint": "wp-scripts lint-style 'assets/scss/**/*.scss' --fix",
+    "css:prefix": "postcss --replace assets/css/style.css --use autoprefixer --map",
+    "css": "npm-run-all css:compile css:prefix",
+    "js:lint": "wp-scripts lint-js 'assets/js/*.js'"
+  }
+}
