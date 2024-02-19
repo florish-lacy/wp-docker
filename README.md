@@ -28,7 +28,7 @@ docker-compose down
 docker-compose down --volumes
 ```
 
-> This downloads the required images and starts the containers. The `-d` _(detached)_ flag runs the containers in the background. The Wordpress files are loaded into the `wp-data` folder, delete it and restart the docker containers to reset the installation.
+> This downloads the required images and starts the containers. The `-d` _(detached)_ flag runs the containers in the background. The Wordpress files are loaded into the `Florish` folder, delete it and restart the docker containers to reset the installation.
 
 - Open your browser and navigate to `http://localhost` (port 80; `http://localhost:80`) to access the WordPress installation.
 
@@ -39,7 +39,7 @@ docker-compose down --volumes
 
 ## Development
 
-The `wp-content` folder is mounted to the `wp-data` folder. This allows you to edit the files locally and see the changes in real-time.
+The `wp-content` folder is mounted to the `Florish` folder. This allows you to edit the files locally and see the changes in real-time.
 
 ### Theme Development
 
@@ -47,7 +47,7 @@ The theme files are located in the `wp-content/themes/florish` folder. Run `npm 
 
 ```sh
 # From the root directory
-cd wp-data/wp-content/themes/florish
+cd Florish/wp-content/themes/florish
 
 # then...
 npm install
@@ -63,7 +63,7 @@ Run the following commands to compile scss or watch the changes:
 # From the theme directory...
 
 # To compile the scss
-npm run compile:css
+npm run css # This runs css:compile and css:prefix
 
 # To watch for changes
 npm run watch

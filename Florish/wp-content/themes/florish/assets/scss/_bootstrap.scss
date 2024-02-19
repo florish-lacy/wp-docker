@@ -16,21 +16,37 @@
 // $enable-gradients: true;
 $enable-shadows: true;
 
-$offcanvas-box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
+$offcanvas-box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
 
 // Include functions first
 @import "../../node_modules/bootstrap/scss/functions";
 
 // Customize some defaults
 $primary: #648863;
-$body-color: #333;
-$body-bg: #fff;
-$border-radius: .4rem;
-$success: #7952b3;
 
 // Required
 @import "../../node_modules/bootstrap/scss/variables";
 @import "../../node_modules/bootstrap/scss/variables-dark";
+
+// Add new breakpoints
+$new-breakpoints: (
+  xl: 1280px,
+  xxl: 1600px,
+);
+
+$grid-breakpoints: map-merge($grid-breakpoints, $new-breakpoints);
+
+// Add new container max widths
+$new-container-max-widths: (
+  xl: 1220px,
+  xxl: 1520px,
+);
+
+$container-max-widths: map-merge(
+  $container-max-widths,
+  $new-container-max-widths
+);
+
 @import "../../node_modules/bootstrap/scss/maps";
 @import "../../node_modules/bootstrap/scss/mixins";
 @import "../../node_modules/bootstrap/scss/utilities";
