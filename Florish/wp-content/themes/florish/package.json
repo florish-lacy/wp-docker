@@ -44,5 +44,9 @@
     "css:prefix": "postcss --replace assets/css/style.css --use autoprefixer --map",
     "css": "npm-run-all css:compile css:prefix",
     "js:lint": "wp-scripts lint-js 'assets/js/*.js'"
-  }
+  },
+  "browserslist": [
+    "last 4 versions",
+    "> 10%"
+  ]
 }
