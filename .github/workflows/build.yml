@@ -15,11 +15,11 @@ jobs:
         working-directory: ./Florish/wp-content/themes/florish
     steps:
       # Make sure build is clean and no files from a previous run are re-used.
-      - name: Cleanup files before run
-        run: |
-          rm -rf *
-        if: ${{ always() }}
-        working-directory: ./
+      # - name: Cleanup files before run
+      #   run: |
+      #     rm -rf *
+      #   if: ${{ always() }}
+      #   working-directory: ./
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it.
       - name: Checkout Project
@@ -50,7 +50,6 @@ jobs:
           env
           echo "node: $(node --version)"
           echo "npm: $(npm --version)"
-          echo "yarn: $(yarn --version)"
           npm install
 
       - name: Compile
