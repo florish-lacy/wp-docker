@@ -23,7 +23,7 @@ jobs:
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it.
       - name: Checkout Project
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       # Check memory and cpu
       - name: Verify Runner Resources
@@ -40,12 +40,14 @@ jobs:
         id: get-node-version
 
       - name: Use Node.js ${{ steps.get-node-version.outputs.nodeversion }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ steps.get-node-version.outputs.nodeversion }}
           cache: "npm"
+          cache-dependency-path: "**/package-lock.json" # THIS PATTERN did the trick for me.
 
       - name: Install Dependencies
+        working-directory: ./Florish/wp-content/themes/florish
         run: |
           env
           echo "node: $(node --version)"
