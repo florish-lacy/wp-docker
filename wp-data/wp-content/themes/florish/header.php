@@ -76,6 +76,13 @@
 								<a href="<?php echo wc_get_page_permalink('myaccount'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/account.svg" alt="" /><span class="">Account Settings</span></a>
 							<?php } ?>
 							<span class="log-out"><a href="<?php echo wp_logout_url(home_url()); ?>">Logout</a></span>
+							<ul class="dropdown-menu position-absolute d-grid gap-1 p-2 rounded-3 mx-0 shadow w-220px" data-bs-theme="light">
+								<li><a class="dropdown-item rounded-2 active" href="#">My Account</a></li>
+								<li>
+									<hr class="dropdown-divider">
+								</li>
+								<li><a class="dropdown-item rounded-2" href="#">Logout</a></li>
+							</ul>
 						<?php } ?>
 					</div>
 
