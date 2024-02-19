@@ -1,4 +1,4 @@
-/*==== About Us Start ====*/
+/* ==== About Us Start ==== */
 .inn-bann {
   position: relative;
 }
@@ -7,14 +7,14 @@
 }
 .inn-bann .desc {
   position: absolute;
-  width: 100%;
-  left: 0;
   top: 35%;
+  left: 0;
+  width: 100%;
 }
 .inn-bann .desc h1 {
+  margin: 0;
   font-size: 75px;
   color: #25400c;
-  margin: 0;
 }
 
 .inn-about .img-block {
@@ -23,44 +23,44 @@
 .inn-about .img-block img {
   width: 100%;
 }
-.inn-about .img-block:after {
+.inn-about .img-block::after {
   position: absolute;
-  content: "";
-  width: 50px;
-  height: 75px;
-  background: #8bba8a;
-  border-radius: 50px;
   right: 50px;
   bottom: 50px;
+  width: 50px;
+  height: 75px;
+  content: "";
+  background: #8bba8a;
+  border-radius: 50px;
 }
 .inn-about .text-block {
   padding: 35px 0 0 80px;
 }
 .inn-about .text-block h4 {
   position: relative;
-  color: #25400c;
-  letter-spacing: 0.02em;
-  margin-bottom: 55px;
   padding-left: 25px;
+  margin-bottom: 55px;
+  color: #25400c;
+  letter-spacing: .02em;
 }
-.inn-about .text-block h4:after {
+.inn-about .text-block h4::after {
   position: absolute;
-  content: "";
+  top: -23px;
+  left: 0;
   width: 198px;
   height: 76px;
-  left: 0;
-  top: -23px;
-  background: url("assets/images/line.svg") no-repeat;
+  content: "";
+  background: url("../images/line.svg") no-repeat;
 }
 .inn-about .text-block h2 {
-  letter-spacing: 0.02em;
-  color: #25400c;
-  margin: 0;
   padding-bottom: 70px;
+  margin: 0;
+  color: #25400c;
+  letter-spacing: .02em;
 }
 .inn-about .text-block h2 span {
   display: block;
 }
 .inn-about .text-block p {
-  color: #444444;
+  color: #444;
 }

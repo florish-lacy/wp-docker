@@ -1,9 +1,7 @@
-@import "normalize";
-
-@import "tw"; // Tailwind CSS
+@import "fonts";
+@import "bootstrap";
 @import "variables";
 
-@import "fonts";
 @import "base";
 
 @import "components/header";
@@ -30,6 +28,8 @@
 @import "error-page";
 @import "nursery";
 @import "customer-registration";
+
+@import "pages/nursery-landing";
 
 @import "woocommerce-fix";
 @import "responsive";

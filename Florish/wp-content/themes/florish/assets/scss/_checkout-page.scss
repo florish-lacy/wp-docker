@@ -1,12 +1,12 @@
-/*==== Checkout Page Start ====*/
+/* ==== Checkout Page Start ==== */
 #customer_details .col-1 {
   width: 100%;
   padding-right: 50px;
 }
 .review-chkout-sec {
+  padding: 30px 35px 40px;
   background: var(--white);
   border-radius: 4px;
-  padding: 30px 35px 40px;
 }
 .review-chkout-sec table.shop_table tr th {
   padding: 15px 0;
@@ -15,10 +15,10 @@
   padding: 15px 0;
 }
 .review-chkout-sec h3 {
+  margin-bottom: 30px;
   font-size: 35px;
   color: #25400c;
   text-transform: capitalize;
-  margin-bottom: 30px;
 }
 .review-chkout-sec p {
   font-size: 14px;
@@ -29,20 +29,20 @@
   color: var(--theme-color);
 }
 .review-chkout-sec #place_order {
-  font-family: "Manrope", sans-serif;
-  font-size: 17px !important;
-  line-height: 1 !important;
-  font-weight: 300 !important;
-  color: var(--white) !important;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  background: #648863 !important;
-  border-radius: 30px !important;
-  border: 0 !important;
-  transition: all 0.5s;
+  width: 100%;
   padding: 15px 30px !important;
   margin-top: 15px;
-  width: 100%;
+  font-family: "Manrope", sans-serif;
+  font-size: 17px !important;
+  font-weight: 300 !important;
+  line-height: 1 !important;
+  color: var(--white) !important;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  background: #648863 !important;
+  border: 0 !important;
+  border-radius: 30px !important;
+  transition: all .5s;
 }
 .review-chkout-sec #place_order:hover {
   background: var(--black) !important;
@@ -65,9 +65,9 @@
 .checkout_coupon.woocommerce-form-coupon #coupon_code {
   width: 50%;
   height: 50px;
+  padding: 0 20px;
   border: 1px solid #e4e1e3;
   outline: none;
-  padding: 0 20px;
 }
 .checkout_coupon.woocommerce-form-coupon .form-row.form-row-first {
   width: 100%;
@@ -76,78 +76,67 @@
   width: 100%;
 }
 .checkout_coupon.woocommerce-form-coupon button {
-  font-family: "Manrope", sans-serif;
-  font-size: 17px !important;
-  line-height: 1 !important;
-  font-weight: 300 !important;
-  color: var(--white) !important;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  background: #648863 !important;
-  border-radius: 30px !important;
-  border: 0 !important;
-  transition: all 0.5s;
   padding: 15px 30px !important;
   margin-top: 10px;
+  font-family: "Manrope", sans-serif;
+  font-size: 17px !important;
+  font-weight: 300 !important;
+  line-height: 1 !important;
+  color: var(--white) !important;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  background: #648863 !important;
+  border: 0 !important;
+  border-radius: 30px !important;
+  transition: all .5s;
 }
 .checkout_coupon.woocommerce-form-coupon button:hover {
   background: var(--black) !important;
 }
 
 .woocommerce-billing-fields h3 {
+  margin-bottom: 30px;
   font-size: 35px;
   color: #25400c;
   text-transform: capitalize;
-  margin-bottom: 30px;
 }
 .woocommerce-billing-fields .woocommerce-input-wrapper > input {
   width: 100%;
   height: 50px;
+  padding: 0 25px;
+  background: none;
   border: 1px solid #e4e1e3;
   outline: none;
-  background: none;
-  padding: 0 25px;
 }
-.woocommerce-billing-fields
-  .woocommerce-input-wrapper
-  .select2-container
-  .select2-selection--single {
+.woocommerce-billing-fields .woocommerce-input-wrapper .select2-container .select2-selection--single {
   height: 50px;
-  border-radius: 0 !important;
   background: none;
   border: 1px solid #e4e1e3;
+  border-radius: 0 !important;
 }
-.woocommerce-billing-fields
-  .woocommerce-input-wrapper
-  .select2-container--default
-  .select2-selection--single
-  .select2-selection__rendered {
+.woocommerce-billing-fields .woocommerce-input-wrapper .select2-container--default .select2-selection--single .select2-selection__rendered {
   line-height: 50px;
 }
-.woocommerce-billing-fields
-  .woocommerce-input-wrapper
-  .select2-container--default
-  .select2-selection--single
-  .select2-selection__arrow {
-  height: 50px;
+.woocommerce-billing-fields .woocommerce-input-wrapper .select2-container--default .select2-selection--single .select2-selection__arrow {
   right: 5px;
+  height: 50px;
 }
 .woocommerce-billing-fields p.form-row {
   position: relative;
   margin-bottom: 35px;
 }
 .woocommerce-billing-fields p.form-row > label {
+  position: absolute;
+  top: -8px;
+  left: 26px;
+  z-index: 9;
+  padding: 0 12px;
   font-family: "Manrope", sans-serif;
   font-size: 17px;
   font-weight: 400;
   line-height: 1.2;
   color: #787878;
-  position: absolute;
-  top: -8px;
-  left: 26px;
-  z-index: 9;
   background: #f8f8f8;
-  padding: 0 12px;
 }
 
 .woocommerce-info a.showlogin {
@@ -157,45 +146,45 @@
   position: relative;
 }
 .woocommerce-form-login p.form-row.form-row-first > label {
+  position: absolute;
+  top: -8px;
+  left: 26px;
+  z-index: 9;
+  padding: 0 12px;
   font-family: "Manrope", sans-serif;
   font-size: 17px;
   font-weight: 400;
   line-height: 1.2;
   color: #787878;
-  position: absolute;
-  top: -8px;
-  left: 26px;
-  z-index: 9;
   background: #f8f8f8;
-  padding: 0 12px;
 }
 .woocommerce-form-login p.form-row.form-row-first .input-text {
   width: 100%;
   height: 50px;
+  padding: 0 25px;
+  background: none;
   border: 1px solid #e4e1e3;
   outline: none;
-  background: none;
-  padding: 0 25px;
 }
 
 .woocommerce-form-login p.form-row.form-row-last > label {
+  position: absolute;
+  top: -8px;
+  left: 26px;
+  z-index: 9;
+  padding: 0 12px;
   font-family: "Manrope", sans-serif;
   font-size: 17px;
   font-weight: 400;
   line-height: 1.2;
   color: #787878;
-  position: absolute;
-  top: -8px;
-  left: 26px;
-  z-index: 9;
   background: #f8f8f8;
-  padding: 0 12px;
 }
 .woocommerce-form-login p.form-row.form-row-last .input-text {
   width: 100%;
   height: 50px;
+  padding: 0 25px;
+  background: none;
   border: 1px solid #e4e1e3;
   outline: none;
-  background: none;
-  padding: 0 25px;
 }

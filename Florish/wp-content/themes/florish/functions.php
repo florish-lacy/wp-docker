@@ -81,8 +81,10 @@ add_action('widgets_init', 'florish_widgets_init');
  */
 function florish_scripts()
 {
-	//bootstrap css include
-	wp_enqueue_style('florish-bootstrap-min', get_template_directory_uri() . '/assets/css/bootstrap.min.css', array());
+
+	// Load our main theme stylesheet.
+	// wp_enqueue_style('florish-style', get_stylesheet_uri()); // style.css
+	wp_enqueue_style('florish-style', get_template_directory_uri() . '/assets/css/style.css'); // style.css
 
 	//bootstrap toggle css include
 	//wp_enqueue_style( 'florish-bootstrap-toggle-style', 'https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css', array() );
@@ -100,9 +102,6 @@ function florish_scripts()
 
 	//aos include
 	wp_enqueue_style('florish-aos-theme-style', get_template_directory_uri() . '/assets/css/aos.css', array());
-
-	// Load our main theme stylesheet.
-	wp_enqueue_style('florish-style', get_stylesheet_uri());
 
 
 	//bootstrap min js

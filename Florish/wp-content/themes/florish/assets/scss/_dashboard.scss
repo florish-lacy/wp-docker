@@ -1,4 +1,4 @@
-/*==== DashBoard Section ====*/
+/* ==== DashBoard Section ==== */
 .nursery-dash {
   background: #f8f8f8;
 }
@@ -14,61 +14,61 @@
   border-right: 1px solid #f0f0f0;
 }
 .nursery-dash .inn .lt-side .author {
-  border-bottom: 1px solid #f0f0f0;
   padding: 45px;
+  border-bottom: 1px solid #f0f0f0;
 }
 .nursery-dash .inn .lt-side .author .user {
   position: relative;
   width: 75px;
   height: 75px;
+  margin-bottom: 15px;
   border: 3px solid #8bba8a;
   border-radius: 50%;
-  margin-bottom: 15px;
 }
 .nursery-dash .inn .lt-side .author .user img {
   width: 100%;
   height: 100%;
-  border-radius: 50%;
   object-fit: cover;
+  border-radius: 50%;
 }
 .nursery-dash .inn .lt-side .edit-profile {
   position: absolute;
-  right: 15%;
   top: 45px;
-  background: #fff;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-  font-size: 13px;
-  line-height: 1;
-  color: #8bba8a;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
+  right: 15%;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 30px;
+  height: 30px;
+  font-size: 13px;
+  line-height: 1;
+  color: #8bba8a;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .25);
 }
 
 .nursery-dash .inn .lt-side .author h5 {
   color: #25400c;
 }
 .nursery-dash .inn .lt-side .author a.user-email {
+  display: block;
   font-size: 16px;
   color: #25400c;
-  display: block;
-  transition: all 0.6s;
+  transition: all .6s;
 }
 .nursery-dash .inn .lt-side .author a.user-email:hover {
   color: #8bba8a;
 }
 .nursery-dash .inn .lt-side .author a.logout {
-  font-size: 15px;
-  color: #8bba8a;
-  border-radius: 4px;
-  border: 1px solid #8bba8a;
   display: inline-block;
-  transition: all 0.6s;
   padding: 2px 8px;
   margin-top: 15px;
+  font-size: 15px;
+  color: #8bba8a;
+  border: 1px solid #8bba8a;
+  border-radius: 4px;
+  transition: all .6s;
 }
 .nursery-dash .inn .lt-side .author a.logout:hover {
   background: #8bba8a;
@@ -80,31 +80,31 @@
   font-size: 17px;
 }
 .nursery-dash .inn .lt-side .side-menu ul li a {
-  color: #25400c;
   display: block;
-  transition: all 0.6s;
   padding: 12px 45px;
+  color: #25400c;
+  transition: all .6s;
 }
 .nursery-dash .inn .lt-side .side-menu ul li a.active {
   position: relative;
   background: #ebf9ea;
 }
-.nursery-dash .inn .lt-side .side-menu ul li a.active:after {
+.nursery-dash .inn .lt-side .side-menu ul li a.active::after {
   position: absolute;
-  content: "";
-  right: 25px;
   top: 50%;
-  transform: translateY(-50%);
-  background: url(assets/images/icnactive.svg);
+  right: 25px;
   width: 16px;
   height: 16px;
+  content: "";
+  background: url("../images/icnactive.svg");
+  transform: translateY(-50%);
 }
 .nursery-dash .inn .lt-side .side-menu ul li a img {
   margin-right: 20px;
 }
 .nursery-dash .inn .lt-side .side-menu ul li a:hover {
-  border-radius: 4px;
   background: #ebf9ea;
+  border-radius: 4px;
 }
 
 .nursery-dash .inn .rt-side {
@@ -116,8 +116,8 @@
   grid-template-columns: repeat(3, 1fr);
   grid-row-gap: 20px;
   grid-column-gap: 20px;
-  border-bottom: 1px solid #f0f0f0;
   padding-bottom: 40px;
+  border-bottom: 1px solid #f0f0f0;
 }
 .nursery-dash .inn .rt-side .order .box {
   position: relative;
@@ -127,19 +127,19 @@
 }
 .nursery-dash .inn .rt-side .order .box .text {
   position: absolute;
-  left: 0;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   padding: 30px 25px 0;
 }
 .nursery-dash .inn .rt-side .order .box .text h6 {
+  padding-bottom: 40px;
+  margin-bottom: 0;
   font-family: "Inter", sans-serif;
   color: var(--white);
   text-align: right;
   text-transform: capitalize;
-  margin-bottom: 0;
-  padding-bottom: 40px;
 }
 .nursery-dash .inn .rt-side .order .box .text ul {
   display: flex;
@@ -167,8 +167,8 @@
   display: block;
 }
 .nursery-dash .inn .rt-side .plant-list > h6 {
-  color: #25400c;
   margin-bottom: 30px;
+  color: #25400c;
 }
 .nursery-dash .inn .rt-side .plant-list .list_ul ul.plant-name {
   display: grid;
@@ -192,34 +192,26 @@
   color: var(--theme-color);
 }
 
-.nursery-dash .inn .rt-side .plant-list .list_ul ul li label:after {
+.nursery-dash .inn .rt-side .plant-list .list_ul ul li label::after {
   position: absolute;
-  content: "";
+  top: 4px;
+  left: 0;
   width: 16px;
   height: 16px;
-  border-radius: 4px;
-  border: 1px solid #e0e0e0;
+  content: "";
   background: #fafafa;
-  left: 0;
-  top: 4px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
 }
-.nursery-dash
-  .inn
-  .rt-side
-  .plant-list
-  .list_ul
-  ul
-  li
-  input:checked
-  + label:before {
+.nursery-dash .inn .rt-side .plant-list .list_ul ul li input:checked + label::before {
   position: absolute;
-  content: "\f00c";
-  left: 4px;
   top: 0;
-  font-family: fontawesome;
+  left: 4px;
+  z-index: 9;
+  font-family: "fontawesome";
   font-size: 17px;
   color: #648863;
-  z-index: 9;
+  content: "\f00c";
 }
 .nursery-dash .inn .rt-side .plant-list .list_ul ul.plant-name li .sub-size {
   padding: 10px 0 0 20px;
@@ -234,18 +226,18 @@
   margin-top: 30px;
 }
 .nursery-dash .inn .rt-side .plant-list .input-flud > label {
+  margin: 0 0 10px;
   font-size: 20px;
   font-weight: 300;
-  margin: 0 0 10px;
 }
 .nursery-dash .inn .rt-side .plant-list .input-flud .form-control {
   position: relative;
   height: 50px;
-  font-size: 15px;
-  border: 1px solid #e1e1e1;
-  background: transparent;
-  border-radius: 2px;
   padding: 0 15px;
+  font-size: 15px;
+  background: transparent;
+  border: 1px solid #e1e1e1;
+  border-radius: 2px;
 }
 
 .nursery-dash .inn .rt-side .plant-list .list_ul .save-btn {
@@ -255,55 +247,55 @@
   border: 0;
 }
 .nursery-dash .inn .rt-side .plant-list .table-responsive tr th {
-  font-size: 16px;
-  color: #25400c;
-  font-weight: 500;
   padding: 15px 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #25400c;
 }
 .nursery-dash .inn .rt-side .plant-list .table-responsive tr td {
+  padding: 20px 0 10px;
   font-size: 16px;
   color: #676767;
-  padding: 20px 0 10px;
 }
 .nursery-dash .inn .rt-side .plant-list .table-responsive tr td button {
+  display: inline-block;
+  padding: 8px 10px;
   font-size: 16px;
   line-height: 1;
   color: #648863;
-  display: inline-block;
-  border-radius: 4px;
   background: #def2dd;
   border: 0;
-  transition: all 0.6s;
-  padding: 8px 10px;
+  border-radius: 4px;
+  transition: all .6s;
 }
 .nursery-dash .inn .rt-side .plant-list .table-responsive tr td button:hover {
-  background: var(--black);
   color: var(--white);
+  background: var(--black);
 }
 .nursery-dash .admin-vendor-title h3 {
-  color: var(--theme-color);
   margin-bottom: 30px;
+  color: var(--theme-color);
 }
 .nursery-dash ul.nav-tabs {
   border-bottom: 1px solid #648863;
 }
 .nursery-dash ul.nav-tabs li button {
-  color: var(--black);
-  border-radius: 0px;
-  background: var(--white);
-  border: 1px solid rgba(0, 0, 0, 0.1) !important;
-  border-bottom-color: var(--theme-color) !important;
   padding: 10px 25px;
-  transition: all 0.6s;
+  color: var(--black);
+  background: var(--white);
+  border: 1px solid rgba(0, 0, 0, .1) !important;
+  border-bottom-color: var(--theme-color) !important;
+  border-radius: 0;
+  transition: all .6s;
 }
 .nursery-dash ul.nav-tabs li button:hover {
-  background: var(--theme-color);
   color: var(--white);
+  background: var(--theme-color);
   border-color: var(--theme-color) !important;
 }
 .nursery-dash ul.nav-tabs li button.active {
-  background: var(--white);
   color: var(--black);
+  background: var(--white);
   border-color: var(--theme-color) !important;
   border-bottom-color: transparent !important;
 }
@@ -317,268 +309,125 @@
   color: var(--black);
 }
 .nursery-dash .tab-content {
-  border: 1px solid #648863;
-  background: #ffffff;
-  padding: 20px 10px 0px;
-  z-index: 99;
   position: relative;
+  z-index: 99;
+  padding: 20px 10px 0;
+  background: #fff;
+  border: 1px solid #648863;
   border-top: 0;
 }
 
-/*===== Tab Manage Markets ======*/
+/* ===== Tab Manage Markets ====== */
 .nursery-dash .tab-content .tab-pane .manage-mrkt-wrap {
   padding: 30px;
   margin: 0;
 }
 .nursery-dash .tab-content .tab-pane .manage-mrkt-wrap > h3 {
+  margin-bottom: 25px;
   font-size: 20px;
   font-weight: 700;
   color: #931212;
-  margin-bottom: 25px;
 }
 .nursery-dash .tab-content .tab-pane .manage-mrkt-wrap .accordion-info {
-  width: 100%;
   position: relative;
+  width: 100%;
   margin-bottom: 20px;
 }
 .nursery-dash .tab-content .tab-pane .manage-mrkt-wrap .accordion-info > h3 {
+  margin-bottom: 20px;
   font-size: 30px;
   font-weight: 600;
   color: var(--black);
-  margin-bottom: 20px;
 }
-.nursery-dash
-  .tab-content
-  .tab-pane
-  .manage-mrkt-wrap
-  .accordion-info
-  .accordion-toggle {
+.nursery-dash .tab-content .tab-pane .manage-mrkt-wrap .accordion-info .accordion-toggle {
   display: flex;
   align-items: center;
   background: var(--theme-color);
 }
-.nursery-dash
-  .tab-content
-  .tab-pane
-  .manage-mrkt-wrap
-  .accordion-info
-  a.accordion-toggle
-  h3 {
+.nursery-dash .tab-content .tab-pane .manage-mrkt-wrap .accordion-info a.accordion-toggle h3 {
   width: calc(100% - 30px);
+  padding-left: 15px;
+  margin: 0;
   font-size: 19px;
   font-weight: 500;
   color: var(--white);
-  margin: 0;
-  padding-left: 15px;
 }
-.nursery-dash
-  .tab-content
-  .tab-pane
-  .manage-mrkt-wrap
-  .accordion-info
-  a.accordion-toggle
-  button {
+.nursery-dash .tab-content .tab-pane .manage-mrkt-wrap .accordion-info a.accordion-toggle button {
   width: 30px;
   height: 40px;
+  font-size: 13px;
   background: var(--white);
   border: 0;
-  font-size: 13px;
+  border: 1px solid rgba(0, 0, 0, .1);
   box-shadow: 0 1px 10px #00000017;
-  border: 1px solid rgba(0, 0, 0, 0.1);
 }
-.nursery-dash
-  .tab-content
-  .tab-pane
-  .manage-mrkt-wrap
-  .accordion-info
-  a.accordion-toggle.open
-  i {
+.nursery-dash .tab-content .tab-pane .manage-mrkt-wrap .accordion-info a.accordion-toggle.open i {
   transform: rotate(360deg);
 }
-.nursery-dash
-  .tab-content
-  .tab-pane
-  .manage-mrkt-wrap
-  .accordion-info
-  a.accordion-toggle
-  i {
+.nursery-dash .tab-content .tab-pane .manage-mrkt-wrap .accordion-info a.accordion-toggle i {
   transform: rotate(270deg);
 }
-.nursery-dash
-  .tab-content
-  .tab-pane
-  .manage-mrkt-wrap
-  .accordion-info
-  .accordion-content {
+.nursery-dash .tab-content .tab-pane .manage-mrkt-wrap .accordion-info .accordion-content {
   display: block;
   margin-top: 12px;
 }
-.nursery-dash
-  .tab-content
-  .tab-pane
-  .manage-mrkt-wrap
-  .accordion-info
-  .accordion-content
-  .nursery-nm {
+.nursery-dash .tab-content .tab-pane .manage-mrkt-wrap .accordion-info .accordion-content .nursery-nm {
   width: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.1);
   margin-bottom: 15px;
-  border-radius: 5px;
   overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, .1);
+  border-radius: 5px;
 }
-.nursery-dash
-  .tab-content
-  .tab-pane
-  .manage-mrkt-wrap
-  .accordion-info
-  .accordion-content
-  .nursery-nm:last-child {
-  margin-bottom: 0px;
+.nursery-dash .tab-content .tab-pane .manage-mrkt-wrap .accordion-info .accordion-content .nursery-nm:last-child {
+  margin-bottom: 0;
 }
-.nursery-dash
-  .tab-content
-  .tab-pane
-  .manage-mrkt-wrap
-  .accordion-info
-  .accordion-content
-  .nursery-nm
-  a.accordion-toggle {
+.nursery-dash .tab-content .tab-pane .manage-mrkt-wrap .accordion-info .accordion-content .nursery-nm a.accordion-toggle {
   position: relative;
   display: block;
-  background: var(--theme-color);
   padding: 10px;
+  background: var(--theme-color);
 }
-.nursery-dash
-  .tab-content
-  .tab-pane
-  .manage-mrkt-wrap
-  .accordion-info
-  .accordion-content
-  .nursery-nm
-  a
-  span {
+.nursery-dash .tab-content .tab-pane .manage-mrkt-wrap .accordion-info .accordion-content .nursery-nm a span {
+  padding-left: 10px;
   font-size: 15px;
   font-weight: 500;
   color: var(--white);
-  padding-left: 10px;
 }
-.nursery-dash
-  .tab-content
-  .tab-pane
-  .manage-mrkt-wrap
-  .accordion-info
-  .accordion-content
-  .nursery-nm
-  a
-  button {
+.nursery-dash .tab-content .tab-pane .manage-mrkt-wrap .accordion-info .accordion-content .nursery-nm a button {
   width: 20px;
   height: auto;
   font-size: 14px;
+  color: #fff;
   background: transparent;
   border: 0;
   box-shadow: none;
-  color: #fff;
 }
-.nursery-dash
-  .tab-content
-  .tab-pane
-  .manage-mrkt-wrap
-  .accordion-info
-  .accordion-content
-  .nursery-nm
-  a.accordion-toggle
-  button
-  i {
+.nursery-dash .tab-content .tab-pane .manage-mrkt-wrap .accordion-info .accordion-content .nursery-nm a.accordion-toggle button i {
   transform: rotate(360deg);
 }
-.nursery-dash
-  .tab-content
-  .tab-pane
-  .manage-mrkt-wrap
-  .accordion-info
-  .accordion-content
-  .nursery-nm
-  a.accordion-toggle.open
-  button
-  i {
+.nursery-dash .tab-content .tab-pane .manage-mrkt-wrap .accordion-info .accordion-content .nursery-nm a.accordion-toggle.open button i {
   transform: rotate(180deg);
 }
 
-.nursery-dash
-  .tab-content
-  .tab-pane
-  .manage-mrkt-wrap
-  .accordion-info
-  .accordion-content
-  .nursery-nm
-  .accordion-content
-  .table-responsive {
+.nursery-dash .tab-content .tab-pane .manage-mrkt-wrap .accordion-info .accordion-content .nursery-nm .accordion-content .table-responsive {
   margin-top: 10px;
 }
-.manage-mrkt-wrap
-  .accordion-info
-  .accordion-content
-  .nursery-nm
-  .accordion-content
-  .table-responsive
-  .table
-  tbody
-  tr
-  th {
-  text-align: center;
+.manage-mrkt-wrap .accordion-info .accordion-content .nursery-nm .accordion-content .table-responsive .table tbody tr th {
   padding: 12px;
-}
-.manage-mrkt-wrap
-  .accordion-info
-  .accordion-content
-  .nursery-nm
-  .accordion-content
-  .table-responsive
-  .table
-  tbody
-  tr
-  td {
   text-align: center;
-  padding: 12px;
 }
-.nursery-dash
-  .tab-content
-  .tab-pane
-  .manage-mrkt-wrap
-  .accordion-info
-  .accordion-content
-  .nursery-nm
-  .accordion-content
-  .table-responsive
-  .table
-  tbody
-  tr
-  td:nth-child(1) {
+.manage-mrkt-wrap .accordion-info .accordion-content .nursery-nm .accordion-content .table-responsive .table tbody tr td {
+  padding: 12px;
+  text-align: center;
+}
+.nursery-dash .tab-content .tab-pane .manage-mrkt-wrap .accordion-info .accordion-content .nursery-nm .accordion-content .table-responsive .table tbody tr td:nth-child(1) {
   text-align: left;
 }
-.nursery-dash
-  .tab-content
-  .tab-pane
-  .manage-mrkt-wrap
-  .accordion-info
-  .accordion-content
-  .nursery-nm
-  .accordion-content
-  .table-responsive
-  .table {
+.nursery-dash .tab-content .tab-pane .manage-mrkt-wrap .accordion-info .accordion-content .nursery-nm .accordion-content .table-responsive .table {
   margin: 0;
 }
 
-.manage-mrkt-wrap
-  .accordion-info
-  .accordion-content
-  .nursery-nm
-  .accordion-content
-  .table-responsive
-  .table
-  tbody
-  tr:nth-child(1)
-  th:nth-child(1) {
+.manage-mrkt-wrap .accordion-info .accordion-content .nursery-nm .accordion-content .table-responsive .table tbody tr:nth-child(1) th:nth-child(1) {
   text-align: left;
 }
 
@@ -593,12 +442,12 @@
 }
 .nflmrkt_bx .inn .box {
   position: relative;
+  padding: 10px;
+  cursor: pointer;
   background: #edfff2;
   border: 1px solid #dbf7e3;
   border-radius: 5px;
-  padding: 10px;
-  cursor: pointer;
-  transition: all 0.6s;
+  transition: all .6s;
 }
 .nflmrkt_bx .inn .box.active {
   background: #daf0e0;
@@ -610,10 +459,10 @@
 }
 .nflmrkt_bx .inn .box h3 {
   width: 80%;
+  margin-bottom: 10px;
   font-size: 16px;
   font-weight: 600;
   color: var(--black);
-  margin-bottom: 10px;
 }
 .nflmrkt_bx .inn .box h3 span {
   display: block;
@@ -621,54 +470,47 @@
 }
 .nflmrkt_bx .inn .box h4 {
   position: relative;
+  padding-left: 20px;
+  margin-bottom: 0;
+  margin-bottom: 5px;
   font-size: 15px;
   font-weight: 500;
   color: var(--black);
-  margin-bottom: 0;
-  padding-left: 20px;
-  margin-bottom: 5px;
 }
 .nflmrkt_bx .inn .box h4 i {
   position: absolute;
-  left: 0;
   top: 2px;
+  left: 0;
   font-size: 15px;
   color: var(--theme-color);
 }
 .nflmrkt_bx .inn .box a.edit-btn {
   position: absolute;
-  right: 10px;
   top: 10px;
-  width: 30px;
-  height: 30px;
-  background: #fff;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  border-radius: 50%;
-  font-size: 14px;
-  line-height: 1;
-  color: #648863;
+  right: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.6s;
+  width: 30px;
+  height: 30px;
+  font-size: 14px;
+  line-height: 1;
+  color: #648863;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .15);
+  transition: all .6s;
 }
 .nflmrkt_bx .inn .box a.edit-btn:hover {
-  background: var(--theme-color);
   color: var(--white);
+  background: var(--theme-color);
 }
 
-.nursery-dash
-  .tab-content
-  .tab-pane
-  .manage-mrkt-wrap
-  .accordion-info
-  .accordion-content
-  .nursery-nm
-  .accordion-content {
+.nursery-dash .tab-content .tab-pane .manage-mrkt-wrap .accordion-info .accordion-content .nursery-nm .accordion-content {
   display: none;
 }
 
-/*===== Tab Create Markets ======*/
+/* ===== Tab Create Markets ====== */
 .nursery-dash .tab-content .tab-pane .market-box {
   display: flex;
   flex-wrap: wrap;
@@ -676,68 +518,56 @@
 
 .nursery-dash .tab-content .market-box .left-wrap {
   position: absolute;
-  left: 50px;
   top: 50px;
-  border: 1px solid rgba(255, 255, 255, 02);
-  background: rgba(0, 0, 0, 0.95);
+  left: 50px;
   padding: 25px;
+  background: rgba(0, 0, 0, .95);
+  border: 1px solid rgba(255, 255, 255, 02);
 }
 .nursery-dash .tab-content .market-box .left-wrap h2 {
+  margin-bottom: 15px;
   font-size: 20px;
   font-weight: 700;
   color: var(--white);
-  margin-bottom: 15px;
 }
 .nursery-dash .tab-content .market-box .left-wrap .input-fld {
   margin-bottom: 10px;
 }
 .nursery-dash .tab-content .market-box .left-wrap .input-fld label {
+  margin-bottom: 5px;
   font-size: 16px;
   font-weight: 400;
   color: var(--white);
-  margin-bottom: 5px;
 }
 .nursery-dash .tab-content .market-box .left-wrap .input-fld .input-control {
   position: relative;
 }
-.nursery-dash
-  .tab-content
-  .market-box
-  .left-wrap
-  .input-fld
-  .input-control
-  .form-control {
+.nursery-dash .tab-content .market-box .left-wrap .input-fld .input-control .form-control {
   width: 100%;
   height: 38px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  background: var(--white);
-  outline: none;
   padding: 15px;
+  background: var(--white);
+  border: 1px solid rgba(0, 0, 0, .1);
+  outline: none;
 }
 .nursery-dash .tab-content .market-box .left-wrap .input-fld .name-field-error {
-  font-size: 14px;
-  font-weight: 400;
-  color: red;
   position: absolute;
   bottom: -22px;
   left: 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: red;
 }
 .nursery-dash .tab-content .market-box .left-wrap .input-fld .field {
   width: 100%;
 }
-.nursery-dash
-  .tab-content
-  .market-box
-  .left-wrap
-  .pac-card
-  #input-control
-  #location-error {
+.nursery-dash .tab-content .market-box .left-wrap .pac-card #input-control #location-error {
+  position: absolute;
+  bottom: 0;
+  left: 0;
   font-size: 14px;
   font-weight: 400;
   color: red;
-  position: absolute;
-  left: 0;
-  bottom: 0;
 }
 
 .nursery-dash .tab-content .market-box .left-wrap .submit-fld button {
@@ -747,20 +577,21 @@
   text-align: center;
 }
 .nursery-dash .tab-content .market-box .left-wrap .submit-fld a {
-  font-size: 18px;
   display: block;
-  background: #931212;
-  color: var(--white);
-  border: 0;
   padding: 8px 25px;
+  font-size: 18px;
+  color: var(--white);
+  background: #931212;
+  border: 0;
 }
 
 .nursery-dash .tab-content .tab-pane .market-box .right-wrap {
+  position: relative;
   width: 100%;
   padding: 30px;
-  position: relative;
 }
-/*.nursery-dash .tab-content .tab-pane .market-box .right-wrap h2{ font-size:20px; font-weight:700; color:var(--black); margin-bottom:15px; }*/
+
+/* .nursery-dash .tab-content .tab-pane .market-box .right-wrap h2{ font-size:20px; font-weight:700; color:var(--black); margin-bottom:15px; } */
 .nursery-dash .tab-content .tab-pane .market-box .right-wrap #map {
   width: 100% !important;
   height: 600px !important;
@@ -771,22 +602,16 @@
   z-index: 99;
 }
 .nursery-dash .tab-content .tab-pane .market-box .right-wrap #map #pac-input {
-  font-size: 16px;
+  top: 10px !important;
+  left: 10px !important;
   width: 330px;
   height: 45px;
-  left: 10px !important;
-  outline: none;
-  top: 10px !important;
-  border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 10px;
+  font-size: 16px;
+  border: 1px solid rgba(0, 0, 0, .1);
+  outline: none;
 }
-.nursery-dash
-  .tab-content
-  .tab-pane
-  .market-box
-  .right-wrap
-  #map
-  #pac-input::placeholder {
+.nursery-dash .tab-content .tab-pane .market-box .right-wrap #map #pac-input::placeholder {
   font-size: 18px;
   font-weight: 400;
   color: var(--black);
@@ -806,54 +631,54 @@
 }
 #exampleModal ul.order_desc li {
   position: relative;
-  font-size: 16px;
   padding-bottom: 10px;
   padding-left: 20px;
+  font-size: 16px;
 }
-#exampleModal ul.order_desc li:after {
+#exampleModal ul.order_desc li::after {
   position: absolute;
-  content: "";
+  top: 7px;
+  left: 0;
   width: 9px;
   height: 9px;
+  content: "";
   background: #8bba8a;
-  left: 0;
-  top: 7px;
   border-radius: 50%;
 }
 #exampleModal ul.order_desc li span {
+  display: inline-block;
   width: 100px;
   font-weight: 500;
-  display: inline-block;
   vertical-align: top;
 }
 #exampleModal ul.order_desc li span.form-addr {
-  font-weight: 400;
   width: 70%;
+  font-weight: 400;
 }
 
 #exampleModal .mdl-qt-tbl {
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  border-bottom: none;
   padding: 0;
   margin: 0;
+  border: 1px solid rgba(0, 0, 0, .1);
+  border-bottom: none;
+  border-radius: 5px;
 }
 #exampleModal .mdl-qt-tbl table {
   margin: 0 !important;
 }
 #exampleModal .qty-tbl tr th {
+  padding: 15px;
   font-weight: 500;
-  padding: 15px 15px;
 }
 #exampleModal .qty-tbl tr th {
+  padding: 15px;
   font-weight: 500;
-  padding: 15px 15px;
 }
 #exampleModal .qty-tbl tr td {
-  padding: 15px 15px;
+  padding: 15px;
 }
 #exampleModal .qty-tbl tr td .qt-tree {
   width: 25px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
   margin-right: 5px;
+  border: 1px solid rgba(0, 0, 0, .1);
 }

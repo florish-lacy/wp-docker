@@ -1,22 +1,22 @@
-/*==== Footers Start ====*/
+/* ==== Footers Start ==== */
 .footer {
-  background: url("assets/images/footerbg.jpg") no-repeat right bottom / cover;
   padding: 100px 0 60px;
+  background: url("../images/footerbg.jpg") no-repeat right bottom / cover;
 }
 .footer .top-pnl {
   width: 50%;
   padding-bottom: 70px;
 }
 .footer .top-pnl h3 {
-  color: #25400c;
   padding-bottom: 30px;
   margin: 0;
+  color: #25400c;
 }
 .footer .top-pnl h6 {
-  font-size: 18px;
-  color: var(--black);
   padding-bottom: 60px;
   margin: 0;
+  font-size: 18px;
+  color: var(--black);
 }
 .footer .btm-pnl {
   width: 70%;
@@ -29,32 +29,32 @@
   padding: 45px 0 80px;
 }
 .footer .btm-pnl .top .logo {
-  width: 200px;
   display: inline-block;
+  width: 200px;
   margin: 0;
 }
 .footer .btm-pnl .top .logo img {
   width: 100%;
 }
 .footer .btm-pnl .top ul li {
-  font-family: "Manrope", sans-serif;
-  font-size: 15px;
-  line-height: 1.2;
-  font-weight: 300;
-  text-transform: uppercase;
-  letter-spacing: 0.22em;
   display: inline-block;
   margin-right: 45px;
+  font-family: "Manrope", sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: .22em;
 }
 .footer .btm-pnl .top ul li:last-child {
   margin-right: 0;
 }
 .footer .btm-pnl .top ul li a {
   position: relative;
-  color: var(--black);
-  display: block;
-  transition: all 0.5s;
   z-index: 1;
+  display: block;
+  color: var(--black);
+  transition: all .5s;
 }
 .footer .btm-pnl .top ul li a:hover {
   color: #648863;
@@ -63,41 +63,41 @@
   padding: 0;
 }
 .footer .btm-pnl .copyright p {
+  margin-bottom: 0;
   font-family: "Manrope", sans-serif;
   font-weight: 300;
-  color: #838383;
   line-height: 1;
-  margin-bottom: 0;
+  color: #838383;
 }
 
 .newsletter-frm .ginput_container > input {
+  height: 70px;
+  padding: 0 30px !important;
   font-family: "Manrope", sans-serif;
   font-size: 18px !important;
   font-weight: 300;
   color: #4a4a4a;
-  height: 70px;
   border: 0;
   outline: none;
-  padding: 0 30px !important;
 }
 .newsletter-frm .gform_footer {
-  margin-bottom: 0 !important;
   padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
 }
 .newsletter-frm .gform_button {
-  font-family: "Manrope", sans-serif;
-  font-size: 18px !important;
-  line-height: 1 !important;
-  font-weight: 300 !important;
-  color: var(--white) !important;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  background: #648863 !important;
-  border-radius: 40px !important;
-  border: 0 !important;
-  transition: all 0.5s;
   padding: 16px 35px !important;
   margin-top: 10px !important;
+  font-family: "Manrope", sans-serif;
+  font-size: 18px !important;
+  font-weight: 300 !important;
+  line-height: 1 !important;
+  color: var(--white) !important;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  background: #648863 !important;
+  border: 0 !important;
+  border-radius: 40px !important;
+  transition: all .5s;
 }
 .newsletter-frm .gform_button:hover {
   background: var(--black) !important;

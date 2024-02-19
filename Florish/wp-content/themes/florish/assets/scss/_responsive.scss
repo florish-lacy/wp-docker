@@ -1,4 +1,4 @@
-/*====== Responsive Start ======*/
+/* ====== Responsive Start ====== */
 
 @media screen and (max-width: 1399px) {
   .bnr-sec .bnr-innr .txt-pnl h1 {
@@ -14,19 +14,19 @@
     margin-bottom: 30px;
     font-size: 50px;
   }
-  .hm-create .text-block P {
+  .hm-create .text-block p {
     margin-bottom: 40px;
   }
   .hm-create .text-block {
     padding-top: 10%;
   }
   .hm-create .text-block .rt-img img {
-    max-width: 110px;
     width: 100%;
+    max-width: 110px;
   }
   #login-popup .rt-wrap .nav.nav-tabs button {
-    font-size: 18px;
     padding: 11px 0;
+    font-size: 18px;
   }
   #login-popup .rt-wrap .tab-content .input-fld .form-control {
     height: 48px;

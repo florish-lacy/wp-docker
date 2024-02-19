@@ -3,16 +3,16 @@ html {
 }
 
 body {
+  padding: 0;
+  margin: 0;
   font-family: var(--font-inter);
   font-weight: var(--font-weight-inter);
-  margin: 0;
-  padding: 0;
 }
 ul,
 li {
-  list-style: none;
-  margin: 0;
   padding: 0;
+  margin: 0;
+  list-style: none;
 }
 a,
 a:focus,
@@ -21,9 +21,9 @@ a:hover {
   outline: none;
 }
 img {
+  display: inline-block;
   max-width: 100%;
   height: auto;
-  display: inline-block;
 }
 
 h1,
@@ -38,8 +38,8 @@ h6 {
 }
 
 h1 {
-  // font-size: 100px;
-  font-size: 4.5rem;
+  // Responsive font - Bootstrap: https://getbootstrap.com/docs/5.3/getting-started/rfs/
+  @include font-size(4rem);
 }
 h2 {
   // font-size: 60px;
@@ -86,17 +86,17 @@ a {
 .cmn-btn {
   position: relative;
   display: inline-block;
-  font-family: var(--font-manrope);
-  font-weight: var(--font-weight-manrope);
-  font-size: 18px;
-  line-height: 1.2;
-  letter-spacing: 0.1em;
-  color: var(--white);
-  background: var(--theme-color);
-  text-transform: uppercase;
   padding: 15px 35px;
+  font-family: var(--font-manrope);
+  font-size: 18px;
+  font-weight: var(--font-weight-manrope);
+  line-height: 1.2;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  background: var(--theme-color);
   border-radius: 50px;
-  transition: 0.5s;
+  transition: .5s;
 
   :hover {
     color: var(--black);
@@ -113,6 +113,6 @@ a {
 // Todo: scope this to the input fields that need it only
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
   margin: 0;
+  appearance: none;
 }
