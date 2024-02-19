@@ -1,0 +1,396 @@
+/*=== Nursery Registration Page ===*/
+.nursery-wrap form {
+  padding: 0;
+  margin: 0;
+}
+.nursery-wrap .gform-body .gform_fields {
+  grid-row-gap: 0px;
+}
+.nursery-wrap .gform-body .gfield {
+  position: relative;
+  padding: 0;
+  margin-bottom: 35px;
+}
+.nursery-wrap .gform-body .gfield .ginput_container .gfield_description {
+  display: none;
+}
+.gform_wrapper.gravity-theme .gfield_error [aria-invalid="true"] {
+  border: 1px solid #e1e1e1 !important;
+}
+.nursery-wrap .gform-body #field_4_22,
+.nursery-wrap form .gform-body #field_4_24,
+.nursery-wrap form .gform-body #field_4_21 {
+  margin: 0 0 5px 0;
+}
+.nursery-wrap .gform-body .gfield .ginput_container textarea::placeholder {
+  font-size: 16px;
+}
+.nursery-wrap .gform-body .gfield .ginput_container textarea#input_4_4 {
+  height: 105px;
+  resize: none;
+  padding: 20px;
+}
+.nursery-wrap .gform-body .gfield .gfield_label,
+.nursery-wrap form .gform-body .gfield .ginput_complex .gform-field-label {
+  width: auto;
+  position: absolute;
+  top: -10px;
+  left: 26px;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #787878;
+  background: #fff;
+  padding: 0 5px;
+  z-index: 9;
+}
+.nursery-wrap .gform-body .gfield .gfield_label .gfield_required {
+  display: none;
+}
+.nursery-wrap .gform-body .gfield .ginput_complex {
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+.nursery-wrap .gform-body #field_4_11 > legend {
+  display: none !important;
+}
+.nursery-wrap .gform-body .gfield .ginput_complex span {
+  position: relative;
+  padding-right: 0 !important;
+}
+.nursery-wrap .gform-body .gfield .large,
+.nursery-wrap form .gform-body .gfield .ginput_complex span input,
+.gform-body .gfield .ginput_container textarea {
+  font-family: "Manrope", sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #787878;
+  height: 55px;
+  background: var(--white);
+  border: 1px solid #e1e1e1;
+  border-radius: 2px;
+  outline: none;
+  padding: 15px;
+  resize: none;
+}
+.nursery-wrap .gform-body .gfield .ginput_container textarea#input_4_5 {
+  height: 55px !important;
+}
+.nursery-wra .gform-body .gfield .heading-wrap {
+  font-family: "Inter", sans-serif;
+  font-size: 35px;
+  color: #25400c;
+  margin-bottom: 25px;
+}
+.nursery-wrap .gform-body #field_4_21 .gfield_label {
+  position: relative;
+  top: inherit;
+  left: inherit;
+  color: var(--black);
+  margin-bottom: 8px;
+}
+.nursery-wrap .gform-body .gfield .gfield_checkbox {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.nursery-wrap .gform-body .gfield .gfield_checkbox .gchoice {
+  width: 15%;
+}
+.nursery-wrap .gform-body .gfield .gfield_checkbox > button {
+  background: #f4f4f4;
+  padding: 9px 20px;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.1em;
+  color: var(--black);
+  border-radius: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.01);
+  margin: 0;
+}
+.nursery-wrap .gform_footer {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.nursery-wrap .gform_footer .gform_button {
+  font-family: "Manrope", sans-serif;
+  font-size: 18px !important;
+  line-height: 1 !important;
+  font-weight: 300 !important;
+  color: var(--white) !important;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: #648863 !important;
+  border-radius: 40px !important;
+  border: 0 !important;
+  transition: all 0.5s;
+  padding: 16px 35px !important;
+  margin-top: 15px !important;
+}
+
+.nursery-wrap legend.gfield_label {
+  position: inherit !important;
+  left: 0 !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+}
+
+/*=== Nursery Active Page ===*/
+.widecolumn {
+  margin: 0 auto;
+  padding: 150px 0;
+  text-align: center;
+  width: 55%;
+}
+.widecolumn h2 {
+  font-size: 75px;
+  color: #25400c;
+  margin: 0 0 25px 0;
+}
+.widecolumn p {
+  margin: 0;
+  line-height: 1.9;
+}
+
+/*=== Nursery Reset Password Page ===*/
+.woocommerce-account .woocommerce {
+  padding: 70px 60px;
+}
+.woocommerce-account .woocommerce p {
+  font-size: 18px;
+}
+.woocommerce-account .woocommerce .woocommerce-form-row {
+  font-size: 15px;
+}
+.woocommerce-account .woocommerce .woocommerce-form-row label {
+  margin-bottom: 5px;
+}
+.woocommerce-account .woocommerce .woocommerce-form-row input {
+  background-color: #efeff1;
+  height: 55px;
+  padding: 15px;
+  border: none;
+  outline: none;
+}
+.woocommerce-account
+  .woocommerce
+  .woocommerce-form-row
+  input:-internal-autofill-selected {
+  background-color: transparent !important;
+}
+.woocommerce-account .woocommerce .woocommerce-form-row button {
+  font-family: "Manrope", sans-serif;
+  font-size: 15px !important;
+  line-height: 1 !important;
+  font-weight: 300 !important;
+  color: var(--white) !important;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: #648863 !important;
+  border-radius: 40px !important;
+  border: 0 !important;
+  transition: all 0.5s;
+  padding: 16px 35px !important;
+  margin-top: 10px !important;
+}
+
+/*=== Nursery-popup ====*/
+#view-nursery-popup {
+  position: relative;
+  background: var(--white);
+  width: 45%;
+  margin: 0 auto;
+  border-radius: 5px;
+  padding: 30px;
+}
+#view-nursery-popup h2 {
+  font-family: "Manrope", sans-serif;
+  font-size: 35px;
+  line-height: 1.2;
+  font-weight: 500;
+  color: var(--theme-color);
+  text-align: center;
+  margin-bottom: 20px;
+}
+#view-nursery-popup .nursery-full-content {
+  max-height: 550px;
+  padding-right: 5px;
+  overflow-y: scroll;
+}
+#view-nursery-popup .nursery-full-content h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--theme-color);
+  margin: 20px 0;
+}
+
+#view-nursery-popup .nursery-full-content ul {
+  padding: 0 !important;
+  margin: 0;
+}
+#view-nursery-popup .nursery-full-content ul:last-child {
+  margin: 0;
+}
+#view-nursery-popup .nursery-full-content ul.order_desc li {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+#view-nursery-popup .nursery-full-content .accordion-info:nth-child(3) ul li {
+  margin-right: 20px;
+  display: inline-block;
+}
+#view-nursery-popup
+  .nursery-full-content
+  .accordion-info:nth-child(3)
+  ul
+  li:first-child {
+  display: block;
+  margin-bottom: 5px;
+  margin-top: 15px;
+}
+#view-nursery-popup
+  .nursery-full-content
+  .accordion-info:nth-child(3)
+  ul
+  li
+  ul {
+  margin-bottom: 10px;
+}
+#view-nursery-popup
+  .nursery-full-content
+  .accordion-info:nth-child(3)
+  ul
+  li
+  ul:last-child {
+  margin-bottom: 0;
+}
+
+#view-nursery-popup .nursery-full-content ul.order_desc li span {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 0px;
+}
+#view-nursery-popup .nursery-full-content ul.point-of-contact {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-row-gap: 20px;
+  grid-column-gap: 15px;
+}
+#view-nursery-popup .nursery-full-content ul.point-of-contact li {
+  font-size: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  padding: 12px 12px 10px;
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+#view-nursery-popup .nursery-full-content ul.point-of-contact li span {
+  margin-right: 4px;
+  margin-bottom: 0;
+}
+.nursery-full-content::-webkit-scrollbar {
+  width: 2px;
+  border-radius: 10px;
+}
+.nursery-full-content::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+.nursery-full-content::-webkit-scrollbar-thumb {
+  background: #648863;
+  border-radius: 10px;
+}
+.nursery-full-content .accordion-info,
+#view-nursery-popup .nursery-full-content .card_bxfl {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0 30px 20px 0;
+}
+#view-nursery-popup .nursery-full-content .accordion-info .accordion-toggle,
+#view-nursery-popup .nursery-full-content .card_bxfl .accordion-toggle {
+  position: relative;
+  display: block;
+  background: var(--theme-color);
+  color: var(--white);
+  padding: 15px 10px 15px 30px;
+}
+
+#view-nursery-popup
+  .nursery-full-content
+  .accordion-info
+  .accordion-toggle:after,
+#view-nursery-popup .nursery-full-content .card_bxfl .accordion-toggle:after {
+  position: absolute;
+  content: "\f078";
+  font-family: "fontawesome";
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: var(--white);
+}
+
+#view-nursery-popup
+  .nursery-full-content
+  .accordion-info
+  .accordion-toggle.open:after,
+#view-nursery-popup
+  .nursery-full-content
+  .card_bxfl
+  .accordion-toggle.open:after {
+  content: "\f106";
+}
+#view-nursery-popup .nursery-full-content .accordion-info .accordion-toggle h3,
+#view-nursery-popup .nursery-full-content .card_bxfl .accordion-toggle h3 {
+  font-size: 18px;
+  color: var(--white);
+  margin: 0;
+}
+#view-nursery-popup .nursery-full-content .accordion-info .order_desc {
+  display: none;
+  padding: 10px 10px 10px 30px !important;
+}
+#view-nursery-popup .nursery-full-content .card_bxfl {
+  border: 0;
+  margin-bottom: 0;
+}
+#view-nursery-popup .nursery-full-content .card_bxfl .add_new_plants {
+  margin-top: 20px;
+  display: none;
+}
+#view-nursery-popup .nursery-full-content .card_bxfl .add_new_plants .row {
+  --bs-gutter-y: 30px;
+}
+#view-nursery-popup .nursery-full-content .card_bxfl .add_new_plants .box {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+#view-nursery-popup
+  .nursery-full-content
+  .card_bxfl
+  .add_new_plants
+  .box
+  .title {
+  width: 100%;
+  position: relative;
+  display: block;
+  text-align: center;
+  padding: 10px;
+  font-size: 15px;
+  color: var(--black);
+  transition: 0.5;
+}
+#view-nursery-popup
+  .nursery-full-content
+  .card_bxfl
+  .add_new_plants
+  .box
+  .title:hover {
+  color: var(--theme-color);
+}

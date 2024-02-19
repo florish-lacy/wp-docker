@@ -1,0 +1,40 @@
+{
+  "name": "florish",
+  "version": "1.0.0",
+  "description": "Florish WP Theme",
+  "author": "Florish",
+  "keywords": [
+    "WordPress",
+    "Theme"
+  ],
+  "devDependencies": {
+    "@wordpress/scripts": "^27.2.0",
+    "@wordpress/stylelint-config": "^21.34.0",
+    "dir-archiver": "^2.1.0",
+    "node-sass": "^9.0.0",
+    "rtlcss": "^4.1.1",
+    "stylelint": "^16.2.1",
+    "stylelint-config-standard-scss": "^13.0.0"
+  },
+  "rtlcssConfig": {
+    "options": {
+      "autoRename": false,
+      "autoRenameStrict": false,
+      "blacklist": {},
+      "clean": true,
+      "greedy": false,
+      "processUrls": false,
+      "stringMap": []
+    },
+    "plugins": [],
+    "map": false
+  },
+  "scripts": {
+    "watch": "node-sass assets/scss/ -o ./ --source-map true --output-style expanded --indent-type tab --indent-width 1 -w",
+    "compile:css": "node-sass assets/scss/ -o assets/css/ && stylelint 'assets/css/style.css' --fix",
+    "compile:rtl": "rtlcss assets/css/style.css assets/css/style-rtl.css",
+    "lint:scss": "wp-scripts lint-style 'assets/scss/**/*.scss'",
+    "lint:js": "wp-scripts lint-js 'assets/js/*.js'",
+    "bundle": "dir-archiver --src . --dest ../theme.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map yarn.lock"
+  }
+}
