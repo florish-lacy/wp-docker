@@ -3,23 +3,25 @@
 
 /* ==== Header Start ==== */
 .navbar {
-  &-nav {
+  .navbar-nav {
     @include media-breakpoint-down(lg) {
       font-size: 1.5rem;
     }
   }
 
-  &__inner {
+  .navbar__inner {
     display: flex;
     gap: 1rem;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
     background: var(--white);
   }
 
-  &-toggler {
+  .navbar-toggler {
+    border-color: var(--border-color);
+
     transition: border-color var(--transition-duration)
       var(--transition-timing-function);
     &:hover,
@@ -59,7 +61,7 @@
     &::before {
       font-family: "fontawesome";
       font-size: 17px;
-      color: var(--primary);
+      color: var(--bs-primary);
       content: "\f3c5";
     }
 

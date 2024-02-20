@@ -18,9 +18,7 @@ body.woocommerce-shop .single-shop {
 .product-filter-sidebar .wpf_item label.wpf_item_name {
   padding: 0 0 25px;
   margin: 0;
-  font-family: "Manrope", sans-serif;
   font-size: 18px;
-  font-weight: 500;
   color: var(--black);
   border-bottom: none !important;
 }
@@ -172,17 +170,15 @@ ul.products li .added_to_cart.wc-forward {
 
 a.button.wc-forward {
   padding: 15px 30px !important;
-  font-family: "Manrope", sans-serif;
   font-size: 17px !important;
-  font-weight: 300 !important;
   line-height: 1 !important;
   color: var(--white) !important;
   text-transform: uppercase;
-  letter-spacing: .1em;
+  letter-spacing: 0.1em;
   background: #648863 !important;
   border: 0 !important;
   border-radius: 30px !important;
-  transition: all .5s;
+  transition: all 0.5s;
 }
 a.button.wc-forward:hover {
   background: var(--black) !important;
@@ -260,17 +256,16 @@ a.button.wc-forward:hover {
 #review_form .form-submit .submit {
   padding: 16px 35px !important;
   margin-top: 10px !important;
-  font-family: "Manrope", sans-serif;
+
   font-size: 18px !important;
-  font-weight: 300 !important;
   line-height: 1 !important;
   color: var(--white) !important;
   text-transform: uppercase;
-  letter-spacing: .1em;
+  letter-spacing: 0.1em;
   background: #648863 !important;
   border: 0 !important;
   border-radius: 40px !important;
-  transition: all .5s;
+  transition: all 0.5s;
 }
 #review_form .form-submit .submit:hover {
   background: var(--black) !important;
@@ -358,7 +353,11 @@ a.button.wc-forward:hover {
   font-weight: 400 !important;
   text-decoration: none !important;
 }
-.woocommerce .product .summary .woocommerce-product-details__short-description p {
+.woocommerce
+  .product
+  .summary
+  .woocommerce-product-details__short-description
+  p {
   padding-bottom: 30px;
   margin-bottom: 30px;
   color: #747474;
@@ -370,17 +369,15 @@ a.button.wc-forward:hover {
 .woocommerce .product .summary .single_add_to_cart_button {
   padding: 16px 35px !important;
   margin-top: 10px !important;
-  font-family: "Manrope", sans-serif;
   font-size: 18px !important;
-  font-weight: 300 !important;
   line-height: 1 !important;
   color: var(--white) !important;
   text-transform: uppercase;
-  letter-spacing: .1em;
+  letter-spacing: 0.1em;
   background: #648863 !important;
   border: 0 !important;
   border-radius: 40px !important;
-  transition: all .5s;
+  transition: all 0.5s;
 }
 .woocommerce .product .summary .single_add_to_cart_button:hover {
   background: var(--black) !important;
@@ -508,7 +505,6 @@ a.button.wc-forward:hover {
 }
 .single-slip .box .text h5 {
   margin-bottom: 0;
-  font-family: "Inter", sans-serif;
   font-size: 14px;
   font-weight: 300;
   color: var(--black);

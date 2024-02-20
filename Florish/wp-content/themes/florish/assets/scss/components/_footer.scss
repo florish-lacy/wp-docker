@@ -39,12 +39,10 @@
 .footer .btm-pnl .top ul li {
   display: inline-block;
   margin-right: 45px;
-  font-family: "Manrope", sans-serif;
   font-size: 15px;
-  font-weight: 300;
   line-height: 1.2;
   text-transform: uppercase;
-  letter-spacing: .22em;
+  letter-spacing: 0.22em;
 }
 .footer .btm-pnl .top ul li:last-child {
   margin-right: 0;
@@ -54,7 +52,7 @@
   z-index: 1;
   display: block;
   color: var(--black);
-  transition: all .5s;
+  transition: all 0.5s;
 }
 .footer .btm-pnl .top ul li a:hover {
   color: #648863;
@@ -64,8 +62,7 @@
 }
 .footer .btm-pnl .copyright p {
   margin-bottom: 0;
-  font-family: "Manrope", sans-serif;
-  font-weight: 300;
+
   line-height: 1;
   color: #838383;
 }
@@ -73,9 +70,8 @@
 .newsletter-frm .ginput_container > input {
   height: 70px;
   padding: 0 30px !important;
-  font-family: "Manrope", sans-serif;
+
   font-size: 18px !important;
-  font-weight: 300;
   color: #4a4a4a;
   border: 0;
   outline: none;
@@ -87,17 +83,16 @@
 .newsletter-frm .gform_button {
   padding: 16px 35px !important;
   margin-top: 10px !important;
-  font-family: "Manrope", sans-serif;
+
   font-size: 18px !important;
-  font-weight: 300 !important;
   line-height: 1 !important;
   color: var(--white) !important;
   text-transform: uppercase;
-  letter-spacing: .1em;
+  letter-spacing: 0.1em;
   background: #648863 !important;
   border: 0 !important;
   border-radius: 40px !important;
-  transition: all .5s;
+  transition: all 0.5s;
 }
 .newsletter-frm .gform_button:hover {
   background: var(--black) !important;

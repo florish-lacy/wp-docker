@@ -2,9 +2,27 @@
 
 /**
  * Florish functions and definitions
- *
+ * Todo: These should be prefixed with florish_ or namespaced; No Globals!
  */
 if (!function_exists('florish_theme_setup')) :
+
+	/*
+	 * Florish classes and utilities
+	 * Add classes in `inc/` and regenerate composer files with the following command (from docker root):
+	 *
+	 * docker exec -w /var/www/html/wp-content/themes/florish florish-wordpress-1 composer dump-autoload
+	 *
+	 * Use the class like:
+	 *
+	 * <?php Florish\MyClass::myFunction() ?>
+	 *
+	 * Or, for brevity, a shorter version by "use"-ing the Class first:
+	 * <?php use Florish\MyClass; MyClass\myFunction(); ?>
+	 * <?php use Florish\MyClass as CL; CL\myFunction(); ?>
+	 */
+
+	require get_template_directory() . '/vendor/autoload.php';
+
 	function florish_theme_setup()
 	{
 
@@ -2258,7 +2276,7 @@ function nursery_add_inventory()
 	global $wpdb;
 	$wpdb->show_errors();
 	$charset_collate = $wpdb->get_charset_collate();
-	require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+	require_once(ABSPATH . 'wp-admin/includes/upgrade.php'); // TODO: Why are we including from wp-admin?
 	define('WP_NURSERY_MARKETS_DB_VERSION', '7.0');
 	if (get_option("nursery_markets_db_version") != WP_NURSERY_MARKETS_DB_VERSION) {
 

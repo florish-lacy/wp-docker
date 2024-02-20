@@ -78,17 +78,15 @@
 .return-to-shop a.button.wc-backward {
   padding: 16px 35px !important;
   margin-top: 10px !important;
-  font-family: "Manrope", sans-serif;
   font-size: 18px !important;
-  font-weight: 300 !important;
   line-height: 1 !important;
   color: var(--white) !important;
   text-transform: uppercase;
-  letter-spacing: .1em;
+  letter-spacing: 0.1em;
   background: #648863 !important;
   border: 0 !important;
   border-radius: 40px !important;
-  transition: all .5s;
+  transition: all 0.5s;
 }
 .return-to-shop a.button.wc-backward:hover {
   background: var(--black) !important;
@@ -105,14 +103,14 @@
   font-weight: 500;
   color: var(--black);
   text-transform: capitalize;
-  letter-spacing: .02em;
-  border-bottom: 1px solid rgba(0, 0, 0, .1);
+  letter-spacing: 0.02em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 .cart-collaterals .cart_totals .order-total th {
-  border-bottom: 1px solid rgba(0, 0, 0, .1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 .cart-collaterals .cart_totals .order-total td {
-  border-bottom: 1px solid rgba(0, 0, 0, .1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 .cart_totals .wc-proceed-to-checkout {
   padding: 35px 20px !important;

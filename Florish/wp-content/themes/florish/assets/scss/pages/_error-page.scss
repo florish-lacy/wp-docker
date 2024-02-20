@@ -5,7 +5,16 @@
 .error h2 {
   font-size: 100px;
   color: #466628;
-  text-shadow: 1px 1px 1px #344f1b, 2px 2px 1px #344f1b, 3px 3px 1px #344f1b, 4px 4px 1px #344f1b, 5px 5px 1px #344f1b, 6px 6px 1px #344f1b, 7px 7px 1px #344f1b, 8px 8px 1px #344f1b, 25px 25px 8px rgba(0, 0, 0, .2);
+  text-shadow:
+    1px 1px 1px #344f1b,
+    2px 2px 1px #344f1b,
+    3px 3px 1px #344f1b,
+    4px 4px 1px #344f1b,
+    5px 5px 1px #344f1b,
+    6px 6px 1px #344f1b,
+    7px 7px 1px #344f1b,
+    8px 8px 1px #344f1b,
+    25px 25px 8px rgba(0, 0, 0, 0.2);
 }
 .error p {
   margin-bottom: 30px;
@@ -16,15 +25,13 @@
 .error a {
   display: inline-block;
   padding: 15px 30px;
-  font-family: "Manrope", sans-serif;
   font-size: 16px;
-  font-weight: 400;
   line-height: 1.2;
   color: var(--white);
-  letter-spacing: .1em;
+  letter-spacing: 0.1em;
   background: var(--theme-color);
   border-radius: 50px;
-  transition: .5s;
+  transition: 0.5s;
 }
 .error a:hover {
   color: var(--white);
@@ -48,7 +55,7 @@ body.woocommerce-order-received .woocommerce-order {
   text-transform: capitalize;
 }
 .woocommerce-order-details .order_details {
-  border: 1px solid rgba(0, 0, 0, .1) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
 }
 .woocommerce-order-details .order_details tr td {
   padding: 10px 15px !important;
@@ -76,16 +83,14 @@ p.woocommerce-notice.woocommerce-notice--success.woocommerce-thankyou-order-rece
 }
 .woocommerce-form-login.login .woocommerce-form-login__submit {
   padding: 15px 35px;
-  font-family: "Manrope", sans-serif;
   font-size: 18px;
-  font-weight: 300;
   line-height: 1.2;
   color: var(--white);
   text-transform: uppercase;
-  letter-spacing: .1em;
+  letter-spacing: 0.1em;
   background: var(--theme-color);
   border-radius: 50px;
-  transition: .5s;
+  transition: 0.5s;
 }
 .woocommerce-form-login.login .woocommerce-form-login__submit:hover {
   color: var(--white);
@@ -108,8 +113,8 @@ p.woocommerce-notice.woocommerce-notice--success.woocommerce-thankyou-order-rece
   border: 0 !important;
 }
 .woocommerce-pagination ul li {
-  border-right: 1px solid rgba(0, 0, 0, .05) !important;
-  box-shadow: 0 3px 20px -.2px rgba(0, 0, 0, .1);
+  border-right: 1px solid rgba(0, 0, 0, 0.05) !important;
+  box-shadow: 0 3px 20px -0.2px rgba(0, 0, 0, 0.1);
 }
 .woocommerce-pagination ul li a {
   padding: 12px 15px !important;
