@@ -1,0 +1,118 @@
+html {
+  font-size: 16px;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-inter);
+  font-weight: var(--font-weight-inter);
+}
+ul,
+li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+a,
+a:focus,
+a:hover {
+  text-decoration: none;
+  outline: none;
+}
+img {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-manrope);
+  font-weight: var(--font-weight-manrope);
+  line-height: 1.2;
+}
+
+h1 {
+  // Responsive font - Bootstrap: https://getbootstrap.com/docs/5.3/getting-started/rfs/
+  @include font-size(4rem);
+}
+h2 {
+  // font-size: 60px;
+  font-size: 3.5rem;
+}
+h3 {
+  // font-size: 45px;
+  font-size: 2.5rem;
+}
+h4 {
+  // font-size: 30px;
+  font-size: 1.6rem;
+}
+h5 {
+  // font-size: 22px;
+  font-size: 1.375rem;
+}
+h6 {
+  // font-size: 20px;
+  font-size: 1.25rem;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+a {
+  color: var(--theme-color);
+  transition: color var(--transition-duration) var(--transition-timing-function);
+  &:hover {
+    color: var(--hover-color);
+  }
+}
+
+// Common classes
+.cmn-gap {
+  padding: 100px 0;
+}
+.cs-mb {
+  margin-bottom: 100px;
+}
+
+.cmn-btn {
+  position: relative;
+  display: inline-block;
+  padding: 15px 35px;
+  font-family: var(--font-manrope);
+  font-size: 18px;
+  font-weight: var(--font-weight-manrope);
+  line-height: 1.2;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  background: var(--theme-color);
+  border-radius: 50px;
+  transition: .5s;
+
+  :hover {
+    color: var(--black);
+    background: var(--white);
+  }
+}
+
+.pac-container {
+  z-index: 9999 !important;
+}
+
+// Remove arrows from number input
+// https://stackoverflow.com/questions/44590932/number-type-input-element-spinner-css-style
+// Todo: scope this to the input fields that need it only
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  margin: 0;
+  appearance: none;
+}

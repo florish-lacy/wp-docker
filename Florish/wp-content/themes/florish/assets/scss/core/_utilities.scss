@@ -1,0 +1,21 @@
+// Utilities
+
+// Toggle on hover
+// Switch between two elements on hover
+// Great for icons that
+.toggle-on-hover {
+  // .toggle-on-hover .toggle-on-hover--on
+  #{&}--on {
+    display: none;
+  }
+  &:hover {
+    .toggle-on-hover {
+      &--off {
+        display: none;
+      }
+      &--on {
+        display: inline-block;
+      }
+    }
+  }
+}
