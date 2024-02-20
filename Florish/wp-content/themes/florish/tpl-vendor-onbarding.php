@@ -129,6 +129,6 @@
 	</div>
 </div>
 
-<?php require_once('components/sections/faq.php'); ?>
+<?php require('components/sections/faq.php'); ?>
 
 <?php get_footer(); ?>

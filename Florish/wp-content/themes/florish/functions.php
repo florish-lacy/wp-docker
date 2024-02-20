@@ -611,7 +611,7 @@ function wc_refresh_mini_cart_count($fragments)
 	$items_count = WC()->cart->get_cart_contents_count();
 	$items_count = $items_count ? $items_count : ''; // We hide the empty count via css
 	?>
-	<span class="num_count" id="mini-cart-count"><?php echo $items_count; ?></span>
+	<span id="mini-cart-count"><?php echo $items_count; ?></span>
 <?php
 	$fragments['#mini-cart-count'] = ob_get_clean();
 	return $fragments;

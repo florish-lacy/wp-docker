@@ -1,35 +1,37 @@
-@import "fonts";
-@import "bootstrap";
-@import "variables";
-
-@import "base";
+@import "core/fonts";
+@import "core/variables";
+@import "core/bootstrap";
+@import "core/bootstrap-extend";
+@import "core/utilities";
+@import "core/base";
 
 @import "components/header";
 @import "components/footer";
 @import "components/banner";
 @import "components/cardbox";
+@import "components/popup-login";
+@import "components/popup-growing-zone";
 
-@import "about";
-@import "featured";
-@import "create";
-@import "product";
-@import "blog";
-@import "about-us";
-@import "we-work";
-@import "blog-page";
-@import "contact-us";
-@import "login-popup";
-@import "growing-zone";
-@import "shop-page";
-@import "cart-page";
-@import "checkout-page";
-@import "my-account-page";
-@import "dashboard";
-@import "error-page";
-@import "nursery";
-@import "customer-registration";
+// The order of these imports matches the order they were imported in the original style.css file
+// I think we can re-order these, but will defer to Priyanka
+@import "pages/home/about";
+@import "pages/home/featured";
+@import "pages/home/create";
+@import "pages/home/product";
+@import "pages/home/blog";
 
+@import "pages/about-us";
+@import "pages/we-work";
+@import "pages/blog-page";
+@import "pages/contact-us";
+@import "pages/shop-page";
+@import "pages/cart-page";
+@import "pages/checkout-page";
+@import "pages/my-account-page";
+@import "pages/dashboard";
+@import "pages/error-page";
+@import "pages/nursery";
 @import "pages/nursery-landing";
+@import "pages/customer-registration";
 
-@import "woocommerce-fix";
-@import "responsive";
+@import "woocommerce";
