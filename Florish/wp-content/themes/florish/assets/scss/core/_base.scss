@@ -9,6 +9,7 @@ body {
   margin: 0;
   font-weight: 400;
 }
+
 ul,
 li {
   padding: 0;
@@ -22,6 +23,7 @@ a:hover {
   text-decoration: none;
   outline: none;
 }
+
 img {
   display: inline-block;
   max-width: 100%;
@@ -34,18 +36,24 @@ h3,
 h4,
 h5,
 h6 {
-  @extend .noto-serif;
+  @extend .noto-serif-display;
+  font-weight: 600;
+}
 
-  line-height: 1.2;
+h4,
+h5,
+h6 {
+  @extend .inter;
+  font-weight: 500;
 }
 
 h1 {
-  // Responsive font - Bootstrap: https://getbootstrap.com/docs/5.3/getting-started/rfs/
-  @include font-size(4rem);
+  font-size: 72px;
+  line-height: 90px;
 }
 h2 {
-  // font-size: 60px;
-  font-size: 3.5rem;
+  font-size: 48px;
+  line-height: 60px;
 }
 h3 {
   // font-size: 45px;

@@ -46,6 +46,19 @@ $container-max-widths: map-merge(
   $new-container-max-widths
 );
 
+// Add new spacer sizes
+$new-spacer-sizes: (
+  6: $spacer * 3.25,
+  7: $spacer * 3.5,
+  8: $spacer * 3.75,
+  9: $spacer * 4,
+  10: $spacer * 4.25,
+  11: $spacer * 4.5,
+  12: $spacer * 4.75,
+);
+
+$spacers: map-merge($spacers, $new-spacer-sizes);
+
 @import "../../../node_modules/bootstrap/scss/maps";
 @import "../../../node_modules/bootstrap/scss/mixins";
 @import "../../../node_modules/bootstrap/scss/utilities";

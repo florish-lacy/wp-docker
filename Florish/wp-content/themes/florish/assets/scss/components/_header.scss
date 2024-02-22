@@ -2,7 +2,21 @@
 // https://getbem.com/introduction/
 
 /* ==== Header Start ==== */
-.navbar {
+// To use a floating NAV bar, add the class "fl-nav--floating" to the body tag, and add the class "fl-nav__offset" to the first content container.
+.fl-nav--floating {
+  .fl-nav__offset {
+    padding-top: $nav-height;
+  }
+}
+
+.navbar__main {
+  .fl-nav--floating & {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+  }
+
   .navbar-nav {
     @include media-breakpoint-down(lg) {
       font-size: 1.5rem;
@@ -10,13 +24,13 @@
   }
 
   .navbar__inner {
+    height: $nav-height;
     display: flex;
     gap: 1rem;
     align-items: center;
     justify-content: space-between;
     width: 100%;
     padding: 0.5rem 1rem;
-    background: var(--white);
   }
 
   .navbar-toggler {

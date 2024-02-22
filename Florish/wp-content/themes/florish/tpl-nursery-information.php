@@ -2,69 +2,71 @@
 
 <?php
 
+Florish\add_body_class('fl-nav--floating');
+
 get_header();
 
 ?>
 
-
 <div class="nursery-landing">
-
 	<!-- HERO -->
-	<div class="px-4 pt-5 my-5 text-center bg-secondary">
-		<h1 class="col-lg-8 mx-auto display-4 fw-bold text-body-emphasis title">Where Nurture Meets Innovation in Your Nursery!</h1>
-		<div class="col-lg-6 mx-auto">
-			<p class="lead mb-4">Receive sales when your doors are closed, deliver them within 7 days, increase your revenue with no marketing and website costs.</p>
+	<div class="fl-nav__offset fl-bg-pattern bg-repeat-x bg-body-tertiary">
+		<div class="container py-6 text-center">
+
+			<h1 class="text-body-emphasis">Where Nurture Meets Innovation in Your Nursery!</h1>
+
+			<div class="col-lg-8 mx-auto py-2">
+				<p class="lead">
+					Receive sales when your doors are closed, deliver them within 7 days, increase your revenue with no marketing and website costs.
+				</p>
+			</div>
+
+			<div class="">
+				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/templates/nursery-landing/section-hero.png" class="img-fluid mb-4" alt="Happy healthy plants in a row" loading="lazy">
+			</div>
 		</div>
-		<img src="<?php echo get_template_directory_uri(); ?>/assets/images/templates/nursery-landing/section-hero.png" class="img-fluid mb-4" alt="Happy healthy plants in a row" width="650" loading="lazy">
 	</div>
 
 	<!-- FEATURES -->
-	<div class="container px-4 py-5 bg-primary text-white">
-		<h2 class="pb-2">Benefit Statements</h2>
+	<div class="container-fluid g-0 py-5 fl-bg-pattern--light bg-primary text-light">
+		<h3 class="text-center pb-2">Benefit Statements</h3>
 
-		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
-			<div class="col d-flex align-items-start">
-				<svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em">
-					<use xlink:href="#bootstrap"></use>
-				</svg>
-				<div>
-					<h3 class="fw-bold mb-0 fs-4">Increase Sales</h3>
+		<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 p-5 w-100 justify-content-center">
+			<div class="col d-flex align-items-start justify-content-center">
+				<div class="d-flex flex-column gap-3 align-items-center text-center">
+					<div class="fl-icon">
+						<i class="fa-solid fa-chart-simple"></i>
+					</div>
+					<h4 class="fw-bold mb-0 fs-4">Increase Sales</h4>
 					<p>Make more money without needing more staff</p>
 				</div>
 			</div>
-			<div class="col d-flex align-items-start">
-				<svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em">
-					<use xlink:href="#bootstrap"></use>
-				</svg>
-				<div>
-					<h3 class="fw-bold mb-0 fs-4">Generate Passive Revenue</h3>
+			<div class="col d-flex align-items-start justify-content-center">
+
+
+				<div class="d-flex flex-column gap-3 align-items-center text-center">
+					<div class="fl-icon">
+						<i class="fa-solid fa-comment-dollar"></i>
+					</div>
+					<h4 class="fw-bold mb-0 fs-4">Generate Passive Revenue</h4>
 					<p>Receive orders while your doors are closed</p>
 				</div>
 			</div>
-			<div class="col d-flex align-items-start">
-				<svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em">
-					<use xlink:href="#tools"></use>
-				</svg>
-				<div>
-					<h3 class="fw-bold mb-0 fs-4">Waste less Time</h3>
+			<div class="col d-flex align-items-start justify-content-center">
+				<div class="d-flex flex-column gap-3 align-items-center text-center">
+					<div class="fl-icon">
+						<i class="fa-solid fa-calendar"></i>
+					</div>
+					<h4 class="fw-bold mb-0 fs-4">Waste less Time</h4>
 					<p>Save time spent on customers not ready to purchase</p>
 				</div>
 			</div>
-			<div class="col d-flex align-items-start">
-				<svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em">
-					<use xlink:href="#tools"></use>
-				</svg>
-				<div>
-					<h3 class="fw-bold mb-0 fs-4">No Marketing Costs</h3>
-					<p>Get more customers without spending on marketing</p>
-				</div>
-			</div>
-			<div class="col d-flex align-items-start">
-				<svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em">
-					<use xlink:href="#tools"></use>
-				</svg>
-				<div>
-					<h3 class="fw-bold mb-0 fs-4">Ensure Customer Success</h3>
+			<div class="col d-flex align-items-start justify-content-center">
+				<div class="d-flex flex-column gap-3 align-items-center text-center">
+					<div class="fl-icon">
+						<i class="fa-solid fa-chart-simple"></i>
+					</div>
+					<h4 class="fw-bold mb-0 fs-4">Ensure Customer Success</h4>
 					<p>Customers receive ongoing care, saving you time and ensuring plants live longer</p>
 				</div>
 			</div>
@@ -72,53 +74,57 @@ get_header();
 	</div>
 
 	<!-- STEPS - How it works -->
-	<div class="container px-4 py-5">
+	<div class="container py-5">
 		<div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
-			<div class="col d-flex flex-column align-items-start gap-2">
+			<div class="col-6 col-lg mx-auto d-flex flex-column align-items-start">
 				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/templates/nursery-landing/section-how.png" class="img-fluid mb-4" alt="" loading="lazy">
 			</div>
 
 			<div class="col">
 				<div class="row row-cols-1 g-4">
-					<div class="col d-flex flex-column gap-2">
-						<div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
-							<svg class="bi" width="1em" height="1em">
-								<use xlink:href="#collection"></use>
-							</svg>
+					<h3 class="pb-2">How it works</h3>
+
+					<div class="col d-flex align-items-start gap-3">
+						<div class="fl-icon--dark fl-icon--lg">
+							<i class="fa-solid fa-seedling"></i>
 						</div>
-						<h4 class="fw-semibold mb-0 text-body-emphasis">Step 1</h4>
-						<p class="text-body-secondary">Sign up and tell us which plants you carry.</p>
+						<div class="d-flex flex-column gap-3">
+							<h4 class="fw-semibold mb-0 text-body-emphasis">Step 1</h4>
+							<p class="text-body-secondary">Sign up and tell us which plants you carry.</p>
+						</div>
 					</div>
 
-					<div class="col d-flex flex-column gap-2">
-						<div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
-							<svg class="bi" width="1em" height="1em">
-								<use xlink:href="#gear-fill"></use>
-							</svg>
+					<div class="col d-flex align-items-start gap-3">
+						<div class="fl-icon--dark fl-icon--lg">
+							<i class="fa-solid fa-bag-shopping"></i>
 						</div>
-						<h4 class="fw-semibold mb-0 text-body-emphasis">Step 2</h4>
-						<p class="text-body-secondary">Go live and receive orders in your area.</p>
+						<div class="d-flex flex-column gap-3">
+							<h4 class="fw-semibold mb-0 text-body-emphasis">Step 2</h4>
+							<p class="text-body-secondary">Go live and receive orders in your area.</p>
+						</div>
 					</div>
 
-					<div class="col d-flex flex-column gap-2">
-						<div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
-							<svg class="bi" width="1em" height="1em">
-								<use xlink:href="#speedometer"></use>
-							</svg>
+					<div class="col d-flex align-items-start gap-3">
+						<div class="fl-icon--dark fl-icon--lg">
+							<i class="fa-solid fa-truck"></i>
 						</div>
-						<h4 class="fw-semibold mb-0 text-body-emphasis">Step 3</h4>
-						<p class="text-body-secondary">Deliver the order within 7 days.</p>
+						<div class="d-flex flex-column gap-3">
+							<h4 class="fw-semibold mb-0 text-body-emphasis">Step 3</h4>
+							<p class="text-body-secondary">Deliver the order within 7 days.</p>
+						</div>
 					</div>
 
-					<div class="col d-flex flex-column gap-2">
-						<div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
-							<svg class="bi" width="1em" height="1em">
-								<use xlink:href="#table"></use>
-							</svg>
+					<div class="col d-flex align-items-start gap-3">
+						<div class="fl-icon--dark fl-icon--lg">
+							<i class="fa-solid fa-money-bill-trend-up"></i>
 						</div>
-						<h4 class="fw-semibold mb-0 text-body-emphasis">Step 4</h4>
-						<p class="text-body-secondary">Get paid.</p>
+						<div class="d-flex flex-column gap-3">
+							<h4 class="fw-semibold mb-0 text-body-emphasis">Step 4</h4>
+							<p class="text-body-secondary">Get paid.</p>
+						</div>
 					</div>
+
+
 				</div>
 			</div>
 		</div>
@@ -126,7 +132,7 @@ get_header();
 
 	<!-- REQUIREMENTS -->
 
-	<div class="px-4 pt-5 my-5 text-center bg-secondary">
+	<div class="px-4 pt-5 my-5 text-center bg-body-tertiary">
 		<h2 class="col-lg-8 mx-auto display-4 fw-bold text-body-emphasis">Requirements to apply</h2>
 		<div class="col-lg-6 mx-auto">
 			<p class="lead mb-4">Must have own truck and deliver and carry at least 10 of the plants listed for sale on the Florish Marketplace.</p>
@@ -135,10 +141,10 @@ get_header();
 	</div>
 
 	<!-- SIGN-UP -->
-	<div class="container px-4 py-5">
-		<div class="row g-4 py-5 row-cols-1 row-cols-lg-3 bg-primary-subtle">
-			<div class="feature col">
-				<h3 class="fs-2 text-body-emphasis">Apply Now</h3>
+	<div class="container px-5 px-lg-10 py-5 bg-primary fl-bg-pattern-2">
+		<div class="row g-4 row-cols-1 row-cols-lg-3 text-white">
+			<div class="feature col d-flex flex-column align-items-start justify-content-center">
+				<h3 class="fs-2">Apply Now</h3>
 				<p>Create an Account to start the application process</p>
 				<a href="#" class="icon-link">
 					Call to action
@@ -148,13 +154,16 @@ get_header();
 				</a>
 			</div>
 
-			<div class="feature col">
+			<div class="feature col-lg-8 bg-body-tertiary">
 				<div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
 					<svg class="bi" width="1em" height="1em">
 						<use xlink:href="#collection"></use>
 					</svg>
 				</div>
-				<h3 class="fs-2 text-body-emphasis">Generate Passive Revenue</h3>
+				<h3 class="fs-2">Generate Passive Revenue</h3>
+				<h3 class="fs-2">Generate Passive Revenue</h3>
+				<h3 class="fs-2">Generate Passive Revenue</h3>
+				<h3 class="fs-2">Generate Passive Revenue</h3>
 				<p>Receive orders while your doors are closed</p>
 				<div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
 					<button type="button" class="btn btn-primary btn-lg px-4 gap-3">Primary button</button>

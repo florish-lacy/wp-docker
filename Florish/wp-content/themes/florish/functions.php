@@ -7,18 +7,10 @@
 if (!function_exists('florish_theme_setup')) :
 
 	/*
-	 * Florish classes and utilities
+	 * Florish classes and utilities - see readme #composer
 	 * Add classes in `inc/` and regenerate composer files with the following command (from docker root):
 	 *
 	 * docker exec -w /var/www/html/wp-content/themes/florish florish-wordpress-1 composer dump-autoload
-	 *
-	 * Use the class like:
-	 *
-	 * <?php Florish\MyClass::myFunction() ?>
-	 *
-	 * Or, for brevity, a shorter version by "use"-ing the Class first:
-	 * <?php use Florish\MyClass; MyClass\myFunction(); ?>
-	 * <?php use Florish\MyClass as CL; CL\myFunction(); ?>
 	 */
 
 	require get_template_directory() . '/vendor/autoload.php';

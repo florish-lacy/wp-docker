@@ -13,7 +13,7 @@
 <body <?php body_class(); ?>>
 
 	<!-- Header Section -->
-	<nav class="navbar navbar-expand-lg" aria-label="Offcanvas navbar large">
+	<nav class="navbar__main navbar navbar-expand-lg" aria-label="Offcanvas navbar large">
 		<div class="container-fluid navbar__inner">
 
 			<?php
@@ -21,7 +21,7 @@
 			$image = wp_get_attachment_image_src($custom_logo_id, 'full');
 			$logo_src = !empty($image) ? $image[0] : get_template_directory_uri() . '/assets/images/logo.png';
 			?>
-			<a class="navbar-brand" href="<?php echo get_site_url(); ?>"><img src="<?php echo $logo_src; ?>" alt="Florish" /></a>
+			<a class="navbar-brand d-flex h-100" href="<?php echo get_site_url(); ?>"><img src="<?php echo $logo_src; ?>" alt="Florish" /></a>
 
 			<div class="d-flex align-items-center justify-content-end gap-3">
 
@@ -37,7 +37,7 @@
 
 			<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
 				<div class="offcanvas-header">
-					<h5 class="offcanvas-title" id="offcanvasNavbarLabel">Welcome to Florish!</h5>
+					<h5 class="inter offcanvas-title" id="offcanvasNavbarLabel">Welcome to Florish!</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 				</div>
 				<div class="offcanvas-body d-flex flex-column-reverse justify-content-end flex-lg-row align-items-lg-center gap-3">
