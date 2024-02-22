@@ -13,7 +13,7 @@
 <body <?php body_class(); ?>>
 
 	<!-- Header Section -->
-	<nav class="navbar__main navbar navbar-expand-lg" aria-label="Offcanvas navbar large">
+	<nav class="fl-nav navbar navbar-expand-lg" aria-label="Offcanvas navbar large">
 		<div class="container-fluid navbar__inner">
 
 			<?php

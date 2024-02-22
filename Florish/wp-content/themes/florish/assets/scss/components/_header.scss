@@ -83,4 +83,14 @@
       line-height: 1.2;
     }
   }
+
+  .search {
+    transition: border-color var(--transition-duration)
+      var(--transition-timing-function);
+    &:hover,
+    &:focus,
+    &:active {
+      border-color: var(--border-color-active);
+    }
+  }
 }

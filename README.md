@@ -94,6 +94,14 @@ The [Block Element Modifier](http://getbem.com/naming/) (BEM) naming convention 
 }
 ```
 
+###### Note: Extending Bootstrap classes to WordPress
+
+Certain Wordpress functions add classes to the HTML elements. For example, the `wp_nav_menu` function adds classes to the menu items, such as `menu-item` and `menu-item-has-children`. 
+
+These classes can be used to style the menu items for variations like `hover` or marking the current page. Bootstrap uses different classes for the same purpose, so we extend the Bootstrap classes so that they apply to the WordPress classes.
+
+See `_bootstrap-extend.scss` (`Florish/wp-content/themes/florish/assets/scss/core/_bootstrap-extend.scss`) for more details.
+
 ###### Note: Comment any funky SCSS tricks
 ```scss
 .toggle-on-hover {
@@ -103,6 +111,8 @@ The [Block Element Modifier](http://getbem.com/naming/) (BEM) naming convention 
 	}
 }
 ```
+
+
 
 ##### Note: Careful extending Bootstrap classes
 
