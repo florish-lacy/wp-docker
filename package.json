@@ -18,6 +18,8 @@
     "build": "npm-run-all --parallel build:*",
     "build:docker": "docker-compose build",
     "build:theme": "npm run x -- build",
+    "i": "npm i --prefix Florish/wp-content/themes/florish/",
+    "r": "npm run --prefix Florish/wp-content/themes/florish/",
     "x": "npm run --workspace=florish"
   },
   "devDependencies": {
