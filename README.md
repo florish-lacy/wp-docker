@@ -6,11 +6,11 @@
 
 - Clone this repo and navigate (`cd`) to the root directory.
 
-- Copy the `.env.example` file to `.env` and fill in the required environment variables.
+- Create a copy of the `.env.example` file and rename it to `.env`. This file contains the environment variables for the services.
 
 ```bash
 MYSQL_ROOT_PASSWORD=rootwordpress
-MYSQL_DATABASE=wordpress
+MYSQL_DATABASE=florish
 MYSQL_USER=wordpress
 MYSQL_PASSWORD=wordpress
 ```
@@ -41,19 +41,44 @@ docker-compose down --volumes
 
 The `wp-content` folder is mounted to the `Florish` folder. This allows you to edit the files locally and see the changes in real-time.
 
-### Theme Development
-
-The theme files are located in the `wp-content/themes/florish` folder. Run `npm i` to install the required packages:
+#### Quick Start
 
 ```sh
-# From the root directory
-cd Florish/wp-content/themes/florish
-
-# then...
+# Install the required packages
 npm install
+
+# Start Docker, the development server, and watch for changes
+npm run dev
 ```
 
-### Styles
+### Workspaces
+
+The theme lives as it's own package with it's own `package.json` and `node_modules` folder. To make development easier, we use [`npm workspaces`](https://docs.npmjs.com/cli/v10/using-npm/workspaces#running-commands-in-the-context-of-workspaces) to manage the theme and plugin dependencies from the repo root directory.
+
+**NPM scripts in the theme directory can be run from the root directory using the `--workspace` flag:**
+
+```sh
+# These are equivalent...
+cd Florish/wp-content/themes/florish && npm run css
+
+# ...to
+npm run css --workspace florish
+
+# ...or, using prefixed commands
+npm run x -- css
+```
+
+
+### Theme Development
+
+The theme files are located in the `wp-content/themes/florish` folder. 
+
+The easiest way to develop the theme is to use the `npm run dev` command. This starts the development server and watches for changes to the theme files.
+
+
+
+
+#### Styles
 
 The `style.css` file is located in the `wp-content/themes/florish` folder. Styles are written in SCSS in the `assets/scss` folder and compiled to CSS.
 
@@ -134,21 +159,21 @@ Bootstrap make liberal use of `!important` in their styles. This can cause issue
     }
 
 }
-
+```
 
 
 ### PHP and Composer
 
-We use composer to manage PHP resources and custom theme functions/classes. Files are stored in `Florish/wp-content/themes/florish/inc`. 
+We use composer to manage PHP resources and custom theme functions/classes. Files are stored in `Florish/wp-content/themes/florish/components/helpers`. 
 
 - Class filenames should correspond to the Class name.
 - Files with individual functions must be added to `composer.json`
 
-After changing files in the `inc/` directory, run the following command (`composer dump-autoload`) to generate autoload files:
+After changing files in the `components/helpers/` directory, run the following command (`composer dump-autoload`) to generate autoload files:
 
 `docker exec -w /var/www/html/wp-content/themes/florish florish-wordpress-1 composer dump-autoload`
 
-```
+```php
 <?php Florish\MyClass::myFunction() ?>
 
 // Or, for brevity, a shorter version by "use"-ing the Class first:

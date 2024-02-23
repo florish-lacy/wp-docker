@@ -1,6 +1,47 @@
 // Extend bootstrap classes into Wordpress classes
 
+.button {
+  @extend .btn;
+}
+
+.gform_button[type="submit"] {
+  @extend .btn;
+  @extend .btn-primary;
+}
+
+.gform_anchor {
+  width: 100%;
+}
+
+.gform_wrapper {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.gform_body {
+  flex-grow: 1;
+}
+
+.ginput_container input {
+  @extend .form-control;
+}
+
+.ginput_container select {
+  @extend .form-select;
+}
+
+.ginput_container textarea {
+  @extend .form-control;
+}
+
 // Menu items extend bootstrap nav items
+.menu {
+  @extend .nav;
+}
+
 .menu-item {
   & > a {
     @extend .nav-link;

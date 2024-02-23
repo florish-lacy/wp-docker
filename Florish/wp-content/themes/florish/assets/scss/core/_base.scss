@@ -17,13 +17,6 @@ li {
   list-style: none;
 }
 
-a,
-a:focus,
-a:hover {
-  text-decoration: none;
-  outline: none;
-}
-
 img {
   display: inline-block;
   max-width: 100%;
@@ -78,11 +71,7 @@ p {
 }
 
 a {
-  color: var(--theme-color);
   transition: color var(--transition-duration) var(--transition-timing-function);
-  &:hover {
-    color: var(--hover-color);
-  }
 }
 
 // Common classes

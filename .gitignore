@@ -1,1 +1,5 @@
-!dbdump.sql
+# Logs
+*.log
+
+# Allow database dumps
+!*.sql

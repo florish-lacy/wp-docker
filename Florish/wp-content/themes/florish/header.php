@@ -13,7 +13,7 @@
 <body <?php body_class(); ?>>
 
 	<!-- Header Section -->
-	<nav class="fl-nav navbar navbar-expand-lg" aria-label="Offcanvas navbar large">
+	<nav class="fl-navbar navbar navbar-expand-lg" aria-label="Offcanvas navbar large">
 		<div class="container-fluid navbar__inner">
 
 			<?php
@@ -21,12 +21,12 @@
 			$image = wp_get_attachment_image_src($custom_logo_id, 'full');
 			$logo_src = !empty($image) ? $image[0] : get_template_directory_uri() . '/assets/images/logo.png';
 			?>
-			<a class="navbar-brand d-flex h-100" href="<?php echo get_site_url(); ?>"><img src="<?php echo $logo_src; ?>" alt="Florish" /></a>
+			<a class="navbar-brand d-flex h-100" href="<?php echo get_site_url(); ?>"><img src="<?php echo $logo_src; ?>" alt="Florish logo" /></a>
 
 			<div class="d-flex align-items-center justify-content-end gap-3">
 
 				<div class="d-xl-none">
-					<?php require('components/button-growing-zone.php') ?>
+					<?php require('components/growing-zone/button-growing-zone.php'); ?>
 				</div>
 
 				<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
@@ -51,7 +51,7 @@
 					?>
 
 					<div class="d-none d-xl-block">
-						<?php require('components/button-growing-zone.php') ?>
+						<?php require('components/growing-zone/button-growing-zone.php'); ?>
 					</div>
 
 					<!-- Search -->
@@ -102,7 +102,7 @@
 								$items_count = WC()->cart->get_cart_contents_count();
 								$items_count = $items_count ? $items_count : '';
 								?>
-								<a href="<?php echo wc_get_cart_url() ?>" class="position-relative flex-grow-1 text-center">
+								<a href="<?php echo wc_get_cart_url() ?>" class="position-relative flex-grow-1 text-center nav-link <?php if ($items_count) echo 'text-primary'; ?>">
 									<i class="fa-solid fa-cart-shopping"></i>
 
 									<?php if ($items_count) { ?>
