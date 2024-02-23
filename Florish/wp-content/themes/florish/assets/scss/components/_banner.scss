@@ -44,11 +44,9 @@
   margin-top: 40px;
 }
 .bnr-sec .bnr-innr .img-pnl h6 {
-  font-family: "Manrope", sans-serif;
   font-size: 18px;
-  font-weight: 400;
   color: #25400c;
-  letter-spacing: .085em;
+  letter-spacing: 0.085em;
 }
 .bnr-sec .bnr-innr .img-pnl .img {
   position: relative;
@@ -66,4 +64,10 @@
   height: 155px;
   content: "";
   background: url("../images/bnr-sape.png") no-repeat left center;
+}
+
+@include media-breakpoint-down(xl) {
+  .bnr-sec .bnr-innr .txt-pnl h1 {
+    font-size: 80px;
+  }
 }

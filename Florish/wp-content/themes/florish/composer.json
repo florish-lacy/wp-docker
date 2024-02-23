@@ -1,0 +1,10 @@
+{
+  "autoload": {
+    "files": [
+      "inc/utilities.php"
+    ],
+    "psr-4": {
+      "Florish\\": "inc/"
+    }
+  }
+}

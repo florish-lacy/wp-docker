@@ -57,6 +57,7 @@ npm install
 
 The `style.css` file is located in the `wp-content/themes/florish` folder. Styles are written in SCSS in the `assets/scss` folder and compiled to CSS.
 
+#### Compiling SCSS to CSS
 Run the following commands to compile scss or watch the changes:
 
 ```sh
@@ -81,4 +82,91 @@ The [Block Element Modifier](http://getbem.com/naming/) (BEM) naming convention 
 	}
   }
 }
+
+// Example
+// .navbar__link--active
+.navbar {
+  &__link {
+	&--active {
+	  // styles...
+	}
+  }
+}
+```
+
+###### Note: Extending Bootstrap classes to WordPress
+
+Certain Wordpress functions add classes to the HTML elements. For example, the `wp_nav_menu` function adds classes to the menu items, such as `menu-item` and `menu-item-has-children`. 
+
+These classes can be used to style the menu items for variations like `hover` or marking the current page. Bootstrap uses different classes for the same purpose, so we extend the Bootstrap classes so that they apply to the WordPress classes.
+
+See `_bootstrap-extend.scss` (`Florish/wp-content/themes/florish/assets/scss/core/_bootstrap-extend.scss`) for more details.
+
+###### Note: Comment any funky SCSS tricks
+```scss
+.toggle-on-hover {
+	// .toggle-on-hover .toggle-on-hover--on
+	#{&}--on {
+		display: none;
+	}
+}
+```
+
+
+
+##### Note: Careful extending Bootstrap classes
+
+Bootstrap make liberal use of `!important` in their styles. This can cause issues when extending their classes, as the order of the classes in the compiled bootstrap CSS will determine which styles are applied. 
+
+```scss
+// This will not work as expected
+.class {
+	@extend .p-3;
+
+	&__a {
+		@extend .class;
+		@extend .p-1; // This will not work
+	}
+
+    &__b {
+		@extend .class;
+    	@extend .p-5; // This works because p-5 is defined after p-3 in the bootstrap CSS
+    }
+
+}
+
+
+
+### PHP and Composer
+
+We use composer to manage PHP resources and custom theme functions/classes. Files are stored in `Florish/wp-content/themes/florish/inc`. 
+
+- Class filenames should correspond to the Class name.
+- Files with individual functions must be added to `composer.json`
+
+After changing files in the `inc/` directory, run the following command (`composer dump-autoload`) to generate autoload files:
+
+`docker exec -w /var/www/html/wp-content/themes/florish florish-wordpress-1 composer dump-autoload`
+
+```
+<?php Florish\MyClass::myFunction() ?>
+
+// Or, for brevity, a shorter version by "use"-ing the Class first:
+
+<?php use Florish\MyClass; MyClass\myFunction(); ?>
+<?php use Florish\MyClass as CL; CL\myFunction(); ?>
+```
+
+And for functions:
+```
+<?php Florish\myFunction(); ?>
+
+// Or, shortened:
+<?php 
+
+use function Florish\myFunction;
+myFunction();
+
+?>
+
 ```

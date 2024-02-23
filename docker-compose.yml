@@ -2,46 +2,18 @@
 # Built using a combo of the following tutorials:
 #
 # https://stackoverflow.com/questions/65321295/using-volumes-in-docker-to-access-container-filesystem
+version: "3.3"
+
+volumes:
+  db_data:
+  # wp_data: # Mount the named volume. Comment this out if you want to use the bind mount
+
 services:
-  phpmyadmin:
+  wordpress:
+    # image: wordpress:latest # Uncomment to use fresh WP install. Takes precedence over `build` prop.
+    build: . # Use the Dockerfile instead of a fresh WP install.
     depends_on:
       - db
-    image: phpmyadmin
-    restart: always
-    ports:
-      - "8080:80"
-    env_file: .env
-    environment:
-      UPLOAD_LIMIT: 100000000
-      PMA_PORT: 3306
-      PMA_HOST: db
-      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
-      MYSQL_DATABASE: $MYSQL_DATABASE
-      MYSQL_USER: $MYSQL_USER
-      MYSQL_PASSWORD: $MYSQL_PASSWORD
-    # networks:
-    #   - wpsite-network
-  db:
-    # We use a mariadb image which supports both amd64 & arm64 architecture (Apple Mx chips)
-    image: mariadb:10.6.4-focal
-    # If you really want to use MySQL, uncomment the following lines and comment out the above image
-    # image: mysql:8.0.27
-    # platform: linux/amd64
-    command: "--default-authentication-plugin=mysql_native_password"
-    volumes:
-      - db_data:/var/lib/mysql
-    restart: always
-    env_file: .env
-    environment:
-      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
-      MYSQL_DATABASE: $MYSQL_DATABASE
-      MYSQL_USER: $MYSQL_USER
-      MYSQL_PASSWORD: $MYSQL_PASSWORD
-    expose:
-      - 3306
-      - 33060
-  wordpress:
-    image: wordpress:latest
 
     ports:
       - 80:80
@@ -81,6 +53,39 @@ services:
       # - ./wp-data/wp-content/uploads:/var/www/html/wp-content/uploads
       # - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
 
-volumes:
-  db_data:
-  # wp_data: # Mount the named volume. Comment this out if you want to use the bind mount
+  db:
+    # We use a mariadb image which supports both amd64 & arm64 architecture (Apple Mx chips)
+    image: mariadb:10.6.4-focal
+    # If you really want to use MySQL, uncomment the following lines and comment out the above image
+    # image: mysql:8.0.27
+    # platform: linux/amd64
+    command: "--default-authentication-plugin=mysql_native_password"
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    env_file: .env
+    environment:
+      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+      MYSQL_DATABASE: $MYSQL_DATABASE
+      MYSQL_USER: $MYSQL_USER
+      MYSQL_PASSWORD: $MYSQL_PASSWORD
+    expose:
+      - 3306
+      - 33060
+
+  phpmyadmin:
+    image: phpmyadmin
+    depends_on:
+      - db
+    ports:
+      - "8080:80"
+    restart: always
+    env_file: .env
+    environment:
+      UPLOAD_LIMIT: 100000000
+      PMA_PORT: 3306
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+      MYSQL_DATABASE: $MYSQL_DATABASE
+      MYSQL_USER: $MYSQL_USER
+      MYSQL_PASSWORD: $MYSQL_PASSWORD

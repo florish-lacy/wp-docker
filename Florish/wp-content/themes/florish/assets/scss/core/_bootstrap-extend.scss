@@ -1,0 +1,12 @@
+// Extend bootstrap classes into Wordpress classes
+
+// Menu items extend bootstrap nav items
+.menu-item {
+  & > a {
+    @extend .nav-link;
+  }
+
+  &.current-menu-item > a {
+    @extend .nav-link.active;
+  }
+}

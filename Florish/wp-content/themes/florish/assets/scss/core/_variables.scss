@@ -1,0 +1,20 @@
+// CSS variables second
+:root {
+  // Legacy
+  --theme-color: #648863;
+  --hover-color: #25400c;
+  --fade-color: #7b7b7b;
+  --black: #020202;
+  --white: #fff;
+
+  --border-color: var(--bs-gray-200);
+  // very light --primary color
+  --border-color-active: var(--bs-primary-border-subtle);
+  --border-radius: 10px;
+  --border-radius-sm: 5px;
+  --border-radius-rounded: 50px;
+
+  // Transition
+  --transition-duration: 0.25s;
+  --transition-timing-function: ease;
+}
