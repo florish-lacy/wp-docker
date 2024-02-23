@@ -2,14 +2,17 @@
 // https://getbem.com/introduction/
 
 /* ==== Header Start ==== */
-// To use a floating NAV bar, add the class "fl-nav--floating" to the body tag, and add the class "fl-nav__offset" to the first content container.
-.fl-nav--floating {
-  .fl-nav__offset {
-    padding-top: $nav-height;
-  }
-}
 
-.navbar__main {
+.fl-navbar {
+  // To use a floating NAV bar, add the class "fl-nav--floating" to the body tag, and add the class "fl-nav__offset" to the first content container.
+  // .fl-nav--floating .fl-nav__offset (from root)
+  @at-root .fl-nav--floating {
+    .fl-nav__offset {
+      padding-top: $nav-height;
+    }
+  }
+
+  // .fl-nav--floating .fl-navbar
   .fl-nav--floating & {
     position: absolute;
     top: 0;
@@ -52,11 +55,8 @@
     padding: 0.25rem 0.5rem;
     font-size: 11px;
     color: var(--black);
+    text-decoration: none;
     text-transform: capitalize;
-
-    // border: 1px solid rgba(0, 0, 0, 0.1);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius-rounded);
 
     transition: border-color var(--transition-duration)
       var(--transition-timing-function);
@@ -84,13 +84,10 @@
     }
   }
 
-  .search {
-    transition: border-color var(--transition-duration)
-      var(--transition-timing-function);
-    &:hover,
-    &:focus,
-    &:active {
-      border-color: var(--border-color-active);
+  .nav-link {
+    color: var(--bs-navbar-color);
+    &:hover {
+      color: var(--bs-navbar-hover-color);
     }
   }
 }
