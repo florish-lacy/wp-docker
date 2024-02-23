@@ -37,7 +37,7 @@
     "map": false
   },
   "scripts": {
-    "build": "npm-run-all css:compile css:prefix css:rtl php:build zip",
+    "build": "npm-run-all css:compile css:prefix css:rtl zip",
     "dev": "npm-run-all css:compile:dev watch",
     "css": "npm-run-all css:compile css:prefix css:rtl",
     "css:compile": "node-sass assets/scss/ -o ./assets/css",
