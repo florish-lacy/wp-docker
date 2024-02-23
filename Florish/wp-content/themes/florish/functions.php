@@ -8,7 +8,7 @@ if (!function_exists('florish_theme_setup')) :
 
 	/*
 	 * Florish classes and utilities - see readme #composer
-	 * Add classes in `inc/` and regenerate composer files with the following command (from docker root):
+	 * Add classes in `components/helpers/` and regenerate composer files with the following command (from docker root):
 	 *
 	 * docker exec -w /var/www/html/wp-content/themes/florish florish-wordpress-1 composer dump-autoload
 	 */

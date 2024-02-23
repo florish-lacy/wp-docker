@@ -11,6 +11,7 @@
     "@wordpress/scripts": "^27.2.0",
     "autoprefixer": "^10.4.17",
     "bootstrap": "^5.3.2",
+    "browser-sync": "^3.0.2",
     "dir-archiver": "^2.1.0",
     "node-sass": "^9.0.0",
     "npm-run-all": "^4.1.5",
@@ -36,14 +37,21 @@
     "map": false
   },
   "scripts": {
-    "bundle": "dir-archiver --src . --dest ../theme.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map yarn.lock",
-    "watch": "node-sass assets/scss/ -o ./assets/css --source-map true --output-style expanded --indent-type tab --indent-width 1 -w",
+    "build": "npm-run-all css:compile css:prefix css:rtl php:build zip",
+    "dev": "npm-run-all css:compile:dev watch",
+    "css": "npm-run-all css:compile css:prefix css:rtl",
     "css:compile": "node-sass assets/scss/ -o ./assets/css",
-    "css:rtl": "rtlcss assets/css/style.css assets/css/style-rtl.css",
-    "css:lint": "wp-scripts lint-style 'assets/scss/**/*.scss' --fix",
+    "css:compile:dev": "npm run css:compile -- --source-map true --output-style expanded --indent-type tab --indent-width 1",
+    "css:lint": "wp-scripts lint-style 'assets/css/style.css' --fix",
     "css:prefix": "postcss --replace assets/css/style.css --use autoprefixer --map",
-    "css": "npm-run-all css:compile css:prefix",
-    "js:lint": "wp-scripts lint-js 'assets/js/*.js'"
+    "css:rtl": "rtlcss assets/css/style.css assets/css/style-rtl.css",
+    "js:lint": "wp-scripts lint-js 'assets/js/*.js'",
+    "php:build": "composer dump-autoload",
+    "scss:lint": "stylelint 'assets/scss/**/*.scss' --fix",
+    "watch": "npm-run-all --parallel watch:*",
+    "watch:css": "npm run css:compile:dev -- -w",
+    "watch:sync": "browser-sync start --config bs-config.js",
+    "zip": "dir-archiver --src . --dest ../theme.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map yarn.lock"
   },
   "browserslist": [
     "last 4 versions",

@@ -7,7 +7,7 @@ namespace Composer\Autoload;
 class ComposerStaticInit11ba23e9e39f9294182c7242b015c0a3
 {
     public static $files = array (
-        '5ee8ee4c6e77895680ef0bcbd56945a2' => __DIR__ . '/../..' . '/inc/utilities.php',
+        'f288f726ee8f34884970d0225640cccd' => __DIR__ . '/../..' . '/components/helpers/utilities.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -20,7 +20,7 @@ class ComposerStaticInit11ba23e9e39f9294182c7242b015c0a3
     public static $prefixDirsPsr4 = array (
         'Florish\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/inc',
+            0 => __DIR__ . '/../..' . '/components/helpers',
         ),
     );
 
