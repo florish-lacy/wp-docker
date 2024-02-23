@@ -1,39 +1,5 @@
 <!-- Footer Start -->
 <div class="footer">
-
-	<div class="container">
-		<div class="top-pnl">
-			<h3><?php the_field('newsletters_title', 'option'); ?></h3>
-			<h6><?php the_field('newsletters_sub_title', 'option'); ?></h6>
-			<div class="newsletter-frm">
-				<?php echo do_shortcode('[gravityform id="1" title="false" description="false" ajax="true"]'); ?>
-			</div>
-		</div>
-		<div class="btm-pnl">
-			<div class="top">
-				<div class="fl-logo logo">
-					<a href="<?php echo get_site_url(); ?>">
-						<?php if (get_field('footer_logo', 'option')) { ?>
-							<img src="<?php the_field('footer_logo', 'option'); ?>" alt="" />
-						<?php } else { ?>
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" alt="" />
-						<?php } ?>
-					</a>
-				</div>
-				<div class="fot-nav">
-					<?php
-					wp_nav_menu(array(
-						'menu'  => 'Footer Menu',
-					));
-					?>
-				</div>
-			</div>
-			<div class="copyright">
-				<p><?php the_field('copyright_text', 'option'); ?></p>
-			</div>
-		</div>
-	</div>
-
 	<div class="container">
 		<footer class="py-5">
 			<div class="row mb-3">
@@ -88,6 +54,9 @@
 						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" alt="Florish logo" />
 					<?php } ?>
 				</a>
+
+				<p><?php the_field('copyright_text', 'option'); ?></p>
+
 				<ul class="list-unstyled d-flex">
 					<li class="ms-3">
 						<a class="link-body-emphasis link-offset-2-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">
