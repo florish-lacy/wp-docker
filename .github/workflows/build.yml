@@ -55,7 +55,7 @@ jobs:
           npm install
 
       - name: Compile
-        run: npm run css
+        run: npm run build
 
       # - name: Lint
       #   run: npm run css:lint
