@@ -7,14 +7,19 @@
     "Florish/wp-content/themes/florish/"
   ],
   "scripts": {
-    "start": "npm-run-all up dev",
-    "up": "docker-compose up --detach",
+    "start": "npm-run-all --parallel up dev:theme",
+    "up": "docker-compose up",
+    "detach": "docker-compose up --detach",
     "down": "docker-compose down",
     "destroy": "docker-compose down --volumes",
+    "destroy:all": "docker-compose down --volumes --rmi all",
+    "dev": "npm-run-all --parallel detach dev:theme",
+    "dev:theme": "npm run x -- dev",
+    "build": "npm-run-all --parallel build:*",
     "build:docker": "docker-compose build",
     "build:theme": "npm run x -- build",
-    "css": "npm run x -- css",
-    "dev": "npm run x -- dev",
+    "i": "npm i --prefix Florish/wp-content/themes/florish/",
+    "r": "npm run --prefix Florish/wp-content/themes/florish/",
     "x": "npm run --workspace=florish"
   },
   "devDependencies": {

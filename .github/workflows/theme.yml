@@ -1,9 +1,9 @@
-name: Test
+name: Theme
 
 on: [push, pull_request]
 
 jobs:
-  test:
+  theme:
     runs-on: ${{ matrix.os }}
     defaults:
       run:

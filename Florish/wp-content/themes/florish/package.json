@@ -10,7 +10,7 @@
   "devDependencies": {
     "@wordpress/scripts": "^27.2.0",
     "autoprefixer": "^10.4.17",
-    "bootstrap": "^5.3.2",
+    "bootstrap": "^5.3.3",
     "browser-sync": "^3.0.2",
     "dir-archiver": "^2.1.0",
     "node-sass": "^9.0.0",
