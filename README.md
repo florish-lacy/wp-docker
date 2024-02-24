@@ -1,8 +1,8 @@
 # WP Docker Setup
 
-## Setup
+## Quick Start
 
-- Install [Docker Engine](https://docs.docker.com/engine/install/) or Docker Desktop.
+- Install [Docker Engine](https://docs.docker.com/engine/install/) or Docker Desktop. Make sure Docker is running.
 
 - Clone this repo and navigate (`cd`) to the root directory.
 
@@ -15,9 +15,25 @@ MYSQL_USER=wordpress
 MYSQL_PASSWORD=wordpress
 ```
 
-- Make sure Docker is running and run the following command to start and stop the containers:
+**Run the following commands to start the containers and watch for changes to the theme files:**
 
-```bash
+```sh
+# Install dependencies
+npm install
+
+# Start the containers and watch for changes
+npm run start
+```
+
+Open your browser and navigate to `http://localhost:3000` to access the WordPress installation with BrowserSync enabled.
+
+
+
+### Docker
+
+The `docker-compose.yml` file contains the configuration for the services. The `wordpress` service uses the `wordpress:latest` image and the `db` service uses the `mysql:5.7` image.
+
+```sh
 # Start the containers
 docker-compose up -d
 
