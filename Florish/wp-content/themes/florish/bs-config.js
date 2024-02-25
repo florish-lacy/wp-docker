@@ -1,3 +1,4 @@
+const { exec } = require('child_process');
 /*
  |--------------------------------------------------------------------------
  | Browser-sync config file
@@ -17,9 +18,35 @@ module.exports = {
 	},
 	files: [
 		'*.php',
-		'components/*/**.php',
 		'assets/css/*.css',
 		'assets/js/*.js',
+		'components/**/*.php',
+		// {
+		// 	match: ['components/helpers/**/*.php'],
+		// 	fn(event, file) {
+		// 		/** Custom event handler */
+		// 		// Run an npm script calld "php:build"
+
+		// 		// Run a custom command
+		// 		exec('npm run php', function (err, stdout, stderr) {
+		// 			if (err) {
+		// 				console.error(err);
+		// 				return;
+		// 			}
+
+		// 			console.log(stdout);
+
+		// 			// // Send a message to the browser
+		// 			// bs.notify('PHP files have been compiled');
+
+		// 			// // Reload the browser
+		// 			// bs.reload();
+
+		// 			// Log the event
+		// 			console.log('PHP files have been compiled');
+		// 		});
+		// 	},
+		// },
 	],
 	watchEvents: ['change'],
 	watch: false,

@@ -48,6 +48,6 @@
   }
 
   &.current-menu-item > a {
-    @extend .nav-link.active;
+    @extend .active;
   }
 }
