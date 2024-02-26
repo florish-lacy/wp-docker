@@ -10,7 +10,6 @@ on:
 jobs:
   build-mac:
     runs-on: macos-latest
-    defaults:
     steps:
       # Make sure build is clean and no files from a previous run are re-used.
       # - name: Cleanup files before run
