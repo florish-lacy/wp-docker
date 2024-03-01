@@ -48,13 +48,13 @@
     }
   }
 
-  .growing-btn a {
+  .growing-btn button {
     display: inline-flex;
     gap: 1rem;
     align-items: center;
     padding: 0.25rem 0.5rem;
     font-size: 11px;
-    color: var(--black);
+    color: var(--dark);
     text-decoration: none;
     text-transform: capitalize;
 
@@ -84,10 +84,12 @@
     }
   }
 
-  .nav-link {
+  .nav-link,
+	.user-menu a {
     color: var(--bs-navbar-color);
     &:hover {
       color: var(--bs-navbar-hover-color);
     }
   }
+
 }

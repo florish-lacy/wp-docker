@@ -69,6 +69,7 @@
 	</div>
 </div>
 
+<?php require_once('components/growing-zone/popup-growing-zone.php'); ?>
 
 <?php require_once('components/popup-login.php'); ?>
 

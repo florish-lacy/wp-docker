@@ -1,20 +1,27 @@
-// SCSS variables first - they are used by bootstrap
 
-$nav-height: 80px;
-
-// THIS DEFINES THE BOOTSTRAP THEME: https://getbootstrap.com/docs/5.3/customize/sass/#variable-defaults
+// THIS DEFINES THE BOOTSTRAP THEME: https://getbootstrap.com/docs/5.3/customize/ sass/#variable-defaults
 // They are available as the bootstrap css variables
 // THESE OVERRIDE BOOTSTRAP DEFAULTS
 
+/* Sizing */
+
+// Navbar height
+$nav-height: 80px;
+
+// Spacing used for margins and padding
 $spacer: 1rem;
+
 
 // Change all inputs to pill shape
 // $btn-border-radius: 50px;
 // $input-border-radius: 50px;
 
-$primary: #648863;
+/* Colors */
 
+$primary: #648863;
+// $body-bg: #f5f6f2;
 $body-tertiary-bg: #f5f6f2;
+
 // $body-emphasis-color: #648863; // Some heading use
 
 $navbar-light-color: #7b7b7b;

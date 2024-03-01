@@ -66,10 +66,10 @@
 						<div class="user-menu d-flex align-items-center justify-content-center flex-grow-1">
 							<?php $current_user = wp_get_current_user(); ?>
 							<?php if (!is_user_logged_in()) { ?>
-								<a href="#login-popup" class="open-popup-link toggle-on-hover d-block p-2 flex-grow-1 text-center">
+								<button data-bs-toggle="modal" data-bs-target="#login-popup" class="toggle-on-hover nav-link d-block p-2 flex-grow-1 text-center">
 									<i class="fa-regular fa-user toggle-on-hover--off"></i>
 									<i class="fa-solid fa-user toggle-on-hover--on"></i>
-								</a>
+								</button>
 							<?php } else { ?>
 								<?php
 								$account_url = wc_get_page_permalink('myaccount');
@@ -81,11 +81,15 @@
 
 								?>
 								<div class="dropdown">
-									<a class="nav-link log-out" href="<?php echo $account_url ?>" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-										<i class="fa-solid fa-user"></i><span class="sr-only">Account Settings</span>
-									</a>
-									<ul class="dropdown-menu gap-1 p-2 rounded-3 mx-0 shadow" data-bs-theme="light">
-										<li><a class="dropdown-item rounded-2 active" href="#">My Account</a></li>
+									<button class="nav-link log-out" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+										<i class="fa-solid fa-user"></i> <span class="sr-only">Account Settings</span>
+									</button>
+									<ul class="dropdown-menu dropdown-menu-end gap-1 p-2 rounded-3 mx-0 shadow" data-bs-theme="light">
+										<li>
+											<b>
+												My Account
+											</b>
+										</li>
 										<li>
 											<hr class="dropdown-divider">
 										</li>
@@ -95,24 +99,35 @@
 							<?php } ?>
 						</div>
 
+						<?php // Hide the cart for nursery users
+						if (!wc_user_has_role($current_user, 'nursery')) { ?>
 
-						<?php if (!wc_user_has_role($current_user, 'nursery')) { ?>
-							<div class="cart d-flex align-items-center flex-grow-1">
-								<?php
-								$items_count = WC()->cart->get_cart_contents_count();
-								$items_count = $items_count ? $items_count : '';
-								?>
-								<a href="<?php echo wc_get_cart_url() ?>" class="position-relative flex-grow-1 text-center nav-link <?php if ($items_count) echo 'text-primary'; ?>">
-									<i class="fa-solid fa-cart-shopping"></i>
 
-									<?php if ($items_count) { ?>
-										<span class="cart__badge position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
-											<span id="mini-cart-count"><?php echo $items_count; ?></span>
-											<span class="visually-hidden">items in cart</span>
-										</span>
-									<?php } ?>
-								</a>
-							</div>
+							<?php if (!is_user_logged_in()) { ?>
+								<div class="cart d-flex align-items-center flex-grow-1">
+									<button data-bs-toggle="modal" data-bs-target="#login-popup" class="nav-link d-block p-2 flex-grow-1 text-center">
+										<i class="fa-solid fa-cart-shopping"></i>
+									</button>
+								</div>
+							<?php } else { ?>
+
+								<div class="cart d-flex align-items-center flex-grow-1">
+									<?php
+									$items_count = WC()->cart->get_cart_contents_count();
+									$items_count = $items_count ? $items_count : '';
+									?>
+									<a href="<?php echo wc_get_cart_url() ?>" class="position-relative flex-grow-1 text-center nav-link <?php if ($items_count) echo 'text-primary'; ?>">
+										<i class="fa-solid fa-cart-shopping"></i>
+
+										<?php if ($items_count) { ?>
+											<span class="cart__badge position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
+												<span id="mini-cart-count"><?php echo $items_count; ?></span>
+												<span class="visually-hidden">items in cart</span>
+											</span>
+										<?php } ?>
+									</a>
+								</div>
+							<?php } ?>
 						<?php } ?>
 
 

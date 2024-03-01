@@ -37,7 +37,7 @@
     "map": false
   },
   "scripts": {
-    "dev": "npm-run-all build:scss:dev watch",
+    "dev": "npm-run-all build:scss watch",
     "build": "npm-run-all build:css zip",
     "build:css": "npm-run-all build:scss:prod build:css:prefix build:css:rtl",
     "build:css:prefix": "postcss --replace assets/css/style.css --use autoprefixer --map",
@@ -51,7 +51,7 @@
     "lint:css": "wp-scripts lint-style 'assets/css/style.css' --fix",
     "lint:scss": "stylelint 'assets/scss/**/*.scss' --fix",
     "watch": "npm-run-all --parallel watch:*",
-    "watch:css": "npm run build:scss:dev -- --watch",
+    "watch:css": "npm run build:scss -- --watch",
     "watch:sync": "browser-sync start --config bs-config.js",
     "zip": "dir-archiver --src . --dest ../theme.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map yarn.lock"
   },

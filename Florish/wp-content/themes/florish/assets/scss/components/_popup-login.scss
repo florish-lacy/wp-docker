@@ -1,24 +1,15 @@
 /* ==== Login PopUp ===== */
-#login-popup,
-#view-zipcode-popup,
-#edit-market-popup {
-  position: relative;
-  width: 55%;
-  padding: 0;
-  margin: 0 auto;
-  background: var(--white);
-}
-#login-popup .lt-wrap img {
-  width: 100%;
-}
-#login-popup .rt-wrap {
-  padding: 60px 35px 0;
-}
-#login-popup .rt-wrap .nav.nav-tabs {
-  margin-bottom: 60px;
-  border: none;
-}
-#login-popup .rt-wrap .nav.nav-tabs button {
+// #login-popup,
+// #view-zipcode-popup,
+// #edit-market-popup {
+//   position: relative;
+//   width: 55%;
+//   padding: 0;
+//   margin: 0 auto;
+//   background: var(--white);
+// }
+
+#login-popup .nav.nav-tabs button {
   width: 50%;
   padding: 15px 0;
   font-size: 20px;
@@ -26,45 +17,36 @@
   color: #25400c;
   letter-spacing: 0.04em;
   background: #f4f4f4;
-  border: none;
-  border-radius: 0;
 }
-#login-popup .rt-wrap .nav-tabs .nav-link.active {
+#login-popup .nav-tabs .nav-link.active {
   color: var(--white);
   background: #648863;
   border: none;
 }
-#login-popup .rt-wrap .tab-content .input-fld {
+#login-popup .tab-content .input-fld {
   position: relative;
   margin-bottom: 25px;
 }
-#login-popup .rt-wrap .tab-content .input-fld .fa-eye-slash {
+#login-popup .tab-content .input-fld .fa-eye-slash {
   position: absolute;
-  top: 50%;
+  top: 25px;
   right: 20px;
   transform: translateY(-50%);
 }
-#login-popup .rt-wrap .tab-content .input-fld .fa-eye {
+#login-popup .tab-content .input-fld .fa-eye {
   position: absolute;
-  top: 50%;
+  top: 25px;
   right: 20px;
   transform: translateY(-50%);
 }
-#login-popup .rt-wrap .tab-content .input-fld .form-control {
-  height: 60px;
-  padding: 0 15px;
-  font-size: 15px;
-  background: transparent;
-  border: 1px solid #e1e1e1;
-  border-radius: 2px;
-}
-#login-popup .rt-wrap .tab-content .input-fld .form-control:focus {
+
+#login-popup .tab-content .input-fld .form-control:focus {
   box-shadow: none;
 }
-#login-popup .rt-wrap .tab-content .input-fld select.form-control {
+#login-popup .tab-content .input-fld select.form-control {
   background: url("../images/drpd-arro.svg") no-repeat center right 15px;
 }
-#login-popup .rt-wrap .tab-content .input-fld > label.up-lbl {
+#login-popup .tab-content .input-fld > label.up-lbl {
   position: absolute;
   top: -10px;
   left: 26px;
@@ -72,88 +54,22 @@
   font-size: 17px;
   line-height: 1.2;
   color: #787878;
-  background: var(--white);
+  background: var(--bs-body-bg);
 }
-#login-popup .rt-wrap .tab-content .input-fld label.error {
+#login-popup .tab-content .input-fld label.error {
   display: block;
   padding-top: 5px;
   font-size: 15px;
   color: red;
 }
 
-#login-popup .rt-wrap .tab-content .btn-fld {
-  margin-top: 20px;
-}
-#login-popup .rt-wrap .tab-content .btn-fld > button,
-#login-popup .rt-wrap .tab-content .btn-fld > a.nursery-reg {
-  padding: 15px 35px;
-  font-size: 18px;
-  line-height: 1.2;
-  color: var(--white);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  background: #648863;
-  border: none;
-  border-radius: 50px;
-}
-#login-popup button.mfp-close {
-  top: 10px;
-  right: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-}
-#login-popup .rt-wrap .tab-content .btn-fld > a.nursery-reg {
-  margin-left: 15px;
-  font-size: 15px;
-  color: var(--black);
-  background: #e5e3e3;
-  border: 1px solid rgba(0, 0, 0, 0.03);
-}
-
-#login-popup .rt-wrap .tab-content .tab-pane.fade.active.show {
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-  margin-top: 100px;
-}
-#login-popup .rt-wrap .tab-content .tab-pane.fade.active.show a.nursery-reg {
-  width: 60%;
-  padding: 15px 25px;
-  margin: 0 auto;
-  font-size: 17px;
-  line-height: 1.2;
-  color: var(--white);
-  text-align: center;
-  text-transform: uppercase;
-  background: #648863;
-  border: none;
-  border-radius: 50px;
-}
-#login-popup
-  .rt-wrap
-  .tab-content
-  .tab-pane.fade.active.show
-  a.nursery-reg:last-child {
-  margin-top: 20px;
-}
-
 @include media-breakpoint-down(xl) {
-  #login-popup .rt-wrap .nav.nav-tabs button {
+  #login-popup .nav.nav-tabs button {
     padding: 11px 0;
     font-size: 18px;
   }
-  #login-popup .rt-wrap .tab-content .input-fld .form-control {
-    height: 48px;
-  }
-  #login-popup .rt-wrap .tab-content .input-fld > label.up-lbl {
+
+  #login-popup .tab-content .input-fld > label.up-lbl {
     font-size: 15px;
-  }
-  #login-popup {
-    width: 65%;
   }
 }

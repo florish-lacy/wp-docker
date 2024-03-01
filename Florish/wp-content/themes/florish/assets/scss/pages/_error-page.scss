@@ -1,6 +1,11 @@
 /* ==== Error Page ==== */
+
+.name-field-error {
+  color: red;
+}
+
 .error {
-  background: #f8f8f8;
+  background: var(--bs-body-bg);
 }
 .error h2 {
   font-size: 100px;
