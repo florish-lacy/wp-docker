@@ -20,6 +20,17 @@
     left: 0;
   }
 
+  // .fl-nav--light .fl-navbar
+  .fl-nav--light & {
+    .nav-link,
+    .user-menu a {
+      color: var(--bs-body-bg);
+      &:hover {
+        color: var(--bs-tertiary-bg);
+      }
+    }
+  }
+
   .navbar-nav {
     @include media-breakpoint-down(lg) {
       font-size: 1.5rem;
@@ -85,11 +96,10 @@
   }
 
   .nav-link,
-	.user-menu a {
+  .user-menu a {
     color: var(--bs-navbar-color);
     &:hover {
       color: var(--bs-navbar-hover-color);
     }
   }
-
 }

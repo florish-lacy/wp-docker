@@ -1,5 +1,15 @@
 // Utilities
 
+/* Sizing */
+
+.fl-w-100 {
+  width: 100px;
+}
+
+.fl-aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
 /* Background */
 .bg-repeat-x {
   background-repeat: repeat-x;

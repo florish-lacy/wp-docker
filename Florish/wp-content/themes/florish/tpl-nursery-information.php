@@ -2,27 +2,38 @@
 
 <?php
 
-Florish\add_body_class('fl-nav--floating');
+// Add body class to the header: Makes the header float above the content
+// use .fl-nav__offset to give the header a top margin
+Florish\add_body_class('fl-nav--floating fl-footer--sm');
 
 get_header();
 
 ?>
 
 <div class="nursery-landing">
+
 	<!-- HERO -->
 	<div class="fl-nav__offset fl-bg-pattern bg-repeat-x bg-body-tertiary">
 		<div class="container py-6 text-center">
+			<div class="row">
 
-			<h1 class="text-body-emphasis">Where Nurture Meets Innovation in Your Nursery!</h1>
+				<h1 class="text-body-emphasis">Where Nurture Meets Innovation in Your Nursery!</h1>
 
-			<div class="col-lg-8 mx-auto py-2">
-				<p class="lead">
-					Receive sales when your doors are closed, deliver them within 7 days, increase your revenue with no marketing and website costs.
-				</p>
-			</div>
+				<div class="col-lg-8 mx-auto py-2">
+					<p class="lead">
+						Receive sales when your doors are closed, deliver them within 7 days, increase your revenue with no marketing and website costs.
+					</p>
+				</div>
 
-			<div class="">
-				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/templates/nursery-landing/section-hero.png" class="img-fluid mb-4" alt="Happy healthy plants in a row" loading="lazy">
+				<div class="d-flex justify-content-center my-3">
+					<a href="#signup" class="d-block p-2 fl-w-100">
+						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/templates/nursery-landing/button-signup.png" class="" alt="Apply now button" loading="lazy">
+					</a>
+				</div>
+
+				<div class="d-block">
+					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/templates/nursery-landing/section-hero.png" class="img-fluid mb-4" alt="Happy healthy plants in a row" loading="lazy">
+				</div>
 			</div>
 		</div>
 	</div>
@@ -141,7 +152,7 @@ get_header();
 	</div>
 
 	<!-- SIGN-UP -->
-	<div class="container px-5 px-lg-10 py-5 bg-primary fl-bg-pattern-2">
+	<div class="container px-5 px-lg-10 py-5 bg-primary fl-bg-pattern-2" id="signup">
 		<div class="row g-4 row-cols-1 row-cols-lg-3 text-white">
 			<div class="feature col d-flex flex-column align-items-start justify-content-center">
 				<h3 class="fs-2">Apply Now</h3>

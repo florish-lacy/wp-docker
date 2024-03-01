@@ -1,8 +1,8 @@
 <!-- Footer Start -->
-<div class="footer">
+<div class="fl-footer">
 	<div class="container">
 		<footer class="py-5">
-			<div class="row mb-3">
+			<div class="footer__head row mb-3">
 				<div class="col-6 col-md-2">
 					<h5>Section</h5>
 					<?php
@@ -51,7 +51,7 @@
 					<?php if (get_field('footer_logo', 'option')) { ?>
 						<img src="<?php the_field('footer_logo', 'option'); ?>" alt="Florish logo" />
 					<?php } else { ?>
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" alt="Florish logo" />
+						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/florish-logo.svg" alt="Florish logo" />
 					<?php } ?>
 				</a>
 
@@ -59,7 +59,7 @@
 
 				<ul class="list-unstyled d-flex">
 					<li class="ms-3">
-						<a class="link-body-emphasis link-offset-2-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">
+						<a class="link-body-emphasis link-offset-2-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#todo">
 							Schedule a Call
 						</a>
 					</li>
@@ -69,15 +69,15 @@
 	</div>
 </div>
 
-<?php require_once('components/growing-zone/popup-growing-zone.php'); ?>
+<?php include_once('components/growing-zone/popup-growing-zone.php'); ?>
 
-<?php require_once('components/popup-login.php'); ?>
+<?php include_once('components/popup-login.php'); ?>
 
-<?php require_once('components/popup-nursery.php'); ?>
+<?php include_once('components/popup-nursery.php'); ?>
 
-<?php require_once('components/popup-nursery-inventory.php'); ?>
+<?php include_once('components/popup-nursery-inventory.php'); ?>
 
-<?php require_once('components/popup-edit-market.php'); ?>
+<?php include_once('components/popup-edit-market.php'); ?>
 
 
 <?php wp_footer(); ?>

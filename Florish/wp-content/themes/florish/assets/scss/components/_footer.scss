@@ -1,6 +1,12 @@
 /* ==== Footers Start ==== */
-.footer {
-  background: url("../images/footerbg.jpg") no-repeat right bottom / cover;
+.fl-footer {
+  .fl-footer--sm & .footer__head {
+    display: none;
+  }
+
+  .fl-footer--img & {
+    background: url("../images/footerbg.jpg") no-repeat right bottom / cover;
+  }
 
   .menu {
     display: flex;

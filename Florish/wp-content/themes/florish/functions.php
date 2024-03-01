@@ -1714,6 +1714,12 @@ function check_plant_exists($plant_id)
 ////////Miles get
 function get_distances_miles($lat1, $lon1, $lat2, $lon2, $unit)
 {
+
+	// if not numbers, bail
+	if (!is_numeric($lat1) || !is_numeric($lon1) || !is_numeric($lat2) || !is_numeric($lon2)) {
+		return 0;
+	}
+
 	if (($lat1 == $lat2) && ($lon1 == $lon2)) {
 		return 0;
 	} else {

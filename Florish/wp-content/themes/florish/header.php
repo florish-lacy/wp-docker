@@ -19,14 +19,14 @@
 			<?php
 			$custom_logo_id = get_theme_mod('custom_logo');
 			$image = wp_get_attachment_image_src($custom_logo_id, 'full');
-			$logo_src = !empty($image) ? $image[0] : get_template_directory_uri() . '/assets/images/logo.png';
+			$logo_src = !empty($image) ? $image[0] : get_template_directory_uri() . '/assets/images/florish-logo.svg';
 			?>
-			<a class="navbar-brand d-flex h-100" href="<?php echo get_site_url(); ?>"><img src="<?php echo $logo_src; ?>" alt="Florish logo" /></a>
+			<a class="navbar-brand d-flex h-100 px-2" href="<?php echo get_site_url(); ?>"><img src="<?php echo $logo_src; ?>" alt="Florish logo" /></a>
 
 			<div class="d-flex align-items-center justify-content-end gap-3">
 
 				<div class="d-xl-none">
-					<?php require('components/growing-zone/button-growing-zone.php'); ?>
+					<?php include('components/growing-zone/button-growing-zone.php'); ?>
 				</div>
 
 				<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
@@ -51,7 +51,7 @@
 					?>
 
 					<div class="d-none d-xl-block">
-						<?php require('components/growing-zone/button-growing-zone.php'); ?>
+						<?php include('components/growing-zone/button-growing-zone.php'); ?>
 					</div>
 
 					<!-- Search -->
