@@ -1,0 +1,25 @@
+{
+  "name": "florish",
+  "version": "0.0.1",
+  "description": "Florish Co, WordPress site, theme, and MySQL database. This exists as an extension of the main package.json file, which is located in themes/florish.",
+  "license": "MIT",
+  "scripts": {
+    "start": "npm-run-all --parallel up dev:theme",
+    "up": "docker-compose up",
+    "detach": "docker-compose up --detach",
+    "down": "docker-compose down",
+    "destroy": "docker-compose down --volumes",
+    "destroy:all": "docker-compose down --volumes --rmi all",
+    "dev": "npm-run-all --parallel detach dev:theme",
+    "dev:theme": "npm run x -- dev",
+    "build": "npm-run-all --parallel build:*",
+    "build:docker": "docker-compose build",
+    "build:theme": "npm run x -- build",
+    "i": "npm install --prefix Florish/wp-content/themes/florish/",
+    "x": "npm run --prefix Florish/wp-content/themes/florish/",
+    "postinstall": "npm run i"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}
