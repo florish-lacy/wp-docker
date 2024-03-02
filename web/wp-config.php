@@ -71,7 +71,7 @@ if (file_exists(dirname(__FILE__) . '/wp-config-pantheon.php') && isset($_ENV['P
  * prefix. Only numbers, letters, and underscores please!
  */
 if (!isset($table_prefix)) {
-	$table_prefix = 'wp_';
+	$table_prefix = 'wpflris_';
 }
 
 /**
