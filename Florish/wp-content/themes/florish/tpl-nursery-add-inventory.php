@@ -41,12 +41,12 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 				</div>
 
 
-				<div class="row">
+				<div class="fl-step fl-step--done row">
 					<div class="col-2 col-lg-1 d-flex justify-content-center align-items-center">
 						<div class="fl-aspect-square w-100 p-2 rounded-circle bg-dark text-white d-flex justify-content-center align-items-center"><i class="fa-solid fa-check"></i></div>
 					</div>
 					<div class="col">
-						<div class="disabled list-group-item list-group-item-action gap-3 py-3 rounded-1" aria-current="true">
+						<div class="disabled list-group-item list-group-item-action gap-3 py-3 rounded-1">
 							<div class="d-flex gap-2 w-100 justify-content-between">
 								<div>
 									<h6 class="mb-0">Business information</h6>
@@ -63,7 +63,7 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 						<div class="fl-aspect-square w-100 p-2 rounded-circle bg-primary text-white d-flex justify-content-center align-items-center"><i class="fa-solid fa-van-shuttle"></i></div>
 					</div>
 					<div class="col">
-						<div class="active list-group-item list-group-item-action gap-3 py-3 rounded-1" aria-current="true">
+						<div class="active list-group-item list-group-item-action gap-3 py-3 rounded-1">
 							<div class="d-flex gap-2 w-100 justify-content-between">
 								<div>
 									<h6 class="mb-0">Delivery details</h6>
@@ -80,7 +80,7 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 						<div class="fl-aspect-square w-100 p-2 rounded-circle border border-primary text-primary d-flex justify-content-center align-items-center"><i class="fa-solid fa-credit-card"></i></div>
 					</div>
 					<div class="col">
-						<div class="list-group-item list-group-item-action gap-3 py-3 rounded-1" aria-current="true">
+						<div class="list-group-item list-group-item-action gap-3 py-3 rounded-1">
 							<div class="d-flex gap-2 w-100 justify-content-between">
 								<div>
 									<h6 class="mb-0">Payment</h6>
@@ -97,7 +97,7 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 						<div class="fl-aspect-square w-100 p-2 rounded-circle border border-primary text-primary d-flex justify-content-center align-items-center"><i class="fa-solid fa-file-invoice"></i></div>
 					</div>
 					<div class="col">
-						<div class="list-group-item list-group-item-action gap-3 py-3 rounded-1" aria-current="true">
+						<div class="list-group-item list-group-item-action gap-3 py-3 rounded-1">
 							<div class="d-flex gap-2 w-100 justify-content-between">
 								<div>
 									<h6 class="mb-0">Insurance and agreements</h6>
@@ -114,7 +114,7 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 						<div class="fl-aspect-square w-100 p-2 rounded-circle border border-primary text-primary d-flex justify-content-center align-items-center"><i class="fa-solid fa-seedling"></i></div>
 					</div>
 					<div class="col">
-						<div class="list-group-item list-group-item-action gap-3 py-3 rounded-1" aria-current="true">
+						<div class="list-group-item list-group-item-action gap-3 py-3 rounded-1">
 							<div class="d-flex gap-2 w-100 justify-content-between">
 								<div>
 									<h6 class="mb-0">Select your inventory</h6>
