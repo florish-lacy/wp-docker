@@ -5,18 +5,23 @@ on:
     branches:
       - Dev
       - main
-      - release
+      - live
+  pull_request:
+    branches:
+      - Dev
+      - main
+      - live
 
 jobs:
   build-mac:
     runs-on: macos-latest
     steps:
       # Make sure build is clean and no files from a previous run are re-used.
-      # - name: Cleanup files before run
-      #   run: |
-      #     rm -rf *
-      #   if: ${{ always() }}
-      #   working-directory: ./
+      - name: Cleanup files before run
+        run: |
+          rm -rf *
+        if: ${{ always() }}
+        working-directory: ./
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it.
       - name: Checkout Project
@@ -27,9 +32,13 @@ jobs:
         run: |
           sysctl -n machdep.cpu.brand_string
           vm_stat | perl -ne '/page size of (\d+)/ and $size=$1; /Pages\s+([^:]+)[^\d]+(\d+)/ and printf("%-16s % 16.2f Mi\n", "$1:", $2 * $size / 1048576);'
+          echo "Memory: $(sysctl -n hw.memsize | awk '{print $0/1073741824" GB"}')"
+          echo "Cores: $(sysctl -n hw.ncpu)"
+
       # - name: Install Tools
       #   run: |
       #     brew install jq
+
       - name: Get Node Version
         run: |
           cat .nvmrc
@@ -50,7 +59,7 @@ jobs:
           echo "npm: $(npm --version)"
           npm install
 
-      - name: Compile
+      - name: Build
         run: npm run build
 
       # - name: Lint

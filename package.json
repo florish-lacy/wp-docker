@@ -15,8 +15,8 @@
     "build": "npm-run-all --parallel build:*",
     "build:docker": "docker-compose build",
     "build:theme": "npm run x -- build",
-    "i": "npm install --prefix Florish/wp-content/themes/florish/",
-    "x": "npm run --prefix Florish/wp-content/themes/florish/",
+    "i": "npm install --prefix web/wp-content/themes/florish/",
+    "x": "npm run --prefix web/wp-content/themes/florish/",
     "postinstall": "npm run i"
   },
   "devDependencies": {
