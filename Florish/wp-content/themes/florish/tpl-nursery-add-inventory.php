@@ -39,6 +39,8 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 						</a>
 					</p>
 				</div>
+
+
 				<div class="row">
 					<div class="col-2 col-lg-1 d-flex justify-content-center align-items-center">
 						<div class="fl-aspect-square w-100 p-2 rounded-circle bg-dark text-white d-flex justify-content-center align-items-center"><i class="fa-solid fa-check"></i></div>
