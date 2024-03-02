@@ -18,15 +18,14 @@ MYSQL_PASSWORD=wordpress
 **Run the following commands to start the containers and watch for changes to the theme files:**
 
 ```sh
-# Install dependencies
+# Install dependencies in the theme and root directory
 npm install
 
-# Start the containers and watch for changes
-npm run start
+# Start the docker container and sass compiler, then watch for changes
+npm start # or `npm run dev` to run docker in the background
 ```
 
 Open your browser and navigate to `http://localhost:3000` to access the WordPress installation with BrowserSync enabled.
-
 
 
 ### Docker
@@ -55,7 +54,7 @@ docker-compose down --volumes
 
 ## Development
 
-The `wp-content` folder is mounted to the `Florish` folder. This allows you to edit the files locally and see the changes in real-time.
+The `wp-content` folder is mounted to the `web` folder. This allows you to edit the files locally and see the changes in real-time.
 
 #### Quick Start
 
@@ -75,7 +74,7 @@ The theme lives as it's own package with it's own `package.json` and `node_modul
 
 ```sh
 # These are equivalent...
-cd Florish/wp-content/themes/florish && npm run css
+cd web/wp-content/themes/florish && npm run css
 
 # ...to
 npm run css --workspace florish
@@ -141,7 +140,7 @@ Certain Wordpress functions add classes to the HTML elements. For example, the `
 
 These classes can be used to style the menu items for variations like `hover` or marking the current page. Bootstrap uses different classes for the same purpose, so we extend the Bootstrap classes so that they apply to the WordPress classes.
 
-See `_bootstrap-extend.scss` (`Florish/wp-content/themes/florish/assets/scss/core/_bootstrap-extend.scss`) for more details.
+See `_bootstrap-extend.scss` (`web/wp-content/themes/florish/assets/scss/core/_bootstrap-extend.scss`) for more details.
 
 ###### Note: Comment any funky SCSS tricks
 ```scss
@@ -180,7 +179,7 @@ Bootstrap make liberal use of `!important` in their styles. This can cause issue
 
 ### PHP and Composer
 
-We use composer to manage PHP resources and custom theme functions/classes. Files are stored in `Florish/wp-content/themes/florish/components/helpers`. 
+We use composer to manage PHP resources and custom theme functions/classes. Files are stored in `web/wp-content/themes/florish/components/helpers`. 
 
 - Class filenames should correspond to the Class name.
 - Files with individual functions must be added to `composer.json`
