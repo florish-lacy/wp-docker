@@ -26,8 +26,3 @@ jobs:
           PANTHEON_TERMINUS_MACHINE_TOKEN: ${{ secrets.PANTHEON_MACHINE_TOKEN }}
           PANTHEON_PRIVATE_KEY: ${{ secrets.PANTHEON_SSH_KEY }}
           PANTHEONENV_AUTODEPLOY: test
-
-      - name: Tag and Release
-        uses: pantheon-systems/action-autotag@v0.1.5
-        with:
-          gh-token: ${{ secrets.GITHUB_TOKEN }}
