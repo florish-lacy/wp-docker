@@ -42,7 +42,7 @@
     "build:css": "npm-run-all build:scss:prod build:css:prefix build:css:rtl",
     "build:css:prefix": "postcss --replace assets/css/style.css --use autoprefixer --map",
     "build:css:rtl": "rtlcss assets/css/style.css assets/css/style-rtl.css",
-    "build:php": "npm-run-all --continue-on-error --parallel php:build php:build:docker",
+    "build:php": "npm-run-all --continue-on-error --parallel build:php:*",
     "build:php:composer": "composer dump-autoload",
     "build:php:docker": "docker exec -w /var/www/html/wp-content/themes/florish florish-wordpress-1 composer dump-autoload",
     "build:scss": "sass assets/scss/:assets/css --load-path=node_modules",
