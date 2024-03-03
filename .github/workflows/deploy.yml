@@ -1,13 +1,14 @@
 name: Deploy to Pantheon Live
 
 permissions:
+  # Allows the tag/release to be created
   contents: write
   pull-requests: read
 
 on:
   push:
     branches:
-      - production
+      - main
 
 jobs:
   build-and-deploy:
@@ -16,11 +17,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-
-      - name: Tag and Release
-        uses: pantheon-systems/action-autotag@v0.1.5
-        with:
-          gh-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -75,3 +71,8 @@ jobs:
           # destination_directory: "wp-content/"
           # autopromote: "true"
           pantheon_env_name: ${{ github.ref_name }}
+
+      - name: Tag and Release
+        uses: pantheon-systems/action-autotag@v0.1.5
+        with:
+          gh-token: ${{ secrets.GITHUB_TOKEN }}
