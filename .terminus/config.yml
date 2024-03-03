@@ -1,0 +1,9 @@
+command:
+  auth:
+    login:
+      options:
+        email: lacy@florish.co
+  site:
+    pancakes:
+      options:
+        app: sequelace
