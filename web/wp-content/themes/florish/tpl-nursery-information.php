@@ -17,7 +17,7 @@ get_header();
 		<div class="container py-6 text-center">
 			<div class="row">
 
-				<h1 class="text-body-emphasis">Where Nurture Meets Innovation in Your Nursery!!</h1>
+				<h1 class="text-body-emphasis">Where Nurture Meets Innovation in Your Nursery!!!</h1>
 
 				<div class="col-lg-8 mx-auto py-2">
 					<p class="lead">
