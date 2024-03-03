@@ -8,7 +8,7 @@ permissions:
 on:
   push:
     branches:
-      - main
+      - production
 
 jobs:
   build-and-deploy:
@@ -56,6 +56,9 @@ jobs:
           echo "npm: $(npm --version)"
           npm install
 
+      - name: Build Composer autoload
+        run: "npm run build:composer"
+
       # - name: Install Terminus
       #   uses: pantheon-systems/terminus-github-actions@main
       #   with:
@@ -68,7 +71,6 @@ jobs:
           pantheon_site_id: "2e9073f7-3d60-43df-9f04-a0c5003f6c92"
           pantheon_machine_token: ${{ secrets.PANTHEON_MACHINE_TOKEN }}
           ssh-key: ${{ secrets.PANTHEON_SSH_KEY }}
-          # destination_directory: "wp-content/"
           # autopromote: "true"
           pantheon_env_name: ${{ github.ref_name }}
 
