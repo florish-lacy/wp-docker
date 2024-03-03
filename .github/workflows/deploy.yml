@@ -1,5 +1,9 @@
 name: Deploy to Pantheon Live
 
+permissions:
+  contents: write
+  pull-requests: read
+
 on:
   push:
     branches:
@@ -13,10 +17,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Create release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release create "$GITHUB_REF_NAME" # GITHUB_REF_NAME is the tag name in `on.push.tags` workflows
+      - name: Tag and Release
+        uses: pantheon-systems/action-autotag@v0.1.5
+        with:
+          gh-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -71,8 +75,3 @@ jobs:
           # destination_directory: "wp-content/"
           # autopromote: "true"
           pantheon_env_name: ${{ github.ref_name }}
-
-      # - name: Tag and Release
-      #   uses: pantheon-systems/action-autotag@v0.1.5
-      #   with:
-      #     gh-token: ${{ secrets.GITHUB_TOKEN }}
