@@ -1,0 +1,67 @@
+name: Deploy to Pantheon Live
+
+on:
+  push:
+    branches:
+      - production
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # This runs shivammathur/setup-php as well as the PHP Compatibility check
+      - name: Setup PHP and Run PHP Compatibility
+        uses: pantheon-systems/phpcompatibility-action@v1
+        with:
+          test-versions: 7.4-
+          paths: ${{ github.workspace }}/web/wp-content/themes/florish
+
+      - name: Install Composer
+        run: |
+          curl -sS https://getcomposer.org/installer | php
+          mv composer.phar /usr/local/bin/composer
+
+      - name: Get Node Version
+        run: |
+          cat .nvmrc
+          echo "::set-output name=nodeversion::$(cat .nvmrc)"
+        id: get-node-version
+
+      - name: Use Node.js ${{ steps.get-node-version.outputs.nodeversion }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ steps.get-node-version.outputs.nodeversion }}
+          cache: "npm"
+          cache-dependency-path: "**/package-lock.json" # THIS PATTERN did the trick for me, since I have multiple package-lock.json files in my project
+
+      - name: Install Dependencies
+        run: |
+          env
+          echo "node: $(node --version)"
+          echo "npm: $(npm --version)"
+          npm install
+
+      # - name: Install Terminus
+      #   uses: pantheon-systems/terminus-github-actions@main
+      #   with:
+      #     pantheon-machine-token: ${{ secrets.PANTHEON_MACHINE_TOKEN }}
+
+      - name: Deploy to Pantheon
+        uses: alleyinteractive/action-deploy-to-pantheon@v1
+        with:
+          pantheon_site: "florishco"
+          pantheon_site_id: "2e9073f7-3d60-43df-9f04-a0c5003f6c92"
+          pantheon_machine_token: ${{ secrets.PANTHEON_SSH_KEY }}
+          ssh_key: ${{ secrets.PANTHEON_SSH_KEY }}
+          # destination_directory: "wp-content/"
+          # autopromote: "true"
+          pantheon_env_name: ${{ github.ref_name }}
+
+      - name: Tag and Release
+        uses: pantheon-systems/action-autotag@v0.x
+        with:
+          gh-token: ${{ secrets.GITHUB_TOKEN }}

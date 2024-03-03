@@ -48,11 +48,12 @@ services:
     volumes:
       # - wp_data:/var/www/html # This is a named docker volume, you can use this OR the following bind mount
 
-      - ./web:/var/www/html
+      - ./web:/var/www/html # This is a bind mount, you can use this OR the above named volume
+      - ./uploads:/var/www/html/wp-content/uploads # Pantheon doesn't allow the wp-content/uploads folder to be in the repo, so we mount it here
+
       # - ./php:/usr/local/etc/php
       # - ./wp-data/wp-content/themes:/var/www/html/wp-content/themes
       # - ./wp-data/wp-content/plugins:/var/www/html/wp-content/plugins
-      # - ./wp-data/wp-content/uploads:/var/www/html/wp-content/uploads
       # - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
 
   db:
