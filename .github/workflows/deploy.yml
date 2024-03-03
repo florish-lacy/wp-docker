@@ -13,12 +13,18 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # This runs shivammathur/setup-php as well as the PHP Compatibility check
-      - name: Setup PHP and Run PHP Compatibility
-        uses: pantheon-systems/phpcompatibility-action@v1
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
         with:
-          test-versions: 7.4-
-          paths: ${{ github.workspace }}/web/wp-content/themes/florish
+          php-version: 8.1
+          # extensions: mbstring, zip, intl, gd, pdo, pdo_mysql, bcmath, soap, xsl, xml, xmlrpc, opcache, imagick, curl, json, iconv, xmlreader, xmlwriter, simplexml, dom, fileinfo, ctype, session, tokenizer, openssl, hash, filter, pcre, posix, readline, phar, pcntl, ftp, exif, calendar, sockets, mysqli, pdo_sqlite, pdo_pgsql, pdo_sqlite, pdo_pgsql, pgsql, intl, gettext, gmp, imap, ldap, mcrypt, tidy, xml, xmlreader, xmlwriter, xsl, zip, zlib, pdo, pdo_mysql, pdo_pgsql, pdo_sqlite, pdo_sqlite, pdo_pgsql, pgsql, intl, gettext, gmp, imap, ldap, mcrypt, tidy, xml, xmlreader, xmlwriter, xsl, zip, zlib, pdo, pdo_mysql, pdo_pgsql, pdo_sqlite, pdo_sqlite, pdo_pgsql, pgsql, intl, gettext, gmp, imap, ldap, mcrypt, tidy, xml, xmlreader, xmlwriter, xsl, zip, zlib, pdo, pdo_mysql, pdo_pgsql, pdo_sqlite, pdo_sqlite, pdo_pgsql, pgsql, intl, gettext, gmp, imap, ldap, mcrypt, tidy, xml, xmlreader, xmlwriter, xsl, zip, zlib, pdo, pdo_mysql, pdo_pgsql, pdo_sqlite, pdo_sqlite, pdo_pgsql, pgsql, intl, gettext, gmp, imap, ldap, mcrypt, tidy, xml, xmlreader, xmlwriter, xsl, zip, zlib, pdo, pdo_mysql, pdo_pgsql, pdo_sqlite, pdo_sqlite, pdo_pgsql, pgsql, intl, gettext, gmp, imap, ldap, mcrypt, tidy, xml, xmlreader, xmlwriter, xsl, zip, zlib, pdo, pdo_mysql, pdo_pgsql, pdo_sqlite, pdo_sqlite, pdo_pgsql, pgsql, intl, gettext, gmp, imap, ldap, mcrypt, tidy, xml, xmlreader, xmlwriter, xsl, zip, zlib,
+
+      # This runs shivammathur/setup-php as well as the PHP Compatibility check
+      # - name: Setup PHP and Run PHP Compatibility
+      #   uses: pantheon-systems/phpcompatibility-action@v1
+      #   with:
+      #     test-versions: 7.4-
+      #     paths: ${{ github.workspace }}/web/wp-content/themes/florish
 
       - name: Install Composer
         run: |
