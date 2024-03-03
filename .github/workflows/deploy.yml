@@ -15,7 +15,7 @@ jobs:
 
       # This runs shivammathur/setup-php as well as the PHP Compatibility check
       - name: Setup PHP and Run PHP Compatibility
-        uses: pantheon-systems/phpcompatibility-action@v1.0.0
+        uses: pantheon-systems/phpcompatibility-action@v1
         with:
           test-versions: 7.4-
           paths: ${{ github.workspace }}/web/wp-content/themes/florish
@@ -62,6 +62,6 @@ jobs:
           pantheon_env_name: ${{ github.ref_name }}
 
       - name: Tag and Release
-        uses: pantheon-systems/action-autotag@v0.x
+        uses: pantheon-systems/action-autotag@v0.1.5
         with:
           gh-token: ${{ secrets.GITHUB_TOKEN }}
