@@ -9,7 +9,6 @@ on:
   push:
     branches:
       - master
-      - production
 
 jobs:
   build-and-deploy:

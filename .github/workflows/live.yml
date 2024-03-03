@@ -1,0 +1,34 @@
+name: Deploy to Pantheon Live
+
+permissions:
+  # Allows the tag/release to be created
+  contents: write
+  pull-requests: read
+
+on:
+  push:
+    branches:
+      - production
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy to Pantheon
+        uses: lacymorrow/action-deploy-to-pantheon@develop
+        with:
+          pantheon_site: "florishco"
+          pantheon_site_id: "2e9073f7-3d60-43df-9f04-a0c5003f6c92"
+          pantheon_machine_token: ${{ secrets.PANTHEON_MACHINE_TOKEN }}
+          ssh-key: ${{ secrets.PANTHEON_SSH_KEY }}
+          autopromote: "true"
+          pantheon_env_name: ${{ github.ref_name }}
+
+      - name: Tag and Release
+        uses: pantheon-systems/action-autotag@v0.1.5
+        with:
+          gh-token: ${{ secrets.GITHUB_TOKEN }}
