@@ -8,7 +8,7 @@ permissions:
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build-and-deploy:
@@ -62,22 +62,10 @@ jobs:
       - name: Build Theme
         run: "npm run build:theme"
 
-      # - name: Install Terminus
-      #   uses: pantheon-systems/terminus-github-actions@main
+      # - name: Merge master -> uat
+      #   uses: devmasx/merge-branch@master
       #   with:
-      #     pantheon-machine-token: ${{ secrets.PANTHEON_MACHINE_TOKEN }}
-
-      - name: Deploy to Pantheon
-        uses: lacymorrow/action-deploy-to-pantheon@develop
-        with:
-          pantheon_site: "florishco"
-          pantheon_site_id: "2e9073f7-3d60-43df-9f04-a0c5003f6c92"
-          pantheon_machine_token: ${{ secrets.PANTHEON_MACHINE_TOKEN }}
-          ssh-key: ${{ secrets.PANTHEON_SSH_KEY }}
-          autopromote: "true"
-          pantheon_env_name: ${{ github.ref_name }}
-
-      - name: Tag and Release
-        uses: pantheon-systems/action-autotag@v0.1.5
-        with:
-          gh-token: ${{ secrets.GITHUB_TOKEN }}
+      #     type: now
+      #     target_branch: uat
+      #     message: Merge staging into uat
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
