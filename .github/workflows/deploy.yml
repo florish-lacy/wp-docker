@@ -15,7 +15,7 @@ jobs:
 
       # This runs shivammathur/setup-php as well as the PHP Compatibility check
       - name: Setup PHP and Run PHP Compatibility
-        uses: pantheon-systems/phpcompatibility-action@v1
+        uses: pantheon-systems/phpcompatibility-action@v1.0.0
         with:
           test-versions: 7.4-
           paths: ${{ github.workspace }}/web/wp-content/themes/florish
@@ -51,7 +51,7 @@ jobs:
       #     pantheon-machine-token: ${{ secrets.PANTHEON_MACHINE_TOKEN }}
 
       - name: Deploy to Pantheon
-        uses: alleyinteractive/action-deploy-to-pantheon@v1
+        uses: alleyinteractive/action-deploy-to-pantheon@v1.0.0
         with:
           pantheon_site: "florishco"
           pantheon_site_id: "2e9073f7-3d60-43df-9f04-a0c5003f6c92"
