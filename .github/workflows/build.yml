@@ -1,6 +1,12 @@
 name: build
 
-on: ["push", "pull_request"]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build-mac:
@@ -24,10 +30,6 @@ jobs:
           vm_stat | perl -ne '/page size of (\d+)/ and $size=$1; /Pages\s+([^:]+)[^\d]+(\d+)/ and printf("%-16s % 16.2f Mi\n", "$1:", $2 * $size / 1048576);'
           echo "Memory: $(sysctl -n hw.memsize | awk '{print $0/1073741824" GB"}')"
           echo "Cores: $(sysctl -n hw.ncpu)"
-
-      # - name: Install Tools
-      #   run: |
-      #     brew install jq
 
       - name: Get Node Version
         run: |
