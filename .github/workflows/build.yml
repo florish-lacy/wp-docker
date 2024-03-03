@@ -1,26 +1,21 @@
-name: build
+name: Deploy to Pantheon Live
+
+permissions:
+  # Allows the tag/release to be created
+  contents: write
+  pull-requests: read
 
 on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
-  build-mac:
-    runs-on: macos-latest
-    steps:
-      # Make sure build is clean and no files from a previous run are re-used.
-      - name: Cleanup files before run
-        run: |
-          rm -rf *
-        if: ${{ always() }}
-        working-directory: ./
+  build-and-deploy:
+    runs-on: ubuntu-latest
 
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it.
-      - name: Check out Git repository
+    steps:
+      - name: Checkout code
         uses: actions/checkout@v3
 
       # Check memory and cpu
@@ -30,6 +25,24 @@ jobs:
           vm_stat | perl -ne '/page size of (\d+)/ and $size=$1; /Pages\s+([^:]+)[^\d]+(\d+)/ and printf("%-16s % 16.2f Mi\n", "$1:", $2 * $size / 1048576);'
           echo "Memory: $(sysctl -n hw.memsize | awk '{print $0/1073741824" GB"}')"
           echo "Cores: $(sysctl -n hw.ncpu)"
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.1
+          # extensions: mbstring, zip, intl, gd, pdo, pdo_mysql, bcmath, soap, xsl, xml, xmlrpc, opcache, imagick, curl, json, iconv, xmlreader, xmlwriter, simplexml, dom, fileinfo, ctype, session, tokenizer, openssl, hash, filter, pcre, posix, readline, phar, pcntl, ftp, exif, calendar, sockets, mysqli, pdo_sqlite, pdo_pgsql, pdo_sqlite, pdo_pgsql, pgsql, intl, gettext, gmp, imap, ldap, mcrypt, tidy, xml, xmlreader, xmlwriter, xsl, zip, zlib, pdo, pdo_mysql, pdo_pgsql, pdo_sqlite, pdo_sqlite, pdo_pgsql, pgsql, intl, gettext, gmp, imap, ldap, mcrypt, tidy, xml, xmlreader, xmlwriter, xsl, zip, zlib, pdo, pdo_mysql, pdo_pgsql, pdo_sqlite, pdo_sqlite, pdo_pgsql, pgsql, intl, gettext, gmp, imap, ldap, mcrypt, tidy, xml, xmlreader, xmlwriter, xsl, zip, zlib, pdo, pdo_mysql, pdo_pgsql, pdo_sqlite, pdo_sqlite, pdo_pgsql, pgsql, intl, gettext, gmp, imap, ldap, mcrypt, tidy, xml, xmlreader, xmlwriter, xsl, zip, zlib, pdo, pdo_mysql, pdo_pgsql, pdo_sqlite, pdo_sqlite, pdo_pgsql, pgsql, intl, gettext, gmp, imap, ldap, mcrypt, tidy, xml, xmlreader, xmlwriter, xsl, zip, zlib, pdo, pdo_mysql, pdo_pgsql, pdo_sqlite, pdo_sqlite, pdo_pgsql, pgsql, intl, gettext, gmp, imap, ldap, mcrypt, tidy, xml, xmlreader, xmlwriter, xsl, zip, zlib, pdo, pdo_mysql, pdo_pgsql, pdo_sqlite, pdo_sqlite, pdo_pgsql, pgsql, intl, gettext, gmp, imap, ldap, mcrypt, tidy, xml, xmlreader, xmlwriter, xsl, zip, zlib,
+
+      # This runs shivammathur/setup-php as well as the PHP Compatibility check
+      # - name: Setup PHP and Run PHP Compatibility
+      #   uses: pantheon-systems/phpcompatibility-action@v1
+      #   with:
+      #     test-versions: 7.4-
+      #     paths: ${{ github.workspace }}/web/wp-content/themes/florish
+
+      - name: Install Composer
+        run: |
+          curl -sS https://getcomposer.org/installer | php
+          mv composer.phar /usr/local/bin/composer
 
       - name: Get Node Version
         run: |
@@ -42,7 +55,7 @@ jobs:
         with:
           node-version: ${{ steps.get-node-version.outputs.nodeversion }}
           cache: "npm"
-          cache-dependency-path: "**/package-lock.json" # THIS PATTERN did the trick for me.
+          cache-dependency-path: "**/package-lock.json" # THIS PATTERN did the trick for me, since I have multiple package-lock.json files in my project
 
       - name: Install Dependencies
         run: |
@@ -51,8 +64,11 @@ jobs:
           echo "npm: $(npm --version)"
           npm install
 
-      - name: Build
-        run: npm run build:theme
+      - name: Build Composer autoload
+        run: "npm run build:composer"
+
+      - name: Build Theme
+        run: "npm run build:theme"
 
       - uses: pantheon-systems/action-wporg-validator@1.0.0
         with:
