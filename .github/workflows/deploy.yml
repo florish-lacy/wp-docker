@@ -57,7 +57,7 @@ jobs:
       #     pantheon-machine-token: ${{ secrets.PANTHEON_MACHINE_TOKEN }}
 
       - name: Deploy to Pantheon
-        uses: alleyinteractive/action-deploy-to-pantheon@v1.0.0
+        uses: lacymorrow/action-deploy-to-pantheon@develop
         with:
           pantheon_site: "florishco"
           pantheon_site_id: "2e9073f7-3d60-43df-9f04-a0c5003f6c92"
