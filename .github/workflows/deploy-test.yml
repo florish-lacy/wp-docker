@@ -1,4 +1,4 @@
-name: Deploy to Pantheon Live
+name: Deploy to Pantheon Test
 
 permissions:
   # Allows the tag/release to be created
