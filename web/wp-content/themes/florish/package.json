@@ -38,7 +38,7 @@
   },
   "scripts": {
     "dev": "npm-run-all build:scss watch",
-    "build": "npm-run-all build:css zip",
+    "build": "npm-run-all build:css",
     "build:css": "npm-run-all build:scss:prod build:css:prefix build:css:rtl",
     "build:css:prefix": "postcss --replace assets/css/style.css --use autoprefixer --map",
     "build:css:rtl": "rtlcss assets/css/style.css assets/css/style-rtl.css",
