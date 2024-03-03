@@ -59,6 +59,9 @@ jobs:
       - name: Build Composer autoload
         run: "npm run build:composer"
 
+      - name: Build Theme
+        run: "npm run build:theme"
+
       # - name: Install Terminus
       #   uses: pantheon-systems/terminus-github-actions@main
       #   with:
