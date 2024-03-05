@@ -1643,8 +1643,9 @@ function check_plant_exists($plant_id){
 	 foreach ( $users as $user ) {
 		$user_id = $user->ID;
 		$user_avaliable_plant = get_user_meta( $user_id, '_avaliable_plant', true );
+		$user_avaliable_plant = unserialize($user_avaliable_plant);
 
-		if(in_array($plant_id, unserialize($user_avaliable_plant))){
+		if(is_array($user_avaliable_plant) && in_array($plant_id, $user_avaliable_plant)){
 			$check = "Yes";
 			break;
 		}

@@ -48,6 +48,8 @@ You can now start developing the theme. The theme files are located in the `wp-c
 - See the database schema and data in PHPMyAdmin at `http://localhost:8080`.
 - While running `npm start` or `npm run dev`, the BrowserSync proxy is available at `http://localhost:3000`. This will immediately update when changes are made to the theme SCSS or PHP files.
 
+> Note: Logging into the WordPress dashboard may not work on the BrowserSync proxy (`http://localhost:3000/wp-admin`). Use the `http://localhost/wp-admin` URL to login to the WordPress dashboard.
+
 
 ### Docker
 
