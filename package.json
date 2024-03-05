@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "npm-run-all detach dev:theme",
+    "stop": "npm run down",
     "up": "docker-compose up",
     "detach": "docker-compose up --detach",
     "down": "docker-compose down",

@@ -25,8 +25,13 @@ MYSQL_ROOT_PASSWORD=wordpress
 npm install
 
 # Start the docker container and sass compiler, then watch for changes
-npm start # or `npm run dev` to run docker in the background
+npm start # or `npm run dev` to run docker in the foreground
+
+# To stop the docker container
+npm run stop
 ```
+
+**Hint: to end the process, use `Ctrl + C` to stop the development server.** The docker container will continue running in the background. Use `npm run stop` to stop the docker container.
 
 > A window will open in your default browser with the BrowserSync proxy at http://localhost:3000. While developing, this URL will automatically update when changes are made to the theme files. **The first time you run the `npm start` command, the BrowserSync window may need to be refreshed after the docker container finishes building**
 
