@@ -8,9 +8,130 @@
    $status = get_user_meta( $user_id, '_member_status', true );
    $inventory_sumbit_status = get_user_meta( $user_id, '_inventory_sumbit_status', true );
    $stage_status = get_user_meta( $user_id, '_stage_status', true );
-   
+
+	// Add body class to the header: Makes the header float above the content
+	// use .fl-nav__offset to give the header a top margin
+	Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--img');
+
    ?>
 <?php get_header(); ?>
+
+<div class="nursery-onboarding-landing">
+
+	<!-- HERO -->
+	<div class="p-5 text-center bg-primary fl-bg-pattern-2 text-white text-center fl-nav__offset">
+		<div class="container py-5 ps-lg-10 mt-5">
+			<h1 class="">Congratulations!</h1>
+			<p class="col-lg-8 mx-auto lead">
+				Your application has been approved to become a Florish Nursery Partner. Complete the following setup steps to connect your inventory with florish
+			</p>
+		</div>
+	</div>
+
+	<!-- STEPS -->
+	<div class="container my-5">
+		<div class="row">
+			<div class="list-group gap-2 col-lg-8 mx-auto">
+				<div class="row">
+					<p class="col">If you have questions or would like to make changes,
+						<a class="link-underline" href="/contact">
+							contact support.
+						</a>
+					</p>
+				</div>
+
+
+				<div class="fl-step fl-step--done row">
+					<div class="col-2 col-lg-1 d-flex justify-content-center align-items-center">
+						<div class="fl-aspect-square w-100 p-2 rounded-circle bg-dark text-white d-flex justify-content-center align-items-center"><i class="fa-solid fa-check"></i></div>
+					</div>
+					<div class="col">
+						<div class="disabled list-group-item list-group-item-action gap-3 py-3 rounded-1">
+							<div class="d-flex gap-2 w-100 justify-content-between">
+								<div>
+									<h6 class="mb-0">Business information</h6>
+									<p class="mb-0 opacity-75">Some placeholder content in a paragraph.</p>
+								</div>
+								<small class="opacity-50 text-nowrap">&rsaquo;</small>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-2 col-lg-1 d-flex justify-content-center align-items-center">
+						<div class="fl-aspect-square w-100 p-2 rounded-circle bg-primary text-white d-flex justify-content-center align-items-center"><i class="fa-solid fa-van-shuttle"></i></div>
+					</div>
+					<div class="col">
+						<div class="active list-group-item list-group-item-action gap-3 py-3 rounded-1">
+							<div class="d-flex gap-2 w-100 justify-content-between">
+								<div>
+									<h6 class="mb-0">Delivery details</h6>
+									<p class="mb-0 opacity-75">Some placeholder content in a paragraph.</p>
+								</div>
+								<small class="opacity-50 text-nowrap">&rsaquo;</small>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-2 col-lg-1 d-flex justify-content-center align-items-center">
+						<div class="fl-aspect-square w-100 p-2 rounded-circle border border-primary text-primary d-flex justify-content-center align-items-center"><i class="fa-solid fa-credit-card"></i></div>
+					</div>
+					<div class="col">
+						<div class="list-group-item list-group-item-action gap-3 py-3 rounded-1">
+							<div class="d-flex gap-2 w-100 justify-content-between">
+								<div>
+									<h6 class="mb-0">Payment</h6>
+									<p class="mb-0 opacity-75">Some placeholder content in a paragraph.</p>
+								</div>
+								<small class="opacity-50 text-nowrap">&rsaquo;</small>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-2 col-lg-1 d-flex justify-content-center align-items-center">
+						<div class="fl-aspect-square w-100 p-2 rounded-circle border border-primary text-primary d-flex justify-content-center align-items-center"><i class="fa-solid fa-file-invoice"></i></div>
+					</div>
+					<div class="col">
+						<div class="list-group-item list-group-item-action gap-3 py-3 rounded-1">
+							<div class="d-flex gap-2 w-100 justify-content-between">
+								<div>
+									<h6 class="mb-0">Insurance and agreements</h6>
+									<p class="mb-0 opacity-75">Some placeholder content in a paragraph.</p>
+								</div>
+								<small class="opacity-50 text-nowrap">&rsaquo;</small>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-2 col-lg-1 d-flex justify-content-center align-items-center">
+						<div class="fl-aspect-square w-100 p-2 rounded-circle border border-primary text-primary d-flex justify-content-center align-items-center"><i class="fa-solid fa-seedling"></i></div>
+					</div>
+					<div class="col">
+						<div class="list-group-item list-group-item-action gap-3 py-3 rounded-1">
+							<div class="d-flex gap-2 w-100 justify-content-between">
+								<div>
+									<h6 class="mb-0">Select your inventory</h6>
+									<p class="mb-0 opacity-75">Some placeholder content in a paragraph.</p>
+								</div>
+								<small class="opacity-50 text-nowrap">&rsaquo;</small>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			</div><!-- END .list-group -->
+		</div>
+	</div>
+
+</div>
 <div class="flo-step-pnl">
    <div class="container">
       <div class="inn">
@@ -63,7 +184,7 @@
                                     </div>
                                     <div class="col-md-6 col-sm-12">
                                        <?php
-                                          $owner_email = get_user_meta( get_current_user_id(), '_account_owner_email', true ); 
+                                          $owner_email = get_user_meta( get_current_user_id(), '_account_owner_email', true );
                                           if(empty($owner_email)){
                                            $current_user = wp_get_current_user();
                                            $owner_email = $current_user->user_email;
@@ -120,9 +241,9 @@
                                        <div class="form-group">
                                           <label for="manager_location_1">Location Address *</label>
                                           <?php
-                                             $user_location = get_user_meta( get_current_user_id(), 'user_location', true ); 
-                                             $user_location_lat = get_user_meta( get_current_user_id(), 'user_location_lat', true ); 
-                                             $user_location_long = get_user_meta( get_current_user_id(), 'user_location_long', true ); 
+                                             $user_location = get_user_meta( get_current_user_id(), 'user_location', true );
+                                             $user_location_lat = get_user_meta( get_current_user_id(), 'user_location_lat', true );
+                                             $user_location_long = get_user_meta( get_current_user_id(), 'user_location_long', true );
                                              ?>
                                           <input id="manager_location_1" type="text" name="manager_location_1"
                                              value="<?php echo $user_location; ?>" class="form-control"
@@ -164,7 +285,7 @@
                                              class="form-control" placeholder="Nursery Manager Full Name *" required>
                                        </div>
                                     </div>
-                                   
+
                                     <div class="col-md-6 col-sm-12">
                                        <div class="form-group">
                                           <label for="manager_phone_number_1">Nursery Manager Direct Number?</label>
@@ -269,24 +390,24 @@
                                                             name="delivery_days_sunday_morning" id="delivery_days_sunday_morning" type="checkbox"
                                                             value="Morning" required>
                                                    <label for="delivery_days_sunday_morning">Morning</label>
-                                                         
+
                                                    </li>
                                                    <li>
                                                    <input class=""
                                                             name="delivery_days_sunday_afternoon" id="delivery_days_sunday_afternoon" type="checkbox"
                                                             value="Afternoon" required>
                                                    <label for="delivery_days_sunday_afternoon">Afternoon</label>
-                                                        
+
                                                    </li>
                                                    <li>
                                                    <input class=""
                                                             name="delivery_days_sunday_evening" id="delivery_days_sunday_evening" type="checkbox"
                                                             value="Evening" required>
                                                    <label for="delivery_days_sunday_evening">Evening</label>
-                                                       
+
                                                    </li>
                                                 </ul>
-                                               
+
                                              </div>
                                           </div>
                                           <div class="days monday-div">
@@ -300,21 +421,21 @@
                                                             name="delivery_days_monday_morning" id="delivery_days_monday_morning" type="checkbox"
                                                             value="Morning" required>
                                                    <label for="delivery_days_monday_morning">Morning</label>
-                                                         
+
                                                    </li>
                                                    <li>
                                                    <input class=""
                                                             name="delivery_days_monday_afternoon" id="delivery_days_monday_afternoon" type="checkbox"
                                                             value="Afternoon" required>
                                                    <label for="delivery_days_monday_afternoon">Afternoon</label>
-                                                       
+
                                                    </li>
                                                    <li>
                                                    <input class=""
                                                             name="delivery_days_monday_evening" id="delivery_days_monday_evening" type="checkbox"
                                                             value="Evening" required>
                                                      <label for="delivery_days_monday_evening">Evening</label>
-                                                        
+
                                                    </li>
                                                 </ul>
                                              </div>
@@ -330,21 +451,21 @@
                                                             name="delivery_days_tuesday_morning" id="delivery_days_tuesday_morning" type="checkbox"
                                                             value="Morning" required>
                                                    <label for="delivery_days_tuesday_morning">Morning</label>
-                                                        
+
                                                    </li>
                                                    <li>
                                                    <input class=""
                                                             name="delivery_days_tuesday_afternoon" id="delivery_days_tuesday_afternoon" type="checkbox"
                                                             value="Afternoon" required>
                                                    <label for="delivery_days_tuesday_afternoon">Afternoon</label>
-                                                        
+
                                                    </li>
                                                    <li>
                                                    <input class=""
                                                             name="delivery_days_tuesday_evening" id="delivery_days_tuesday_evening" type="checkbox"
                                                             value="Evening" required>
                                                    <label for="delivery_days_tuesday_evening">Evening</label>
-                                                         
+
                                                    </li>
                                                 </ul>
                                              </div>
@@ -360,21 +481,21 @@
                                                             name="delivery_days_wednesday_morning"
                                                             type="checkbox" value="Morning" id="delivery_days_wednesday_morning" required>
                                                    <label for="delivery_days_wednesday_morning">Morning</label>
-                                                        
+
                                                    </li>
                                                    <li>
                                                    <input class=""
                                                             name="delivery_days_wednesday_afternoon" id="delivery_days_wednesday_afternoon" type="checkbox"
                                                             value="Afternoon" required>
                                                    <label for="delivery_days_wednesday_afternoon">Afternoon</label>
-                                                         
+
                                                    </li>
                                                    <li>
                                                    <input class=""
                                                             name="delivery_days_wednesday_evening" id="delivery_days_wednesday_evening" type="checkbox"
                                                             value="Evening" required>
                                                    <label for="delivery_days_wednesday_evening">Evening</label>
-                                                        
+
                                                    </li>
                                                 </ul>
                                              </div>
@@ -390,21 +511,21 @@
                                                             name="delivery_days_thursday_morning" id="delivery_days_thursday_morning" type="checkbox"
                                                             value="Morning" required>
                                                    <label for="delivery_days_thursday_morning">Morning</label>
-                                                       
+
                                                    </li>
                                                    <li>
                                                    <input class=""
                                                             name="delivery_days_thursday_afternoon" id="delivery_days_thursday_afternoon" type="checkbox"
                                                             value="Afternoon" required>
                                                    <label for="delivery_days_thursday_afternoon">Afternoon</label>
-                                                         
+
                                                    </li>
                                                    <li>
                                                    <input class=""
                                                             name="delivery_days_thursday_evening" id="delivery_days_thursday_evening" type="checkbox"
                                                             value="Evening" required>
                                                    <label for="delivery_days_thursday_evening">Evening</label>
-                                                        
+
                                                    </li>
                                                 </ul>
                                              </div>
@@ -420,21 +541,21 @@
                                                             name="delivery_days_friday_morning" id="delivery_days_friday_morning" type="checkbox"
                                                             value="Morning" required>
                                                    <label for="delivery_days_friday_morning">Morning</label>
-                                                         
+
                                                    </li>
                                                    <li>
                                                    <input class=""
                                                             name="delivery_days_friday_afternoon" id="delivery_days_friday_afternoon" type="checkbox"
                                                             value="Afternoon" required>
                                                    <label for="delivery_days_friday_afternoon">Afternoon</label>
-                                                         
+
                                                    </li>
                                                    <li>
                                                    <input class=""
                                                             name="delivery_days_friday_evening" id="delivery_days_friday_evening" type="checkbox"
                                                             value="Evening" required>
                                                     <label for="delivery_days_friday_evening">Evening</label>
-                                                        
+
                                                    </li>
                                                 </ul>
                                              </div>
@@ -487,7 +608,7 @@
                                     <div class="col-md-12 col-sm-12">
                                       <ul class="acflch_box">
                                        <li>
-                                      
+
                                        <input class="" name="insurance_file_caption" id="insurance_file_caption" type="checkbox" value="Yes">
                                        <label for="insurance_file_caption">Caption here</label>
                                        </li>
@@ -519,7 +640,7 @@
                               </a>
                               <div class="add_new_plants accordion-content">
                                  <div class="row">
-                                    <?php 
+                                    <?php
                                        $args = array(
                                                'posts_per_page' => -1,
                                                'post_type' => 'product',
@@ -534,12 +655,12 @@
                                                ),
                                            );
                                            $products = new WP_Query( $args );
-                                           if($products->have_posts()) : 
+                                           if($products->have_posts()) :
                                            while ( $products->have_posts() ) : $products->the_post();
                                            $user_avaliable_plant = get_user_meta( get_current_user_id(), '_avaliable_plant', true );
                                            $plant_id = get_the_ID();
                                            $product = wc_get_product($plant_id);
-                                           $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); 
+                                           $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
                                            $image = wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID() ), 'single-post-thumbnail' );
                                            if ( $product->is_type( 'variable' ) ) {
                                            $available_variations = $product->get_available_variations();
@@ -556,7 +677,7 @@
                                                $field_add = '_nursery_product_plant_variation_add_'.get_current_user_id();
                                                $field_price = '_nursery_product_plant_variation_retail_price_'.get_current_user_id();
                                                $field_status = '_nursery_product_plant_variation_status_'.get_current_user_id();
-                                       
+
                                                //update_post_meta( $varible_id, $field_status , '' );
                                                $select_product_pot_status = get_post_meta( $varible_id, $field_status, true );
                                                $select_product_pot_add = get_post_meta( $varible_id, $field_add, true );
@@ -588,13 +709,13 @@
                                              href="javascript:void(0)">Add More Sizes</a>
                                        </div>
                                     </div>
-                                    <?php 
+                                    <?php
                                        }
-                                       
+
                                        }
                                        }
-                                       
-                                       endwhile; 
+
+                                       endwhile;
                                        endif;
                                        wp_reset_postdata();
                                        ?>
@@ -626,7 +747,7 @@
                                             <label class="" for="sign_agrements_3">Click to sign Vendor Agreement 3</label>
                                         </div>
                                     </div>
-                                 
+
                                  </div>
                                  </div> -->
                               <div class="col-md-2 col-sm-6">
@@ -651,7 +772,7 @@
          <h4><u>Welcome to the Florish Nursery Dashboard. Control your inventory below:</u></h4>
          <div class="add_new_plants">
             <div class="row">
-               <?php 
+               <?php
                   $args = array(
                         'posts_per_page' => -1,
                         'post_type' => 'product',
@@ -666,12 +787,12 @@
                         ),
                     );
                     $products = new WP_Query( $args );
-                    if($products->have_posts()) : 
+                    if($products->have_posts()) :
                     while ( $products->have_posts() ) : $products->the_post();
                     $user_avaliable_plant = get_user_meta( get_current_user_id(), '_avaliable_plant', true );
                     $plant_id = get_the_ID();
                     $product = wc_get_product($plant_id);
-                    $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); 
+                    $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
                     $image = wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID() ), 'single-post-thumbnail' );
                     if ( $product->is_type( 'variable' ) ) {
                     $available_variations = $product->get_available_variations();
@@ -687,7 +808,7 @@
                         //echo $pa_pot_size_term_name = $pa_pot_size_term->term_id;
                         $field_status = '_nursery_product_plant_variation_status_'.get_current_user_id();
                         $field_price = '_nursery_product_plant_variation_retail_price_'.get_current_user_id();
-                  
+
                         //update_post_meta( $varible_id, $field_status , '' );
                         $select_product_pot_size = get_post_meta( $varible_id, $field_status, true );
                         $select_product_pot_size_price = get_post_meta( $varible_id, $field_price, true );
@@ -714,13 +835,13 @@
                         href="javascript:void(0)">Add More Sizes</a>
                   </div>
                </div>
-               <?php 
+               <?php
                   }
-                        
+
                   }
                   }
-                  
-                  endwhile; 
+
+                  endwhile;
                   endif;
                   wp_reset_postdata();
                   ?>
@@ -731,140 +852,7 @@
    </div>
 </div>
 </div>
-<div class="faq">
-   <div class="container">
-      <h3>Frequently asked questions</h3>
-      <div class="accordion" id="accordionExample">
-         <div class="accordion-item">
-            <h2 class="accordion-header" id="headingOne">
-               <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-               What is the process to become a Florish Nursery Partner?
-               </button>
-            </h2>
-            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
-               data-bs-parent="#accordionExample">
-               <div class="accordion-body">
-                  <ul>
-                     <li>
-                        <p>Complete initial application on Florish.co/NurseryPartner</p>
-                     </li>
-                     <li>
-                        <p>Florish will approve or deny your application.</p>
-                     </li>
-                     <li>
-                        <p>Review our curated list of plants; select which plants and sizes you wish to offer on
-                           the Florish Marketplace
-                           Complete your profile.
-                        </p>
-                     </li>
-                     <li>
-                        <p>Florish will make one final approval step and set your nursery to be live on the
-                           Florish Marketplace!
-                        </p>
-                     </li>
-                  </ul>
-                  <p><strong>Note:</strong> you will have the opportunity to schedule a call with our team at
-                     every step in this process.
-                  </p>
-               </div>
-            </div>
-         </div>
-         <div class="accordion-item">
-            <h2 class="accordion-header" id="headingTwo">
-               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-               How do delivery fees work?
-               </button>
-            </h2>
-            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-               data-bs-parent="#accordionExample">
-               <div class="accordion-body">
-                  <p>Florish maintains different delivery tiers, depending on geographical location and regional
-                     density. We measure between your location and the customer's delivery address which go into
-                     3 tiers; tier 1 (0-4.99 miles), tier 2 (0-9.99 miles) and tier 3 (0-15). Upon onboarding,
-                     you can review the specific rates for your region, which are paid through to Nursery
-                     Partners.
-                  </p>
-               </div>
-            </div>
-         </div>
-         <div class="accordion-item">
-            <h2 class="accordion-header" id="headingThree">
-               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-               We only want to do deliveries inside of 5 miles, is that possible?
-               </button>
-            </h2>
-            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-               data-bs-parent="#accordionExample">
-               <div class="accordion-body">
-                  <p> Yes, you select the delivery radius you're comfortable with.</p>
-               </div>
-            </div>
-         </div>
-         <div class="accordion-item">
-            <h2 class="accordion-header" id="headingFour">
-               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-               Are there any fees to be a nursery partner? Do we have to manage our inventory?
-               </button>
-            </h2>
-            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
-               data-bs-parent="#accordionExample">
-               <div class="accordion-body">
-                  <p> There are no fees to have an account, it’s free. Florish has set pricing we pay through to
-                     you for each item/size you fulfill, which you will see and confirm during on-boarding. We do
-                     need your assistance during the onboarding process, which is usually a 30-minute process --
-                     after that you only need to confirm and deliver orders in the Florish vendor portal. If you
-                     wish to discontinue an item or ran out of stock, you will be able to reflect that in your
-                     vendor portal (immediate action must be taken unless you will replenish inside your delivery
-                     window).
-                  </p>
-               </div>
-            </div>
-         </div>
-         <div class="accordion-item">
-            <h2 class="accordion-header" id="headingFive">
-               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-               Can you walk through an example of a typical order process?
-               </button>
-            </h2>
-            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
-               data-bs-parent="#accordionExample">
-               <div class="accordion-body">
-                  <p> A customer comes to the Florish Marketplace. They are located within your delivery radius.
-                     They are then paired to your nursery and can shop from all the plants you've elected to
-                     fulfill through Florish. They purchase a variety of plants and sizes. We notify you of the
-                     order (via email and through our vendor portal) - you claim the order (on same business day)
-                     by setting the delivery date (delivery within 5 days). You prepare and deliver the order,
-                     mark as "delivered", and the funds are deposited to your bank account on file.
-                  </p>
-               </div>
-            </div>
-         </div>
-         <div class="accordion-item">
-            <h2 class="accordion-header" id="headingSix">
-               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-               Can Florish run sales or promotions? How does that impact the revenue our nursery receives?
-               </button>
-            </h2>
-            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
-               data-bs-parent="#accordionExample">
-               <div class="accordion-body">
-                  <p> Yes, Florish can run sales or promotions. No, that will not impact what you receive. If you
-                     agree to fulfill a particular item for $90, you will receive $90 for every one you deliver,
-                     regardless of it's Florish Retail Price.
-                  </p>
-               </div>
-            </div>
-         </div>
-      </div>
-      <div class="schedule-call">
-         <a href="#">Sehedule a call</a>
-      </div>
-   </div>
-</div>
+
+<?php include('components/sections/faq.php') ?>
+
 <?php get_footer(); ?>

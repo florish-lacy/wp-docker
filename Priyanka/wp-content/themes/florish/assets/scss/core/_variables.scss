@@ -1,0 +1,15 @@
+// CSS variables second
+:root {
+  // Legacy
+  --theme-color: #648863;
+  --hover-color: #25400c;
+  --fade-color: #7b7b7b;
+  --black: #020202;
+  --white: #fff;
+
+  --border-color: var(--bs-border-color);
+
+  // Transition
+  --transition-duration: 0.25s;
+  --transition-timing-function: ease;
+}

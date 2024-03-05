@@ -1,0 +1,86 @@
+/* ==== About Start ======= */
+.hm-about {
+  background: url("../images/hm-ab-back.png") no-repeat left bottom;
+  background-size: cover;
+}
+.hm-about .container {
+  position: relative;
+}
+.hm-about .text-wrap {
+  padding-top: 150px;
+}
+.hm-about .text-wrap h6 {
+  display: inline-block;
+  padding: 8px 20px 10px 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--theme-color);
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  background: url("../images/about-sape.svg") no-repeat right top;
+  background-size: 50px;
+}
+.hm-about .text-wrap h2 {
+  margin-bottom: 60px;
+  color: #25400c;
+}
+.hm-about .text-wrap h2 span {
+  display: block;
+}
+.hm-about .img-info img {
+  width: 100%;
+}
+.hm-about .icon-wrapper {
+  position: absolute;
+  right: 0;
+  bottom: 100px;
+  left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  padding: 48px 62px;
+  background: rgba(255, 255, 255, 0.95);
+  -webkit-backdrop-filter: blur(10px); /* For Safari 9+, iOS Safari 9+ */
+  backdrop-filter: blur(10px);
+  border-radius: 2px;
+}
+.hm-about .icon-wrapper .box {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 33.33%;
+}
+.hm-about .icon-wrapper .box .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 105px;
+  height: 105px;
+  border: 1px solid rgba(231, 231, 231, 1);
+  border-radius: 50%;
+}
+.hm-about .icon-wrapper .box .text {
+  width: calc(100% - 105px);
+  padding-left: 25px;
+}
+.hm-about .icon-wrapper .box .text h5 {
+  font-size: 22px;
+  color: #25400c;
+  letter-spacing: 0.02em;
+}
+.hm-about .icon-wrapper .box .text p {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--fade-color);
+  letter-spacing: 0.02em;
+}
+
+@include media-breakpoint-down(xl) {
+  .hm-about .text-wrap {
+    padding-top: 80px;
+  }
+  .hm-about .text-wrap h2 {
+    font-size: 55px;
+  }
+}

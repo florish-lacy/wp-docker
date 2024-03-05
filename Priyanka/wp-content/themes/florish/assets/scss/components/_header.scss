@@ -1,0 +1,105 @@
+// BEM SYNTAX
+// https://getbem.com/introduction/
+
+/* ==== Header Start ==== */
+
+.fl-navbar {
+  // To use a floating NAV bar, add the class "fl-nav--floating" to the body tag, and add the class "fl-nav__offset" to the first content container.
+  // .fl-nav--floating .fl-nav__offset (from root)
+  @at-root .fl-nav--floating {
+    .fl-nav__offset {
+      padding-top: $nav-height;
+    }
+  }
+
+  // .fl-nav--floating .fl-navbar
+  .fl-nav--floating & {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+  }
+
+  // .fl-nav--light .fl-navbar
+  .fl-nav--light & {
+    .nav-link,
+    .user-menu a {
+      color: var(--bs-body-bg);
+      &:hover {
+        color: var(--bs-tertiary-bg);
+      }
+    }
+  }
+
+  .navbar-nav {
+    @include media-breakpoint-down(lg) {
+      font-size: 1.5rem;
+    }
+  }
+
+  .navbar__inner {
+    height: $nav-height;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.5rem 1rem;
+  }
+
+  .navbar-toggler {
+    border-color: var(--border-color);
+
+    transition: border-color var(--transition-duration)
+      var(--transition-timing-function);
+    &:hover,
+    &:focus,
+    &:active {
+      border-color: var(--border-color-active);
+    }
+  }
+
+  .growing-btn button {
+    display: inline-flex;
+    gap: 1rem;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+    font-size: 11px;
+    color: var(--dark);
+    text-decoration: none;
+    text-transform: capitalize;
+
+    transition: border-color var(--transition-duration)
+      var(--transition-timing-function);
+    &:hover,
+    &:focus,
+    &:active {
+      border-color: var(--border-color-active);
+    }
+
+    &::after {
+      font-family: "fontawesome";
+      font-size: 13px;
+      color: var(--gray-700);
+      content: "\f107";
+    }
+    &::before {
+      font-family: "fontawesome";
+      font-size: 17px;
+      color: var(--bs-primary);
+      content: "\f3c5";
+    }
+
+    span {
+      line-height: 1.2;
+    }
+  }
+
+  .nav-link,
+  .user-menu a {
+    color: var(--bs-navbar-color);
+    &:hover {
+      color: var(--bs-navbar-hover-color);
+    }
+  }
+}

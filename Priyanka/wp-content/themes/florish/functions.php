@@ -1,18 +1,21 @@
 <?php
 /**
- * Florish functions and definitions  
+ * Florish functions and definitions
  *
  */
-if ( ! function_exists( 'florish_theme_setup' ) ) : 
+if ( ! function_exists( 'florish_theme_setup' ) ) :
+
+require get_template_directory() . '/vendor/autoload.php';
+
 function florish_theme_setup() {
-    
+
     //Woocokomerce
 	add_theme_support( 'woocommerce' );
 
 	add_theme_support( 'wc-product-gallery-zoom' );
 	add_theme_support( 'wc-product-gallery-lightbox' );
 	add_theme_support( 'wc-product-gallery-slider' );
-	 
+
 	/*
 	 * Let WordPress manage the document title.
 	 */
@@ -67,7 +70,7 @@ function florish_widgets_init() {
 		'before_title'  => '',
 		'after_title'   => '',
 	) );
-	
+
 
 }
 add_action( 'widgets_init', 'florish_widgets_init' );
@@ -78,20 +81,24 @@ add_action( 'widgets_init', 'florish_widgets_init' );
 /**
  * Enqueue scripts and styles.
  */
-function florish_scripts() {
-     //bootstrap css include
-	 wp_enqueue_style( 'florish-bootstrap-min', get_template_directory_uri() . '/assets/css/bootstrap.min.css', array() );
+function florish_scripts()
+{
+
+
+	// Load our main theme stylesheet.
+	// wp_enqueue_style('florish-style', get_stylesheet_uri()); // style.css
+	wp_enqueue_style('florish-style', get_template_directory_uri() . '/assets/css/style.css'); // style.css
 
     //bootstrap toggle css include
 	 //wp_enqueue_style( 'florish-bootstrap-toggle-style', 'https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css', array() );
 	 wp_enqueue_style( 'florish-bootstrap-toggle-style', 'https://cdn.jsdelivr.net/npm/bootstrap5-toggle@5.0.4/css/bootstrap5-toggle.min.css', array() );
-	 
+
 	 //fontawesome include
 	 wp_enqueue_style( 'florish-fontawesome-all-css', get_template_directory_uri() . '/assets/fontawesome/css/all.css', array() );
 
 	 //magnific style
 	 wp_enqueue_style( 'florish-magnific-popup-css', get_template_directory_uri() . '/assets/css/magnific-popup.css', array() );
-	 
+
 	 //slick include
 	 wp_enqueue_style( 'florish-slick-style', get_template_directory_uri() . '/assets/css/slick.css', array() );
      wp_enqueue_style( 'florish-slick-theme-style', get_template_directory_uri() . '/assets/css/slick-theme.css', array() );
@@ -99,16 +106,10 @@ function florish_scripts() {
 	 //aos include
 	 wp_enqueue_style( 'florish-aos-theme-style', get_template_directory_uri() . '/assets/css/aos.css', array() );
 
-     //Theme main custom style
-     wp_enqueue_style( 'florish-main-style', get_template_directory_uri() . '/assets/css/style.css', array() );
-
-	// Load our main stylesheet.
-	wp_enqueue_style( 'florish-style', get_stylesheet_uri() );
-
 
     //bootstrap min js
 	wp_enqueue_script( 'florish-bootstrap-script', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array( 'jquery' ), '20151811', true );
-	
+
 	//bootstrap bootstrap-toggle
 	//wp_enqueue_script( 'florish-bootstrap-toggle-script',  'https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js', array( 'jquery' ), '20151811', true );
 	wp_enqueue_script( 'florish-bootstrap-toggle-script',  'https://cdn.jsdelivr.net/npm/bootstrap5-toggle@5.0.4/js/bootstrap5-toggle.jquery.min.js', array( 'jquery' ), '20151811', true );
@@ -118,10 +119,10 @@ function florish_scripts() {
 
 	//theme aos js
 	wp_enqueue_script( 'florish-aos-script', get_template_directory_uri() . '/assets/js/aos.js', array( 'jquery' ), '20151811', true );
-    
+
 	///magnific popup js
 	wp_enqueue_script( 'florish-magnific-popup-js', get_template_directory_uri() . '/assets/js/jquery.magnific-popup.js', array( 'jquery' ), '20151811', true );
-    
+
 	///validate js
 	wp_enqueue_script( 'florish-jquery-validate', 'https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js', array( 'jquery' ), '20151811', true );
 	wp_enqueue_script( 'florish-jquery-validate-aditional', 'https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js', array( 'jquery' ), '20151811', true );
@@ -136,7 +137,7 @@ function florish_scripts() {
    ///jquery cookie js
    wp_enqueue_script( 'florish-jquery-cookie-js', get_template_directory_uri() . '/assets/js/jquery.cookie.js', array( 'jquery' ), '204641811', true );
 
-  
+
    ///map js
   wp_enqueue_script( 'florish-map-place-js', get_template_directory_uri() . '/assets/js/map.js', array( 'jquery' ), '20468768711', true );
 
@@ -153,23 +154,23 @@ add_action( 'wp_enqueue_scripts', 'florish_scripts' );
 
 /////////////CUSTOMIZER REGISTER START////////////////
 function sorciere_social_share_customize_register($wp_customize){
-     
+
     $wp_customize->add_section('sorciere_social_share', array(
-        'title'    => __('Social Links', 'sorciere'),  
+        'title'    => __('Social Links', 'sorciere'),
         'description' => '',
         'priority' => 120,
     ));
 
 
-  
+
     ////////////Facebook///////////////
     $wp_customize->add_setting('sorciere_facebook_links', array(
         'default'        => '',
         'capability'     => 'edit_theme_options',
         'type'           => 'theme_mod',
-  
+
     ));
-  
+
     $wp_customize->add_control('sorciere_facebook_links', array(
         'label'      => __('Facebook', 'sorciere'),
         'section'    => 'sorciere_social_share',
@@ -221,13 +222,13 @@ function sorciere_social_share_customize_register($wp_customize){
 	));
 
 }
-  
+
 add_action('customize_register', 'sorciere_social_share_customize_register');
 
 
 // Footer Option Page create...........
 if( function_exists('acf_add_options_page') ) {
-	
+
 	acf_add_options_page(array(
 		'page_title' 	=> 'Header & Footer Option Block',
 		'menu_title'	=> 'Header & Footer Option',
@@ -254,7 +255,7 @@ function change_role_name() {
 
     //You can replace "administrator" with any other role "editor", "author", "contributor" or "subscriber"...
     $wp_roles->roles['nursery']['name'] = 'Vendor';
-    $wp_roles->role_names['nursery'] = 'Vendor';           
+    $wp_roles->role_names['nursery'] = 'Vendor';
 }
 add_action('init', 'change_role_name');
 
@@ -263,7 +264,7 @@ function remove_admin_bar() {
   if (!current_user_can('administrator') && !is_admin()) {
     show_admin_bar(false);
   }
-  
+
 }
 /////////////CUSTOMIZER REGISTER END////////////////
 
@@ -271,8 +272,8 @@ function remove_admin_bar() {
 
 /////////////USER REGISTRATION ACCOUT ACTIVATION////////////////
 function email_activation_msg_nocache() {
-	$code = filter_input( INPUT_GET, 'keys'); 
-	if($code){ 
+	$code = filter_input( INPUT_GET, 'keys');
+	if($code){
 
 		$act_users = get_users( array(
 			"meta_key" => "code_to_be_activated",
@@ -286,15 +287,15 @@ function email_activation_msg_nocache() {
 			$status = get_user_meta( $user_id, '_member_status', true );
 			$code = get_user_meta( $user_id, 'code_to_be_activated', true );
 			if($code && $status == 'inactive'){
-				update_user_meta( $user_id, '_member_status', 'active' );	
-				delete_user_meta( $user_id, 'code_to_be_activated' ); 
+				update_user_meta( $user_id, '_member_status', 'active' );
+				delete_user_meta( $user_id, 'code_to_be_activated' );
 			}
 			echo '<div class="alert alert-success" role="alert">Your account is now activated.</div>';
-			
+
 		}else{
 			echo '<div class="alert alert-danger" role="alert">Invalid activation code / your account has been activated.</div>';
 		}
-	} 
+	}
 }
 add_action('wp_head', 'email_activation_msg_nocache');
 
@@ -305,10 +306,10 @@ function user_ajax_register(){
     // First check the nonce, if it fails the function will break
     //check_ajax_referer( 'ajax-register-nonce', 'security' );
 
-    //Step 1 
+    //Step 1
 	$user_role  = $_POST['user_role'];
 	$first_name  =  $_POST['first_name'];
-	
+
 	 $last_name  = $_POST['last_name'];
 
 	 $email  = $_POST['email'];
@@ -327,12 +328,12 @@ function user_ajax_register(){
     $info['user_pass'] = sanitize_text_field( $password );
 	$info['user_email'] = sanitize_email( $email );
 	$info['role'] = $user_role;
-	
+
 	// Register the user
     $user_register = wp_insert_user( $info );
- 	if ( is_wp_error($user_register) ){	
+ 	if ( is_wp_error($user_register) ){
 		$error  = $user_register->get_error_codes();
-		
+
 		if(in_array('empty_user_login', $error)){
 
 			echo json_encode(array('error'=>true, 'message'=>__($user_register->get_error_message('empty_user_login'))));
@@ -349,13 +350,13 @@ function user_ajax_register(){
     } else {
 
 		 $user_id = $user_register;
-   
-	     update_user_meta( $user_id, 'user_location', $user_location );  
-		 update_user_meta( $user_id, 'user_location_lat', $user_location_lat );  
-		 update_user_meta( $user_id, 'user_location_long', $user_location_long );  
-		 
 
-	
+	     update_user_meta( $user_id, 'user_location', $user_location );
+		 update_user_meta( $user_id, 'user_location_lat', $user_location_lat );
+		 update_user_meta( $user_id, 'user_location_long', $user_location_long );
+
+
+
         ///////////////////////////Mail SEND///////////////////////////////////
 
 		 $code = sha1( $user_id . time() );
@@ -365,36 +366,36 @@ function user_ajax_register(){
 		 $activation_link .='</a>';
 		 add_user_meta( $user_id, 'code_to_be_activated', $code, true );
 		 update_user_meta( $user_id, '_member_status', 'inactive' );
-		 
+
 		 $from = get_field("sender_email", "option"); // Set whatever you want like mail@yourdomain.com
-			 
-			 if(!(isset($from) && is_email($from))) {		
+
+			 if(!(isset($from) && is_email($from))) {
 				 $sitename = strtolower( $_SERVER['SERVER_NAME'] );
 				 if ( substr( $sitename, 0, 4 ) == 'www.' ) {
-					 $sitename = substr( $sitename, 4 );					
+					 $sitename = substr( $sitename, 4 );
 				 }
-				 $from = 'admin@'.$sitename; 
+				 $from = 'admin@'.$sitename;
 			 }
-			 
+
 			 $to = $email;
 			 $subject = 'Activate your account';
 			 //$site_name = get_bloginfo( 'name' );
 			// $site_name = "Florish - Plant Care Companion";
 			 $sender = 'From: '.get_bloginfo( 'name' ).' <'.$from.'>' . "\r\n";
-			 
+
 			 $message_content = 'To activate your account please click on the following link : '.$activation_link;
-			 //Emil Template Start 			
- 
- 
+			 //Emil Template Start
+
+
 			 $custom_logo_id = get_theme_mod( 'custom_logo' );
-			 $image = wp_get_attachment_image_src( $custom_logo_id , 'full' );   
- 
+			 $image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+
 			 //$logo = $image[0];
 			 $logo = get_field("footer_logo", "option");
 			 $site_url = site_url();
 			 $wbst = preg_replace('#^https?://#', '', $site_url);
 			 $wbst_url = str_replace("/","",$wbst);
-			
+
 
 			 $message =
 			 '<table border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#5fb526" width="800" class="main_tbl">
@@ -428,7 +429,7 @@ function user_ajax_register(){
 									   </tr>
 									   <tr height="25">
 										 <td>&nbsp;</td>
-									   </tr> 
+									   </tr>
 									 </table>
 								 </td>
 								 <td width="36">&nbsp;</td>
@@ -441,12 +442,12 @@ function user_ajax_register(){
 					   </tr>
 					   <tr>
 						 <td>
-			 
+
 							<p style="font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#fff; padding:0; margin:0 0 15px; text-align:center;"><a href='.site_url().' style="color:#fff; text-decoration:none;">Privacy Policy</a> | <a href='.site_url().' style="color:#fff; text-decoration:none;">Terms and Conditions</a></p>
-							
+
 							<p style="font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#fff; padding:0; margin:0 0 15px; text-align:center;">You are receiving this email because this email address has been used to join <a href='.$site_url.' style="color:#fff; text-decoration:none;">'.$wbst_url.'</a><br />
 							To ensure you receive our emails please add <a href="mailto:info@florish.gmail.com" target="_blank" style="color:#fff; text-decoration:none;">info@florish.gmail.com</a> to your safe senders list</p>
-			 
+
 						 </td>
 					   </tr>
 					   <tr>
@@ -457,12 +458,12 @@ function user_ajax_register(){
 				 <td width="52">&nbsp;</td>
 			   </tr>
 			 </table>';
-			 //Emil Template End 
+			 //Emil Template End
 			 $headers[] = 'MIME-Version: 1.0' . "\r\n";
 			 $headers[] = 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 			 $headers[] = "X-Mailer: PHP \r\n";
 			 $headers[] = $sender;
-				 
+
 			 $mail = wp_mail( $to, $subject, $message, $headers );
 			 if( $mail ) {
 				 $message = 'You have successfully created your account! To begin using this site you will need to activate your account via the email we have just sent to your address.';
@@ -473,7 +474,7 @@ function user_ajax_register(){
 			///////////////////////////Mail SEND///////////////////////////////////
 
 
-		 echo json_encode(array('error'=>false, 'message'=>__($message), 'user_id'=>$user_id ));  
+		 echo json_encode(array('error'=>false, 'message'=>__($message), 'user_id'=>$user_id ));
     }
 
     die();
@@ -494,8 +495,8 @@ function ajax_user_login(){
     $info['user_password'] = $password;
     //$user = get_user_by( 'login', $info['user_login'] );
 	$user_signon = wp_signon( $info, false );
-    if ( is_wp_error($user_signon) ){	
-		$error  = $user_signon->get_error_codes();	
+    if ( is_wp_error($user_signon) ){
+		$error  = $user_signon->get_error_codes();
 
 		if($error[0] == 'Please verify your mail ID'){
 			echo json_encode(array('error'=>true, 'message'=> 'Your Account is inactive. Contact Your Site Administrator.'));
@@ -503,12 +504,12 @@ function ajax_user_login(){
 			echo json_encode(array('error'=>true, 'message'=>__($error[0],'default')));
 		}
 		//print_r($error);
-		
+
     } else {
-		wp_set_current_user($user_signon->ID); 
+		wp_set_current_user($user_signon->ID);
 		echo json_encode(array('error'=>false, 'message'=>' Successful, redirecting...' ,'role' => $user_signon->roles ));
     }
-	
+
 	die();
 }
 /////////////USER LOGIN END////////////////
@@ -547,7 +548,7 @@ function hybrid_event_extra_user_profile_fields( $user ) {
         </td>
     </tr>
 </table>
-<?php } 
+<?php }
 }
 
 add_action( 'personal_options_update', 'hybrid_event_save_extra_user_fields' );
@@ -568,7 +569,7 @@ function hybrid_event_save_extra_user_fields( $user_id ) {
 add_filter('woocommerce_product_related_products_heading',function(){
 
 	return 'Best Sellers:';
- 
+
  });
 
 add_action( 'woocommerce_product_meta_end', 'add_custom_text_below_product_categories', 10 );
@@ -605,8 +606,9 @@ add_filter( 'woocommerce_add_to_cart_fragments', 'wc_refresh_mini_cart_count');
 function wc_refresh_mini_cart_count($fragments){
     ob_start();
     $items_count = WC()->cart->get_cart_contents_count();
+	$items_count = $items_count ? $items_count : ''; // We hide the empty count via css
     ?>
-    <span class="num_count" id="mini-cart-count"><?php echo $items_count ? $items_count : '0'; ?></span>
+	<span id="mini-cart-count"><?php echo $items_count; ?></span>
     <?php
     $fragments['#mini-cart-count'] = ob_get_clean();
     return $fragments;
@@ -617,13 +619,13 @@ function wc_refresh_mini_cart_count($fragments){
 
 ///////quantity + - buton
 add_action( 'woocommerce_after_quantity_input_field', 'florish_display_quantity_plus' );
-  
+
 function florish_display_quantity_plus() {
    echo '<button type="button" class="plus">+</button>';
 }
-  
+
 add_action( 'woocommerce_before_quantity_input_field', 'florish_display_quantity_minus' );
-  
+
 function florish_display_quantity_minus() {
    echo '<button type="button" class="minus">-</button>';
 }
@@ -653,21 +655,21 @@ function florish_js_code_example() {
 }
 add_action( 'wp_footer', 'florish_js_code_example' );
 add_action( 'wp_footer', 'florish_add_cart_quantity_plus_minus' );
-  
+
 function florish_add_cart_quantity_plus_minus() {
- 
+
    if ( ! is_product() && ! is_cart() ) return;
-    
-   wc_enqueue_js( "   
-           
+
+   wc_enqueue_js( "
+
       jQuery(document).on( 'click', 'button.plus, button.minus', function() {
-  
+
          var qty = jQuery( this ).parent( '.quantity' ).find( '.qty' );
          var val = parseFloat(qty.val());
          var max = parseFloat(qty.attr( 'max' ));
          var min = parseFloat(qty.attr( 'min' ));
          var step = parseFloat(qty.attr( 'step' ));
- 
+
          if ( jQuery( this ).is( '.plus' ) ) {
             if ( max && ( max <= val ) ) {
                qty.val( max ).change();
@@ -681,11 +683,11 @@ function florish_add_cart_quantity_plus_minus() {
                qty.val( val - step ).change();
             }
          }
- 
+
       });
-        
+
    " );
-   
+
 }
 
 /////////////////////////////////////////User Location insert//////////////////////////////////
@@ -711,9 +713,9 @@ function my_admin_footer_function() {
 				//document.getElementById('city').value = place.name;
 				document.getElementById('user_location_lat').value = place.geometry.location.lat();
 				document.getElementById('user_location_long').value = place.geometry.location.lng();
-		
+
 			});
-			
+
 		});
 	</script>
 <?php
@@ -731,21 +733,21 @@ function userMetaLocationForm( $user) {
 				<input type="text" name="user_location" id="user_location" value="<?php echo esc_attr( get_the_author_meta( 'user_location', $user->ID ) ); ?>" class="regular-text" />
 				<input type="hidden" name="user_location_lat" id="user_location_lat" value="<?php echo esc_attr( get_the_author_meta( 'user_location_lat', $user->ID ) ); ?>" class="regular-text" />
 				<input type="hidden" name="user_location_long" id="user_location_long" value="<?php echo esc_attr( get_the_author_meta( 'user_location_long', $user->ID ) ); ?>" class="regular-text" />
-				
+
 			</td>
 		</tr>
 	</table>
 	<?php
 	}
-	add_action('show_user_profile', 'userMetaLocationForm'); 
-	add_action('edit_user_profile', 'userMetaLocationForm'); 
-	add_action('user_new_form', 'userMetaLocationForm'); 
-	
+	add_action('show_user_profile', 'userMetaLocationForm');
+	add_action('edit_user_profile', 'userMetaLocationForm');
+	add_action('user_new_form', 'userMetaLocationForm');
+
 	function userMetaLocationSave($userId) {
 		if (!current_user_can('edit_user', $userId)) {
 			return;
 		}
-	
+
 		update_user_meta($userId, 'user_location', $_REQUEST['user_location']);
 		update_user_meta($userId, 'user_location_lat', $_REQUEST['user_location_lat']);
 		update_user_meta($userId, 'user_location_long', $_REQUEST['user_location_long']);
@@ -771,7 +773,7 @@ function userMetaLocationForm( $user) {
 			$plant_id = $item->get_product_id();
 			$product_variation_id = $item->get_variation_id();
 		}
-		
+
 
 		$args = array(
 			'role'    => 'nursery',
@@ -782,21 +784,21 @@ function userMetaLocationForm( $user) {
 		$items = array();
 		foreach ( $users as $user ) {
 			$user_id = $user->ID;
-			$location_lat = get_user_meta( $user_id, 'user_location_lat', true ); 
-			$location_long = get_user_meta( $user_id, 'user_location_long', true ); 
+			$location_lat = get_user_meta( $user_id, 'user_location_lat', true );
+			$location_long = get_user_meta( $user_id, 'user_location_long', true );
 			$user_avaliable_plant = get_user_meta( $user_id, '_avaliable_plant', true );
 			if(in_array($plant_id, unserialize($user_avaliable_plant))){
 				$items[] = array($user_id, $location_lat, $location_long);
 			}else{
 				$items[] = array($user_id, $location_lat, $location_long);
 			}
-			
+
 		}
 		$distances = array_map(function($item) use($ref) {
 			$a = array_slice($item, -2);
 			return distance($a, $ref);
 		}, $items);
-		
+
 		asort($distances);
 
 		$order->update_meta_data( '_assign_order', $items[key($distances)][0] );
@@ -811,7 +813,7 @@ function userMetaLocationForm( $user) {
 		{
 			list($lat1, $lon1) = $a;
 			list($lat2, $lon2) = $b;
-		
+
 			$theta = $lon1 - $lon2;
 			$dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
 			$dist = acos($dist);
@@ -858,35 +860,35 @@ function nursery_product_submit_form(  ){
 		$use_status = $_GET['in_status'];
 		    $status = get_user_meta( $user_id, '_member_status', true );
 			 $code = get_user_meta( $user_id, 'code_to_be_activated', true );
-			
+
 			if( empty($status) || $status == 'inactive'){
 				if($use_status == 'accept'){
-				  update_user_meta( $user_id, '_member_status', 'active' );	
-				  delete_user_meta( $user_id, 'code_to_be_activated' ); 
+				  update_user_meta( $user_id, '_member_status', 'active' );
+				  delete_user_meta( $user_id, 'code_to_be_activated' );
 
 				  $from = get_field("sender_email", "option"); // Set whatever you want like mail@yourdomain.com
-			 
-                if(!(isset($from) && is_email($from))) {		
+
+                if(!(isset($from) && is_email($from))) {
                     $sitename = strtolower( $_SERVER['SERVER_NAME'] );
                     if ( substr( $sitename, 0, 4 ) == 'www.' ) {
-                        $sitename = substr( $sitename, 4 );					
+                        $sitename = substr( $sitename, 4 );
                     }
-                    $from = 'admin@'.$sitename; 
+                    $from = 'admin@'.$sitename;
                 }
-    
+
                 $user_info = get_userdata($user_id);
                 $to = $user_info->user_email;
                 $subject = 'Activated your account';
                 $message = "<p>Dear ".$user_info->first_name.",<br> Congratulations, you have been approved as a Florish Nursery Partner!  Click the link below to begin on-boarding your nursery!</p>";
-                
+
                 // Always set content-type when sending HTML email
                 $headers = "MIME-Version: 1.0" . "\r\n";
                 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
                 $headers .= 'From: '.get_bloginfo( 'name' ).' <'.$from.'>' . "\r\n";
-                    
+
                 mail( $to, $subject, $message, $headers );
 
-				} 
+				}
 				if($use_status == 'decline') {
 					$response = wp_delete_user( $user_id );
 					if ( $response == 1 ) {
@@ -898,32 +900,32 @@ function nursery_product_submit_form(  ){
 						  );
 
 						  $from = get_field("sender_email", "option"); // Set whatever you want like mail@yourdomain.com
-			 
-                if(!(isset($from) && is_email($from))) {		
+
+                if(!(isset($from) && is_email($from))) {
                     $sitename = strtolower( $_SERVER['SERVER_NAME'] );
                     if ( substr( $sitename, 0, 4 ) == 'www.' ) {
-                        $sitename = substr( $sitename, 4 );					
+                        $sitename = substr( $sitename, 4 );
                     }
-                    $from = 'admin@'.$sitename; 
+                    $from = 'admin@'.$sitename;
                 }
-    
+
                 $user_info = get_userdata($user_id);
                 $to = $user_info->user_email;
                 $subject = 'Deleted your account';
                 $message = "<p>Dear ".$user_info->first_name.",<br> Thank you for your application to become a Florish Nursery Partner. Unfortunately, your application was denied.  If you believe there was an error, please contact us at Hello@Florish.co”. Access to the dashboard will be denied but Florish admin will still have a record of the denied nursery in its Admin Portal.</p>";
-                
+
                 // Always set content-type when sending HTML email
                 $headers = "MIME-Version: 1.0" . "\r\n";
                 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
                 $headers .= 'From: '.get_bloginfo( 'name' ).' <'.$from.'>' . "\r\n";
-                    
+
                 mail( $to, $subject, $message, $headers );
 						} else {
 								wp_die( "user_not_deleted" );
 						  }
 				}
 			}
-			
+
 			if($status == 'active' && $use_status == 'inactive'){
 				update_user_meta( $user_id, '_member_status', 'inactive' );
 				//update_user_meta( $user_id, 'code_to_be_activated', "jdghu878hwyd888d" );
@@ -931,31 +933,31 @@ function nursery_product_submit_form(  ){
 			if($status == 'inactive' && $use_status == 'active'){
 				update_user_meta( $user_id, '_member_status', 'active' );
 
-				
+
 				$from = get_field("sender_email", "option"); // Set whatever you want like mail@yourdomain.com
-			 
-                if(!(isset($from) && is_email($from))) {		
+
+                if(!(isset($from) && is_email($from))) {
                     $sitename = strtolower( $_SERVER['SERVER_NAME'] );
                     if ( substr( $sitename, 0, 4 ) == 'www.' ) {
-                        $sitename = substr( $sitename, 4 );					
+                        $sitename = substr( $sitename, 4 );
                     }
-                    $from = 'admin@'.$sitename; 
+                    $from = 'admin@'.$sitename;
                 }
-    
+
                 $user_info = get_userdata($user_id);
                 $to = $user_info->user_email;
                 $subject = 'Activated your account';
                 $message = "<p>Dear ".$user_info->first_name.",<br> Please login your account and select your plants. </p>";
-                
+
                 // Always set content-type when sending HTML email
                 $headers = "MIME-Version: 1.0" . "\r\n";
                 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
                 $headers .= 'From: '.get_bloginfo( 'name' ).' <'.$from.'>' . "\r\n";
-                    
+
                 mail( $to, $subject, $message, $headers );
-				
+
 			}
-			
+
 		wp_redirect( esc_url( get_page_link( 205 ) ) );
 		die;
 	}
@@ -998,7 +1000,7 @@ function nursery_order_view(){
 				</tr>
 			</thead>
 			<tbody>
-				<?php foreach ( $order->get_items() as $item_id => $item ) { 
+				<?php foreach ( $order->get_items() as $item_id => $item ) {
 					$product_id = $item->get_product_id();
 					$img_atts = wp_get_attachment_image_src( get_post_thumbnail_id( $product_id ), 'single-post-thumbnail' );
 					?>
@@ -1007,7 +1009,7 @@ function nursery_order_view(){
 				    <?php if($img_atts[0]){ ?>
                      <img class="qt-tree" src="<?php echo $img_atts[0]; ?>" alt="" />
                      <?php }else{ ?>
-					<img class="qt-tree" src="<?php echo get_template_directory_uri(); ?>/assets/images/cate3.png" alt="" /> 
+					<img class="qt-tree" src="<?php echo get_template_directory_uri(); ?>/assets/images/cate3.png" alt="" />
 					<?php } ?>
 					<?php echo $item->get_name(); ?>
 				</td>
@@ -1076,7 +1078,7 @@ function nursery_profile_view(){
 	<li><span>Phone Number:</span><?php echo get_user_meta( $user_id, '_manager_phone_number', true ); ?> </li>
 	<li><span>Location:</span> <?php echo get_user_meta( $user_id, 'user_location', true ); ?></li>
 	<li><span>Delivery Radius:</span><?php echo get_user_meta( $user_id, '_select_delivery_zone', true ); ?> </li>
-	
+
     </ul>
 	</div>
 	<div class="accordion-info">
@@ -1101,7 +1103,7 @@ function nursery_profile_view(){
 		</a>
 		<div class="add_new_plants accordion-content">
 			<div class="row">
-			<?php 
+			<?php
 				$args = array(
 						'posts_per_page' => -1,
 						'post_type' => 'product',
@@ -1116,12 +1118,12 @@ function nursery_profile_view(){
 						),
 					);
 					$products = new WP_Query( $args );
-					if($products->have_posts()) : 
+					if($products->have_posts()) :
 					while ( $products->have_posts() ) : $products->the_post();
 					$user_avaliable_plant = get_user_meta( $user_id, '_avaliable_plant', true );
 					$plant_id = get_the_ID();
 					$product = wc_get_product($plant_id);
-					$featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); 
+					$featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
 					$image = wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID() ), 'single-post-thumbnail' );
 					if ( $product->is_type( 'variable' ) ) {
 					$available_variations = $product->get_available_variations();
@@ -1138,7 +1140,7 @@ function nursery_profile_view(){
 						$field_add = '_nursery_product_plant_variation_add_'.$user_id;
 						$field_price = '_nursery_product_plant_variation_retail_price_'.$user_id;
 						$field_status = '_nursery_product_plant_variation_status_'.$user_id;
-				
+
 						//update_post_meta( $varible_id, $field_status , '' );
 						$select_product_pot_status = get_post_meta( $varible_id, $field_status, true );
 						$select_product_pot_add = get_post_meta( $varible_id, $field_add, true );
@@ -1161,13 +1163,13 @@ function nursery_profile_view(){
 						terget="_blank"><?php echo the_title().'  '.$pa_pot_size_term_name.' ('.$currency_symbol.$select_product_pot_size_price.')'; ?></a>
 				</div>
 			</div>
-			<?php 
+			<?php
 				}
-				
+
 				}
 				}
-				
-				endwhile; 
+
+				endwhile;
 				endif;
 				wp_reset_postdata();
 				?>
@@ -1208,21 +1210,21 @@ function changing_order_status_before_payment( $order_id, $posted_data, $order )
  * @snippet       Phone Mask @ WooCommerce Checkout
  */
  add_filter( 'woocommerce_checkout_fields', 'bbloomer_checkout_phone_us_format' );
-   
+
  function bbloomer_checkout_phone_us_format( $fields ) {
 	 $fields['billing']['billing_phone']['placeholder'] = '123-456-7890';
 	 $fields['billing']['billing_phone']['maxlength'] = 12; // 123-456-7890 is 12 chars long
 	 return $fields;
  }
-  
+
  add_action( 'woocommerce_after_checkout_form', 'bbloomer_phone_mask_us' );
-  
+
  function bbloomer_phone_mask_us() {
 	wc_enqueue_js( "
 	   $('#billing_phone')
 	   .keydown(function(e) {
 		  var key = e.which || e.charCode || e.keyCode || 0;
-		  var phone = $(this);         
+		  var phone = $(this);
 		  if (key !== 8 && key !== 9) {
 			if (phone.val().length === 3) {
 			 phone.val(phone.val() + '-'); // add dash after char #3
@@ -1237,10 +1239,10 @@ function changing_order_status_before_payment( $order_id, $posted_data, $order )
 			(key >= 48 && key <= 57) ||
 			(key >= 96 && key <= 105));
 		 });
-		  
+
 	" );
  }
- 
+
  add_action('wp_footer', 'format_checkout_billing_phone');
  function format_checkout_billing_phone() {
 	 if ( is_account_page()  ) :
@@ -1249,7 +1251,7 @@ function changing_order_status_before_payment( $order_id, $posted_data, $order )
 	 jQuery( function($){
 		 $('#billing_phone').on( 'input focusout', function() {
 			 var p = $(this).val();
- 
+
 			 p = p.replace(/[^0-9]/g, '');
 			 p = p.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3");
 			 $(this).val(p);
@@ -1261,7 +1263,7 @@ function changing_order_status_before_payment( $order_id, $posted_data, $order )
  }
 
  /////////Edit account add field
- // Add the custom field 
+ // Add the custom field
 add_action( 'woocommerce_edit_account_form', 'add_extra_field_to_edit_account_form' );
 function add_extra_field_to_edit_account_form() {
     $user = wp_get_current_user();
@@ -1281,7 +1283,7 @@ function add_extra_field_to_edit_account_form() {
 <?php
 }
 
-// Save the custom field 'favorite_color' 
+// Save the custom field 'favorite_color'
 add_action( 'woocommerce_save_account_details', 'save_extra_field_account_details', 12, 2 );
 function save_extra_field_account_details( $user_id ) {
     // For billing Phone
@@ -1322,8 +1324,8 @@ function wp_woocommerce_checkout_order_change_action( $order ){
 		'status' => 'wc-on-hold',
 		) );
 	 //echo "<pre>"; print_r($orders);
-	 foreach( $orders as $order ){ 
-		
+	 foreach( $orders as $order ){
+
 	$order_id = $order->get_id();
 	$assign_order_date = get_post_meta( $order_id, '_assign_order_datetime', true );
 	$location_lat_value = get_post_meta( $order_id, 'billing_customer_location_lat', true );
@@ -1338,7 +1340,7 @@ function wp_woocommerce_checkout_order_change_action( $order ){
 		$plant_id = $item->get_product_id();
 		$product_variation_id = $item->get_variation_id();
 	}
-	
+
 
 	$args = array(
 		'role'    => 'nursery',
@@ -1349,21 +1351,21 @@ function wp_woocommerce_checkout_order_change_action( $order ){
 	$items = array();
 	foreach ( $users as $user ) {
 		$user_id = $user->ID;
-		$location_lat = get_user_meta( $user_id, 'user_location_lat', true ); 
-		$location_long = get_user_meta( $user_id, 'user_location_long', true ); 
+		$location_lat = get_user_meta( $user_id, 'user_location_lat', true );
+		$location_long = get_user_meta( $user_id, 'user_location_long', true );
 		$user_avaliable_plant = get_user_meta( $user_id, '_avaliable_plant', true );
 		if(in_array($plant_id, unserialize($user_avaliable_plant))){
 			$items[] = array($user_id, $location_lat, $location_long);
 		}else{
 			$items[] = array($user_id, $location_lat, $location_long);
 		}
-		
+
 	}
 	$distances = array_map(function($item) use($ref) {
 		$a = array_slice($item, -2);
 		return distance($a, $ref);
 	}, $items);
-	
+
 	asort($distances);
 
 	$order->update_meta_data( '_assign_order', $items[key($distances)][1] );
@@ -1386,7 +1388,7 @@ function acquirable_product_column($columns){
     $new_columns = [];
     foreach( $columns as $key => $column ){
         $new_columns[$key] = $columns[$key];
-        if( $key == 'product_cat' ) { 
+        if( $key == 'product_cat' ) {
              $new_columns['acquirable'] = __( 'Acquirable','woocommerce');
         }
     }
@@ -1402,9 +1404,9 @@ function acquirable_product_column_content( $column, $product_id ){
 		$product_acquirable = get_post_meta( $product_id, 'product_acquirable', true );
 		?>
 		<input type="checkbox"  <?php if($product_acquirable == 'For Sale'){ echo 'checked'; } ?> data-id="<?php echo $product_id; ?>"  data-toggle="toggle" data-on="For Sale" data-off="Not For Sale"  data-onstyle="success" data-offstyle="danger" data-style="pro-acquirable" id="pro_acquirable" >
-		
+
 		<?php
-       
+
     }
 }
 add_action('admin_footer', 'my_admin_footer_extra');
@@ -1415,10 +1417,10 @@ function my_admin_footer_extra() {
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 	<script type="text/javascript">
 		jQuery(document).ready(function($) {
-			
+
 			jQuery(".pro-acquirable").on('click', function () {
 				var product_id = jQuery(this).find("#pro_acquirable").attr("data-id");
-                  
+
 				var data = {
 					'action': 'product_acquirable_update_function',
 					'product_id': product_id
@@ -1430,10 +1432,10 @@ function my_admin_footer_extra() {
 				});
 			});
 
-		
+
 		});
 	</script>
-	<?php 
+	<?php
 }
 add_action('admin_head', 'my_admin_header_function');
 function my_admin_header_function() {
@@ -1446,13 +1448,13 @@ function my_admin_header_function() {
 	.toggle.pro-acquirable, .toggle-on.pro-acquirable, .toggle-off.pro-acquirable { border-radius: 20rem; }
 	.toggle.pro-acquirable .toggle-handle { border-radius: 20rem; }
 	</style>
-  <?php 
+  <?php
 }
 
 add_action( 'wp_ajax_product_acquirable_update_function', 'product_acquirable_update_function' );
 
     function product_acquirable_update_function() {
-		
+
 		$product_id = $_POST['product_id'];
 		$product_acquirable = get_post_meta( $product_id, 'product_acquirable', true );
 		if(!empty($product_acquirable)){
@@ -1466,19 +1468,19 @@ add_action( 'wp_ajax_product_acquirable_update_function', 'product_acquirable_up
 	}
 		update_post_meta($product_id, 'product_acquirable', $acquirable );
 		echo $product_id;
-        wp_die(); 
+        wp_die();
 }
 
 // Change the shop query
 add_action( 'woocommerce_product_query', 'action_woocommerce_product_query', 10, 2 );
 function action_woocommerce_product_query( $q, $query ) {
     // Returns true when on the product archive page (shop) & isset
-    if ( is_shop()  ) {        
+    if ( is_shop()  ) {
         // Get any existing meta query
         $meta_query = $q->get( 'meta_query' );
-        
+
         // Settings
-        
+
         $meta_query[] = array(
             'key' => 'product_acquirable',
             'value' => 'For Sale',
@@ -1490,7 +1492,7 @@ function action_woocommerce_product_query( $q, $query ) {
 	    $q->set( 'post__not_in', $exclude_plant_list );
         $q->set( 'meta_query', $meta_query );
 		$q->set('posts_per_page', 12);
-	
+
     }
 }
 
@@ -1513,22 +1515,22 @@ function exclude_specific_product_attribute_query( $tax_query, $query ) {
 		   if(!empty($customer_usda_zip_array)){
 		   $customer_usda_zip = $customer_usda_zip_array['zone'];
 		   }else{
-			  $customer_usda_zip = ""; 
+			  $customer_usda_zip = "";
 		   }
 		}
 	 }
 	 if(!empty($customer_usda_zip)){
-    // HERE Define your product category SLUGs to be excluded 
+    // HERE Define your product category SLUGs to be excluded
     $terms = array( $customer_usda_zip ); // SLUGs only
     // The taxonomy for Product attribute
-    $taxonomy = 'usda-zone'; 
+    $taxonomy = 'usda-zone';
 
     // Add your criteria
     $tax_query[] = array(
         'taxonomy' => 'pa_'.$taxonomy,
         'field'    => 'slug', // Or 'name' or 'term_id'
         'terms'    => $terms,
-        'operator' => 'IN', 
+        'operator' => 'IN',
     );
    }
     return $tax_query;
@@ -1552,15 +1554,15 @@ add_filter( 'woocommerce_output_related_products_args', function( $args )
 		   if(!empty($customer_usda_zip_array)){
 		   $customer_usda_zip = $customer_usda_zip_array['zone'];
 		   }else{
-			  $customer_usda_zip = ""; 
+			  $customer_usda_zip = "";
 		   }
 		}
 	 }
 
-	$taxonomy = 'usda-zone'; 
+	$taxonomy = 'usda-zone';
 	$terms = array( $customer_usda_zip );
 	if(!empty($customer_usda_zip)){
-		$tax_query = array( 
+		$tax_query = array(
 			//'relation' => 'AND',
 			array(
 				'taxonomy' => 'pa_'.$taxonomy,
@@ -1606,7 +1608,7 @@ function customer_update_zipcode(){
 			$decoded_json = json_decode(stripslashes($_COOKIE['customer_usda_zip']),true);
 			$customer_usda_zip = $decoded_json['zone'];
          } else{
-            $customer_usda_zip = "#"; 
+            $customer_usda_zip = "#";
          }
 		 if($customer_usd_zipcode !=  $zipd && $customer_usd_zipcode!=""){
 		 update_user_meta( $user_id, '_customer_usda_zip', serialize($decoded_json) );
@@ -1616,8 +1618,8 @@ function customer_update_zipcode(){
 
 ////////Exclude Plant
 $argsss     = array( 'post_type' => 'product', 'posts_per_page' => -1 );
-$plant_list = get_posts( $argsss ); 
-	
+$plant_list = get_posts( $argsss );
+
 	$exclude_result = array();
 	foreach ( $plant_list as $plants ) {
 	   $plant_id = $plants->ID;
@@ -1625,7 +1627,7 @@ $plant_list = get_posts( $argsss );
 	  if($check != 'Yes'){
 		$exclude_result[] = $plant_id;
 	  }
-	  
+
  }
  update_option('exclude_plant_list', $exclude_result);
 
@@ -1641,7 +1643,7 @@ function check_plant_exists($plant_id){
 	 foreach ( $users as $user ) {
 		$user_id = $user->ID;
 		$user_avaliable_plant = get_user_meta( $user_id, '_avaliable_plant', true );
-		
+
 		if(in_array($plant_id, unserialize($user_avaliable_plant))){
 			$check = "Yes";
 			break;
@@ -1652,6 +1654,11 @@ function check_plant_exists($plant_id){
 
 ////////Miles get
 function get_distances_miles($lat1, $lon1, $lat2, $lon2, $unit) {
+	// if not numbers, bail
+	if (!is_numeric($lat1) || !is_numeric($lon1) || !is_numeric($lat2) || !is_numeric($lon2)) {
+		return 0;
+	}
+
 	if (($lat1 == $lat2) && ($lon1 == $lon2)) {
 	  return 0;
 	}
@@ -1662,7 +1669,7 @@ function get_distances_miles($lat1, $lon1, $lat2, $lon2, $unit) {
 	  $dist = rad2deg($dist);
 	  $miles = $dist * 60 * 1.1515;
 	  $unit = strtoupper($unit);
-  
+
 	  if ($unit == "K") {
 		return ($miles * 1.609344);
 	  } else if ($unit == "N") {
@@ -1673,13 +1680,13 @@ function get_distances_miles($lat1, $lon1, $lat2, $lon2, $unit) {
 	}
   }
 
-  //custom_sticker 
+  //custom_sticker
 //add_action( 'woocommerce_shop_loop_item_title', 'custom_field_display_below_title', 2 );
 add_action( 'woocommerce_before_shop_loop_item_title', 'custom_field_display_below_title', 2 );
 function custom_field_display_below_title(){
     global $product;
 	$plant_id = $product->get_id();
-	
+
     // Get the custom field value
 	if (!empty($_COOKIE['customer_usda_zip'])) {
 			//$customer_usda_zip_array = $_COOKIE['customer_usda_zip'];
@@ -1697,22 +1704,22 @@ function custom_field_display_below_title(){
 			$location_long2 = '-118.406';
 		}
 	}
-	
+
 	$args = array(
 		'role'    => 'nursery',
 		'orderby' => 'user_nicename',
 		'order'   => 'ASC'
 	);
 	$users = get_users( $args );
-	
+
 	$custom_sticker = '';
 	foreach ( $users as $user ) {
 		$user_id = $user->ID;
-		$location_lat1 = get_user_meta( $user_id, 'user_location_lat', true ); 
-		$location_long1 = get_user_meta( $user_id, 'user_location_long', true ); 
+		$location_lat1 = get_user_meta( $user_id, 'user_location_lat', true );
+		$location_long1 = get_user_meta( $user_id, 'user_location_long', true );
 		$user_avaliable_plant = get_user_meta( $user_id, '_avaliable_plant', true );
 		if(in_array($plant_id, unserialize($user_avaliable_plant))){
-			
+
 			$customer_delivery_zone = get_distances_miles($location_lat1, $location_long1, $location_lat2, $location_long2, "M");
 			$select_delivery_zone = get_user_meta( $user_id, '_select_delivery_zone' , true );
 			if($customer_delivery_zone <= $customer_delivery_zone){
@@ -1721,16 +1728,16 @@ function custom_field_display_below_title(){
 			}else{
 				$custom_sticker = "This plant does not work in your zone.";
 			}
-			
+
 		}else{
-			
+
 			$custom_sticker = "This plant does not work in your zone.";
 		}
 	}
 	if ( !is_user_logged_in() && empty($_COOKIE['customer_usda_zip'])) {
        $custom_sticker = "";
 	}
-	
+
 	//$custom_field = "This plant does not work in your zone.";
 	//echo get_distances_miles(32.9697, -96.80322, 29.46786, -98.53506, "M") . " Miles<br>";
     //echo get_distances_miles(32.9697, -96.80322, 29.46786, -98.53506, "K") . " Kilometers<br>";
@@ -1746,7 +1753,7 @@ function add_custom_text_after_product_title(){
 
 	global $product;
 	$plant_id = $product->get_id();
-	
+
     // Get the custom field value
 	if (!empty($_COOKIE['customer_usda_zip'])) {
 			//$customer_usda_zip_array = $_COOKIE['customer_usda_zip'];
@@ -1764,19 +1771,19 @@ function add_custom_text_after_product_title(){
 			$location_long2 = '-118.406';
 		}
 	}
-	
+
 	$args = array(
 		'role'    => 'nursery',
 		'orderby' => 'user_nicename',
 		'order'   => 'ASC'
 	);
 	$users = get_users( $args );
-	
+
 	$custom_text = '';
 	foreach ( $users as $user ) {
 		$user_id = $user->ID;
-		$location_lat1 = get_user_meta( $user_id, 'user_location_lat', true ); 
-		$location_long1 = get_user_meta( $user_id, 'user_location_long', true ); 
+		$location_lat1 = get_user_meta( $user_id, 'user_location_lat', true );
+		$location_long1 = get_user_meta( $user_id, 'user_location_long', true );
 		$user_avaliable_plant = get_user_meta( $user_id, '_avaliable_plant', true );
 		if(in_array($plant_id, unserialize($user_avaliable_plant))){
 
@@ -1807,7 +1814,7 @@ function add_custom_text_after_product_title(){
 	}else{
 		$custom_text = '';
 	}
-   
+
     the_title( '<h3 class="product_title entry-title">', $custom_text.'</h3>' );
 }
 add_action( 'woocommerce_single_product_summary', 'add_custom_text_after_product_title', 5);
@@ -1834,7 +1841,7 @@ function nursery_ajax_register_inventory(){
 	$manager_location_long_1  = $_POST['manager_location_long_1'];
 	$manager_delivery_radius_1  = $_POST['manager_delivery_radius_1'];
 	$input_delivery_days_1  = $_POST['input_delivery_days_1'];
-	
+
 	//echo " hi";
 	//var_dump($_POST);
 	update_user_meta(get_current_user_id(), '_account_owner_name', $account_owner_name);
@@ -1878,7 +1885,7 @@ function nursery_ajax_register_inventory(){
 
 	}
 	   update_user_meta(get_current_user_id(), '_select_delivery_days', serialize($delivery_days_arr));
-	
+
 		update_user_meta(get_current_user_id(), '_inventory_sumbit_status', '1');
 
 		// insurance file upload
@@ -1897,34 +1904,34 @@ function nursery_ajax_register_inventory(){
 				die();
 			}
 			$attach_id = media_handle_upload( $file, $post_id );
-		}   
-		
+		}
+
         update_user_meta(get_current_user_id(), '_insurance_file_id', $attach_id);
-		} 
+		}
 
 		///send Email
 		$from = get_field("sender_email", "option"); // Set whatever you want like mail@yourdomain.com
-			 
-		if(!(isset($from) && is_email($from))) {		
+
+		if(!(isset($from) && is_email($from))) {
 			$sitename = strtolower( $_SERVER['SERVER_NAME'] );
 			if ( substr( $sitename, 0, 4 ) == 'www.' ) {
-				$sitename = substr( $sitename, 4 );					
+				$sitename = substr( $sitename, 4 );
 			}
-			$from = 'admin@'.$sitename; 
+			$from = 'admin@'.$sitename;
 		}
 
 		$user_info = get_userdata(get_current_user_id());
 		$to = $user_info->user_email;
 		$subject = 'Inventory Submit';
 		$message = "<p>Dear ".$user_info->first_name.",<br> Thank you for your interest in becoming a Florish Nursery Partner!  We are currently reviewing your application.  Here is the link to your Nursery Portal; you may check the status of your account here.  If you would like to schedule a call with our COO to learn more about the program, you can schedule a meeting using this Calendly link.</p>";
-		
+
 		// Always set content-type when sending HTML email
 		$headers = "MIME-Version: 1.0" . "\r\n";
 		$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 		$headers .= 'From: '.get_bloginfo( 'name' ).' <'.$from.'>' . "\r\n";
-			
+
 		mail( $to, $subject, $message, $headers );
-		
+
 		//wp_redirect( esc_url( get_page_link( 70 ) ) );
 	die();
 }
@@ -1940,30 +1947,30 @@ function nursery_reg_status_change(){
 	 if($in_status == 1 && !empty($user_id) && is_numeric($user_id)){
 
 		$from = get_field("sender_email", "option"); // Set whatever you want like mail@yourdomain.com
-			 
-		if(!(isset($from) && is_email($from))) {		
+
+		if(!(isset($from) && is_email($from))) {
 			$sitename = strtolower( $_SERVER['SERVER_NAME'] );
 			if ( substr( $sitename, 0, 4 ) == 'www.' ) {
-				$sitename = substr( $sitename, 4 );					
+				$sitename = substr( $sitename, 4 );
 			}
-			$from = 'admin@'.$sitename; 
+			$from = 'admin@'.$sitename;
 		}
 
 		$user_info = get_userdata($user_id);
 		$to = $user_info->user_email;
 		$subject = 'Approved Stage 1 Application';
 		$message = "<p>Dear ".$user_info->first_name.",<br> Congratulations, you have been approved as a Florish Nursery Partner!  Click the link below to begin on-boarding your nursery!</p><p><a href='".esc_url( get_page_link( 14 ))."' target='_blank'>Click Here</a></p>";
-		
+
 		// Always set content-type when sending HTML email
 		$headers = "MIME-Version: 1.0" . "\r\n";
 		$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 		$headers .= 'From: '.get_bloginfo( 'name' ).' <'.$from.'>' . "\r\n";
-			
+
 		mail( $to, $subject, $message, $headers );
 
-		update_user_meta( $user_id, '_stage_status', $in_status );	
-		update_user_meta( $user_id, '_member_status', 'active' );	
-        delete_user_meta( $user_id, 'code_to_be_activated' ); 
+		update_user_meta( $user_id, '_stage_status', $in_status );
+		update_user_meta( $user_id, '_member_status', 'active' );
+        delete_user_meta( $user_id, 'code_to_be_activated' );
 		echo $user_info->first_name." Stage 1 Approved";
 
 	 }
@@ -1972,28 +1979,28 @@ function nursery_reg_status_change(){
 	 if($in_status == '2' && !empty($user_id) && is_numeric($user_id)){
 
 		$from = get_field("sender_email", "option"); // Set whatever you want like mail@yourdomain.com
-			 
-		if(!(isset($from) && is_email($from))) {		
+
+		if(!(isset($from) && is_email($from))) {
 			$sitename = strtolower( $_SERVER['SERVER_NAME'] );
 			if ( substr( $sitename, 0, 4 ) == 'www.' ) {
-				$sitename = substr( $sitename, 4 );					
+				$sitename = substr( $sitename, 4 );
 			}
-			$from = 'admin@'.$sitename; 
+			$from = 'admin@'.$sitename;
 		}
 
 		$user_info = get_userdata($user_id);
 		$to = $user_info->user_email;
 		$subject = 'Approved Stage 2 Application';
 		$message = "<p>Dear ".$user_info->first_name.",<br> Congratulations, you are now live on Florish!  Here is the link to your Florish Dashboard where you will manage your orders, view payment statuses, adjust inventory, and more! <a href='".esc_url( get_page_link( 14 ))."' target='_blank'>Click Here</a></p>";
-		
+
 		// Always set content-type when sending HTML email
 		$headers = "MIME-Version: 1.0" . "\r\n";
 		$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 		$headers .= 'From: '.get_bloginfo( 'name' ).' <'.$from.'>' . "\r\n";
-			
+
 		mail( $to, $subject, $message, $headers );
 
-		update_user_meta( $user_id, '_stage_status', $in_status );	
+		update_user_meta( $user_id, '_stage_status', $in_status );
 		echo $user_info->first_name." Stage 2 Approved";
 
 	 }
@@ -2003,13 +2010,13 @@ function nursery_reg_status_change(){
 	 if($in_status == 11 && !empty($user_id) && is_numeric($user_id)){
 
 		$from = get_field("sender_email", "option"); // Set whatever you want like mail@yourdomain.com
-			 
-		if(!(isset($from) && is_email($from))) {		
+
+		if(!(isset($from) && is_email($from))) {
 			$sitename = strtolower( $_SERVER['SERVER_NAME'] );
 			if ( substr( $sitename, 0, 4 ) == 'www.' ) {
-				$sitename = substr( $sitename, 4 );					
+				$sitename = substr( $sitename, 4 );
 			}
-			$from = 'admin@'.$sitename; 
+			$from = 'admin@'.$sitename;
 		}
 
 		$user_info = get_userdata($user_id);
@@ -2017,15 +2024,15 @@ function nursery_reg_status_change(){
 		$subject = 'Denied Stage 1 Application';
 		$message = "<p>Dear ".$user_info->first_name.",<br> Thank you for your application to become a Florish Nursery Partner. Unfortunately, your application was denied.  If you believe there was an error, please contact us at Hello@Florish.co”. Access to the dashboard will be denied but Florish admin will still have a record of the denied nursery in its Admin Portal.
 		</p>";
-		
+
 		// Always set content-type when sending HTML email
 		$headers = "MIME-Version: 1.0" . "\r\n";
 		$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 		$headers .= 'From: '.get_bloginfo( 'name' ).' <'.$from.'>' . "\r\n";
-			
+
 		mail( $to, $subject, $message, $headers );
 
-		update_user_meta( $user_id, '_stage_status', $in_status );	
+		update_user_meta( $user_id, '_stage_status', $in_status );
 		echo $user_info->first_name." Stage 1 Denied";
 	 }
 
@@ -2034,13 +2041,13 @@ function nursery_reg_status_change(){
 if($in_status == 22 && !empty($user_id) && is_numeric($user_id)){
 
 	$from = get_field("sender_email", "option"); // Set whatever you want like mail@yourdomain.com
-		 
-	if(!(isset($from) && is_email($from))) {		
+
+	if(!(isset($from) && is_email($from))) {
 		$sitename = strtolower( $_SERVER['SERVER_NAME'] );
 		if ( substr( $sitename, 0, 4 ) == 'www.' ) {
-			$sitename = substr( $sitename, 4 );					
+			$sitename = substr( $sitename, 4 );
 		}
-		$from = 'admin@'.$sitename; 
+		$from = 'admin@'.$sitename;
 	}
 
 	$user_info = get_userdata($user_id);
@@ -2048,15 +2055,15 @@ if($in_status == 22 && !empty($user_id) && is_numeric($user_id)){
 	$subject = 'Denied Stage 2 Application';
 	$message = "<p>Dear ".$user_info->first_name.",<br> Thank you for your application to become a Florish Nursery Partner. Unfortunately, your application was denied.  If you believe there was an error, please contact us at Hello@Florish.co”. Access to the dashboard will be denied but Florish admin will still have a record of the denied nursery in its Admin Portal.
 	</p>";
-	
+
 	// Always set content-type when sending HTML email
 	$headers = "MIME-Version: 1.0" . "\r\n";
 	$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 	$headers .= 'From: '.get_bloginfo( 'name' ).' <'.$from.'>' . "\r\n";
-		
+
 	mail( $to, $subject, $message, $headers );
 
-	update_user_meta( $user_id, '_stage_status', $in_status );	
+	update_user_meta( $user_id, '_stage_status', $in_status );
 	echo $user_info->first_name." Stage 2 Denied";
  }
 
@@ -2065,13 +2072,13 @@ if($in_status == 22 && !empty($user_id) && is_numeric($user_id)){
 if($in_status == 'inactive' && !empty($user_id) && is_numeric($user_id)){
 
 	$from = get_field("sender_email", "option"); // Set whatever you want like mail@yourdomain.com
-		 
-	if(!(isset($from) && is_email($from))) {		
+
+	if(!(isset($from) && is_email($from))) {
 		$sitename = strtolower( $_SERVER['SERVER_NAME'] );
 		if ( substr( $sitename, 0, 4 ) == 'www.' ) {
-			$sitename = substr( $sitename, 4 );					
+			$sitename = substr( $sitename, 4 );
 		}
-		$from = 'admin@'.$sitename; 
+		$from = 'admin@'.$sitename;
 	}
 
 	$user_info = get_userdata($user_id);
@@ -2079,17 +2086,17 @@ if($in_status == 'inactive' && !empty($user_id) && is_numeric($user_id)){
 	$subject = 'Deactivated Your Account';
 	$message = "<p>Dear ".$user_info->first_name.",<br> . Unfortunately, your application was deactivated.  If you believe there was an error, please contact us at Hello@Florish.co”. Access to the dashboard will be deactivated but Florish admin will still have a record of the deactivated nursery in its Admin Portal.
 	</p>";
-	
+
 	// Always set content-type when sending HTML email
 	$headers = "MIME-Version: 1.0" . "\r\n";
 	$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 	$headers .= 'From: '.get_bloginfo( 'name' ).' <'.$from.'>' . "\r\n";
-		
+
 	mail( $to, $subject, $message, $headers );
 	update_user_meta( $user_id, '_member_status', 'inactive' );
-	//update_user_meta( $user_id, '_stage_status', $in_status );	
-	//update_user_meta( $user_id, '_member_status', 'active' );	
-    //delete_user_meta( $user_id, 'code_to_be_activated' ); 
+	//update_user_meta( $user_id, '_stage_status', $in_status );
+	//update_user_meta( $user_id, '_member_status', 'active' );
+    //delete_user_meta( $user_id, 'code_to_be_activated' );
 	echo $user_info->first_name." Deactivated";
  }
 
@@ -2135,21 +2142,21 @@ function nursery_reg_add_inv(){
 	);
 }
 	$products = new WP_Query( $args );
-	if($products->have_posts()) : 
+	if($products->have_posts()) :
 	while ( $products->have_posts() ) : $products->the_post();
 	$user_avaliable_plant = get_user_meta( get_current_user_id(), '_avaliable_plant', true );
-	// print_r(unserialize($user_avaliable_plant)); 
+	// print_r(unserialize($user_avaliable_plant));
 	$plant_id = get_the_ID();
 	$attributes = wc_get_product_terms( get_the_ID(), 'pa_nursery-pot-size' );
-	$select_product_pot_size = get_post_meta( get_the_ID(), '_nursery_product_plant_list'.get_current_user_id(), true ); 
+	$select_product_pot_size = get_post_meta( get_the_ID(), '_nursery_product_plant_list'.get_current_user_id(), true );
 	$product = wc_get_product($plant_id);
-	
+
 	if ( $product->is_type( 'variable' ) ) {
 	if(!empty($attributes)){
 		$available_variations = $product->get_available_variations();
 		//echo "<pre>"; print_r($available_variations);
 	 ?>
-    <div class="pn_block">	
+    <div class="pn_block">
 		<div class="plant-name">
 			<h5><?php the_title(); ?></h5>
 			<input name="select_product_name_1[]" type="hidden" <?php if(in_array($plant_id, unserialize($user_avaliable_plant))){ echo "checked"; } ?> value="<?php echo get_the_ID(); ?>" class="plant-name" id="product<?php echo get_the_ID(); ?>" >
@@ -2162,7 +2169,7 @@ function nursery_reg_add_inv(){
 				</div>
 			</div>
 			<div class="main-box">
-			<?php foreach ($available_variations as $available_variation) { 
+			<?php foreach ($available_variations as $available_variation) {
 				$pot_size_slug = $available_variation['attributes']['attribute_pa_nursery-pot-size'];
 				$varible_id = $available_variation['variation_id'];
 				$display_price = $available_variation['display_price'];
@@ -2189,7 +2196,7 @@ function nursery_reg_add_inv(){
 	</div>
 	 <?php
 	 } }
-		endwhile; 
+		endwhile;
 		endif;
 		wp_reset_postdata();
 	 die();
@@ -2199,7 +2206,7 @@ function nursery_reg_add_inv(){
 add_action( 'init', 'nursery_add_inventory' );
 function nursery_add_inventory(){
 	if(isset($_POST['all_done']) && isset($_POST['select_product_name_1'])){
-		
+
     $avaliable_plant = serialize($_POST['select_product_name_1']);
         foreach($_POST['select_product_name_1'] as $plant_id){
 			//$plant_id;
@@ -2216,21 +2223,21 @@ function nursery_add_inventory(){
 			//echo "<pre>"; print_r($_POST['select_product_pot_size_1_'.$plant_id]);
 			update_post_meta( $plant_id, $field_list , serialize($_POST['select_product_pot_size_1_'.$plant_id]) );
 		}
-		
+
 		update_user_meta(get_current_user_id(), '_avaliable_plant', $avaliable_plant);
 		//die();
 		wp_redirect( esc_url( get_page_link( 1529 ) ) );
 	}
 
 
-	///////////////////////////////Markets Table START/////////////////////////////////////// 
+	///////////////////////////////Markets Table START///////////////////////////////////////
 	 global $wpdb;
 	$wpdb->show_errors();
 	$charset_collate = $wpdb->get_charset_collate();
-	require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+	require_once( ABSPATH . 'wp-admin/includes/upgrade.php' ); // TODO: Why are we including from wp-admin?
 		define( 'WP_NURSERY_MARKETS_DB_VERSION', '7.0' );
 		if ( get_option( "nursery_markets_db_version" ) != WP_NURSERY_MARKETS_DB_VERSION ) {
-			
+
 			dbDelta( "CREATE TABLE {$wpdb->prefix}nurser_market_table (
 				id int(11) NOT NULL AUTO_INCREMENT,
 				market_name varchar(255) NOT NULL,
@@ -2244,7 +2251,7 @@ function nursery_add_inventory(){
 				nurser_count int(11) NOT NULL,
 				PRIMARY KEY  (id)
 			) $charset_collate;" );
-			
+
 			update_option( 'nursery_markets_db_version', WP_NURSERY_MARKETS_DB_VERSION );
 		}
 
@@ -2278,7 +2285,7 @@ function nursery_add_inventory(){
 
 		if(isset($_POST['update_market']) && isset($_POST['latitude1'])){
 			$market_tablename = $wpdb->prefix."nurser_market_table";
-			$market_id = $_POST['market_id']; 
+			$market_id = $_POST['market_id'];
 			$market_name = $_POST['market_name1'];
 			$fulladdress = $_POST['fulladdress1'];
 			$latitude = $_POST['latitude1'];
@@ -2315,13 +2322,13 @@ function nursery_add_inventory(){
 				'order'   => 'ASC'
 			);
 			$users = get_users( $args );
-			
+
 			$market_list_nurser_count = 0;
 			foreach ( $users as $user ) {
 				$user_id = $user->ID;
 				$user_avaliable_plant = get_user_meta( $user_id, '_avaliable_plant', true );
-				$location_lat1 = get_user_meta( $user_id, 'user_location_lat', true ); 
-				$location_long1 = get_user_meta( $user_id, 'user_location_long', true ); 
+				$location_lat1 = get_user_meta( $user_id, 'user_location_lat', true );
+				$location_long1 = get_user_meta( $user_id, 'user_location_long', true );
 				$nursery_name = get_user_meta( $user_id, 'nursery_name', true );
 				//if(in_array($plant_id, unserialize($user_avaliable_plant))){
 
@@ -2349,14 +2356,14 @@ function nursery_add_inventory(){
 	  }else{
 		echo "Your plants is Deactivated";
 	  }
-	 
+
 	  die();
   }
 
 
   add_action('wp_ajax_get_market_nursery_view', 'get_market_nursery_view');
   function get_market_nursery_view(){
-	
+
 	global $wpdb;
 	$tablename = $wpdb->prefix."nurser_market_table";
 
@@ -2380,13 +2387,13 @@ function nursery_add_inventory(){
 				'order'   => 'ASC'
 			);
 			$users = get_users( $args );
-			
+
 			$market_list_nurser_count = 0;
 			foreach ( $users as $user ) {
 				$user_id = $user->ID;
 				$user_avaliable_plant = get_user_meta( $user_id, '_avaliable_plant', true );
-				$location_lat1 = get_user_meta( $user_id, 'user_location_lat', true ); 
-				$location_long1 = get_user_meta( $user_id, 'user_location_long', true ); 
+				$location_lat1 = get_user_meta( $user_id, 'user_location_lat', true );
+				$location_long1 = get_user_meta( $user_id, 'user_location_long', true );
 				$nursery_name = get_user_meta( $user_id, 'nursery_name', true );
 				//if(in_array($plant_id, unserialize($user_avaliable_plant))){
 
@@ -2421,20 +2428,20 @@ function nursery_add_inventory(){
 								),
 							);
 							$products = new WP_Query( $args );
-							if($products->have_posts()) : 
+							if($products->have_posts()) :
 							while ( $products->have_posts() ) : $products->the_post();
 							$user_avaliable_plant = get_user_meta( $user_id, '_avaliable_plant', true );
-							// print_r(unserialize($user_avaliable_plant)); 
+							// print_r(unserialize($user_avaliable_plant));
 							$plant_id = get_the_ID();
 							$attributes = wc_get_product_terms( get_the_ID(), 'pa_nursery-pot-size' );
-							$select_product_pot_size = get_post_meta( get_the_ID(), '_nursery_product_plant_list'.$user_id, true ); 
+							$select_product_pot_size = get_post_meta( get_the_ID(), '_nursery_product_plant_list'.$user_id, true );
 							$product = wc_get_product($plant_id);
-							
+
 							if ( $product->is_type( 'variable' ) ) {
 							if(!empty($attributes)){
 								$available_variations = $product->get_available_variations();
 							?>
-							<?php foreach ($available_variations as $available_variation) { 
+							<?php foreach ($available_variations as $available_variation) {
 								$pot_size_slug = $available_variation['attributes']['attribute_pa_nursery-pot-size'];
 								$varible_id = $available_variation['variation_id'];
 								$display_price = $available_variation['display_price'];
@@ -2450,8 +2457,8 @@ function nursery_add_inventory(){
 								if(!empty($select_product_pot_size_price)){
 									$vendor_price = $select_product_pot_size_price;
 								}
-								
-						
+
+
 								//update_post_meta( $varible_id, $field_status , '' );
 								$select_product_pot_status = get_post_meta( $varible_id, $field_status, true );
 								$select_product_pot_add = get_post_meta( $varible_id, $field_add, true );
@@ -2466,7 +2473,7 @@ function nursery_add_inventory(){
 							<td><?php echo $currency_symbol.$vendor_price; ?></td>
 							<td><?php echo $currency_symbol.$display_price; ?></td>
 							<td><?php echo $currency_symbol.($vendor_price * $take_rate)/100; ?></td>
-							<td><?php echo $currency_symbol; 
+							<td><?php echo $currency_symbol;
 							$commission = ($vendor_price * $take_rate)/100;
 							echo ($display_price - ($vendor_price - $commission));
 							?></td>
@@ -2474,15 +2481,15 @@ function nursery_add_inventory(){
 						<?php
 								}  }
 								} }
-							endwhile; 
+							endwhile;
 							endif;
 							wp_reset_postdata();
 						?>
-					</table>  
-					</div>  
+					</table>
+					</div>
 				</div>
 			</li>
-			<?php } } 
+			<?php } }
 				$wpdb->update($tablename, array( 'nurser_count'=> $market_list_nurser_count), array('id' => $market_id));
 				if($market_list_nurser_count == 0){
 			?>
@@ -2490,7 +2497,7 @@ function nursery_add_inventory(){
 			<?php } ?>
 		</ul>
       <?
-    
+
 	   die();
   }
 
@@ -2528,28 +2535,28 @@ add_action( 'wp_ajax_nopriv_send_email_otp', 'send_email_otp' );
 add_action( 'wp_ajax_send_email_otp', 'send_email_otp' );
 function send_email_otp(){
 
-    //Step 1 
+    //Step 1
 	$email  = $_POST['forgot_email'];
 	$user = get_user_by( 'email', $email );
 	if($user){
     $userId = $user->ID;
-	
+
 	$vericationcode= mt_rand(100000, 999999);
 	update_user_meta( $userId, '_user_otp', $vericationcode );
-	if(!(isset($from) && is_email($from))) {		
+	if(!(isset($from) && is_email($from))) {
 		$sitename = strtolower( $_SERVER['SERVER_NAME'] );
 		if ( substr( $sitename, 0, 4 ) == 'www.' ) {
-			$sitename = substr( $sitename, 4 );					
+			$sitename = substr( $sitename, 4 );
 		}
-		$from = 'admin@'.$sitename; 
+		$from = 'admin@'.$sitename;
 	}
 	$subject="Forgot Password";
 	$headers .= "MIME-Version: 1.0"."\r\n";
 	$headers .= 'Content-type: text/html; charset=iso-8859-1'."\r\n";
-	$headers .= 'From:Florish <'.$from.'>'."\r\n";                          
+	$headers .= 'From:Florish <'.$from.'>'."\r\n";
 	$ms.="<html></body><div><div>Dear User,</div></br></br>";
 	$ms.="<div style='padding-top:8px;'>OTP for for Account Verification is $vericationcode</div><div></div></body></html>";
-	mail($email,$subject,$ms,$headers); 
+	mail($email,$subject,$ms,$headers);
 	    echo json_encode(array('error'=>false, 'message'=>'OTP Successful send your register email address' ,'user_id' => $userId ));
     } else {
 		echo json_encode(array('error'=>true, 'message'=>'Your email has not been registered' ,'user_id' => '' ));
@@ -2563,7 +2570,7 @@ add_action( 'wp_ajax_nopriv_verify_email_otp', 'verify_email_otp' );
 add_action( 'wp_ajax_verify_email_otp', 'verify_email_otp' );
 function verify_email_otp(){
 
-    //Step 2 
+    //Step 2
 	$enterotp  = $_POST['otp'];
 	$user_id  = $_POST['user_id'];
 	$emailotp = get_user_meta( $user_id, '_user_otp' , true );
@@ -2665,23 +2672,23 @@ function custom_fee_based_on_nursery_select_delivery_zone( $cart ) {
 			'order'   => 'ASC'
 		);
 		$users = get_users( $args );
-		
-		
-	$delivery_fee = 0; 
-    foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
-		 
-		$plant_id = $cart_item['product_id']; 
 
-		
+
+	$delivery_fee = 0;
+    foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
+
+		$plant_id = $cart_item['product_id'];
+
+
 		foreach ( $users as $user ) {
 			$user_id = $user->ID;
-			$location_lat1 = get_user_meta( $user_id, 'user_location_lat', true ); 
-			$location_long1 = get_user_meta( $user_id, 'user_location_long', true ); 
+			$location_lat1 = get_user_meta( $user_id, 'user_location_lat', true );
+			$location_long1 = get_user_meta( $user_id, 'user_location_long', true );
 			$user_avaliable_plant = get_user_meta( $user_id, '_avaliable_plant', true );
 			if(in_array($plant_id, unserialize($user_avaliable_plant))){
-	
+
 				$customer_delivery_zone = get_distances_miles($location_lat1, $location_long1, $location_lat2, $location_long2, "M");
-				
+
 				// $select_delivery_zone = get_user_meta( $user_id, '_select_delivery_zone' , true );
 				//$customer_delivery_zone = 10;
 				if($customer_delivery_zone >= 6 && $customer_delivery_zone <= 10.99){
@@ -2693,24 +2700,24 @@ function custom_fee_based_on_nursery_select_delivery_zone( $cart ) {
 				}else{
 					$delivery_fee = 0;
 				}
-	
+
 			}else{
-	
+
 				$delivery_fee = 0;
 			}
 		}
 
 
 		$cart_item_price = $cart_item['data']->price + $delivery_fee;
-        $cart_item['data']->set_price($cart_item_price); 
+        $cart_item['data']->set_price($cart_item_price);
     }
-    
+
 	 //$fee = 15;
 	 if($delivery_fee == 0){
 		$delivery_fee = "Free Delivery";
 	 }
 
-    if ( $delivery_fee != 0 ){ 
+    if ( $delivery_fee != 0 ){
     $cart->add_fee( __( "Delivery fee", "woocommerce" ), $delivery_fee, false );
 	}
 }
@@ -2762,7 +2769,7 @@ function redirect() {
 	$user = wp_get_current_user();
     if ( is_user_logged_in() ) {
 		if ( in_array( 'administrator', (array) $user->roles ) || in_array( 'customer', (array) $user->roles )  ) {
-			wp_safe_redirect( home_url('/my-account') ); 
+			wp_safe_redirect( home_url('/my-account') );
 			exit;
 		}else if(in_array( 'nursery', (array) $user->roles )){
 			wp_safe_redirect( home_url('/vendor-dashboard') );
@@ -2771,7 +2778,7 @@ function redirect() {
 			wp_safe_redirect( home_url( ) );
 			exit;
 		}
-		
+
     }
 	//die();
 }

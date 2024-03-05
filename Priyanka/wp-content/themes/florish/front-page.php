@@ -25,14 +25,14 @@
 </section>
 
 <!-- About Section -->
-<section class="hm-about"> 
+<section class="hm-about">
    <div class="container">
       <div class="row">
          <div class="col-lg-6 col-md-6 col-12">
             <div class="text-wrap">
                <h6><?php the_field('about_title'); ?></h6>
-               <h2><?php the_field('about_experience_the'); ?> 
-                  <img src="<?php echo get_template_directory_uri(); ?>/assets/images/hm-ab-sape.png" alt="" /> 
+               <h2><?php the_field('about_experience_the'); ?>
+                  <img src="<?php echo get_template_directory_uri(); ?>/assets/images/hm-ab-sape.png" alt="" />
                   <?php the_field('about_experience_the_sub_title'); ?>
                </h2>
                <a class="cmn-btn" href="<?php echo wc_get_page_permalink( 'shop' ) ?>"><?php the_field('explore_the_shop_button_text'); ?></a>
@@ -49,7 +49,7 @@
          </div>
       </div>
       <div class="icon-wrapper">
-      <?php 
+      <?php
 			if( have_rows('about_shop') ):
 				while( have_rows('about_shop') ) : the_row();
 				$image = get_sub_field('icon');
@@ -90,7 +90,7 @@
                'parent' => 0,
                'exclude' => 15
             ) );
-            
+
          if ( !empty($taxonomies) ) :
             $number = 1;
             foreach( $taxonomies as $product_term ) {
@@ -99,9 +99,9 @@
                $image = wp_get_attachment_url( $thumbnail_id, 'thumbnail' );
                if ($number == 1 || $number == 4) {
                   $col_num = "col-lg-8 col-md-8 col-12";
-                 
+
                }else{
-                  $col_num = "col-lg-4 col-md-4 col-12"; 
+                  $col_num = "col-lg-4 col-md-4 col-12";
                }
             ?>
          <div class="<?php echo $col_num; ?>">
@@ -184,11 +184,11 @@
                   if(!empty($customer_usda_zip_array)){
                   $customer_usda_zip = $customer_usda_zip_array['zone'];
                   }else{
-                  $customer_usda_zip = ""; 
+                  $customer_usda_zip = "";
                   }
                }
             }
-            $taxonomy = 'usda-zone'; 
+            $taxonomy = 'usda-zone';
             $terms = array( $customer_usda_zip );
             if(!empty($customer_usda_zip)){
                $tax_query = array(
@@ -217,16 +217,21 @@
                   'tax_query' =>  $tax_query,
             );
             $products = new WP_Query( $args );
-            if($products->have_posts()) : 
+            if($products->have_posts()) :
             while ( $products->have_posts() ) : $products->the_post();
             $_product = wc_get_product( get_the_ID() );
             $regular_price =  (float) $_product->get_regular_price();
             $sale_price = (float) $_product->get_sale_price();
-            $saving_percentage = round( ( $regular_price - $sale_price ) / $regular_price * 100 ).'%';
+
+				// Fix: Uncaught DivisionByZeroError: Division by zero
+				if ($regular_price > 0 && $sale_price > 0) {
+					$saving_percentage = round(($regular_price - $sale_price) / $regular_price * 100) . '%';
+				}
+
             //$_product->get_price();
             $img_atts = wp_get_attachment_image_src( get_post_thumbnail_id( $products->ID ), 'single-post-thumbnail' );
             //echo "<pre>"; print_r($img_atts);
-            
+
             ?>
          <div class="col-lg-3 col-md-6 col-sm-12">
             <div class="box">
@@ -237,7 +242,7 @@
                      <?php }else{ ?>
                      <img src="<?php echo get_template_directory_uri(); ?>/assets/images/no_image.jpg" alt="" />
                      <?php } ?>
-                     <?php if($sale_price){ ?>
+                     <?php if($sale_price && $saving_percentage){ ?>
                      <span class="discount">- <?php echo $saving_percentage; ?></span>
                      <?php } ?>
                   </a>
@@ -260,12 +265,12 @@
             </div>
          </div>
          <?php
-           
-            endwhile; 
+
+            endwhile;
             wp_reset_postdata();
          endif;
             ?>
-         
+
       </div>
    </div>
 </section>
@@ -290,16 +295,16 @@
                    <h2><?php the_field('from_our_blog_title'); ?></h2>
                   </div>
                   <a href="<?php echo esc_url( get_page_link( 21 ) ); ?>">See All</a>
-    
+
                 </div>
                 <div class="blog-wrap">
-                  <?php 
+                  <?php
                      $args = array(
                         'post_type'=> 'post',
                         'orderby'    => 'ID',
                         'post_status' => 'publish',
                         'order'    => 'DESC',
-                        'posts_per_page' => 2 // this will retrive all the post that is published 
+                        'posts_per_page' => 2 // this will retrive all the post that is published
                      );
                      $result = new WP_Query( $args );
                      if ( $result-> have_posts() ) :
@@ -308,8 +313,8 @@
                    <div class="box">
                       <div class="img-blog">
                          <a href="<?php echo get_permalink( $result->ID ); ?>">
-                           <?php if (has_post_thumbnail( $result->ID ) ){ 
-                           $image = wp_get_attachment_image_src( get_post_thumbnail_id( $result->ID ), 'single-post-thumbnail' );     
+                           <?php if (has_post_thumbnail( $result->ID ) ){
+                           $image = wp_get_attachment_image_src( get_post_thumbnail_id( $result->ID ), 'single-post-thumbnail' );
                               ?>
                            <img src="<?php echo $image[0]; ?>" alt="" />
                            <?php }else{ ?>
@@ -324,7 +329,7 @@
                          <a href="<?php echo get_permalink( $result->ID ); ?>">Read More</a>
                       </div>
                    </div>
-                   <?php  
+                   <?php
                         endwhile;
                      endif;
                      wp_reset_postdata();

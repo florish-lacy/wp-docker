@@ -1,0 +1,27 @@
+/* ==== Footers Start ==== */
+.fl-footer {
+  .fl-footer--sm & .footer__head {
+    display: none;
+  }
+
+  .fl-footer--img & {
+    background: url("../images/footerbg.jpg") no-repeat right bottom / cover;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+  }
+  .menu-item > a {
+    color: var(--bs-secondary-color);
+    padding: calc(0.5 * var(--bs-nav-link-padding-y))
+      var(--bs-nav-link-padding-x);
+    // negative var(--bs-nav-link-padding-x);
+    margin-left: calc(-1 * var(--bs-nav-link-padding-x));
+  }
+
+  // .footer .footer__tail
+  #{&}__tail {
+    height: $nav-height;
+  }
+}
