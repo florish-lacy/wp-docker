@@ -1,3 +1,9 @@
+
+# Environment #
+############
+.env*
+!.env.example
+
 # WordPress #
 ############
 web/wp-config-local.php
@@ -55,3 +61,7 @@ Thumbs.db
 # SASS #
 ##########
 .sass-cache
+
+# Node #
+##########
+node_modules

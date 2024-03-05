@@ -1,0 +1,75 @@
+/* ==== Login PopUp ===== */
+// #login-popup,
+// #view-zipcode-popup,
+// #edit-market-popup {
+//   position: relative;
+//   width: 55%;
+//   padding: 0;
+//   margin: 0 auto;
+//   background: var(--white);
+// }
+
+#login-popup .nav.nav-tabs button {
+  width: 50%;
+  padding: 15px 0;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #25400c;
+  letter-spacing: 0.04em;
+  background: #f4f4f4;
+}
+#login-popup .nav-tabs .nav-link.active {
+  color: var(--white);
+  background: #648863;
+  border: none;
+}
+#login-popup .tab-content .input-fld {
+  position: relative;
+  margin-bottom: 25px;
+}
+#login-popup .tab-content .input-fld .fa-eye-slash {
+  position: absolute;
+  top: 25px;
+  right: 20px;
+  transform: translateY(-50%);
+}
+#login-popup .tab-content .input-fld .fa-eye {
+  position: absolute;
+  top: 25px;
+  right: 20px;
+  transform: translateY(-50%);
+}
+
+#login-popup .tab-content .input-fld .form-control:focus {
+  box-shadow: none;
+}
+#login-popup .tab-content .input-fld select.form-control {
+  background: url("../images/drpd-arro.svg") no-repeat center right 15px;
+}
+#login-popup .tab-content .input-fld > label.up-lbl {
+  position: absolute;
+  top: -10px;
+  left: 26px;
+  padding: 0 12px;
+  font-size: 17px;
+  line-height: 1.2;
+  color: #787878;
+  background: var(--bs-body-tertiary-bg);
+}
+#login-popup .tab-content .input-fld label.error {
+  display: block;
+  padding-top: 5px;
+  font-size: 15px;
+  color: red;
+}
+
+@include media-breakpoint-down(xl) {
+  #login-popup .nav.nav-tabs button {
+    padding: 11px 0;
+    font-size: 18px;
+  }
+
+  #login-popup .tab-content .input-fld > label.up-lbl {
+    font-size: 15px;
+  }
+}

@@ -1,0 +1,73 @@
+/* ==== Banner Start ======== */
+.bnr-sec {
+  position: relative;
+  padding: 120px 0 160px;
+}
+.bnr-sec::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background: url("../images/bnr-back.png") no-repeat center center;
+}
+.bnr-sec .bnr-innr {
+  position: relative;
+  z-index: 1;
+}
+.bnr-sec .bnr-innr .txt-pnl {
+  width: 72%;
+  margin: 0 auto;
+  text-align: center;
+}
+.bnr-sec .bnr-innr .txt-pnl h1 {
+  margin-bottom: 80px;
+  font-weight: 300;
+  color: #25400c;
+}
+.bnr-sec .bnr-innr .txt-pnl h1 span {
+  display: block;
+}
+.bnr-sec .bnr-innr .txt-pnl .bnr-btn {
+  padding-left: 82px;
+  text-align: left;
+}
+.bnr-sec .bnr-innr .txt-pnl .bnr-btn a {
+  text-transform: uppercase;
+}
+.bnr-sec .bnr-innr .img-pnl {
+  width: 100%;
+  max-width: 332px;
+  margin-top: 40px;
+}
+.bnr-sec .bnr-innr .img-pnl h6 {
+  font-size: 18px;
+  color: #25400c;
+  letter-spacing: 0.085em;
+}
+.bnr-sec .bnr-innr .img-pnl .img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  margin-top: -30px;
+  text-align: right;
+}
+.bnr-sec .bnr-innr .img-pnl .img::after {
+  position: absolute;
+  bottom: 25px;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 155px;
+  content: "";
+  background: url("../images/bnr-sape.png") no-repeat left center;
+}
+
+@include media-breakpoint-down(xl) {
+  .bnr-sec .bnr-innr .txt-pnl h1 {
+    font-size: 80px;
+  }
+}
