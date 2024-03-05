@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "michelemelluso.code-beautifier",
+    "mikestead.dotenv",
+    "ms-azuretools.vscode-docker",
+    "ecmel.vscode-html-css",
+    "htmlhint.vscode-htmlhint"
+  ]
+}
