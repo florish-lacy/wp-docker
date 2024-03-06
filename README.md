@@ -240,3 +240,14 @@ myFunction();
 ?>
 
 ```
+
+#### To Refactor:
+
+- Break PHP, JS, and SCSS into separate files and folders.
+- `functions.php` is getting too large. Break it into smaller files.
+- `assets/js/functions.js` is getting too large. Break it into smaller files.
+- Spellcheck!
+
+##### PHP
+
+- Do not use `if():` and `endif;`, `while():` and `endwhile;`, etc. syntax. Use `{}` instead.
