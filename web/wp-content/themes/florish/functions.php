@@ -35,13 +35,15 @@ if (!function_exists('florish_theme_setup')):
 		 * Switch default core markup for search form, comment form, and comments
 		 * to output valid HTML5.
 		 */
-		add_theme_support('html5', array(
-			'search-form',
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption'
-		)
+		add_theme_support(
+			'html5',
+			array(
+				'search-form',
+				'comment-form',
+				'comment-list',
+				'gallery',
+				'caption'
+			)
 		);
 
 
@@ -1238,7 +1240,7 @@ function nursery_profile_view()
 			<ul class="order_desc accordion-content">
 				<li>
 					<?php foreach (unserialize(get_user_meta($user_id, '_select_delivery_days', true)) as $key => $value) {
-						// print_r($key); print_r($value['start_time']); echo ',';   ?>
+						// print_r($key); print_r($value['start_time']); echo ',';     ?>
 						<ul>
 							<li><span>
 									<?php echo $key; ?>:
@@ -1494,10 +1496,12 @@ function shortcode_my_orders($atts)
 	);
 
 	ob_start();
-	wc_get_template('myaccount/my-orders.php', array(
-		// 'current_user'  => get_user_by( 'id', get_current_user_id() ),
-		'order_count' => $order_count
-	)
+	wc_get_template(
+		'myaccount/my-orders.php',
+		array(
+			// 'current_user'  => get_user_by( 'id', get_current_user_id() ),
+			'order_count' => $order_count
+		)
 	);
 	return ob_get_clean();
 }
@@ -2747,7 +2751,6 @@ function get_market_nursery_view()
 															</td>
 														</tr>
 														<?php
-														// Todo: this is unreadable. Please refactor.
 													}
 												}
 											}
