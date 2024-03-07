@@ -697,7 +697,7 @@ function nursery_profile_view()
 			<ul class="order_desc accordion-content">
 				<li>
 					<?php foreach (unserialize(get_user_meta($user_id, '_select_delivery_days', true)) as $key => $value) {
-						// print_r($key); print_r($value['start_time']); echo ',';                                 ?>
+						// print_r($key); print_r($value['start_time']); echo ',';                                  ?>
 						<ul>
 							<li><span>
 									<?php echo $key; ?>:
@@ -2066,7 +2066,7 @@ add_action('wp_ajax_get_market_details_edit', 'get_market_details_edit');
 
 // forgot password
 
-get_template_part('inc/user/forgot-password');
+get_template_part('inc/user/forgot_password');
 add_action('wp_ajax_nopriv_send_email_otp', 'send_email_otp');
 add_action('wp_ajax_send_email_otp', 'send_email_otp');
 

@@ -21,8 +21,9 @@ services:
     restart: always
     env_file: .env
     environment:
-      # WORDPRESS_WP_DEBUG: true
-      # WORDPRESS_WP_DEBUG_DISPLAY: true
+      WORDPRESS_WP_DEBUG: true
+      WORDPRESS_WP_DEBUG_LOG: true
+      WORDPRESS_WP_DEBUG_DISPLAY: false
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_USER: $MYSQL_USER
       WORDPRESS_DB_PASSWORD: $MYSQL_PASSWORD
