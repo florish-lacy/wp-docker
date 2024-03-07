@@ -5,266 +5,20 @@
  */
 require get_template_directory() . '/vendor/autoload.php';
 
-if (!function_exists('florish_theme_setup')):
-	function florish_theme_setup()
-	{
-
-		//Woocokomerce
-		add_theme_support('woocommerce');
-
-		add_theme_support('wc-product-gallery-zoom');
-		add_theme_support('wc-product-gallery-lightbox');
-		add_theme_support('wc-product-gallery-slider');
-
-		/*
-		 * Let WordPress manage the document title.
-		 */
-		add_theme_support('title-tag');
-		/*
-		 * Enable support for Post Thumbnails on posts and pages.
-		 */
-		add_theme_support('post-thumbnails');
-		// This theme uses wp_nav_menu() in two locations.
-		register_nav_menus(
-			array(
-				'primary' => __('Primary Menu', 'florish'),
-				'secondary' => __('Secondary Menu', 'florish'),
-			)
-		);
-		/*
-		 * Switch default core markup for search form, comment form, and comments
-		 * to output valid HTML5.
-		 */
-		add_theme_support(
-			'html5',
-			array(
-				'search-form',
-				'comment-form',
-				'comment-list',
-				'gallery',
-				'caption'
-			)
-		);
-
-
-		/**
-		 * Add support for core custom logo.
-		 *
-		 */
-		add_theme_support(
-			'custom-logo',
-			array(
-				'height' => 75,
-				'width' => 372,
-				'flex-width' => true,
-				'flex-height' => true,
-			)
-		);
-	}
-endif;
+get_template_part('inc/functions/theme/setup');
 add_action('after_setup_theme', 'florish_theme_setup');
 
-
-
-/**
- * Register widget area.
- */
-function florish_widgets_init()
-{
-	register_sidebar(
-		array(
-			'name' => __('Shop Sidebar', 'florish'),
-			'id' => 'shop-sidebar',
-			'description' => __('Add widgets here to appear in your sidebar.', 'florish'),
-			'before_widget' => '',
-			'after_widget' => '',
-			'before_title' => '',
-			'after_title' => '',
-		)
-	);
-
-
-}
+get_template_part('inc/functions/theme/widgets');
 add_action('widgets_init', 'florish_widgets_init');
-
-
-
 
 /**
  * Enqueue scripts and styles.
  */
-function florish_scripts()
-{
 
-
-	// Load our main theme stylesheet.
-	// wp_enqueue_style('florish-style', get_stylesheet_uri()); // style.css
-	wp_enqueue_style('florish-style', get_template_directory_uri() . '/assets/css/style.css'); // style.css
-
-	//bootstrap toggle css include
-	//wp_enqueue_style( 'florish-bootstrap-toggle-style', 'https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css', array() );
-	wp_enqueue_style('florish-bootstrap-toggle-style', 'https://cdn.jsdelivr.net/npm/bootstrap5-toggle@5.0.4/css/bootstrap5-toggle.min.css', array());
-
-	//fontawesome include
-	wp_enqueue_style('florish-fontawesome-all-css', get_template_directory_uri() . '/assets/fontawesome/css/all.css', array());
-
-	//magnific style
-	wp_enqueue_style('florish-magnific-popup-css', get_template_directory_uri() . '/assets/css/magnific-popup.css', array());
-
-	//slick include
-	wp_enqueue_style('florish-slick-style', get_template_directory_uri() . '/assets/css/slick.css', array());
-	wp_enqueue_style('florish-slick-theme-style', get_template_directory_uri() . '/assets/css/slick-theme.css', array());
-
-	//aos include
-	wp_enqueue_style('florish-aos-theme-style', get_template_directory_uri() . '/assets/css/aos.css', array());
-
-
-	//bootstrap min js
-	wp_enqueue_script('florish-bootstrap-script', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array('jquery'), '20151811', true);
-
-	//bootstrap bootstrap-toggle
-	//wp_enqueue_script( 'florish-bootstrap-toggle-script',  'https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js', array( 'jquery' ), '20151811', true );
-	wp_enqueue_script('florish-bootstrap-toggle-script', 'https://cdn.jsdelivr.net/npm/bootstrap5-toggle@5.0.4/js/bootstrap5-toggle.jquery.min.js', array('jquery'), '20151811', true);
-
-	//bootstrap popper min js
-	wp_enqueue_script('florish-slick-script', get_template_directory_uri() . '/assets/js/slick.min.js', array('jquery'), '20151811', true);
-
-	//theme aos js
-	wp_enqueue_script('florish-aos-script', get_template_directory_uri() . '/assets/js/aos.js', array('jquery'), '20151811', true);
-
-	///magnific popup js
-	wp_enqueue_script('florish-magnific-popup-js', get_template_directory_uri() . '/assets/js/jquery.magnific-popup.js', array('jquery'), '20151811', true);
-
-	///validate js
-	wp_enqueue_script('florish-jquery-validate', 'https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js', array('jquery'), '20151811', true);
-	wp_enqueue_script('florish-jquery-validate-aditional', 'https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js', array('jquery'), '20151811', true);
-
-	wp_enqueue_script('florish-mask-phone-number', 'https://unpkg.com/jquery-input-mask-phone-number@1.0.14/dist/jquery-input-mask-phone-number.js', array('jquery'), '20151811', true);
-	///google location
-	wp_enqueue_script('florish-google-place-location-front', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBqxHeRDjgzm72wXzGKE1oxS4lgyT3K6uM&libraries=places', array('jquery'), '20135344611', true);
-
-	///masonry pkgd js
-	wp_enqueue_script('florish-masonry-pkgd-js', get_template_directory_uri() . '/assets/js/masonry.pkgd.min.js', array('jquery'), '20151811', true);
-
-	///jquery cookie js
-	wp_enqueue_script('florish-jquery-cookie-js', get_template_directory_uri() . '/assets/js/jquery.cookie.js', array('jquery'), '204641811', true);
-
-
-	///map js
-	wp_enqueue_script('florish-map-place-js', get_template_directory_uri() . '/assets/js/map.js', array('jquery'), '20468768711', true);
-
-	global $wp;
-	// Theme main Function js
-	wp_enqueue_script('florish-main-script', get_template_directory_uri() . '/assets/js/functions.js', array('jquery'), '20151811', true);
-	wp_localize_script('florish-main-script', 'ajax_florish_object', array('ajax_url' => admin_url('admin-ajax.php'), 'home_url' => site_url(), 'vendor_url' => get_page_link(1529), 'current_url' => home_url($wp->request)));
-
-}
+get_template_part('inc/functions/theme/scripts');
 add_action('wp_enqueue_scripts', 'florish_scripts');
 
-
-
-
 /////////////CUSTOMIZER REGISTER START////////////////
-function sorciere_social_share_customize_register($wp_customize)
-{
-
-	$wp_customize->add_section(
-		'sorciere_social_share',
-		array(
-			'title' => __('Social Links', 'sorciere'),
-			'description' => '',
-			'priority' => 120,
-		)
-	);
-
-
-
-	////////////Facebook///////////////
-	$wp_customize->add_setting(
-		'sorciere_facebook_links',
-		array(
-			'default' => '',
-			'capability' => 'edit_theme_options',
-			'type' => 'theme_mod',
-
-		)
-	);
-
-	$wp_customize->add_control(
-		'sorciere_facebook_links',
-		array(
-			'label' => __('Facebook', 'sorciere'),
-			'section' => 'sorciere_social_share',
-			'settings' => 'sorciere_facebook_links',
-		)
-	);
-
-	////////////Instagram///////////////
-	$wp_customize->add_setting(
-		'sorciere_instagram_links',
-		array(
-			'default' => '',
-			'capability' => 'edit_theme_options',
-			'type' => 'theme_mod',
-
-		)
-	);
-
-	$wp_customize->add_control(
-		'sorciere_instagram_links',
-		array(
-			'label' => __('Instagram', 'sorciere'),
-			'section' => 'sorciere_social_share',
-			'settings' => 'sorciere_instagram_links',
-		)
-	);
-
-
-	////////////Twitter///////////////
-	$wp_customize->add_setting(
-		'sorciere_twitter_links',
-		array(
-			'default' => '',
-			'capability' => 'edit_theme_options',
-			'type' => 'theme_mod',
-
-		)
-	);
-
-	$wp_customize->add_control(
-		'sorciere_twitter_links',
-		array(
-			'label' => __('Twitter', 'sorciere'),
-			'section' => 'sorciere_social_share',
-			'settings' => 'sorciere_twitter_links',
-		)
-	);
-
-
-	////////////Youtube///////////////
-	$wp_customize->add_setting(
-		'sorciere_youtube_links',
-		array(
-			'default' => '',
-			'capability' => 'edit_theme_options',
-			'type' => 'theme_mod',
-
-		)
-	);
-
-	$wp_customize->add_control(
-		'sorciere_youtube_links',
-		array(
-			'label' => __('Youtube', 'sorciere'),
-			'section' => 'sorciere_social_share',
-			'settings' => 'sorciere_youtube_links',
-		)
-	);
-
-}
-
-add_action('customize_register', 'sorciere_social_share_customize_register');
-
 
 // Footer Option Page create...........
 if (function_exists('acf_add_options_page')) {
@@ -289,134 +43,41 @@ if (function_exists('acf_add_options_page')) {
 // 	'publish_posts' => true,
 // 	'manage_categories' => true,
 // 	));
-function change_role_name()
-{
-	global $wp_roles;
 
-	if (!isset($wp_roles))
-		$wp_roles = new WP_Roles();
-
-	//You can replace "administrator" with any other role "editor", "author", "contributor" or "subscriber"...
-	$wp_roles->roles['nursery']['name'] = 'Vendor';
-	$wp_roles->role_names['nursery'] = 'Vendor';
-}
+get_template_part('inc/functions/theme/customizer');
+add_action('customize_register', 'sorciere_social_share_customize_register');
 add_action('init', 'change_role_name');
-
 add_action('after_setup_theme', 'remove_admin_bar');
-function remove_admin_bar()
-{
-	if (!current_user_can('administrator') && !is_admin()) {
-		show_admin_bar(false);
-	}
-
-}
 /////////////CUSTOMIZER REGISTER END////////////////
 
 //////////////////////////////////////////LOGIN & REGISTER START//////////////////////////////////////////////////
 
 /////////////USER REGISTRATION ACCOUT ACTIVATION////////////////
-function email_activation_msg_nocache()
-{
-	$code = filter_input(INPUT_GET, 'keys');
-	if ($code) {
-
-		$act_users = get_users(
-			array(
-				"meta_key" => "code_to_be_activated",
-				"meta_value" => $code,
-				"fields" => "ID"
-			)
-		);
-
-		$user_id = $act_users[0];
-
-		if ($user_id) {
-			$status = get_user_meta($user_id, '_member_status', true);
-			$code = get_user_meta($user_id, 'code_to_be_activated', true);
-			if ($code && $status == 'inactive') {
-				update_user_meta($user_id, '_member_status', 'active');
-				delete_user_meta($user_id, 'code_to_be_activated');
-			}
-			echo '<div class="alert alert-success" role="alert">Your account is now activated.</div>';
-
-		} else {
-			echo '<div class="alert alert-danger" role="alert">Invalid activation code / your account has been activated.</div>';
-		}
-	}
-}
+get_template_part('inc/functions/user/email_activation_msg_nocache');
 add_action('wp_head', 'email_activation_msg_nocache');
 
 /////////////USER REGISTRATION START////////////////
 
 get_template_part('inc/functions/user/register');
-
 add_action('wp_ajax_nopriv_user_ajax_register', 'user_ajax_register');
 
 /////////////USER LOGIN START////////////////
 get_template_part('inc/functions/user/login');
-
 add_action('wp_ajax_nopriv_user_ajax_login', 'user_ajax_login');
 
 /////////////USER LOGIN END////////////////
 
 /*user active authentication*/
-add_filter('wp_authenticate_user', function ($user) {
-	if ($user->has_cap('administrator')) {
-		return $user;
-	}
-	if (get_user_meta($user->ID, '_member_status', true) == 'active') {
-		return $user;
-	}
+get_template_part('inc/functions/user/authenticate_user');
+add_filter('wp_authenticate_user', 'authenticate_user', 10, 2);
 
-	return new WP_Error('Please verify your mail ID', 'Your Account is inactive. Contact Your Site Administrator.');
-}, 10, 2);
-
-
+get_template_part('inc/functions/user/hybrid_event_extra_user_profile_fields');
 add_action('show_user_profile', 'hybrid_event_extra_user_profile_fields');
 add_action('edit_user_profile', 'hybrid_event_extra_user_profile_fields');
-function hybrid_event_extra_user_profile_fields($user)
-{
-	$mamber_status = get_user_meta($user->ID, '_member_status');
-	if (current_user_can('administrator')) { ?>
-		<h3>
-			<?php _e("Member Status", "blank"); ?>
-		</h3>
-		<table class="form-table">
-			<tr>
-				<th><label for="st_member_status">
-						<?php _e("User Status"); ?>
-					</label></th>
-				<td><select name="st_member_status">
-						<option value="">Select Status</option>
-						<option value="active" <?php if ($mamber_status[0] == 'active') {
-							echo "selected";
-						} ?>>Active</option>
-						<option value="inactive" <?php if ($mamber_status[0] == 'inactive') {
-							echo "selected";
-						} ?>>Inactive
-						</option>
-					</select>
-					<br />
-					<span class="description">
-						<?php _e("Please Select Member Status."); ?>
-					</span>
-				</td>
-			</tr>
-		</table>
-	<?php }
-}
 
+get_template_part('inc/functions/user/hybrid_event_save_extra_user_fields');
 add_action('personal_options_update', 'hybrid_event_save_extra_user_fields');
 add_action('edit_user_profile_update', 'hybrid_event_save_extra_user_fields');
-function hybrid_event_save_extra_user_fields($user_id)
-{
-	if (current_user_can('administrator')) {
-		if (current_user_can('edit_user', $user_id)) {
-			update_user_meta($user_id, '_member_status', $_POST['st_member_status']);
-		}
-	}
-	return true;
-}
 /*user active authentication End*/
 
 
@@ -1036,7 +697,7 @@ function nursery_profile_view()
 			<ul class="order_desc accordion-content">
 				<li>
 					<?php foreach (unserialize(get_user_meta($user_id, '_select_delivery_days', true)) as $key => $value) {
-						// print_r($key); print_r($value['start_time']); echo ',';        ?>
+						// print_r($key); print_r($value['start_time']); echo ',';                         ?>
 						<ul>
 							<li><span>
 									<?php echo $key; ?>:
@@ -2602,81 +2263,17 @@ function get_market_details_edit()
 	die();
 }
 
-///forgot password
+// forgot password
 
+get_template_part('inc/user/forgot-password');
 add_action('wp_ajax_nopriv_send_email_otp', 'send_email_otp');
 add_action('wp_ajax_send_email_otp', 'send_email_otp');
-function send_email_otp()
-{
-
-	//Step 1
-	$email = $_POST['forgot_email'];
-	$user = get_user_by('email', $email);
-	if ($user) {
-		$userId = $user->ID;
-
-		$vericationcode = mt_rand(100000, 999999);
-		update_user_meta($userId, '_user_otp', $vericationcode);
-		if (!(isset($from) && is_email($from))) {
-			$sitename = strtolower($_SERVER['SERVER_NAME']);
-			if (substr($sitename, 0, 4) == 'www.') {
-				$sitename = substr($sitename, 4);
-			}
-			$from = 'admin@' . $sitename;
-		}
-		$subject = "Forgot Password";
-		$headers .= "MIME-Version: 1.0" . "\r\n";
-		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-		$headers .= 'From:Florish <' . $from . '>' . "\r\n";
-		$ms .= "<html></body><div><div>Dear User,</div></br></br>";
-		$ms .= "<div style='padding-top:8px;'>OTP for for Account Verification is $vericationcode</div><div></div></body></html>";
-		mail($email, $subject, $ms, $headers);
-		echo json_encode(array('error' => false, 'message' => 'OTP Successful send your register email address', 'user_id' => $userId));
-	} else {
-		echo json_encode(array('error' => true, 'message' => 'Your email has not been registered', 'user_id' => ''));
-	}
-
-	die();
-}
-
 
 add_action('wp_ajax_nopriv_verify_email_otp', 'verify_email_otp');
 add_action('wp_ajax_verify_email_otp', 'verify_email_otp');
-function verify_email_otp()
-{
-
-	//Step 2
-	$enterotp = $_POST['otp'];
-	$user_id = $_POST['user_id'];
-	$emailotp = get_user_meta($user_id, '_user_otp', true);
-	if ($enterotp == $emailotp) {
-		echo json_encode(array('error' => false, 'message' => 'OTP Successful verified', 'user_id' => $user_id));
-	} else {
-		echo json_encode(array('error' => true, 'message' => 'Enter Your Correct OTP', 'user_id' => $user_id));
-	}
-
-	die();
-}
 
 add_action('wp_ajax_nopriv_change_user_password', 'change_user_password');
 add_action('wp_ajax_change_user_password', 'change_user_password');
-function change_user_password()
-{
-
-	//Step 3
-	$new_password = $_POST['new_password'];
-	$user_id = $_POST['user_id'];
-	$result = wp_set_password($new_password, $user_id);
-	if ($result) {
-		echo json_encode(array('error' => false, 'message' => 'Password Successful updates', 'user_id' => $user_id));
-	} else {
-		echo json_encode(array('error' => true, 'message' => 'Something went to wrong! ', 'user_id' => $user_id));
-	}
-	//update_user_meta($user_id, 'user_pass', $new_password);
-	//wp_update_user( array ('ID' => $user_id, 'user_pass' => $newpassword) ) ;
-
-	die();
-}
 
 
 
