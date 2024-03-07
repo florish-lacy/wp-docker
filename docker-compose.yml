@@ -59,6 +59,7 @@ services:
       # - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
 
   db:
+    container_name: florish-db
     # We use a mariadb image which supports both amd64 & arm64 architecture (Apple Mx chips)
     image: mariadb:10.6.4-focal
     # If you really want to use MySQL, uncomment the following lines and comment out the above image
