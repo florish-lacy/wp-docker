@@ -10,6 +10,7 @@ volumes:
 
 services:
   wordpress:
+    container_name: florish-wordpress
     # image: wordpress:6.4.3 # Uncomment to use fresh WP install. Takes precedence over `build` prop.
     build: . # Use the Dockerfile instead of a fresh WP install.
     depends_on:
