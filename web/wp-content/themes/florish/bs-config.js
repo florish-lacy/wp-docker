@@ -19,7 +19,8 @@ module.exports = {
 	files: [
 		'*.php',
 		'assets/css/*.css',
-		'assets/js/*.js',
+		// 'assets/js/*.js',
+		'assets/dist/**/*',
 		'components/**/*.php',
 		// {
 		// 	match: ['components/helpers/**/*.php'],

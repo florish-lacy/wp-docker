@@ -7,7 +7,7 @@ function florish_scripts()
 {
 	// Load our main theme stylesheet.
 	// wp_enqueue_style('florish-style', get_stylesheet_uri()); // style.css
-	wp_enqueue_style('florish-style', get_template_directory_uri() . '/assets/css/style.css'); // style.css
+	// wp_enqueue_style('florish-style', get_template_directory_uri() . '/assets/css/style.css'); // style.css
 
 	//bootstrap toggle css include
 	//wp_enqueue_style( 'florish-bootstrap-toggle-style', 'https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css', array() );
@@ -57,13 +57,25 @@ function florish_scripts()
 	///jquery cookie js
 	wp_enqueue_script('florish-jquery-cookie-js', get_template_directory_uri() . '/assets/js/jquery.cookie.js', array('jquery'), '204641811', true);
 
-
 	///map js
 	wp_enqueue_script('florish-map-place-js', get_template_directory_uri() . '/assets/js/map.js', array('jquery'), '20468768711', true);
 
-	global $wp;
 	// Theme main Function js
-	wp_enqueue_script('florish-main-script', get_template_directory_uri() . '/assets/js/functions.js', array('jquery'), '20151811', true);
+	// wp_enqueue_script('florish-main-script', get_template_directory_uri() . '/assets/js/functions.js', array('jquery'), '20151811', true);
+
+	if (is_array(wp_remote_get('http://localhost:5173/'))) {
+
+		wp_enqueue_script('vite', 'http://localhost:5173/@vite/client', [], null);
+		wp_enqueue_script('main-js', 'http://localhost:5173/assets/dist/assets/main.js', ['jquery'], null, true);
+		wp_enqueue_style('style-css', 'http://localhost:5173/assets/dist/assets/style.css', [], 'null');
+	} else {
+		wp_enqueue_script('florish-main-script', get_template_directory_uri() . '/assets/dist/main.js', array('jquery'), '1.0', true);
+		wp_enqueue_style('florish-style', get_template_directory_uri() . '/assets/css/style.css'); // style.css
+	}
+
+
+	// todo?
+	global $wp;
 	wp_localize_script('florish-main-script', 'ajax_florish_object', array('ajax_url' => admin_url('admin-ajax.php'), 'home_url' => site_url(), 'vendor_url' => get_page_link(1529), 'current_url' => home_url($wp->request)));
 
 }
