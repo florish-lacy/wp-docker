@@ -1,0 +1,7 @@
+{
+  "assets/js/index.ts": {
+    "file": "main.js",
+    "src": "assets/js/index.ts",
+    "isEntry": true
+  }
+}
