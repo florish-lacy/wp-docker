@@ -11,7 +11,7 @@ export default defineConfig({
 		sourcemap: true,
 		rollupOptions: {
 			input: {
-				main: './assets/js/index.js', // Entry file where your JS/TS files are imported
+				main: './assets/js/index.ts', // Entry file where your JS/TS files are imported
 				// style: './assets/scss/style.scss', // TODO: CSS COMPILATION IS DISABLED - Vite doesn't support scss sourcemaps, so we use sass to generate style.css
 			},
 			output: {
