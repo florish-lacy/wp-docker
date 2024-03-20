@@ -1,10 +1,10 @@
 {
   "autoload": {
     "files": [
-      "inc/helpers/utilities.php"
+      "components/helpers/utilities.php"
     ],
     "psr-4": {
-      "Florish\\": "inc/helpers/"
+      "Florish\\": "components/helpers/"
     }
   }
 }

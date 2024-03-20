@@ -6,5 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Florish\\' => array($baseDir . '/inc/helpers'),
+    'Florish\\' => array($baseDir . '/components/helpers'),
 );

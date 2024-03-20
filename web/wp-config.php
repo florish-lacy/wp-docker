@@ -16,17 +16,6 @@ if (file_exists(dirname(__FILE__) . '/wp-config-pantheon.php') && isset($_ENV['P
 	require_once(dirname(__FILE__) . '/wp-config-pantheon.php');
 
 	/**
-	 * Local configuration information.
-	 *
-	 * If you are working in a local/desktop development environment and want to
-	 * keep your config separate, we recommend using a 'wp-config-local.php' file,
-	 * which you should also make sure you .gitignore.
-	 */
-} elseif (file_exists(dirname(__FILE__) . '/wp-config-local.php') && !isset($_ENV['PANTHEON_ENVIRONMENT'])) {
-	# IMPORTANT: ensure your local config does not include wp-settings.php
-	require_once(dirname(__FILE__) . '/wp-config-local.php');
-
-	/**
 	 * Docker configuration information.
 	 *
 	 * If you are working in a local/desktop development environment and want to
@@ -39,26 +28,37 @@ if (file_exists(dirname(__FILE__) . '/wp-config-pantheon.php') && isset($_ENV['P
 
 
 	/**
+	 * Local configuration information.
+	 *
+	 * If you are working in a local/desktop development environment and want to
+	 * keep your config separate, we recommend using a 'wp-config-local.php' file,
+	 * which you should also make sure you .gitignore.
+	 */
+} elseif (file_exists(dirname(__FILE__) . '/wp-config-local.php') && !isset($_ENV['PANTHEON_ENVIRONMENT'])) {
+	# IMPORTANT: ensure your local config does not include wp-settings.php
+	require_once(dirname(__FILE__) . '/wp-config-local.php');
+
+	/**
 	 * This block will be executed if you are NOT running on Pantheon and have NO
 	 * wp-config-local.php. Insert alternate config here if necessary.
 	 *
 	 * If you are only running on Pantheon, you can ignore this block.
 	 */
 } else {
-	define('DB_NAME', 'database_name');
-	define('DB_USER', 'database_username');
-	define('DB_PASSWORD', 'database_password');
-	define('DB_HOST', 'database_host');
-	define('DB_CHARSET', 'utf8');
-	define('DB_COLLATE', '');
-	define('AUTH_KEY', 'put your unique phrase here');
-	define('SECURE_AUTH_KEY', 'put your unique phrase here');
-	define('LOGGED_IN_KEY', 'put your unique phrase here');
-	define('NONCE_KEY', 'put your unique phrase here');
-	define('AUTH_SALT', 'put your unique phrase here');
+	define('DB_NAME',          'database_name');
+	define('DB_USER',          'database_username');
+	define('DB_PASSWORD',      'database_password');
+	define('DB_HOST',          'database_host');
+	define('DB_CHARSET',       'utf8');
+	define('DB_COLLATE',       '');
+	define('AUTH_KEY',         'put your unique phrase here');
+	define('SECURE_AUTH_KEY',  'put your unique phrase here');
+	define('LOGGED_IN_KEY',    'put your unique phrase here');
+	define('NONCE_KEY',        'put your unique phrase here');
+	define('AUTH_SALT',        'put your unique phrase here');
 	define('SECURE_AUTH_SALT', 'put your unique phrase here');
-	define('LOGGED_IN_SALT', 'put your unique phrase here');
-	define('NONCE_SALT', 'put your unique phrase here');
+	define('LOGGED_IN_SALT',   'put your unique phrase here');
+	define('NONCE_SALT',       'put your unique phrase here');
 }
 
 

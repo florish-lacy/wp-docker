@@ -6,11 +6,9 @@
 				<div class="col-6 col-md-2">
 					<h5>Section</h5>
 					<?php
-					wp_nav_menu(
-						array(
-							'menu' => 'Footer Menu',
-						)
-					);
+					wp_nav_menu(array(
+						'menu'  => 'Footer Menu',
+					));
 					?>
 				</div>
 
@@ -39,12 +37,8 @@
 				<!-- Newsletter -->
 				<div class="col-md-5 offset-md-1">
 					<form>
-						<h5>
-							<?php the_field('newsletters_title', 'option'); ?>
-						</h5>
-						<p>
-							<?php the_field('newsletters_sub_title', 'option'); ?>
-						</p>
+						<h5><?php the_field('newsletters_title', 'option'); ?></h5>
+						<p><?php the_field('newsletters_sub_title', 'option'); ?></p>
 
 						<?php echo do_shortcode('[gravityform id="1" title="false" description="false" ajax="true"]'); ?>
 
@@ -57,19 +51,15 @@
 					<?php if (get_field('footer_logo', 'option')) { ?>
 						<img src="<?php the_field('footer_logo', 'option'); ?>" alt="Florish logo" />
 					<?php } else { ?>
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/florish-logo.svg"
-							alt="Florish logo" />
+						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/florish-logo.svg" alt="Florish logo" />
 					<?php } ?>
 				</a>
 
-				<p>
-					<?php the_field('copyright_text', 'option'); ?>
-				</p>
+				<p><?php the_field('copyright_text', 'option'); ?></p>
 
 				<ul class="list-unstyled d-flex">
 					<li class="ms-3">
-						<a class="link-body-emphasis link-offset-2-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
-							href="#todo">
+						<a class="link-body-emphasis link-offset-2-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#todo">
 							Schedule a Call
 						</a>
 					</li>
@@ -79,15 +69,16 @@
 	</div>
 </div>
 
-<?php get_template_part('inc/components/popups/popup-login'); ?>
+<?php include_once('components/growing-zone/popup-growing-zone.php'); ?>
 
-<?php get_template_part('inc/components/popups/popup-nursery'); ?>
+<?php include_once('components/popup-login.php'); ?>
 
-<?php get_template_part('inc/components/popups/popup-nursery-inventory'); ?>
+<?php include_once('components/popup-nursery.php'); ?>
 
-<?php get_template_part('inc/components/popups/popup-edit-market'); ?>
+<?php include_once('components/popup-nursery-inventory.php'); ?>
 
-<?php get_template_part('inc/components/growing-zone/growing-zone-popup'); ?>
+<?php include_once('components/popup-edit-market.php'); ?>
+
 
 <?php wp_footer(); ?>
 

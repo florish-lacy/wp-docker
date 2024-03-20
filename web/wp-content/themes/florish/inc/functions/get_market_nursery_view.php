@@ -7,7 +7,6 @@ function get_market_nursery_view()
 	global $wpdb;
 	$tablename = $wpdb->prefix . "nurser_market_table";
 
-
 	$location_lat2 = $_POST['lat'];
 	$location_long2 = $_POST['long'];
 	$miles = $_POST['miles'];

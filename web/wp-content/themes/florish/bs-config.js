@@ -1,4 +1,4 @@
-// const { exec } = require('child_process');
+const { exec } = require('child_process');
 /*
  |--------------------------------------------------------------------------
  | Browser-sync config file
@@ -18,11 +18,9 @@ module.exports = {
 	},
 	files: [
 		'*.php',
-		'inc/**/*.php',
-		'vendor/**/*.php',
-		// 'assets/css/*.css',
-		// 'assets/js/*.js',
-		'assets/dist/**/*', // This is js and styles
+		'assets/css/*.css',
+		'assets/js/*.js',
+		'components/**/*.php',
 		// {
 		// 	match: ['components/helpers/**/*.php'],
 		// 	fn(event, file) {

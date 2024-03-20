@@ -17371,14 +17371,14 @@ p.woocommerce-notice.woocommerce-notice--success.woocommerce-thankyou-order-rece
   background: #648863 !important;
 }
 
-/*=== Nursery Registration Page ===*/
+/* === Nursery Registration Page === */
 .nursery-wrap form {
   padding: 0;
   margin: 0;
 }
 
 .nursery-wrap .gform-body .gform_fields {
-  grid-row-gap: 0px;
+  grid-row-gap: 0;
 }
 
 .nursery-wrap .gform-body .gfield {
@@ -17392,11 +17392,13 @@ p.woocommerce-notice.woocommerce-notice--success.woocommerce-thankyou-order-rece
 }
 
 .gform_wrapper.gravity-theme .gfield_error [aria-invalid=true] {
-  border: 1px solid #E1E1E1 !important;
+  border: 1px solid #e1e1e1 !important;
 }
 
-.nursery-wrap .gform-body #field_4_22, .nursery-wrap form .gform-body #field_4_24, .nursery-wrap form .gform-body #field_4_21 {
-  margin: 0 0 5px 0;
+.nursery-wrap .gform-body #field_4_22,
+.nursery-wrap form .gform-body #field_4_24,
+.nursery-wrap form .gform-body #field_4_21 {
+  margin: 0 0 5px;
 }
 
 .nursery-wrap .gform-body .gfield .ginput_container textarea::placeholder {
@@ -17405,22 +17407,23 @@ p.woocommerce-notice.woocommerce-notice--success.woocommerce-thankyou-order-rece
 
 .nursery-wrap .gform-body .gfield .ginput_container textarea#input_4_4 {
   height: 105px;
-  resize: none;
   padding: 20px;
+  resize: none;
 }
 
-.nursery-wrap .gform-body .gfield .gfield_label, .nursery-wrap form .gform-body .gfield .ginput_complex .gform-field-label {
-  width: auto;
+.nursery-wrap .gform-body .gfield .gfield_label,
+.nursery-wrap form .gform-body .gfield .ginput_complex .gform-field-label {
   position: absolute;
   top: -10px;
   left: 26px;
+  z-index: 9;
+  width: auto;
+  padding: 0 5px;
   font-size: 17px;
   font-weight: 400;
   line-height: 1.2;
   color: #787878;
   background: #fff;
-  padding: 0 5px;
-  z-index: 9;
 }
 
 .nursery-wrap .gform-body .gfield .gfield_label .gfield_required {
@@ -17442,19 +17445,21 @@ p.woocommerce-notice.woocommerce-notice--success.woocommerce-thankyou-order-rece
   padding-right: 0 !important;
 }
 
-.nursery-wrap .gform-body .gfield .large, .nursery-wrap form .gform-body .gfield .ginput_complex span input, .gform-body .gfield .ginput_container textarea {
+.nursery-wrap .gform-body .gfield .large,
+.nursery-wrap form .gform-body .gfield .ginput_complex span input,
+.gform-body .gfield .ginput_container textarea {
+  height: 55px;
+  padding: 15px;
   font-family: "Manrope", sans-serif;
   font-size: 17px;
   font-weight: 400;
   line-height: 1.2;
   color: #787878;
-  height: 55px;
+  resize: none;
   background: var(--white);
-  border: 1px solid #E1E1E1;
+  border: 1px solid #e1e1e1;
   border-radius: 2px;
   outline: none;
-  padding: 15px;
-  resize: none;
 }
 
 .nursery-wrap .gform-body .gfield .ginput_container textarea#input_4_5 {
@@ -17462,18 +17467,18 @@ p.woocommerce-notice.woocommerce-notice--success.woocommerce-thankyou-order-rece
 }
 
 .nursery-wra .gform-body .gfield .heading-wrap {
+  margin-bottom: 25px;
   font-family: "Inter", sans-serif;
   font-size: 35px;
-  color: #25400C;
-  margin-bottom: 25px;
+  color: #25400c;
 }
 
 .nursery-wrap .gform-body #field_4_21 .gfield_label {
   position: relative;
   top: inherit;
   left: inherit;
-  color: var(--black);
   margin-bottom: 8px;
+  color: var(--black);
 }
 
 .nursery-wrap .gform-body .gfield .gfield_checkbox {
@@ -17487,17 +17492,17 @@ p.woocommerce-notice.woocommerce-notice--success.woocommerce-thankyou-order-rece
 }
 
 .nursery-wrap .gform-body .gfield .gfield_checkbox > button {
-  background: #F4F4F4;
   padding: 9px 20px;
+  margin: 0;
   font-family: "Manrope", sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.2;
-  letter-spacing: 0.1em;
   color: var(--black);
-  border-radius: 50px;
+  letter-spacing: 0.1em;
+  background: #f4f4f4;
   border: 1px solid rgba(0, 0, 0, 0.01);
-  margin: 0;
+  border-radius: 50px;
 }
 
 .nursery-wrap .gform_footer {
@@ -17506,40 +17511,40 @@ p.woocommerce-notice.woocommerce-notice--success.woocommerce-thankyou-order-rece
 }
 
 .nursery-wrap .gform_footer .gform_button {
-  font-family: "Manrope", sans-serif;
-  font-size: 18px !important;
-  line-height: 1 !important;
-  font-weight: 300 !important;
-  color: var(--white) !important;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  background: #648863 !important;
-  border-radius: 40px !important;
-  border: 0 !important;
-  transition: all 0.5s;
   padding: 16px 35px !important;
   margin-top: 15px !important;
+  font-family: "Manrope", sans-serif;
+  font-size: 18px !important;
+  font-weight: 300 !important;
+  line-height: 1 !important;
+  color: var(--white) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: #648863 !important;
+  border: 0 !important;
+  border-radius: 40px !important;
+  transition: all 0.5s;
 }
 
 .nursery-wrap legend.gfield_label {
   position: inherit !important;
   left: 0 !important;
-  margin-bottom: 0 !important;
   padding: 0 !important;
+  margin-bottom: 0 !important;
 }
 
-/*=== Nursery Active Page ===*/
+/* === Nursery Active Page === */
 .widecolumn {
-  margin: 0 auto;
-  padding: 150px 0;
-  text-align: center;
   width: 55%;
+  padding: 150px 0;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .widecolumn h2, .widecolumn .h2 {
+  margin: 0 0 25px;
   font-size: 75px;
-  color: #25400C;
-  margin: 0 0 25px 0;
+  color: #25400c;
 }
 
 .widecolumn p {
@@ -17547,7 +17552,7 @@ p.woocommerce-notice.woocommerce-notice--success.woocommerce-thankyou-order-rece
   line-height: 1.9;
 }
 
-/*=== Nursery Reset Password Page ===*/
+/* === Nursery Reset Password Page === */
 .woocommerce-account .woocommerce {
   padding: 70px 60px;
 }
@@ -17565,9 +17570,9 @@ p.woocommerce-notice.woocommerce-notice--success.woocommerce-thankyou-order-rece
 }
 
 .woocommerce-account .woocommerce .woocommerce-form-row input {
-  background-color: #efeff1;
   height: 55px;
   padding: 15px;
+  background-color: #efeff1;
   border: none;
   outline: none;
 }
@@ -17577,39 +17582,39 @@ p.woocommerce-notice.woocommerce-notice--success.woocommerce-thankyou-order-rece
 }
 
 .woocommerce-account .woocommerce .woocommerce-form-row button {
-  font-family: "Manrope", sans-serif;
-  font-size: 15px !important;
-  line-height: 1 !important;
-  font-weight: 300 !important;
-  color: var(--white) !important;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  background: #648863 !important;
-  border-radius: 40px !important;
-  border: 0 !important;
-  transition: all 0.5s;
   padding: 16px 35px !important;
   margin-top: 10px !important;
+  font-family: "Manrope", sans-serif;
+  font-size: 15px !important;
+  font-weight: 300 !important;
+  line-height: 1 !important;
+  color: var(--white) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: #648863 !important;
+  border: 0 !important;
+  border-radius: 40px !important;
+  transition: all 0.5s;
 }
 
-/*=== Nursery-popup ====*/
+/* === Nursery-popup ==== */
 #view-nursery-popup {
   position: relative;
-  background: var(--white);
   width: 45%;
-  margin: 0 auto;
-  border-radius: 5px;
   padding: 30px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: 5px;
 }
 
 #view-nursery-popup h2, #view-nursery-popup .h2 {
+  margin-bottom: 20px;
   font-family: "Manrope", sans-serif;
   font-size: 35px;
-  line-height: 1.2;
   font-weight: 500;
+  line-height: 1.2;
   color: var(--theme-color);
   text-align: center;
-  margin-bottom: 20px;
 }
 
 #view-nursery-popup .nursery-full-content {
@@ -17619,10 +17624,10 @@ p.woocommerce-notice.woocommerce-notice--success.woocommerce-thankyou-order-rece
 }
 
 #view-nursery-popup .nursery-full-content h3, #view-nursery-popup .nursery-full-content .h3 {
+  margin: 20px 0;
   font-size: 20px;
   font-weight: 600;
   color: var(--theme-color);
-  margin: 20px 0;
 }
 
 #view-nursery-popup .nursery-full-content ul {
@@ -17635,19 +17640,19 @@ p.woocommerce-notice.woocommerce-notice--success.woocommerce-thankyou-order-rece
 }
 
 #view-nursery-popup .nursery-full-content ul.order_desc li {
-  font-size: 15px;
   margin-bottom: 5px;
+  font-size: 15px;
 }
 
 #view-nursery-popup .nursery-full-content .accordion-info:nth-child(3) ul li {
-  margin-right: 20px;
   display: inline-block;
+  margin-right: 20px;
 }
 
 #view-nursery-popup .nursery-full-content .accordion-info:nth-child(3) ul li:first-child {
   display: block;
-  margin-bottom: 5px;
   margin-top: 15px;
+  margin-bottom: 5px;
 }
 
 #view-nursery-popup .nursery-full-content .accordion-info:nth-child(3) ul li ul {
@@ -17659,9 +17664,9 @@ p.woocommerce-notice.woocommerce-notice--success.woocommerce-thankyou-order-rece
 }
 
 #view-nursery-popup .nursery-full-content ul.order_desc li span {
+  margin-bottom: 0;
   font-size: 15px;
   font-weight: 600;
-  margin-bottom: 0px;
 }
 
 #view-nursery-popup .nursery-full-content ul.point-of-contact {
@@ -17672,10 +17677,10 @@ p.woocommerce-notice.woocommerce-notice--success.woocommerce-thankyou-order-rece
 }
 
 #view-nursery-popup .nursery-full-content ul.point-of-contact li {
-  font-size: 15px;
-  border: 1px solid rgba(0, 0, 0, 0.03);
   padding: 12px 12px 10px;
+  font-size: 15px;
   background: #f1f1f1;
+  border: 1px solid rgba(0, 0, 0, 0.03);
   border-radius: 5px;
 }
 
@@ -17699,40 +17704,46 @@ p.woocommerce-notice.woocommerce-notice--success.woocommerce-thankyou-order-rece
   border-radius: 10px;
 }
 
-.nursery-full-content .accordion-info, #view-nursery-popup .nursery-full-content .card_bxfl {
+.nursery-full-content .accordion-info,
+#view-nursery-popup .nursery-full-content .card_bxfl {
+  margin: 0 30px 20px 0;
+  overflow: hidden;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  overflow: hidden;
-  margin: 0 30px 20px 0;
 }
 
-#view-nursery-popup .nursery-full-content .accordion-info .accordion-toggle, #view-nursery-popup .nursery-full-content .card_bxfl .accordion-toggle {
+#view-nursery-popup .nursery-full-content .accordion-info .accordion-toggle,
+#view-nursery-popup .nursery-full-content .card_bxfl .accordion-toggle {
   position: relative;
   display: block;
-  background: var(--theme-color);
-  color: var(--white);
   padding: 15px 10px 15px 30px;
+  color: var(--white);
+  background: var(--theme-color);
 }
 
-#view-nursery-popup .nursery-full-content .accordion-info .accordion-toggle:after, #view-nursery-popup .nursery-full-content .card_bxfl .accordion-toggle:after {
+#view-nursery-popup .nursery-full-content .accordion-info .accordion-toggle::after,
+#view-nursery-popup .nursery-full-content .card_bxfl .accordion-toggle::after {
   position: absolute;
-  content: "\f078";
-  font-family: "fontawesome";
   top: 50%;
   right: 20px;
-  transform: translateY(-50%);
+  font-family: "fontawesome";
   font-size: 16px;
   color: var(--white);
+  content: "\f078";
+  transform: translateY(-50%);
 }
 
-#view-nursery-popup .nursery-full-content .accordion-info .accordion-toggle.open:after, #view-nursery-popup .nursery-full-content .card_bxfl .accordion-toggle.open:after {
+#view-nursery-popup .nursery-full-content .accordion-info .accordion-toggle.open::after,
+#view-nursery-popup .nursery-full-content .card_bxfl .accordion-toggle.open::after {
   content: "\f106";
 }
 
-#view-nursery-popup .nursery-full-content .accordion-info .accordion-toggle h3, #view-nursery-popup .nursery-full-content .accordion-info .accordion-toggle .h3, #view-nursery-popup .nursery-full-content .card_bxfl .accordion-toggle h3, #view-nursery-popup .nursery-full-content .card_bxfl .accordion-toggle .h3 {
+#view-nursery-popup .nursery-full-content .accordion-info .accordion-toggle h3, #view-nursery-popup .nursery-full-content .accordion-info .accordion-toggle .h3,
+#view-nursery-popup .nursery-full-content .card_bxfl .accordion-toggle h3,
+#view-nursery-popup .nursery-full-content .card_bxfl .accordion-toggle .h3 {
+  margin: 0;
   font-size: 18px;
   color: var(--white);
-  margin: 0;
 }
 
 #view-nursery-popup .nursery-full-content .accordion-info .order_desc {
@@ -17741,33 +17752,33 @@ p.woocommerce-notice.woocommerce-notice--success.woocommerce-thankyou-order-rece
 }
 
 #view-nursery-popup .nursery-full-content .card_bxfl {
-  border: 0;
   margin-bottom: 0;
+  border: 0;
 }
 
 #view-nursery-popup .nursery-full-content .card_bxfl .add_new_plants {
-  margin-top: 20px;
   display: none;
+  margin-top: 20px;
 }
 
 #view-nursery-popup .nursery-full-content .card_bxfl .add_new_plants .row {
-  --bs-gutter-y:30px;
+  --bs-gutter-y: 30px;
 }
 
 #view-nursery-popup .nursery-full-content .card_bxfl .add_new_plants .box {
+  overflow: hidden;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  overflow: hidden;
 }
 
 #view-nursery-popup .nursery-full-content .card_bxfl .add_new_plants .box .title {
-  width: 100%;
   position: relative;
   display: block;
-  text-align: center;
+  width: 100%;
   padding: 10px;
   font-size: 15px;
   color: var(--black);
+  text-align: center;
   transition: 0.5;
 }
 

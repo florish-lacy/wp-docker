@@ -1,4 +1,4 @@
-name: Deploy main to Pantheon Dev
+name: Deploy to Pantheon Live
 
 permissions:
   # Allows the tag/release to be created
@@ -9,7 +9,7 @@ on:
   push:
     branches:
       - main
-      - production
+			- production
 
 jobs:
   build-and-deploy:
