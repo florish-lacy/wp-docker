@@ -2,6 +2,8 @@
 
 function redirect()
 {
+	Florish\add_body_class('fl-test');
+
 	$user = wp_get_current_user();
 	if (is_user_logged_in()) {
 		if (in_array('administrator', (array) $user->roles) || in_array('customer', (array) $user->roles)) {

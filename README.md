@@ -214,7 +214,7 @@ We use composer to manage PHP resources and custom theme functions/classes. File
 - Class filenames should correspond to the Class name.
 - Files with individual functions must be added to `composer.json`
 
-After changing files in the `components/helpers/` directory, run the following command (`composer dump-autoload`) to generate autoload files:
+After changing files in the `inc/helpers/` directory, run the following command (`composer dump-autoload`) to generate autoload files:
 
 `docker exec -w /var/www/html/wp-content/themes/florish florish-wordpress-1 composer dump-autoload`
 

@@ -148,6 +148,6 @@
 	</div>
 </div>
 
-<?php get_template_part('components/sections/faq'); ?>
+<?php get_template_part('inc/components/sections/faq'); ?>
 
 <?php get_footer(); ?>

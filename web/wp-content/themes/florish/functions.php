@@ -45,6 +45,7 @@ if (function_exists('acf_add_options_page')) {
 // 	));
 
 get_template_part('inc/functions/theme/customizer');
+
 add_action('customize_register', 'sorciere_social_share_customize_register');
 add_action('init', 'change_role_name');
 add_action('after_setup_theme', 'remove_admin_bar');
@@ -697,7 +698,8 @@ function nursery_profile_view()
 			<ul class="order_desc accordion-content">
 				<li>
 					<?php foreach (unserialize(get_user_meta($user_id, '_select_delivery_days', true)) as $key => $value) {
-						// print_r($key); print_r($value['start_time']); echo ',';                                       ?>
+						// print_r($key); print_r($value['start_time']); echo ',';
+						?>
 						<ul>
 							<li><span>
 									<?php echo $key; ?>:
@@ -2050,23 +2052,23 @@ function nursery_add_inventory()
 	}
 }
 
-get_template_part('inc/nursery_inventory_active_inactive');
+get_template_part('inc/functions/nursery_inventory_active_inactive');
 add_action('wp_ajax_nursery_inventory_active_inactive', 'nursery_inventory_active_inactive');
 // add_action('wp_ajax_nopriv_nursery_inventory_active_inactive', 'nursery_inventory_active_inactive');
 
-get_template_part('inc/get_market_nursery_view');
+get_template_part('inc/functions/get_market_nursery_view');
 add_action('wp_ajax_get_market_nursery_view', 'get_market_nursery_view');
 
 
 //////get market details
 
-get_template_part('inc/get_market_details_edit');
+get_template_part('inc/functions/get_market_details_edit');
 add_action('wp_ajax_get_market_details_edit', 'get_market_details_edit');
 
 
 // forgot password
 
-get_template_part('inc/user/forgot_password');
+get_template_part('inc/functions/user/forgot_password');
 add_action('wp_ajax_nopriv_send_email_otp', 'send_email_otp');
 add_action('wp_ajax_send_email_otp', 'send_email_otp');
 
@@ -2079,7 +2081,7 @@ add_action('wp_ajax_change_user_password', 'change_user_password');
 
 ///add custom fee
 
-get_template_part('inc/custom_fee_based_on_nursery_select_delivery_zone');
+get_template_part('inc/functions/custom_fee_based_on_nursery_select_delivery_zone');
 add_action('woocommerce_before_calculate_totals', 'custom_fee_based_on_nursery_select_delivery_zone');
 //add_action( 'woocommerce_cart_calculate_fees', 'custom_fee_based_on_nursery_select_delivery_zone', 10, 1 );
 
@@ -2087,6 +2089,6 @@ add_action('woocommerce_before_calculate_totals', 'custom_fee_based_on_nursery_s
 //add_filter('woocommerce_enable_order_notes_field', '__return_false');
 //add_filter('woocommerce_ship_to_different_address_checked', '__return_true', 999);
 
-
+// Todo: Redirect should be active for launch (uncomment) - maybe check for prod and disable in dev?
 get_template_part('inc/redirect');
 //add_action( 'template_redirect', 'redirect' );
