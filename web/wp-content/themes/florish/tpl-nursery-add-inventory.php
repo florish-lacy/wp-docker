@@ -1,5 +1,6 @@
 <?php /* Template Name: Add Inventory Nursery */ ?>
 <?php
+// If user is not nursery, redirect to home page
 // $current_user = wp_get_current_user();
 // if ( !wc_user_has_role( $current_user, 'nursery' )){
 //   wp_safe_redirect(home_url());
@@ -9,6 +10,9 @@ $status = get_user_meta($user_id, '_member_status', true);
 $inventory_sumbit_status = get_user_meta($user_id, '_inventory_sumbit_status', true);
 $stage_status = get_user_meta($user_id, '_stage_status', true);
 
+$status = 'active';
+$inventory_sumbit_status = '';
+$stage_status = 1;
 // Add body class to the header: Makes the header float above the content
 // use .fl-nav__offset to give the header a top margin
 Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--img');
@@ -24,8 +28,7 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 			<h1 class="">Congratulations!</h1>
 			<p class="col-lg-8 mx-auto lead">
 				Your application has been approved to become a Florish Nursery Partner. Complete the following setup
-				steps
-				to connect your inventory with florish
+				steps to connect your inventory with Florish.
 			</p>
 		</div>
 	</div>
@@ -149,6 +152,8 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 	</div>
 
 </div>
+
+
 <div class="flo-step-pnl">
 	<div class="container">
 		<div class="inn">
@@ -204,7 +209,7 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 													<div class="col-md-6 col-sm-12">
 														<?php
 														$owner_email = get_user_meta(get_current_user_id(), '_account_owner_email', true);
-														if (empty($owner_email)) {
+														if (empty ($owner_email)) {
 															$current_user = wp_get_current_user();
 															$owner_email = $current_user->user_email;
 														}

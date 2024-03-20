@@ -122,6 +122,12 @@ The theme files are located in the `wp-content/themes/florish` folder.
 
 The easiest way to develop the theme is to use the `npm run dev` command. This starts the development server and watches for changes to the theme files.
 
+### PHP
+
+Use full PHP tags `<?php ?>` instead of short tags `<? ?>`.
+
+
+
 
 #### Styles
 
