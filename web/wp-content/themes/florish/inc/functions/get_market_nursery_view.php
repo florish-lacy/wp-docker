@@ -1,5 +1,4 @@
 <?php
-// TODO: Organize this
 
 function get_market_nursery_view()
 {
