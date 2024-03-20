@@ -79,15 +79,15 @@
 	</div>
 </div>
 
-<?php get_template_part('inc/components/popups/popup-login'); ?>
+<?php get_template_part('components/popups/popup-login'); ?>
 
-<?php get_template_part('inc/components/popups/popup-nursery'); ?>
+<?php get_template_part('components/popups/popup-nursery'); ?>
 
-<?php get_template_part('inc/components/popups/popup-nursery-inventory'); ?>
+<?php get_template_part('components/popups/popup-nursery-inventory'); ?>
 
-<?php get_template_part('inc/components/popups/popup-edit-market'); ?>
+<?php get_template_part('components/popups/popup-edit-market'); ?>
 
-<?php get_template_part('inc/components/growing-zone/growing-zone-popup'); ?>
+<?php get_template_part('components/growing-zone/growing-zone-popup'); ?>
 
 <?php wp_footer(); ?>
 
