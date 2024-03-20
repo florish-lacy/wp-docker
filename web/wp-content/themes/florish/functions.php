@@ -370,7 +370,7 @@ add_action('init', 'nursery_product_submit_form');
 function nursery_product_submit_form()
 {
 
-	if (isset($_POST['save_plant']) && wp_verify_nonce($_POST['cform_generate_nonce'], 'submit_nursery_plant')) {
+	if (isset ($_POST['save_plant']) && wp_verify_nonce($_POST['cform_generate_nonce'], 'submit_nursery_plant')) {
 
 		$avaliable_plant = serialize($_POST['select_product_name']);
 		foreach ($_POST['select_product_name'] as $plant_id) {
@@ -385,7 +385,7 @@ function nursery_product_submit_form()
 		wp_redirect(esc_url(get_page_link(70)));
 		die;
 	}
-	if (isset($_GET['oid']) && isset($_GET['status']) && is_numeric($_GET['oid'])) {
+	if (isset ($_GET['oid']) && isset ($_GET['status']) && is_numeric($_GET['oid'])) {
 		$order_id = $_GET['oid'];
 		$order_status = $_GET['status'];
 		$order = wc_get_order($order_id);
@@ -398,20 +398,20 @@ function nursery_product_submit_form()
 		wp_redirect(esc_url(get_page_link(70)));
 		die;
 	}
-	if (isset($_GET['userid']) && isset($_GET['in_status']) && is_numeric($_GET['userid'])) {
+	if (isset ($_GET['userid']) && isset ($_GET['in_status']) && is_numeric($_GET['userid'])) {
 		$user_id = $_GET['userid'];
 		$use_status = $_GET['in_status'];
 		$status = get_user_meta($user_id, '_member_status', true);
 		$code = get_user_meta($user_id, 'code_to_be_activated', true);
 
-		if (empty($status) || $status == 'inactive') {
+		if (empty ($status) || $status == 'inactive') {
 			if ($use_status == 'accept') {
 				update_user_meta($user_id, '_member_status', 'active');
 				delete_user_meta($user_id, 'code_to_be_activated');
 
 				$from = get_field("sender_email", "option"); // Set whatever you want like mail@yourdomain.com
 
-				if (!(isset($from) && is_email($from))) {
+				if (!(isset ($from) && is_email($from))) {
 					$sitename = strtolower($_SERVER['SERVER_NAME']);
 					if (substr($sitename, 0, 4) == 'www.') {
 						$sitename = substr($sitename, 4);
@@ -444,7 +444,7 @@ function nursery_product_submit_form()
 
 					$from = get_field("sender_email", "option"); // Set whatever you want like mail@yourdomain.com
 
-					if (!(isset($from) && is_email($from))) {
+					if (!(isset ($from) && is_email($from))) {
 						$sitename = strtolower($_SERVER['SERVER_NAME']);
 						if (substr($sitename, 0, 4) == 'www.') {
 							$sitename = substr($sitename, 4);
@@ -479,7 +479,7 @@ function nursery_product_submit_form()
 
 			$from = get_field("sender_email", "option"); // Set whatever you want like mail@yourdomain.com
 
-			if (!(isset($from) && is_email($from))) {
+			if (!(isset ($from) && is_email($from))) {
 				$sitename = strtolower($_SERVER['SERVER_NAME']);
 				if (substr($sitename, 0, 4) == 'www.') {
 					$sitename = substr($sitename, 4);
@@ -697,7 +697,7 @@ function nursery_profile_view()
 			<ul class="order_desc accordion-content">
 				<li>
 					<?php foreach (unserialize(get_user_meta($user_id, '_select_delivery_days', true)) as $key => $value) {
-						// print_r($key); print_r($value['start_time']); echo ',';                                       ?>
+						// print_r($key); print_r($value['start_time']); echo ',';                                        ?>
 						<ul>
 							<li><span>
 									<?php echo $key; ?>:
@@ -928,11 +928,11 @@ add_action('woocommerce_save_account_details', 'save_extra_field_account_details
 function save_extra_field_account_details($user_id)
 {
 	// For billing Phone
-	if (isset($_POST['billing_phone']))
+	if (isset ($_POST['billing_phone']))
 		update_user_meta($user_id, 'billing_phone', sanitize_text_field($_POST['billing_phone']));
 
 	// For Billing location (added related to your comment)
-	if (isset($_POST['billing_customer_location']))
+	if (isset ($_POST['billing_customer_location']))
 		update_user_meta($user_id, 'billing_customer_location', sanitize_text_field($_POST['billing_customer_location']));
 	update_user_meta($user_id, 'billing_customer_location_lat', sanitize_text_field($_POST['billing_customer_location_lat']));
 	update_user_meta($user_id, 'billing_customer_location_long', sanitize_text_field($_POST['billing_customer_location_long']));
@@ -1132,7 +1132,7 @@ function product_acquirable_update_function()
 
 	$product_id = $_POST['product_id'];
 	$product_acquirable = get_post_meta($product_id, 'product_acquirable', true);
-	if (!empty($product_acquirable)) {
+	if (!empty ($product_acquirable)) {
 		if ($product_acquirable == 'For Sale') {
 			$acquirable = 'Not For Sale';
 		} else {
@@ -1180,7 +1180,7 @@ function exclude_specific_product_attribute_query($tax_query, $query)
 	if (!is_shop())
 		return $tax_query;
 
-	if (!empty($_COOKIE['customer_usda_zip'])) {
+	if (!empty ($_COOKIE['customer_usda_zip'])) {
 		$cookieValue = $_COOKIE['customer_usda_zip'];
 		$decoded_json = json_decode(stripslashes($_COOKIE['customer_usda_zip']), true);
 		$customer_usda_zip = $decoded_json['zone'];
@@ -1190,14 +1190,14 @@ function exclude_specific_product_attribute_query($tax_query, $query)
 			$customer_usda_zip = "";
 		} else {
 			$customer_usda_zip_array = unserialize(get_user_meta(get_current_user_id(), '_customer_usda_zip', true));
-			if (!empty($customer_usda_zip_array)) {
+			if (!empty ($customer_usda_zip_array)) {
 				$customer_usda_zip = $customer_usda_zip_array['zone'];
 			} else {
 				$customer_usda_zip = "";
 			}
 		}
 	}
-	if (!empty($customer_usda_zip)) {
+	if (!empty ($customer_usda_zip)) {
 		// HERE Define your product category SLUGs to be excluded
 		$terms = array($customer_usda_zip); // SLUGs only
 		// The taxonomy for Product attribute
@@ -1272,7 +1272,7 @@ function customer_update_zipcode()
 {
 	if (is_user_logged_in()) {
 		$user_id = get_current_user_id();
-		if (!empty($_COOKIE['customer_usd_zipcode'])) {
+		if (!empty ($_COOKIE['customer_usd_zipcode'])) {
 			$customer_usd_zipcode = $_COOKIE['customer_usd_zipcode'];
 		} else {
 			$customer_usd_zipcode = "";
@@ -1284,7 +1284,7 @@ function customer_update_zipcode()
 		}
 
 
-		if (!empty($_COOKIE['customer_usda_zip'])) {
+		if (!empty ($_COOKIE['customer_usda_zip'])) {
 			$cookieValue = $_COOKIE['customer_usda_zip'];
 			$decoded_json = json_decode(stripslashes($_COOKIE['customer_usda_zip']), true);
 			$customer_usda_zip = $decoded_json['zone'];
@@ -1354,9 +1354,9 @@ function get_distances_miles($lat1, $lon1, $lat2, $lon2, $unit)
 		$unit = strtoupper($unit);
 
 		if ($unit == "K") {
-			return($miles * 1.609344);
+			return ($miles * 1.609344);
 		} else if ($unit == "N") {
-			return($miles * 0.8684);
+			return ($miles * 0.8684);
 		} else {
 			return $miles;
 		}
@@ -1372,7 +1372,7 @@ function custom_field_display_below_title()
 	$plant_id = $product->get_id();
 
 	// Get the custom field value
-	if (!empty($_COOKIE['customer_usda_zip'])) {
+	if (!empty ($_COOKIE['customer_usda_zip'])) {
 		//$customer_usda_zip_array = $_COOKIE['customer_usda_zip'];
 		$customer_usda_zip_array = json_decode(stripslashes($_COOKIE['customer_usda_zip']), true);
 		$location_lat2 = $customer_usda_zip_array['coordinates']['lat'];
@@ -1380,7 +1380,7 @@ function custom_field_display_below_title()
 
 	} else {
 		$customer_usda_zip_array = unserialize(get_user_meta(get_current_user_id(), '_customer_usda_zip', true));
-		if (!empty($customer_usda_zip_array)) {
+		if (!empty ($customer_usda_zip_array)) {
 			$location_lat2 = $customer_usda_zip_array['coordinates']['lat'];
 			$location_long2 = $customer_usda_zip_array['coordinates']['lon'];
 		} else {
@@ -1418,7 +1418,7 @@ function custom_field_display_below_title()
 			$custom_sticker = "This plant does not work in your zone.";
 		}
 	}
-	if (!is_user_logged_in() && empty($_COOKIE['customer_usda_zip'])) {
+	if (!is_user_logged_in() && empty ($_COOKIE['customer_usda_zip'])) {
 		$custom_sticker = "";
 	}
 
@@ -1427,7 +1427,7 @@ function custom_field_display_below_title()
 	//echo get_distances_miles(32.9697, -96.80322, 29.46786, -98.53506, "K") . " Kilometers<br>";
 	//echo get_distances_miles(32.9697, -96.80322, 29.46786, -98.53506, "N") . " Nautical Miles<br>";
 	// Display
-	if (!empty($custom_sticker)) {
+	if (!empty ($custom_sticker)) {
 		echo '<div class="plants-zones">' . $custom_sticker . '</div>';
 	}
 }
@@ -1440,7 +1440,7 @@ function add_custom_text_after_product_title()
 	$plant_id = $product->get_id();
 
 	// Get the custom field value
-	if (!empty($_COOKIE['customer_usda_zip'])) {
+	if (!empty ($_COOKIE['customer_usda_zip'])) {
 		//$customer_usda_zip_array = $_COOKIE['customer_usda_zip'];
 		$customer_usda_zip_array = json_decode(stripslashes($_COOKIE['customer_usda_zip']), true);
 		$location_lat2 = $customer_usda_zip_array['coordinates']['lat'];
@@ -1448,7 +1448,7 @@ function add_custom_text_after_product_title()
 
 	} else {
 		$customer_usda_zip_array = unserialize(get_user_meta(get_current_user_id(), '_customer_usda_zip', true));
-		if (!empty($customer_usda_zip_array)) {
+		if (!empty ($customer_usda_zip_array)) {
 			$location_lat2 = $customer_usda_zip_array['coordinates']['lat'];
 			$location_long2 = $customer_usda_zip_array['coordinates']['lon'];
 		} else {
@@ -1488,7 +1488,7 @@ function add_custom_text_after_product_title()
 			$custom_text = "";
 		}
 	}
-	if (!is_user_logged_in() && empty($_COOKIE['customer_usda_zip'])) {
+	if (!is_user_logged_in() && empty ($_COOKIE['customer_usda_zip'])) {
 		$custom_text = "";
 	}
 
@@ -1576,7 +1576,7 @@ function nursery_ajax_register_inventory()
 
 	// insurance file upload
 	$file = $_FILES['files'];
-	if (!empty($_FILES['files']['name'][0]) && !empty($_FILES['files']['tmp_name'])) {
+	if (!empty ($_FILES['files']['name'][0]) && !empty ($_FILES['files']['tmp_name'])) {
 		// Load upload-related and other required functions.
 		require_once ABSPATH . 'wp-admin/includes/file.php';
 		require_once ABSPATH . 'wp-admin/includes/image.php';
@@ -1597,7 +1597,7 @@ function nursery_ajax_register_inventory()
 	///send Email
 	$from = get_field("sender_email", "option"); // Set whatever you want like mail@yourdomain.com
 
-	if (!(isset($from) && is_email($from))) {
+	if (!(isset ($from) && is_email($from))) {
 		$sitename = strtolower($_SERVER['SERVER_NAME']);
 		if (substr($sitename, 0, 4) == 'www.') {
 			$sitename = substr($sitename, 4);
@@ -1630,11 +1630,11 @@ function nursery_reg_status_change()
 
 	///Stage 1 approved
 
-	if ($in_status == 1 && !empty($user_id) && is_numeric($user_id)) {
+	if ($in_status == 1 && !empty ($user_id) && is_numeric($user_id)) {
 
 		$from = get_field("sender_email", "option"); // Set whatever you want like mail@yourdomain.com
 
-		if (!(isset($from) && is_email($from))) {
+		if (!(isset ($from) && is_email($from))) {
 			$sitename = strtolower($_SERVER['SERVER_NAME']);
 			if (substr($sitename, 0, 4) == 'www.') {
 				$sitename = substr($sitename, 4);
@@ -1662,11 +1662,11 @@ function nursery_reg_status_change()
 	}
 	///Stage 2 approved
 
-	if ($in_status == '2' && !empty($user_id) && is_numeric($user_id)) {
+	if ($in_status == '2' && !empty ($user_id) && is_numeric($user_id)) {
 
 		$from = get_field("sender_email", "option"); // Set whatever you want like mail@yourdomain.com
 
-		if (!(isset($from) && is_email($from))) {
+		if (!(isset ($from) && is_email($from))) {
 			$sitename = strtolower($_SERVER['SERVER_NAME']);
 			if (substr($sitename, 0, 4) == 'www.') {
 				$sitename = substr($sitename, 4);
@@ -1693,11 +1693,11 @@ function nursery_reg_status_change()
 
 	///Stage 1 Decline
 
-	if ($in_status == 11 && !empty($user_id) && is_numeric($user_id)) {
+	if ($in_status == 11 && !empty ($user_id) && is_numeric($user_id)) {
 
 		$from = get_field("sender_email", "option"); // Set whatever you want like mail@yourdomain.com
 
-		if (!(isset($from) && is_email($from))) {
+		if (!(isset ($from) && is_email($from))) {
 			$sitename = strtolower($_SERVER['SERVER_NAME']);
 			if (substr($sitename, 0, 4) == 'www.') {
 				$sitename = substr($sitename, 4);
@@ -1724,11 +1724,11 @@ function nursery_reg_status_change()
 
 	///Stage 2 Decline
 
-	if ($in_status == 22 && !empty($user_id) && is_numeric($user_id)) {
+	if ($in_status == 22 && !empty ($user_id) && is_numeric($user_id)) {
 
 		$from = get_field("sender_email", "option"); // Set whatever you want like mail@yourdomain.com
 
-		if (!(isset($from) && is_email($from))) {
+		if (!(isset ($from) && is_email($from))) {
 			$sitename = strtolower($_SERVER['SERVER_NAME']);
 			if (substr($sitename, 0, 4) == 'www.') {
 				$sitename = substr($sitename, 4);
@@ -1755,11 +1755,11 @@ function nursery_reg_status_change()
 
 	///Deactive Account
 
-	if ($in_status == 'inactive' && !empty($user_id) && is_numeric($user_id)) {
+	if ($in_status == 'inactive' && !empty ($user_id) && is_numeric($user_id)) {
 
 		$from = get_field("sender_email", "option"); // Set whatever you want like mail@yourdomain.com
 
-		if (!(isset($from) && is_email($from))) {
+		if (!(isset ($from) && is_email($from))) {
 			$sitename = strtolower($_SERVER['SERVER_NAME']);
 			if (substr($sitename, 0, 4) == 'www.') {
 				$sitename = substr($sitename, 4);
@@ -1796,7 +1796,7 @@ function nursery_reg_add_inv()
 
 	$search_plant = $_POST['search_plant'];
 	$post_id = $_POST['plant_id'];
-	if (empty($post_id)) {
+	if (empty ($post_id)) {
 		$args = array(
 			'posts_per_page' => -1,
 			'post_type' => 'product',
@@ -1840,7 +1840,7 @@ function nursery_reg_add_inv()
 			$product = wc_get_product($plant_id);
 
 			if ($product->is_type('variable')) {
-				if (!empty($attributes)) {
+				if (!empty ($attributes)) {
 					$available_variations = $product->get_available_variations();
 					//echo "<pre>"; print_r($available_variations);
 					?>
@@ -1874,7 +1874,7 @@ function nursery_reg_add_inv()
 									$pa_pot_size_term_id = $pa_pot_size_term->term_id;
 									$field_price = '_nursery_product_plant_variation_retail_price_' . get_current_user_id();
 									$select_product_pot_size_price = get_post_meta($varible_id, $field_price, true);
-									if (!empty($select_product_pot_size_price)) {
+									if (!empty ($select_product_pot_size_price)) {
 										$display_price = $select_product_pot_size_price;
 									}
 									?>
@@ -1909,7 +1909,7 @@ function nursery_reg_add_inv()
 add_action('init', 'nursery_add_inventory');
 function nursery_add_inventory()
 {
-	if (isset($_POST['all_done']) && isset($_POST['select_product_name_1'])) {
+	if (isset ($_POST['all_done']) && isset ($_POST['select_product_name_1'])) {
 
 		$avaliable_plant = serialize($_POST['select_product_name_1']);
 		foreach ($_POST['select_product_name_1'] as $plant_id) {
@@ -1938,7 +1938,7 @@ function nursery_add_inventory()
 	global $wpdb;
 	$wpdb->show_errors();
 	$charset_collate = $wpdb->get_charset_collate();
-	require_once(ABSPATH . 'wp-admin/includes/upgrade.php'); // TODO: Why are we including from wp-admin?
+	require_once (ABSPATH . 'wp-admin/includes/upgrade.php'); // TODO: Why are we including from wp-admin?
 	define('WP_NURSERY_MARKETS_DB_VERSION', '7.0');
 	if (get_option("nursery_markets_db_version") != WP_NURSERY_MARKETS_DB_VERSION) {
 
@@ -1960,7 +1960,7 @@ function nursery_add_inventory()
 	}
 
 	/////Add Market
-	if (isset($_POST['added_market']) && isset($_POST['market_name'])) {
+	if (isset ($_POST['added_market']) && isset ($_POST['market_name'])) {
 
 		$market_tablename = $wpdb->prefix . "nurser_market_table";
 		$market_name = $_POST['market_name'];
@@ -1990,7 +1990,7 @@ function nursery_add_inventory()
 
 	////update market
 
-	if (isset($_POST['update_market']) && isset($_POST['latitude1'])) {
+	if (isset ($_POST['update_market']) && isset ($_POST['latitude1'])) {
 		$market_tablename = $wpdb->prefix . "nurser_market_table";
 		$market_id = $_POST['market_id'];
 		$market_name = $_POST['market_name1'];
@@ -2050,23 +2050,23 @@ function nursery_add_inventory()
 	}
 }
 
-get_template_part('inc/nursery_inventory_active_inactive');
+get_template_part('inc/functions/nursery_inventory_active_inactive');
 add_action('wp_ajax_nursery_inventory_active_inactive', 'nursery_inventory_active_inactive');
 // add_action('wp_ajax_nopriv_nursery_inventory_active_inactive', 'nursery_inventory_active_inactive');
 
-get_template_part('inc/get_market_nursery_view');
+get_template_part('inc/functions/get_market_nursery_view');
 add_action('wp_ajax_get_market_nursery_view', 'get_market_nursery_view');
 
 
 //////get market details
 
-get_template_part('inc/get_market_details_edit');
+get_template_part('inc/functions/get_market_details_edit');
 add_action('wp_ajax_get_market_details_edit', 'get_market_details_edit');
 
 
 // forgot password
 
-get_template_part('inc/user/forgot_password');
+get_template_part('inc/functions/user/forgot_password');
 add_action('wp_ajax_nopriv_send_email_otp', 'send_email_otp');
 add_action('wp_ajax_send_email_otp', 'send_email_otp');
 
@@ -2079,7 +2079,7 @@ add_action('wp_ajax_change_user_password', 'change_user_password');
 
 ///add custom fee
 
-get_template_part('inc/custom_fee_based_on_nursery_select_delivery_zone');
+get_template_part('inc/functions/custom_fee_based_on_nursery_select_delivery_zone');
 add_action('woocommerce_before_calculate_totals', 'custom_fee_based_on_nursery_select_delivery_zone');
 //add_action( 'woocommerce_cart_calculate_fees', 'custom_fee_based_on_nursery_select_delivery_zone', 10, 1 );
 
@@ -2087,6 +2087,6 @@ add_action('woocommerce_before_calculate_totals', 'custom_fee_based_on_nursery_s
 //add_filter('woocommerce_enable_order_notes_field', '__return_false');
 //add_filter('woocommerce_ship_to_different_address_checked', '__return_true', 999);
 
-
-get_template_part('inc/redirect');
+// Todo: Redirect should be active for launch (uncomment) - maybe check for prod and disable in dev?
+get_template_part('inc/functions/redirect');
 //add_action( 'template_redirect', 'redirect' );
