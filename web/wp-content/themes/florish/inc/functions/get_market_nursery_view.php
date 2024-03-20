@@ -57,8 +57,7 @@ function get_market_nursery_view()
 									<th>Nursery Price</th>
 									<th>MSRP Price</th>
 									<th>Take Rate(
-										<?php echo $take_rate; ?>
-										%)
+										<?php echo $take_rate; ?>%)
 									</th>
 									<th>Gross Profit</th>
 								</tr>
@@ -164,5 +163,5 @@ function get_market_nursery_view()
 	</ul>
 	<?
 
-	die();
+	// die();
 }
