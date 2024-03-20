@@ -4,7 +4,9 @@
 <head>
 	<meta charset="<?php bloginfo('charset'); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title><?php bloginfo('name'); ?></title>
+	<title>
+		<?php bloginfo('name'); ?>
+	</title>
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 
 	<?php wp_head(); ?>
@@ -21,37 +23,43 @@
 			$image = wp_get_attachment_image_src($custom_logo_id, 'full');
 			$logo_src = !empty($image) ? $image[0] : get_template_directory_uri() . '/assets/images/florish-logo.svg';
 			?>
-			<a class="navbar-brand d-flex h-100 px-2" href="<?php echo get_site_url(); ?>"><img src="<?php echo $logo_src; ?>" alt="Florish logo" /></a>
+			<a class="navbar-brand d-flex h-100 px-2" href="<?php echo get_site_url(); ?>"><img
+					src="<?php echo $logo_src; ?>" alt="Florish logo" /></a>
 
 			<div class="d-flex align-items-center justify-content-end gap-3">
 
 				<div class="d-xl-none">
-					<?php include('components/growing-zone/button-growing-zone.php'); ?>
+					<?php get_template_part('inc/components/growing-zone/growing-zone-button'); ?>
 				</div>
 
-				<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+				<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+					data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
 			</div>
 
-			<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+			<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+				aria-labelledby="offcanvasNavbarLabel">
 				<div class="offcanvas-header">
 					<h5 class="inter offcanvas-title" id="offcanvasNavbarLabel">Welcome to Florish!</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 				</div>
-				<div class="offcanvas-body d-flex flex-column-reverse justify-content-end flex-lg-row align-items-lg-center gap-3">
+				<div
+					class="offcanvas-body d-flex flex-column-reverse justify-content-end flex-lg-row align-items-lg-center gap-3">
 					<!-- NAV -->
 					<?php
-					wp_nav_menu(array(
-						'menu'  => 'Main Menu',
-						'menu_class' => 'navbar-nav justify-content-end flex-grow-lg-1 p-2 p-lg-0',
-						'container' => false
-					));
+					wp_nav_menu(
+						array(
+							'menu' => 'Main Menu',
+							'menu_class' => 'navbar-nav justify-content-end flex-grow-lg-1 p-2 p-lg-0',
+							'container' => false
+						)
+					);
 					?>
 
 					<div class="d-none d-xl-block">
-						<?php include('components/growing-zone/button-growing-zone.php'); ?>
+						<?php get_template_part('inc/components/growing-zone/growing-zone-button'); ?>
 					</div>
 
 					<!-- Search -->
@@ -66,7 +74,8 @@
 						<div class="user-menu d-flex align-items-center justify-content-center flex-grow-1">
 							<?php $current_user = wp_get_current_user(); ?>
 							<?php if (!is_user_logged_in()) { ?>
-								<button data-bs-toggle="modal" data-bs-target="#login-popup" class="toggle-on-hover nav-link d-block p-2 flex-grow-1 text-center">
+								<button data-bs-toggle="modal" data-bs-target="#login-popup"
+									class="toggle-on-hover nav-link d-block p-2 flex-grow-1 text-center">
 									<i class="fa-regular fa-user toggle-on-hover--off"></i>
 									<i class="fa-solid fa-user toggle-on-hover--on"></i>
 								</button>
@@ -81,10 +90,12 @@
 
 								?>
 								<div class="dropdown">
-									<button class="nav-link log-out" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+									<button class="nav-link log-out" role="button" data-bs-toggle="dropdown"
+										aria-expanded="false">
 										<i class="fa-solid fa-user"></i> <span class="sr-only">Account Settings</span>
 									</button>
-									<ul class="dropdown-menu dropdown-menu-end gap-1 p-2 rounded-3 mx-0 shadow" data-bs-theme="light">
+									<ul class="dropdown-menu dropdown-menu-end gap-1 p-2 rounded-3 mx-0 shadow"
+										data-bs-theme="light">
 										<li>
 											<b>
 												My Account
@@ -105,7 +116,8 @@
 
 							<?php if (!is_user_logged_in()) { ?>
 								<div class="cart d-flex align-items-center flex-grow-1">
-									<button data-bs-toggle="modal" data-bs-target="#login-popup" class="nav-link d-block p-2 flex-grow-1 text-center">
+									<button data-bs-toggle="modal" data-bs-target="#login-popup"
+										class="nav-link d-block p-2 flex-grow-1 text-center">
 										<i class="fa-solid fa-cart-shopping"></i>
 									</button>
 								</div>
@@ -116,12 +128,16 @@
 									$items_count = WC()->cart->get_cart_contents_count();
 									$items_count = $items_count ? $items_count : '';
 									?>
-									<a href="<?php echo wc_get_cart_url() ?>" class="position-relative flex-grow-1 text-center nav-link <?php if ($items_count) echo 'text-primary'; ?>">
+									<a href="<?php echo wc_get_cart_url() ?>" class="position-relative flex-grow-1 text-center nav-link <?php if ($items_count)
+										   echo 'text-primary'; ?>">
 										<i class="fa-solid fa-cart-shopping"></i>
 
 										<?php if ($items_count) { ?>
-											<span class="cart__badge position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
-												<span id="mini-cart-count"><?php echo $items_count; ?></span>
+											<span
+												class="cart__badge position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
+												<span id="mini-cart-count">
+													<?php echo $items_count; ?>
+												</span>
 												<span class="visually-hidden">items in cart</span>
 											</span>
 										<?php } ?>

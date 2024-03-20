@@ -1,0 +1,72 @@
+/* ==== Create Start ==== */
+.hm-create {
+  padding: 0;
+  margin: 0;
+}
+.hm-create .img-block img {
+  width: 100%;
+}
+.hm-create .col-12:nth-child(2) {
+  position: relative;
+  background: url("../images/create-back.png") no-repeat center center;
+  background-size: 100%, 100%;
+}
+.hm-create .text-block {
+  position: relative;
+  width: 100%;
+  max-width: 585px;
+  height: 100%;
+  padding-top: 12%;
+  padding-left: 80px;
+}
+.hm-create .text-block h2 {
+  margin-bottom: 60px;
+  color: var(--white);
+}
+.hm-create .text-block h2 span {
+  display: block;
+}
+.hm-create .text-block p {
+  margin-bottom: 60px;
+  font-size: 18px;
+  color: var(--white);
+}
+.hm-create .text-block .cmn-btn {
+  color: var(--theme-color);
+  background: var(--white);
+}
+.hm-create .text-block .cmn-btn:hover {
+  color: var(--white);
+  background: var(--black);
+}
+.hm-create .text-block .rt-img {
+  position: absolute;
+  right: -40px;
+  bottom: 0;
+}
+.hm-create .text-block .rt-img::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 50px;
+  content: "";
+  background: #6c8e6b;
+}
+
+@include media-breakpoint-down(xl) {
+  .hm-create .text-block h2 {
+    margin-bottom: 30px;
+    font-size: 50px;
+  }
+  .hm-create .text-block p {
+    margin-bottom: 40px;
+  }
+  .hm-create .text-block {
+    padding-top: 10%;
+  }
+  .hm-create .text-block .rt-img img {
+    width: 100%;
+    max-width: 110px;
+  }
+}

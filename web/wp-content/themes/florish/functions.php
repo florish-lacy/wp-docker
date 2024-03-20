@@ -1,247 +1,37 @@
 <?php
-
 /**
  * Florish functions and definitions
- * Todo: These should be prefixed with florish_ or namespaced; No Globals!
+ *
  */
-if (!function_exists('florish_theme_setup')) :
+require get_template_directory() . '/vendor/autoload.php';
 
-	/*
-	 * Florish classes and utilities - see readme #composer
-	 * Add classes in `components/helpers/` and regenerate composer files with the following command (from docker root):
-	 *
-	 * docker exec -w /var/www/html/wp-content/themes/florish florish-wordpress-1 composer dump-autoload
-	 */
-
-	require get_template_directory() . '/vendor/autoload.php';
-
-	function florish_theme_setup()
-	{
-
-		//Woocokomerce
-		add_theme_support('woocommerce');
-
-		add_theme_support('wc-product-gallery-zoom');
-		add_theme_support('wc-product-gallery-lightbox');
-		add_theme_support('wc-product-gallery-slider');
-
-		/*
-	 * Let WordPress manage the document title.
-	 */
-		add_theme_support('title-tag');
-		/*
-	 * Enable support for Post Thumbnails on posts and pages.
-	 */
-		add_theme_support('post-thumbnails');
-		// This theme uses wp_nav_menu() in two locations.
-		register_nav_menus(array(
-			'primary' => __('Primary Menu',      'florish'),
-			'secondary'  => __('Secondary Menu', 'florish'),
-		));
-		/*
-	 * Switch default core markup for search form, comment form, and comments
-	 * to output valid HTML5.
-	 */
-		add_theme_support('html5', array(
-			'search-form', 'comment-form', 'comment-list', 'gallery', 'caption'
-		));
-
-
-		/**
-		 * Add support for core custom logo.
-		 *
-		 */
-		add_theme_support(
-			'custom-logo',
-			array(
-				'height'      => 75,
-				'width'       => 372,
-				'flex-width'  => true,
-				'flex-height' => true,
-			)
-		);
-	}
-endif;
+get_template_part('inc/functions/theme/setup');
 add_action('after_setup_theme', 'florish_theme_setup');
 
-
-
-/**
- * Register widget area.
- */
-function florish_widgets_init()
-{
-	register_sidebar(array(
-		'name'          => __('Shop Sidebar', 'florish'),
-		'id'            => 'shop-sidebar',
-		'description'   => __('Add widgets here to appear in your sidebar.', 'florish'),
-		'before_widget' => '',
-		'after_widget'  => '',
-		'before_title'  => '',
-		'after_title'   => '',
-	));
-}
+get_template_part('inc/functions/theme/widgets');
 add_action('widgets_init', 'florish_widgets_init');
-
-
-
 
 /**
  * Enqueue scripts and styles.
  */
-function florish_scripts()
-{
 
-	// Load our main theme stylesheet.
-	// wp_enqueue_style('florish-style', get_stylesheet_uri()); // style.css
-	wp_enqueue_style('florish-style', get_template_directory_uri() . '/assets/css/style.css'); // style.css
-
-	//bootstrap toggle css include
-	//wp_enqueue_style( 'florish-bootstrap-toggle-style', 'https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css', array() );
-	wp_enqueue_style('florish-bootstrap-toggle-style', 'https://cdn.jsdelivr.net/npm/bootstrap5-toggle@5.0.4/css/bootstrap5-toggle.min.css', array());
-
-	//fontawesome include
-	wp_enqueue_style('florish-fontawesome-all-css', get_template_directory_uri() . '/assets/fontawesome/css/all.css', array());
-
-	//magnific style
-	wp_enqueue_style('florish-magnific-popup-css', get_template_directory_uri() . '/assets/css/magnific-popup.css', array());
-
-	//slick include
-	wp_enqueue_style('florish-slick-style', get_template_directory_uri() . '/assets/css/slick.css', array());
-	wp_enqueue_style('florish-slick-theme-style', get_template_directory_uri() . '/assets/css/slick-theme.css', array());
-
-	//aos include
-	wp_enqueue_style('florish-aos-theme-style', get_template_directory_uri() . '/assets/css/aos.css', array());
-
-
-	//bootstrap min js
-	wp_enqueue_script('florish-bootstrap-script', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array('jquery'), '20151811', true);
-
-	//bootstrap bootstrap-toggle
-	//wp_enqueue_script( 'florish-bootstrap-toggle-script',  'https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js', array( 'jquery' ), '20151811', true );
-	wp_enqueue_script('florish-bootstrap-toggle-script',  'https://cdn.jsdelivr.net/npm/bootstrap5-toggle@5.0.4/js/bootstrap5-toggle.jquery.min.js', array('jquery'), '20151811', true);
-
-	//bootstrap popper min js
-	wp_enqueue_script('florish-slick-script', get_template_directory_uri() . '/assets/js/slick.min.js', array('jquery'), '20151811', true);
-
-	//theme aos js
-	wp_enqueue_script('florish-aos-script', get_template_directory_uri() . '/assets/js/aos.js', array('jquery'), '20151811', true);
-
-	///magnific popup js
-	wp_enqueue_script('florish-magnific-popup-js', get_template_directory_uri() . '/assets/js/jquery.magnific-popup.js', array('jquery'), '20151811', true);
-
-	///validate js
-	wp_enqueue_script('florish-jquery-validate', 'https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js', array('jquery'), '20151811', true);
-	wp_enqueue_script('florish-jquery-validate-aditional', 'https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js', array('jquery'), '20151811', true);
-
-	wp_enqueue_script('florish-mask-phone-number', 'https://unpkg.com/jquery-input-mask-phone-number@1.0.14/dist/jquery-input-mask-phone-number.js', array('jquery'), '20151811', true);
-	///google location
-	wp_enqueue_script('florish-google-place-location-front', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBqxHeRDjgzm72wXzGKE1oxS4lgyT3K6uM&libraries=places', array('jquery'), '20135344611', true);
-
-	///masonry pkgd js
-	wp_enqueue_script('florish-masonry-pkgd-js', get_template_directory_uri() . '/assets/js/masonry.pkgd.min.js', array('jquery'), '20151811', true);
-
-	///jquery cookie js
-	wp_enqueue_script('florish-jquery-cookie-js', get_template_directory_uri() . '/assets/js/jquery.cookie.js', array('jquery'), '204641811', true);
-
-
-	///map js
-	wp_enqueue_script('florish-map-place-js', get_template_directory_uri() . '/assets/js/map.js', array('jquery'), '20468768711', true);
-
-	global $wp;
-	// Theme main Function js
-	wp_enqueue_script('florish-main-script', get_template_directory_uri() . '/assets/js/functions.js', array('jquery'), '20151811', true);
-	wp_localize_script('florish-main-script', 'ajax_florish_object', array('ajax_url' => admin_url('admin-ajax.php'), 'home_url' => site_url(), 'vendor_url' => get_page_link(1529), 'current_url' => home_url($wp->request)));
-}
+get_template_part('inc/functions/theme/scripts');
 add_action('wp_enqueue_scripts', 'florish_scripts');
 
-
-
-
 /////////////CUSTOMIZER REGISTER START////////////////
-function sorciere_social_share_customize_register($wp_customize)
-{
-
-	$wp_customize->add_section('sorciere_social_share', array(
-		'title'    => __('Social Links', 'sorciere'),
-		'description' => '',
-		'priority' => 120,
-	));
-
-
-
-	////////////Facebook///////////////
-	$wp_customize->add_setting('sorciere_facebook_links', array(
-		'default'        => '',
-		'capability'     => 'edit_theme_options',
-		'type'           => 'theme_mod',
-
-	));
-
-	$wp_customize->add_control('sorciere_facebook_links', array(
-		'label'      => __('Facebook', 'sorciere'),
-		'section'    => 'sorciere_social_share',
-		'settings'   => 'sorciere_facebook_links',
-	));
-
-	////////////Instagram///////////////
-	$wp_customize->add_setting('sorciere_instagram_links', array(
-		'default'        => '',
-		'capability'     => 'edit_theme_options',
-		'type'           => 'theme_mod',
-
-	));
-
-	$wp_customize->add_control('sorciere_instagram_links', array(
-		'label'      => __('Instagram', 'sorciere'),
-		'section'    => 'sorciere_social_share',
-		'settings'   => 'sorciere_instagram_links',
-	));
-
-
-	////////////Twitter///////////////
-	$wp_customize->add_setting('sorciere_twitter_links', array(
-		'default'        => '',
-		'capability'     => 'edit_theme_options',
-		'type'           => 'theme_mod',
-
-	));
-
-	$wp_customize->add_control('sorciere_twitter_links', array(
-		'label'      => __('Twitter', 'sorciere'),
-		'section'    => 'sorciere_social_share',
-		'settings'   => 'sorciere_twitter_links',
-	));
-
-
-	////////////Youtube///////////////
-	$wp_customize->add_setting('sorciere_youtube_links', array(
-		'default'        => '',
-		'capability'     => 'edit_theme_options',
-		'type'           => 'theme_mod',
-
-	));
-
-	$wp_customize->add_control('sorciere_youtube_links', array(
-		'label'      => __('Youtube', 'sorciere'),
-		'section'    => 'sorciere_social_share',
-		'settings'   => 'sorciere_youtube_links',
-	));
-}
-
-add_action('customize_register', 'sorciere_social_share_customize_register');
-
 
 // Footer Option Page create...........
 if (function_exists('acf_add_options_page')) {
 
-	acf_add_options_page(array(
-		'page_title' 	=> 'Header & Footer Option Block',
-		'menu_title'	=> 'Header & Footer Option',
-		'menu_slug' 	=> 'footer-option-block',
-		'capability'	=> 'edit_posts',
-		'redirect'		=> false
-	));
+	acf_add_options_page(
+		array(
+			'page_title' => 'Header & Footer Option Block',
+			'menu_title' => 'Header & Footer Option',
+			'menu_slug' => 'footer-option-block',
+			'capability' => 'edit_posts',
+			'redirect' => false
+		)
+	);
 }
 
 ////Add user Role Nursery
@@ -253,326 +43,42 @@ if (function_exists('acf_add_options_page')) {
 // 	'publish_posts' => true,
 // 	'manage_categories' => true,
 // 	));
-function change_role_name()
-{
-	global $wp_roles;
 
-	if (!isset($wp_roles))
-		$wp_roles = new WP_Roles();
+get_template_part('inc/functions/theme/customizer');
 
-	//You can replace "administrator" with any other role "editor", "author", "contributor" or "subscriber"...
-	$wp_roles->roles['nursery']['name'] = 'Vendor';
-	$wp_roles->role_names['nursery'] = 'Vendor';
-}
+add_action('customize_register', 'sorciere_social_share_customize_register');
 add_action('init', 'change_role_name');
-
 add_action('after_setup_theme', 'remove_admin_bar');
-function remove_admin_bar()
-{
-	if (!current_user_can('administrator') && !is_admin()) {
-		show_admin_bar(false);
-	}
-}
 /////////////CUSTOMIZER REGISTER END////////////////
 
 //////////////////////////////////////////LOGIN & REGISTER START//////////////////////////////////////////////////
 
 /////////////USER REGISTRATION ACCOUT ACTIVATION////////////////
-function email_activation_msg_nocache()
-{
-	$code = filter_input(INPUT_GET, 'keys');
-	if ($code) {
-
-		$act_users = get_users(array(
-			"meta_key" => "code_to_be_activated",
-			"meta_value" => $code,
-			"fields" => "ID"
-		));
-
-		$user_id = $act_users[0];
-
-		if ($user_id) {
-			$status = get_user_meta($user_id, '_member_status', true);
-			$code = get_user_meta($user_id, 'code_to_be_activated', true);
-			if ($code && $status == 'inactive') {
-				update_user_meta($user_id, '_member_status', 'active');
-				delete_user_meta($user_id, 'code_to_be_activated');
-			}
-			echo '<div class="alert alert-success" role="alert">Your account is now activated.</div>';
-		} else {
-			echo '<div class="alert alert-danger" role="alert">Invalid activation code / your account has been activated.</div>';
-		}
-	}
-}
+get_template_part('inc/functions/user/email_activation_msg_nocache');
 add_action('wp_head', 'email_activation_msg_nocache');
 
 /////////////USER REGISTRATION START////////////////
+
+get_template_part('inc/functions/user/register');
 add_action('wp_ajax_nopriv_user_ajax_register', 'user_ajax_register');
-function user_ajax_register()
-{
-
-	// First check the nonce, if it fails the function will break
-	//check_ajax_referer( 'ajax-register-nonce', 'security' );
-
-	//Step 1
-	$user_role  = $_POST['user_role'];
-	$first_name  =  $_POST['first_name'];
-
-	$last_name  = $_POST['last_name'];
-
-	$email  = $_POST['email'];
-	$phone_number  = $_POST['mobile'];
-
-	$password  = $_POST['password'];
-	$user_location  = $_POST['user_location'];
-	$user_location_lat  = $_POST['user_location_lat'];
-	$user_location_long  = $_POST['user_location_long'];
-
-	// Nonce is checked, get the POST data and sign user on
-	$info = array();
-	$info['user_nicename'] = $info['nickname'] = $info['display_name'] = $info['first_name'] = sanitize_user($first_name);
-	$info['last_name'] = sanitize_user($last_name);
-	$info['user_login'] = sanitize_user($email);
-	$info['user_pass'] = sanitize_text_field($password);
-	$info['user_email'] = sanitize_email($email);
-	$info['role'] = $user_role;
-
-	// Register the user
-	$user_register = wp_insert_user($info);
-	if (is_wp_error($user_register)) {
-		$error  = $user_register->get_error_codes();
-
-		if (in_array('empty_user_login', $error)) {
-
-			echo json_encode(array('error' => true, 'message' => __($user_register->get_error_message('empty_user_login'))));
-		} elseif (in_array('existing_user_login', $error)) {
-
-			echo json_encode(array('error' => true, 'message' => __('This email is already registered.')));
-		} elseif (in_array('existing_user_email', $error)) {
-
-			echo json_encode(array('error' => true, 'message' => __('This email address is already registered.')));
-		}
-	} else {
-
-		$user_id = $user_register;
-
-		update_user_meta($user_id, 'user_location', $user_location);
-		update_user_meta($user_id, 'user_location_lat', $user_location_lat);
-		update_user_meta($user_id, 'user_location_long', $user_location_long);
-
-
-
-		///////////////////////////Mail SEND///////////////////////////////////
-
-		$code = sha1($user_id . time());
-		$user_active_link = add_query_arg(array('keys' => $code), site_url());
-		$activation_link = '<a href="' . $user_active_link . '" target="_blank">';
-		$activation_link .= $user_active_link;
-		$activation_link .= '</a>';
-		add_user_meta($user_id, 'code_to_be_activated', $code, true);
-		update_user_meta($user_id, '_member_status', 'inactive');
-
-		$from = get_field("sender_email", "option"); // Set whatever you want like mail@yourdomain.com
-
-		if (!(isset($from) && is_email($from))) {
-			$sitename = strtolower($_SERVER['SERVER_NAME']);
-			if (substr($sitename, 0, 4) == 'www.') {
-				$sitename = substr($sitename, 4);
-			}
-			$from = 'admin@' . $sitename;
-		}
-
-		$to = $email;
-		$subject = 'Activate your account';
-		//$site_name = get_bloginfo( 'name' );
-		// $site_name = "Florish - Plant Care Companion";
-		$sender = 'From: ' . get_bloginfo('name') . ' <' . $from . '>' . "\r\n";
-
-		$message_content = 'To activate your account please click on the following link : ' . $activation_link;
-		//Emil Template Start
-
-
-		$custom_logo_id = get_theme_mod('custom_logo');
-		$image = wp_get_attachment_image_src($custom_logo_id, 'full');
-
-		//$logo = $image[0];
-		$logo = get_field("footer_logo", "option");
-		$site_url = site_url();
-		$wbst = preg_replace('#^https?://#', '', $site_url);
-		$wbst_url = str_replace("/", "", $wbst);
-
-
-		$message =
-			'<table border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#5fb526" width="800" class="main_tbl">
-			   <tr>
-				 <td width="52">&nbsp;</td>
-				 <td width="696">
-					 <table border="0" cellspacing="0" cellpadding="0" width="100%">
-					   <tr>
-						 <td>
-							 <table border="0" cellspacing="0" cellpadding="0" style="background:#fff;" width="100%">
-							   <tr>
-								 <td width="36">&nbsp;</td>
-								 <td>
-									 <table border="0" cellspacing="0" cellpadding="0">
-									   <tr height="25">
-										 <td>&nbsp;</td>
-									   </tr>
-									   <tr>
-										 <td><a href=' . $site_url . '><img src=' . $logo . ' alt="logo" width="140" height="" class="logo"/></a></td>
-									   </tr>
-									   <tr>
-										 <td>&nbsp;</td>
-									   </tr>
-									   <tr>
-										 <td style="font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#011d32; padding:0; margin:0 0 20px;">
-										  <p>Dear ' . $first_name . '</p>
-										  ' . $message_content . '
-										  <p style="font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#011d32; padding:0; margin:0;"><br><br>Florish Team</p>
-										  <p style="font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#011d32; padding:0; margin:0;">Why not follow us on :   <a href="#" target="_blank" style="color:#3d6d91; text-decoration:underline;">Facebook</a>, <a href="#" target="_blank" style="color:#3d6d91; text-decoration:underline;">Twitter</a>, or <a href="#" target="_blank" style="color:#3d6d91; text-decoration:underline;">LinkedIn</a></p>
-										 </td>
-									   </tr>
-									   <tr height="25">
-										 <td>&nbsp;</td>
-									   </tr>
-									 </table>
-								 </td>
-								 <td width="36">&nbsp;</td>
-							   </tr>
-							 </table>
-						 </td>
-					   </tr>
-					   <tr>
-						 <td>&nbsp;</td>
-					   </tr>
-					   <tr>
-						 <td>
-
-							<p style="font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#fff; padding:0; margin:0 0 15px; text-align:center;"><a href=' . site_url() . ' style="color:#fff; text-decoration:none;">Privacy Policy</a> | <a href=' . site_url() . ' style="color:#fff; text-decoration:none;">Terms and Conditions</a></p>
-
-							<p style="font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#fff; padding:0; margin:0 0 15px; text-align:center;">You are receiving this email because this email address has been used to join <a href=' . $site_url . ' style="color:#fff; text-decoration:none;">' . $wbst_url . '</a><br />
-							To ensure you receive our emails please add <a href="mailto:info@florish.gmail.com" target="_blank" style="color:#fff; text-decoration:none;">info@florish.gmail.com</a> to your safe senders list</p>
-
-						 </td>
-					   </tr>
-					   <tr>
-						 <td>&nbsp;</td>
-					   </tr>
-					 </table>
-				 </td>
-				 <td width="52">&nbsp;</td>
-			   </tr>
-			 </table>';
-		//Emil Template End
-		$headers[] = 'MIME-Version: 1.0' . "\r\n";
-		$headers[] = 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-		$headers[] = "X-Mailer: PHP \r\n";
-		$headers[] = $sender;
-
-		$mail = wp_mail($to, $subject, $message, $headers);
-		if ($mail) {
-			$message = 'You have successfully created your account! To begin using this site you will need to activate your account via the email we have just sent to your address.';
-		} else {
-			$message = 'You have successfully created your account! System is unable to send you mail containg your activation link. Please contact Site Administrator';
-		}
-
-		///////////////////////////Mail SEND///////////////////////////////////
-
-
-		echo json_encode(array('error' => false, 'message' => __($message), 'user_id' => $user_id));
-	}
-
-	die();
-}
-/////////////USER REGISTRATION END////////////////
 
 /////////////USER LOGIN START////////////////
-add_action('wp_ajax_nopriv_ajax_user_login', 'ajax_user_login');
-function ajax_user_login()
-{
+get_template_part('inc/functions/user/login');
+add_action('wp_ajax_nopriv_user_ajax_login', 'user_ajax_login');
 
-	check_ajax_referer('ajax-login-nonce', 'security');
-
-	$user_login = $_POST['email'];
-	$password = $_POST['password'];
-
-	$info = array();
-	$info['user_login'] = $user_login;
-	$info['user_password'] = $password;
-	//$user = get_user_by( 'login', $info['user_login'] );
-	$user_signon = wp_signon($info, false);
-	if (is_wp_error($user_signon)) {
-		$error  = $user_signon->get_error_codes();
-
-		if ($error[0] == 'Please verify your mail ID') {
-			echo json_encode(array('error' => true, 'message' => 'Your Account is inactive. Contact Your Site Administrator.'));
-		} else {
-			echo json_encode(array('error' => true, 'message' => __($error[0], 'default')));
-		}
-		//print_r($error);
-
-	} else {
-		wp_set_current_user($user_signon->ID);
-		echo json_encode(array('error' => false, 'message' => ' Successful, redirecting...', 'role' => $user_signon->roles));
-	}
-
-	die();
-}
 /////////////USER LOGIN END////////////////
 
 /*user active authentication*/
-add_filter('wp_authenticate_user', function ($user) {
-	if ($user->has_cap('administrator')) {
-		return $user;
-	}
-	if (get_user_meta($user->ID, '_member_status', true) == 'active') {
-		return $user;
-	}
+get_template_part('inc/functions/user/authenticate_user');
+add_filter('wp_authenticate_user', 'authenticate_user', 10, 2);
 
-	return new WP_Error('Please verify your mail ID', 'Your Account is inactive. Contact Your Site Administrator.');
-}, 10, 2);
-
-
+get_template_part('inc/functions/user/hybrid_event_extra_user_profile_fields');
 add_action('show_user_profile', 'hybrid_event_extra_user_profile_fields');
 add_action('edit_user_profile', 'hybrid_event_extra_user_profile_fields');
-function hybrid_event_extra_user_profile_fields($user)
-{
-	$mamber_status = get_user_meta($user->ID, '_member_status');
-	if (current_user_can('administrator')) {  ?>
-		<h3><?php _e("Member Status", "blank"); ?></h3>
-		<table class="form-table">
-			<tr>
-				<th><label for="st_member_status"><?php _e("User Status"); ?></label></th>
-				<td><select name="st_member_status">
-						<option value="">Select Status</option>
-						<option value="active" <?php if ($mamber_status[0] == 'active') {
-													echo "selected";
-												} ?>>Active</option>
-						<option value="inactive" <?php if ($mamber_status[0] == 'inactive') {
-														echo "selected";
-													} ?>>Inactive</option>
-					</select>
-					<br />
-					<span class="description">
-						<?php _e("Please Select Member Status."); ?>
-					</span>
-				</td>
-			</tr>
-		</table>
-	<?php }
-}
 
+get_template_part('inc/functions/user/hybrid_event_save_extra_user_fields');
 add_action('personal_options_update', 'hybrid_event_save_extra_user_fields');
 add_action('edit_user_profile_update', 'hybrid_event_save_extra_user_fields');
-function hybrid_event_save_extra_user_fields($user_id)
-{
-	if (current_user_can('administrator')) {
-		if (current_user_can('edit_user', $user_id)) {
-			update_user_meta($user_id, '_member_status', $_POST['st_member_status']);
-		}
-	}
-	return true;
-}
 /*user active authentication End*/
 
 
@@ -581,6 +87,7 @@ function hybrid_event_save_extra_user_fields($user_id)
 add_filter('woocommerce_product_related_products_heading', function () {
 
 	return 'Best Sellers:';
+
 });
 
 add_action('woocommerce_product_meta_end', 'add_custom_text_below_product_categories', 10);
@@ -621,8 +128,10 @@ function wc_refresh_mini_cart_count($fragments)
 	$items_count = WC()->cart->get_cart_contents_count();
 	$items_count = $items_count ? $items_count : ''; // We hide the empty count via css
 	?>
-	<span id="mini-cart-count"><?php echo $items_count; ?></span>
-<?php
+	<span id="mini-cart-count">
+		<?php echo $items_count; ?>
+	</span>
+	<?php
 	$fragments['#mini-cart-count'] = ob_get_clean();
 	return $fragments;
 }
@@ -646,15 +155,16 @@ function florish_display_quantity_minus()
 }
 function florish_js_code_example()
 {
-?>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqxHeRDjgzm72wXzGKE1oxS4lgyT3K6uM&libraries=places"></script>
+	?>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqxHeRDjgzm72wXzGKE1oxS4lgyT3K6uM&libraries=places"></script>
 	<script type="text/javascript">
-		google.maps.event.addDomListener(window, "load", function() {
+		google.maps.event.addDomListener(window, "load", function () {
 			var places = new google.maps.places.Autocomplete(
 				document.getElementById("user_location")
 			);
 
-			google.maps.event.addListener(places, "place_changed", function() {
+			google.maps.event.addListener(places, "place_changed", function () {
 				var place = places.getPlace();
 				//console.log(place);
 				var latitude = place.geometry.location.lat();
@@ -667,7 +177,7 @@ function florish_js_code_example()
 			});
 		});
 	</script>
-<?php
+	<?php
 }
 add_action('wp_footer', 'florish_js_code_example');
 add_action('wp_footer', 'florish_add_cart_quantity_plus_minus');
@@ -675,7 +185,8 @@ add_action('wp_footer', 'florish_add_cart_quantity_plus_minus');
 function florish_add_cart_quantity_plus_minus()
 {
 
-	if (!is_product() && !is_cart()) return;
+	if (!is_product() && !is_cart())
+		return;
 
 	wc_enqueue_js("
 
@@ -704,6 +215,7 @@ function florish_add_cart_quantity_plus_minus()
       });
 
    ");
+
 }
 
 /////////////////////////////////////////User Location insert//////////////////////////////////
@@ -722,14 +234,14 @@ function florish_enqueue_custom_admin_script()
 add_action('admin_footer', 'my_admin_footer_function', 100);
 function my_admin_footer_function()
 {
-?>
+	?>
 	<script type="text/javascript">
-		jQuery(document).ready(function() {
+		jQuery(document).ready(function () {
 			var autocomplete;
 			autocomplete = new google.maps.places.Autocomplete((document.getElementById('user_location')), {
 				types: ['geocode'],
 			});
-			google.maps.event.addListener(autocomplete, 'place_changed', function() {
+			google.maps.event.addListener(autocomplete, 'place_changed', function () {
 				var place = autocomplete.getPlace();
 				//document.getElementById('city').value = place.name;
 				document.getElementById('user_location_lat').value = place.geometry.location.lat();
@@ -739,27 +251,34 @@ function my_admin_footer_function()
 
 		});
 	</script>
-<?php
+	<?php
 }
 
 function userMetaLocationForm($user)
 {
-?>
+	?>
 	<h2>Your location.</h2>
 	<table class="form-table">
 		<tr>
 			<th>
-				<label for="user_location"><?php _e('Location'); ?></label>
+				<label for="user_location">
+					<?php _e('Location'); ?>
+				</label>
 			</th>
 			<td>
-				<input type="text" name="user_location" id="user_location" value="<?php echo esc_attr(get_the_author_meta('user_location', $user->ID)); ?>" class="regular-text" />
-				<input type="hidden" name="user_location_lat" id="user_location_lat" value="<?php echo esc_attr(get_the_author_meta('user_location_lat', $user->ID)); ?>" class="regular-text" />
-				<input type="hidden" name="user_location_long" id="user_location_long" value="<?php echo esc_attr(get_the_author_meta('user_location_long', $user->ID)); ?>" class="regular-text" />
+				<input type="text" name="user_location" id="user_location"
+					value="<?php echo esc_attr(get_the_author_meta('user_location', $user->ID)); ?>" class="regular-text" />
+				<input type="hidden" name="user_location_lat" id="user_location_lat"
+					value="<?php echo esc_attr(get_the_author_meta('user_location_lat', $user->ID)); ?>"
+					class="regular-text" />
+				<input type="hidden" name="user_location_long" id="user_location_long"
+					value="<?php echo esc_attr(get_the_author_meta('user_location_long', $user->ID)); ?>"
+					class="regular-text" />
 
 			</td>
 		</tr>
 	</table>
-<?php
+	<?php
 }
 add_action('show_user_profile', 'userMetaLocationForm');
 add_action('edit_user_profile', 'userMetaLocationForm');
@@ -800,9 +319,9 @@ function wp_woocommerce_checkout_order_created_action($order)
 
 
 	$args = array(
-		'role'    => 'nursery',
+		'role' => 'nursery',
 		'orderby' => 'user_nicename',
-		'order'   => 'ASC'
+		'order' => 'ASC'
 	);
 	$users = get_users($args);
 	$items = array();
@@ -816,6 +335,7 @@ function wp_woocommerce_checkout_order_created_action($order)
 		} else {
 			$items[] = array($user_id, $location_lat, $location_long);
 		}
+
 	}
 	$distances = array_map(function ($item) use ($ref) {
 		$a = array_slice($item, -2);
@@ -838,7 +358,7 @@ function distance($a, $b)
 	list($lat2, $lon2) = $b;
 
 	$theta = $lon1 - $lon2;
-	$dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
+	$dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) + cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
 	$dist = acos($dist);
 	$dist = rad2deg($dist);
 	$miles = $dist * 60 * 1.1515;
@@ -851,7 +371,7 @@ add_action('init', 'nursery_product_submit_form');
 function nursery_product_submit_form()
 {
 
-	if (isset($_POST['save_plant'])  && wp_verify_nonce($_POST['cform_generate_nonce'], 'submit_nursery_plant')) {
+	if (isset ($_POST['save_plant']) && wp_verify_nonce($_POST['cform_generate_nonce'], 'submit_nursery_plant')) {
 
 		$avaliable_plant = serialize($_POST['select_product_name']);
 		foreach ($_POST['select_product_name'] as $plant_id) {
@@ -866,7 +386,7 @@ function nursery_product_submit_form()
 		wp_redirect(esc_url(get_page_link(70)));
 		die;
 	}
-	if (isset($_GET['oid']) && isset($_GET['status']) && is_numeric($_GET['oid'])) {
+	if (isset ($_GET['oid']) && isset ($_GET['status']) && is_numeric($_GET['oid'])) {
 		$order_id = $_GET['oid'];
 		$order_status = $_GET['status'];
 		$order = wc_get_order($order_id);
@@ -879,20 +399,20 @@ function nursery_product_submit_form()
 		wp_redirect(esc_url(get_page_link(70)));
 		die;
 	}
-	if (isset($_GET['userid']) && isset($_GET['in_status']) && is_numeric($_GET['userid'])) {
+	if (isset ($_GET['userid']) && isset ($_GET['in_status']) && is_numeric($_GET['userid'])) {
 		$user_id = $_GET['userid'];
 		$use_status = $_GET['in_status'];
 		$status = get_user_meta($user_id, '_member_status', true);
 		$code = get_user_meta($user_id, 'code_to_be_activated', true);
 
-		if (empty($status) || $status == 'inactive') {
+		if (empty ($status) || $status == 'inactive') {
 			if ($use_status == 'accept') {
 				update_user_meta($user_id, '_member_status', 'active');
 				delete_user_meta($user_id, 'code_to_be_activated');
 
 				$from = get_field("sender_email", "option"); // Set whatever you want like mail@yourdomain.com
 
-				if (!(isset($from) && is_email($from))) {
+				if (!(isset ($from) && is_email($from))) {
 					$sitename = strtolower($_SERVER['SERVER_NAME']);
 					if (substr($sitename, 0, 4) == 'www.') {
 						$sitename = substr($sitename, 4);
@@ -911,20 +431,21 @@ function nursery_product_submit_form()
 				$headers .= 'From: ' . get_bloginfo('name') . ' <' . $from . '>' . "\r\n";
 
 				mail($to, $subject, $message, $headers);
+
 			}
 			if ($use_status == 'decline') {
 				$response = wp_delete_user($user_id);
 				if ($response == 1) {
 					return array(
-						'code'   => 'valid_data',
-						'data'   => array(
+						'code' => 'valid_data',
+						'data' => array(
 							'status' => 200,
 						)
 					);
 
 					$from = get_field("sender_email", "option"); // Set whatever you want like mail@yourdomain.com
 
-					if (!(isset($from) && is_email($from))) {
+					if (!(isset ($from) && is_email($from))) {
 						$sitename = strtolower($_SERVER['SERVER_NAME']);
 						if (substr($sitename, 0, 4) == 'www.') {
 							$sitename = substr($sitename, 4);
@@ -959,7 +480,7 @@ function nursery_product_submit_form()
 
 			$from = get_field("sender_email", "option"); // Set whatever you want like mail@yourdomain.com
 
-			if (!(isset($from) && is_email($from))) {
+			if (!(isset ($from) && is_email($from))) {
 				$sitename = strtolower($_SERVER['SERVER_NAME']);
 				if (substr($sitename, 0, 4) == 'www.') {
 					$sitename = substr($sitename, 4);
@@ -978,11 +499,13 @@ function nursery_product_submit_form()
 			$headers .= 'From: ' . get_bloginfo('name') . ' <' . $from . '>' . "\r\n";
 
 			mail($to, $subject, $message, $headers);
+
 		}
 
 		wp_redirect(esc_url(get_page_link(205)));
 		die;
 	}
+
 }
 
 
@@ -1005,14 +528,26 @@ function nursery_order_view()
 {
 	$order_id = $_POST['order_id'];
 	$order = new WC_Order($order_id);
-?>
+	?>
 	<ul class="order_desc">
-		<li><span>Order ID:</span> #<?php echo $order_id; ?></li>
-		<li><span>Date:</span> <?php echo date('F j, Y, g:i:s A T', strtotime($order->get_date_created())); ?></li>
-		<li><span>Name:</span> <?php echo $order->get_billing_first_name() . " " . $order->get_billing_last_name(); ?></li>
-		<li><span>Email:</span> <?php echo $order->get_billing_email(); ?></li>
-		<li><span>Phone:</span> <?php echo $order->get_billing_phone(); ?></li>
-		<li><span>Address:</span> <span class="form-addr"><?php echo get_post_meta($order_id, 'billing_customer_location', true); ?></span></li>
+		<li><span>Order ID:</span> #
+			<?php echo $order_id; ?>
+		</li>
+		<li><span>Date:</span>
+			<?php echo date('F j, Y, g:i:s A T', strtotime($order->get_date_created())); ?>
+		</li>
+		<li><span>Name:</span>
+			<?php echo $order->get_billing_first_name() . " " . $order->get_billing_last_name(); ?>
+		</li>
+		<li><span>Email:</span>
+			<?php echo $order->get_billing_email(); ?>
+		</li>
+		<li><span>Phone:</span>
+			<?php echo $order->get_billing_phone(); ?>
+		</li>
+		<li><span>Address:</span> <span class="form-addr">
+				<?php echo get_post_meta($order_id, 'billing_customer_location', true); ?>
+			</span></li>
 	</ul>
 	<div class="table-responsive mdl-qt-tbl">
 		<table class="table qty-tbl">
@@ -1026,28 +561,35 @@ function nursery_order_view()
 				<?php foreach ($order->get_items() as $item_id => $item) {
 					$product_id = $item->get_product_id();
 					$img_atts = wp_get_attachment_image_src(get_post_thumbnail_id($product_id), 'single-post-thumbnail');
-				?>
+					?>
 					<tr>
 						<td>
 							<?php if ($img_atts[0]) { ?>
 								<img class="qt-tree" src="<?php echo $img_atts[0]; ?>" alt="" />
 							<?php } else { ?>
-								<img class="qt-tree" src="<?php echo get_template_directory_uri(); ?>/assets/images/cate3.png" alt="" />
+								<img class="qt-tree" src="<?php echo get_template_directory_uri(); ?>/assets/images/cate3.png"
+									alt="" />
 							<?php } ?>
 							<?php echo $item->get_name(); ?>
 						</td>
-						<td><?php echo $item->get_quantity(); ?></td>
+						<td>
+							<?php echo $item->get_quantity(); ?>
+						</td>
 					</tr>
 				<?php } ?>
 			</tbody>
 			<tfoot>
 				<tr>
 					<td>Sub Total</td>
-					<td><?php echo wc_price($order->get_subtotal()); ?></td>
+					<td>
+						<?php echo wc_price($order->get_subtotal()); ?>
+					</td>
 				</tr>
 				<tr>
 					<th><strong>Total Cost</strong></th>
-					<th><?php echo $order->get_formatted_order_total(); ?></th>
+					<th>
+						<?php echo $order->get_formatted_order_total(); ?>
+					</th>
 				</tr>
 			</tfoot>
 		</table>
@@ -1068,19 +610,33 @@ function nursery_profile_view()
 	$stage_status = get_user_meta($user_id, '_stage_status', true);
 	$inventory_sumbit_status = get_user_meta($user_id, '_inventory_sumbit_status', true);
 	if ($stage_status == '' || $stage_status == 1 && $inventory_sumbit_status == '') {
-	?>
+		?>
 		<div class="accordion-info">
 			<a href="#" class="accordion-toggle">
 				<h3>Vendor Info:</h3>
 			</a>
 			<ul class="order_desc accordion-content">
-				<li><span>Nursery Name:</span> <?php echo get_user_meta($user_id, 'nursery_name', true); ?></li>
-				<li><span>Retail Address:</span> <?php echo get_user_meta($user_id, 'user_location', true); ?></li>
-				<li><span>Website:</span> <?php echo get_user_meta($user_id, 'nursery_website', true); ?></li>
-				<li><span>First Name:</span> <?php echo  $user_info->first_name; ?></li>
-				<li><span>Last Name:</span> <?php echo  $user_info->last_name; ?></li>
-				<li><span>Phone:</span> <?php echo get_user_meta($user_id, 'billing_phone', true); ?></li>
-				<li><span>Email:</span> <?php echo  $user_info->user_email; ?></li>
+				<li><span>Nursery Name:</span>
+					<?php echo get_user_meta($user_id, 'nursery_name', true); ?>
+				</li>
+				<li><span>Retail Address:</span>
+					<?php echo get_user_meta($user_id, 'user_location', true); ?>
+				</li>
+				<li><span>Website:</span>
+					<?php echo get_user_meta($user_id, 'nursery_website', true); ?>
+				</li>
+				<li><span>First Name:</span>
+					<?php echo $user_info->first_name; ?>
+				</li>
+				<li><span>Last Name:</span>
+					<?php echo $user_info->last_name; ?>
+				</li>
+				<li><span>Phone:</span>
+					<?php echo get_user_meta($user_id, 'billing_phone', true); ?>
+				</li>
+				<li><span>Email:</span>
+					<?php echo $user_info->user_email; ?>
+				</li>
 			</ul>
 		</div>
 	<?php } else { ?>
@@ -1089,13 +645,27 @@ function nursery_profile_view()
 				<h3>Vendor Info:</h3>
 			</a>
 			<ul class="order_desc accordion-content">
-				<li><span>Nursery Name:</span> <?php echo  $user_info->display_name; ?></li>
-				<li><span>Account Owner Name:</span> <?php echo get_user_meta($user_id, '_account_owner_name', true); ?></li>
-				<li><span>Account Owner Email:</span> <?php echo get_user_meta($user_id, '_account_owner_email', true); ?></li>
-				<li><span>Account Owner Phone:</span> <?php echo get_user_meta($user_id, '_account_owner_phone', true); ?></li>
-				<li><span>Corporate Entity Name:</span> <?php echo get_user_meta($user_id, '_corporate_entity_name', true); ?></li>
-				<li><span>Corporate Mailing Address:</span> <?php echo get_user_meta($user_id, '_corporate_mailing_address', true); ?></li>
-				<li><span>Website:</span> <?php echo get_user_meta($user_id, 'nursery_website', true); ?></li>
+				<li><span>Nursery Name:</span>
+					<?php echo $user_info->display_name; ?>
+				</li>
+				<li><span>Account Owner Name:</span>
+					<?php echo get_user_meta($user_id, '_account_owner_name', true); ?>
+				</li>
+				<li><span>Account Owner Email:</span>
+					<?php echo get_user_meta($user_id, '_account_owner_email', true); ?>
+				</li>
+				<li><span>Account Owner Phone:</span>
+					<?php echo get_user_meta($user_id, '_account_owner_phone', true); ?>
+				</li>
+				<li><span>Corporate Entity Name:</span>
+					<?php echo get_user_meta($user_id, '_corporate_entity_name', true); ?>
+				</li>
+				<li><span>Corporate Mailing Address:</span>
+					<?php echo get_user_meta($user_id, '_corporate_mailing_address', true); ?>
+				</li>
+				<li><span>Website:</span>
+					<?php echo get_user_meta($user_id, 'nursery_website', true); ?>
+				</li>
 			</ul>
 		</div>
 		<div class="accordion-info">
@@ -1103,11 +673,21 @@ function nursery_profile_view()
 				<h3>Location Manager Contact Info:</h3>
 			</a>
 			<ul class="order_desc accordion-content">
-				<li><span>Full Name:</span><?php echo get_user_meta($user_id, '_manager_full_name', true); ?> </li>
-				<li><span>Email Address:</span><?php echo get_user_meta($user_id, '_manager_email', true); ?> </li>
-				<li><span>Phone Number:</span><?php echo get_user_meta($user_id, '_manager_phone_number', true); ?> </li>
-				<li><span>Location:</span> <?php echo get_user_meta($user_id, 'user_location', true); ?></li>
-				<li><span>Delivery Radius:</span><?php echo get_user_meta($user_id, '_select_delivery_zone', true); ?> </li>
+				<li><span>Full Name:</span>
+					<?php echo get_user_meta($user_id, '_manager_full_name', true); ?>
+				</li>
+				<li><span>Email Address:</span>
+					<?php echo get_user_meta($user_id, '_manager_email', true); ?>
+				</li>
+				<li><span>Phone Number:</span>
+					<?php echo get_user_meta($user_id, '_manager_phone_number', true); ?>
+				</li>
+				<li><span>Location:</span>
+					<?php echo get_user_meta($user_id, 'user_location', true); ?>
+				</li>
+				<li><span>Delivery Radius:</span>
+					<?php echo get_user_meta($user_id, '_select_delivery_zone', true); ?>
+				</li>
 
 			</ul>
 		</div>
@@ -1116,13 +696,24 @@ function nursery_profile_view()
 				<h3>Delivery Days:</h3>
 			</a>
 			<ul class="order_desc accordion-content">
-				<li><?php foreach (unserialize(get_user_meta($user_id, '_select_delivery_days', true)) as $key => $value) {
+				<li>
+					<?php foreach (unserialize(get_user_meta($user_id, '_select_delivery_days', true)) as $key => $value) {
 						// print_r($key); print_r($value['start_time']); echo ',';
-					?>
+						?>
 						<ul>
-							<li><span><?php echo $key; ?>: </span></li>
-							<li><?php echo date('g:i a', strtotime($value['start_time'])); ?></li>
-							<li><?php echo date('g:i a', strtotime($value['end_time'])); ?></li>
+							<li><span>
+									<?php echo $key; ?>:
+								</span></li>
+							<li>
+								<?php echo $value['morning']; ?>
+							</li>
+							<li>
+								<?php echo $value['afternoon']; ?>
+							</li>
+							<li>
+								<?php echo $value['evening']; ?>
+							</li>
+							<!-- <li><?php echo date('g:i a', strtotime($value['end_time'])); ?></li> -->
 						</ul>
 					<?php } ?>
 				</li>
@@ -1150,8 +741,9 @@ function nursery_profile_view()
 						),
 					);
 					$products = new WP_Query($args);
-					if ($products->have_posts()) :
-						while ($products->have_posts()) : $products->the_post();
+					if ($products->have_posts()):
+						while ($products->have_posts()):
+							$products->the_post();
 							$user_avaliable_plant = get_user_meta($user_id, '_avaliable_plant', true);
 							$plant_id = get_the_ID();
 							$product = wc_get_product($plant_id);
@@ -1179,22 +771,26 @@ function nursery_profile_view()
 									$select_product_pot_size_price = get_post_meta($varible_id, $field_price, true);
 									if ($select_product_pot_add == 'Yes') {
 										//echo the_title().'  '.$pa_pot_size_term_name."<br>";
-										$currency_symbol =  get_woocommerce_currency_symbol();
-					?>
+										$currency_symbol = get_woocommerce_currency_symbol();
+										?>
 										<div class="col-lg-4 col-md-6 col-sm-12">
 											<div class="box">
 												<div class="img-block">
 													<?php if (has_post_thumbnail($plant_id)) { ?>
 														<img src="<?php echo $featured_img_url; ?>" alt="" />
 													<?php } else { ?>
-														<img src="https://florishstaging.ideatosteer.com/wp-content/uploads/2023/09/SilversnakeProduct2-1.jpg" alt="" />
+														<img src="https://florishstaging.ideatosteer.com/wp-content/uploads/2023/09/SilversnakeProduct2-1.jpg"
+															alt="" />
 													<?php } ?>
 												</div>
-												<a class="title" href="<?php get_permalink($plant_id); ?>" terget="_blank"><?php echo the_title() . '  ' . $pa_pot_size_term_name . ' (' . $currency_symbol . $select_product_pot_size_price . ')'; ?></a>
+												<a class="title" href="<?php get_permalink($plant_id); ?>" terget="_blank">
+													<?php echo the_title() . '  ' . $pa_pot_size_term_name . ' (' . $currency_symbol . $select_product_pot_size_price . ')'; ?>
+												</a>
 											</div>
 										</div>
-					<?php
+										<?php
 									}
+
 								}
 							}
 
@@ -1205,7 +801,7 @@ function nursery_profile_view()
 				</div>
 			</div>
 		</div>
-	<?php
+		<?php
 	}
 	die();
 }
@@ -1218,6 +814,7 @@ function auto_redirect_after_logout()
 
 	wp_redirect(home_url());
 	exit();
+
 }
 
 //////////Order On Hold Status Change/////////////////////////
@@ -1227,6 +824,7 @@ function my_change_status_function($order_id)
 
 	$order = wc_get_order($order_id);
 	$order->update_status('on-hold');
+
 }
 add_action('woocommerce_checkout_order_processed', 'changing_order_status_before_payment', 10, 3);
 function changing_order_status_before_payment($order_id, $posted_data, $order)
@@ -1278,11 +876,11 @@ function bbloomer_phone_mask_us()
 add_action('wp_footer', 'format_checkout_billing_phone');
 function format_checkout_billing_phone()
 {
-	if (is_account_page()) :
-	?>
+	if (is_account_page()):
+		?>
 		<script type="text/javascript">
-			jQuery(function($) {
-				$('#billing_phone').on('input focusout', function() {
+			jQuery(function ($) {
+				$('#billing_phone').on('input focusout', function () {
 					var p = $(this).val();
 
 					p = p.replace(/[^0-9]/g, '');
@@ -1291,7 +889,7 @@ function format_checkout_billing_phone()
 				});
 			});
 		</script>
-	<?php
+		<?php
 	endif;
 }
 
@@ -1303,16 +901,26 @@ function add_extra_field_to_edit_account_form()
 	$user = wp_get_current_user();
 	?>
 	<p class="woocommerce-form-row woocommerce-form-row--last form-row form-row-last">
-		<label for="billing_phone"><?php _e('Phone', 'woocommerce'); ?></label>
-		<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="billing_phone" id="billing_phone" value="<?php echo esc_attr($user->billing_phone); ?>" />
+		<label for="billing_phone">
+			<?php _e('Phone', 'woocommerce'); ?>
+		</label>
+		<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="billing_phone"
+			id="billing_phone" value="<?php echo esc_attr($user->billing_phone); ?>" />
 	</p>
 	<?php
 	?>
 	<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-		<label for="location"><?php _e('Pickup Location', 'woocommerce'); ?><span class="required">*</span></label>
-		<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="billing_customer_location" id="billing_customer_location" value="<?php echo esc_attr($user->billing_customer_location); ?>" />
-		<input type="hidden" class="woocommerce-Input woocommerce-Input--text input-text" name="billing_customer_location_lat" id="billing_customer_location_lat" value="<?php echo esc_attr($user->billing_customer_location_lat); ?>" />
-		<input type="hidden" class="woocommerce-Input woocommerce-Input--text input-text" name="billing_customer_location_long" id="billing_customer_location_long" value="<?php echo esc_attr($user->billing_customer_location_long); ?>" />
+		<label for="location">
+			<?php _e('Pickup Location', 'woocommerce'); ?><span class="required">*</span>
+		</label>
+		<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="billing_customer_location"
+			id="billing_customer_location" value="<?php echo esc_attr($user->billing_customer_location); ?>" />
+		<input type="hidden" class="woocommerce-Input woocommerce-Input--text input-text"
+			name="billing_customer_location_lat" id="billing_customer_location_lat"
+			value="<?php echo esc_attr($user->billing_customer_location_lat); ?>" />
+		<input type="hidden" class="woocommerce-Input woocommerce-Input--text input-text"
+			name="billing_customer_location_long" id="billing_customer_location_long"
+			value="<?php echo esc_attr($user->billing_customer_location_long); ?>" />
 	</p>
 	<?php
 }
@@ -1322,11 +930,11 @@ add_action('woocommerce_save_account_details', 'save_extra_field_account_details
 function save_extra_field_account_details($user_id)
 {
 	// For billing Phone
-	if (isset($_POST['billing_phone']))
+	if (isset ($_POST['billing_phone']))
 		update_user_meta($user_id, 'billing_phone', sanitize_text_field($_POST['billing_phone']));
 
 	// For Billing location (added related to your comment)
-	if (isset($_POST['billing_customer_location']))
+	if (isset ($_POST['billing_customer_location']))
 		update_user_meta($user_id, 'billing_customer_location', sanitize_text_field($_POST['billing_customer_location']));
 	update_user_meta($user_id, 'billing_customer_location_lat', sanitize_text_field($_POST['billing_customer_location_lat']));
 	update_user_meta($user_id, 'billing_customer_location_long', sanitize_text_field($_POST['billing_customer_location_long']));
@@ -1337,15 +945,23 @@ function save_extra_field_account_details($user_id)
 
 function shortcode_my_orders($atts)
 {
-	extract(shortcode_atts(array(
-		'order_count' => -1
-	), $atts));
+	extract(
+		shortcode_atts(
+			array(
+				'order_count' => -1
+			),
+			$atts
+		)
+	);
 
 	ob_start();
-	wc_get_template('myaccount/my-orders.php', array(
-		// 'current_user'  => get_user_by( 'id', get_current_user_id() ),
-		'order_count'   => $order_count
-	));
+	wc_get_template(
+		'myaccount/my-orders.php',
+		array(
+			// 'current_user'  => get_user_by( 'id', get_current_user_id() ),
+			'order_count' => $order_count
+		)
+	);
 	return ob_get_clean();
 }
 add_shortcode('my_orders', 'shortcode_my_orders');
@@ -1356,10 +972,12 @@ add_shortcode('my_orders', 'shortcode_my_orders');
 //add_action( 'init', 'wp_woocommerce_checkout_order_change_action' );
 function wp_woocommerce_checkout_order_change_action($order)
 {
-	$orders = wc_get_orders(array(
-		'numberposts' => -1,
-		'status' => 'wc-on-hold',
-	));
+	$orders = wc_get_orders(
+		array(
+			'numberposts' => -1,
+			'status' => 'wc-on-hold',
+		)
+	);
 	//echo "<pre>"; print_r($orders);
 	foreach ($orders as $order) {
 
@@ -1380,9 +998,9 @@ function wp_woocommerce_checkout_order_change_action($order)
 
 
 		$args = array(
-			'role'    => 'nursery',
+			'role' => 'nursery',
 			'orderby' => 'user_nicename',
-			'order'   => 'ASC'
+			'order' => 'ASC'
 		);
 		$users = get_users($args);
 		$items = array();
@@ -1396,6 +1014,7 @@ function wp_woocommerce_checkout_order_change_action($order)
 			} else {
 				$items[] = array($user_id, $location_lat, $location_long);
 			}
+
 		}
 		$distances = array_map(function ($item) use ($ref) {
 			$a = array_slice($item, -2);
@@ -1440,12 +1059,14 @@ function acquirable_product_column_content($column, $product_id)
 
 	if ($column == 'acquirable') {
 		$product_acquirable = get_post_meta($product_id, 'product_acquirable', true);
-	?>
+		?>
 		<input type="checkbox" <?php if ($product_acquirable == 'For Sale') {
-									echo 'checked';
-								} ?> data-id="<?php echo $product_id; ?>" data-toggle="toggle" data-on="For Sale" data-off="Not For Sale" data-onstyle="success" data-offstyle="danger" data-style="pro-acquirable" id="pro_acquirable">
+			echo 'checked';
+		} ?>
+			data-id="<?php echo $product_id; ?>" data-toggle="toggle" data-on="For Sale" data-off="Not For Sale"
+			data-onstyle="success" data-offstyle="danger" data-style="pro-acquirable" id="pro_acquirable">
 
-	<?php
+		<?php
 
 	}
 }
@@ -1457,9 +1078,9 @@ function my_admin_footer_extra()
 	<script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 	<script type="text/javascript">
-		jQuery(document).ready(function($) {
+		jQuery(document).ready(function ($) {
 
-			jQuery(".pro-acquirable").on('click', function() {
+			jQuery(".pro-acquirable").on('click', function () {
 				var product_id = jQuery(this).find("#pro_acquirable").attr("data-id");
 
 				var data = {
@@ -1467,7 +1088,7 @@ function my_admin_footer_extra()
 					'product_id': product_id
 				};
 				// since 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php
-				jQuery.post(ajaxurl, data, function(response) {
+				jQuery.post(ajaxurl, data, function (response) {
 					//alert('Got this from the server: ' + response);
 					alert('Successfully changes status!');
 				});
@@ -1476,14 +1097,14 @@ function my_admin_footer_extra()
 
 		});
 	</script>
-<?php
+	<?php
 }
 add_action('admin_head', 'my_admin_header_function');
 function my_admin_header_function()
 {
 	echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">';
 	echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" >';
-?>
+	?>
 	<style>
 		.toggle.pro-acquirable {
 			height: 44px !important;
@@ -1513,7 +1134,7 @@ function product_acquirable_update_function()
 
 	$product_id = $_POST['product_id'];
 	$product_acquirable = get_post_meta($product_id, 'product_acquirable', true);
-	if (!empty($product_acquirable)) {
+	if (!empty ($product_acquirable)) {
 		if ($product_acquirable == 'For Sale') {
 			$acquirable = 'Not For Sale';
 		} else {
@@ -1549,6 +1170,7 @@ function action_woocommerce_product_query($q, $query)
 		$q->set('post__not_in', $exclude_plant_list);
 		$q->set('meta_query', $meta_query);
 		$q->set('posts_per_page', 12);
+
 	}
 }
 
@@ -1557,9 +1179,10 @@ add_filter('woocommerce_product_query_tax_query', 'exclude_specific_product_attr
 function exclude_specific_product_attribute_query($tax_query, $query)
 {
 	// Only on Product Tag archives pages
-	if (!is_shop()) return $tax_query;
+	if (!is_shop())
+		return $tax_query;
 
-	if (!empty($_COOKIE['customer_usda_zip'])) {
+	if (!empty ($_COOKIE['customer_usda_zip'])) {
 		$cookieValue = $_COOKIE['customer_usda_zip'];
 		$decoded_json = json_decode(stripslashes($_COOKIE['customer_usda_zip']), true);
 		$customer_usda_zip = $decoded_json['zone'];
@@ -1569,14 +1192,14 @@ function exclude_specific_product_attribute_query($tax_query, $query)
 			$customer_usda_zip = "";
 		} else {
 			$customer_usda_zip_array = unserialize(get_user_meta(get_current_user_id(), '_customer_usda_zip', true));
-			if (!empty($customer_usda_zip_array)) {
+			if (!empty ($customer_usda_zip_array)) {
 				$customer_usda_zip = $customer_usda_zip_array['zone'];
 			} else {
 				$customer_usda_zip = "";
 			}
 		}
 	}
-	if (!empty($customer_usda_zip)) {
+	if (!empty ($customer_usda_zip)) {
 		// HERE Define your product category SLUGs to be excluded
 		$terms = array($customer_usda_zip); // SLUGs only
 		// The taxonomy for Product attribute
@@ -1585,8 +1208,8 @@ function exclude_specific_product_attribute_query($tax_query, $query)
 		// Add your criteria
 		$tax_query[] = array(
 			'taxonomy' => 'pa_' . $taxonomy,
-			'field'    => 'slug', // Or 'name' or 'term_id'
-			'terms'    => $terms,
+			'field' => 'slug', // Or 'name' or 'term_id'
+			'terms' => $terms,
 			'operator' => 'IN',
 		);
 	}
@@ -1597,7 +1220,7 @@ function exclude_specific_product_attribute_query($tax_query, $query)
 
 
 add_filter('woocommerce_output_related_products_args', function ($args) {
-	if (!empty($_COOKIE['customer_usda_zip'])) {
+	if (!empty ($_COOKIE['customer_usda_zip'])) {
 		$cookieValue = $_COOKIE['customer_usda_zip'];
 		$decoded_json = json_decode(stripslashes($_COOKIE['customer_usda_zip']), true);
 		$customer_usda_zip = $decoded_json['zone'];
@@ -1607,7 +1230,7 @@ add_filter('woocommerce_output_related_products_args', function ($args) {
 			$customer_usda_zip = "";
 		} else {
 			$customer_usda_zip_array = unserialize(get_user_meta(get_current_user_id(), '_customer_usda_zip', true));
-			if (!empty($customer_usda_zip_array)) {
+			if (!empty ($customer_usda_zip_array)) {
 				$customer_usda_zip = $customer_usda_zip_array['zone'];
 			} else {
 				$customer_usda_zip = "";
@@ -1616,29 +1239,32 @@ add_filter('woocommerce_output_related_products_args', function ($args) {
 	}
 
 	$taxonomy = 'usda-zone';
-	$terms = array($customer_usda_zip);
-	if (!empty($customer_usda_zip)) {
-		$tax_query = array(
+	$terms = array ($customer_usda_zip);
+	if (!empty ($customer_usda_zip)) {
+		$tax_query = array (
 			//'relation' => 'AND',
-			array(
+			array (
 				'taxonomy' => 'pa_' . $taxonomy,
-				'field'    => 'slug',
-				'terms'    => $terms,
+				'field' => 'slug',
+				'terms' => $terms,
 				'operator' => 'IN'
 			),
 		);
 	}
 	$exclude_plant_list = get_option('exclude_plant_list');
-	$args = wp_parse_args(array(
-		'post__not_in' => $exclude_plant_list,
-		'posts_per_page' => 4,
-		'meta_query' => array(
-			'key' => 'product_acquirable',
-			'value' => 'For Sale',
-			'compare' => '=',
+	$args = wp_parse_args(
+		array (
+			'post__not_in' => $exclude_plant_list,
+			'posts_per_page' => 4,
+			'meta_query' => array (
+				'key' => 'product_acquirable',
+				'value' => 'For Sale',
+				'compare' => '=',
+			),
+			'tax_query' => $tax_query,
 		),
-		'tax_query' => $tax_query,
-	), $args);
+		$args
+	);
 	return $args;
 });
 
@@ -1648,33 +1274,33 @@ function customer_update_zipcode()
 {
 	if (is_user_logged_in()) {
 		$user_id = get_current_user_id();
-		if (!empty($_COOKIE['customer_usd_zipcode'])) {
+		if (!empty ($_COOKIE['customer_usd_zipcode'])) {
 			$customer_usd_zipcode = $_COOKIE['customer_usd_zipcode'];
 		} else {
 			$customer_usd_zipcode = "";
 		}
 		///echo "hiiiiiiiii".$customer_usd_zipcode;
 		$zipd = get_user_meta($user_id, '_customer_usd_zipcode', true);
-		if ($customer_usd_zipcode !=  $zipd && $customer_usd_zipcode != "") {
+		if ($customer_usd_zipcode != $zipd && $customer_usd_zipcode != "") {
 			update_user_meta($user_id, '_customer_usd_zipcode', $customer_usd_zipcode);
 		}
 
 
-		if (!empty($_COOKIE['customer_usda_zip'])) {
+		if (!empty ($_COOKIE['customer_usda_zip'])) {
 			$cookieValue = $_COOKIE['customer_usda_zip'];
 			$decoded_json = json_decode(stripslashes($_COOKIE['customer_usda_zip']), true);
 			$customer_usda_zip = $decoded_json['zone'];
 		} else {
 			$customer_usda_zip = "#";
 		}
-		if ($customer_usd_zipcode !=  $zipd && $customer_usd_zipcode != "") {
+		if ($customer_usd_zipcode != $zipd && $customer_usd_zipcode != "") {
 			update_user_meta($user_id, '_customer_usda_zip', serialize($decoded_json));
 		}
 	}
 
 
 	////////Exclude Plant
-	$argsss     = array('post_type' => 'product', 'posts_per_page' => -1);
+	$argsss = array('post_type' => 'product', 'posts_per_page' => -1);
 	$plant_list = get_posts($argsss);
 
 	$exclude_result = array();
@@ -1684,37 +1310,36 @@ function customer_update_zipcode()
 		if ($check != 'Yes') {
 			$exclude_result[] = $plant_id;
 		}
+
 	}
 	update_option('exclude_plant_list', $exclude_result);
+
 }
 function check_plant_exists($plant_id)
 {
 	$args = array(
-		'role'    => 'nursery',
+		'role' => 'nursery',
 		'orderby' => 'user_nicename',
-		'order'   => 'ASC'
+		'order' => 'ASC'
 	);
 	$users = get_users($args);
 	$check = "";
 	foreach ($users as $user) {
 		$user_id = $user->ID;
 		$user_avaliable_plant = get_user_meta($user_id, '_avaliable_plant', true);
-		$unserialized = unserialize($user_avaliable_plant);
-		if (!$unserialized) {
-			break;
-		};
-		if (in_array($plant_id, $unserialized)) {
+		$user_avaliable_plant = unserialize($user_avaliable_plant);
+
+		if (is_array($user_avaliable_plant) && in_array($plant_id, $user_avaliable_plant)) {
 			$check = "Yes";
 			break;
-		};
+		}
 	}
-	return  $check;
+	return $check;
 }
 
 ////////Miles get
 function get_distances_miles($lat1, $lon1, $lat2, $lon2, $unit)
 {
-
 	// if not numbers, bail
 	if (!is_numeric($lat1) || !is_numeric($lon1) || !is_numeric($lat2) || !is_numeric($lon2)) {
 		return 0;
@@ -1724,7 +1349,7 @@ function get_distances_miles($lat1, $lon1, $lat2, $lon2, $unit)
 		return 0;
 	} else {
 		$theta = $lon1 - $lon2;
-		$dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
+		$dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) + cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
 		$dist = acos($dist);
 		$dist = rad2deg($dist);
 		$miles = $dist * 60 * 1.1515;
@@ -1749,14 +1374,15 @@ function custom_field_display_below_title()
 	$plant_id = $product->get_id();
 
 	// Get the custom field value
-	if (!empty($_COOKIE['customer_usda_zip'])) {
+	if (!empty ($_COOKIE['customer_usda_zip'])) {
 		//$customer_usda_zip_array = $_COOKIE['customer_usda_zip'];
 		$customer_usda_zip_array = json_decode(stripslashes($_COOKIE['customer_usda_zip']), true);
 		$location_lat2 = $customer_usda_zip_array['coordinates']['lat'];
 		$location_long2 = $customer_usda_zip_array['coordinates']['lon'];
+
 	} else {
 		$customer_usda_zip_array = unserialize(get_user_meta(get_current_user_id(), '_customer_usda_zip', true));
-		if (!empty($customer_usda_zip_array)) {
+		if (!empty ($customer_usda_zip_array)) {
 			$location_lat2 = $customer_usda_zip_array['coordinates']['lat'];
 			$location_long2 = $customer_usda_zip_array['coordinates']['lon'];
 		} else {
@@ -1766,9 +1392,9 @@ function custom_field_display_below_title()
 	}
 
 	$args = array(
-		'role'    => 'nursery',
+		'role' => 'nursery',
 		'orderby' => 'user_nicename',
-		'order'   => 'ASC'
+		'order' => 'ASC'
 	);
 	$users = get_users($args);
 
@@ -1788,12 +1414,13 @@ function custom_field_display_below_title()
 			} else {
 				$custom_sticker = "This plant does not work in your zone.";
 			}
+
 		} else {
 
 			$custom_sticker = "This plant does not work in your zone.";
 		}
 	}
-	if (!is_user_logged_in() && empty($_COOKIE['customer_usda_zip'])) {
+	if (!is_user_logged_in() && empty ($_COOKIE['customer_usda_zip'])) {
 		$custom_sticker = "";
 	}
 
@@ -1802,7 +1429,7 @@ function custom_field_display_below_title()
 	//echo get_distances_miles(32.9697, -96.80322, 29.46786, -98.53506, "K") . " Kilometers<br>";
 	//echo get_distances_miles(32.9697, -96.80322, 29.46786, -98.53506, "N") . " Nautical Miles<br>";
 	// Display
-	if (!empty($custom_sticker)) {
+	if (!empty ($custom_sticker)) {
 		echo '<div class="plants-zones">' . $custom_sticker . '</div>';
 	}
 }
@@ -1815,14 +1442,15 @@ function add_custom_text_after_product_title()
 	$plant_id = $product->get_id();
 
 	// Get the custom field value
-	if (!empty($_COOKIE['customer_usda_zip'])) {
+	if (!empty ($_COOKIE['customer_usda_zip'])) {
 		//$customer_usda_zip_array = $_COOKIE['customer_usda_zip'];
 		$customer_usda_zip_array = json_decode(stripslashes($_COOKIE['customer_usda_zip']), true);
 		$location_lat2 = $customer_usda_zip_array['coordinates']['lat'];
 		$location_long2 = $customer_usda_zip_array['coordinates']['lon'];
+
 	} else {
 		$customer_usda_zip_array = unserialize(get_user_meta(get_current_user_id(), '_customer_usda_zip', true));
-		if (!empty($customer_usda_zip_array)) {
+		if (!empty ($customer_usda_zip_array)) {
 			$location_lat2 = $customer_usda_zip_array['coordinates']['lat'];
 			$location_long2 = $customer_usda_zip_array['coordinates']['lon'];
 		} else {
@@ -1832,9 +1460,9 @@ function add_custom_text_after_product_title()
 	}
 
 	$args = array(
-		'role'    => 'nursery',
+		'role' => 'nursery',
 		'orderby' => 'user_nicename',
-		'order'   => 'ASC'
+		'order' => 'ASC'
 	);
 	$users = get_users($args);
 
@@ -1856,12 +1484,13 @@ function add_custom_text_after_product_title()
 			} else {
 				$custom_text = '<span class="extra-fee-sticker">This plants from Out of Zone</span>';
 			}
+
 		} else {
 
 			$custom_text = "";
 		}
 	}
-	if (!is_user_logged_in() && empty($_COOKIE['customer_usda_zip'])) {
+	if (!is_user_logged_in() && empty ($_COOKIE['customer_usda_zip'])) {
 		$custom_text = "";
 	}
 
@@ -1885,19 +1514,21 @@ function nursery_ajax_register_inventory()
 {
 
 	//Step 2
-	$account_owner_name  = $_POST['account_owner_name'];
-	$account_owner_email  = $_POST['account_owner_email'];
-	$account_owner_phone  = $_POST['account_owner_phone'];
-	$corporate_entity_name  = $_POST['corporate_entity_name'];
-	$corporate_mailing_address  = $_POST['corporate_mailing_address'];
-	$manager_full_name_1  = $_POST['manager_full_name_1'];
-	$manager_email_1  = $_POST['manager_email_1'];
-	$manager_phone_number_1  = $_POST['manager_phone_number_1'];
-	$manager_location_1  = $_POST['manager_location_1'];
-	$manager_location_lat_1  = $_POST['manager_location_lat_1'];
-	$manager_location_long_1  = $_POST['manager_location_long_1'];
-	$manager_delivery_radius_1  = $_POST['manager_delivery_radius_1'];
-	$input_delivery_days_1  = $_POST['input_delivery_days_1'];
+	$account_owner_name = $_POST['account_owner_name'];
+	$account_owner_email = $_POST['account_owner_email'];
+	$account_owner_phone = $_POST['account_owner_phone'];
+	$corporate_entity_name = $_POST['corporate_entity_name'];
+	$corporate_ein_name = $_POST['ein_name'];
+	$corporate_mailing_address = $_POST['corporate_mailing_address'];
+	$manager_full_name_1 = $_POST['manager_full_name_1'];
+	$manager_email_1 = $_POST['manager_email_1'];
+	$manager_phone_number_1 = $_POST['manager_phone_number_1'];
+	$manager_location_name = $_POST['manager_location_name'];
+	$manager_location_1 = $_POST['manager_location_1'];
+	$manager_location_lat_1 = $_POST['manager_location_lat_1'];
+	$manager_location_long_1 = $_POST['manager_location_long_1'];
+	$manager_delivery_radius_1 = $_POST['manager_delivery_radius_1'];
+	$input_delivery_days_1 = $_POST['input_delivery_days_1'];
 
 	//echo " hi";
 	//var_dump($_POST);
@@ -1905,10 +1536,12 @@ function nursery_ajax_register_inventory()
 	update_user_meta(get_current_user_id(), '_account_owner_email', $account_owner_email);
 	update_user_meta(get_current_user_id(), '_account_owner_phone', $account_owner_phone);
 	update_user_meta(get_current_user_id(), '_corporate_entity_name', $corporate_entity_name);
+	update_user_meta(get_current_user_id(), '_corporate_ein_name', $corporate_ein_name);
 	update_user_meta(get_current_user_id(), '_corporate_mailing_address', $corporate_mailing_address);
 	update_user_meta(get_current_user_id(), '_manager_full_name', $manager_full_name_1);
 	update_user_meta(get_current_user_id(), '_manager_email', $manager_email_1);
 	update_user_meta(get_current_user_id(), '_manager_phone_number', $manager_phone_number_1);
+	update_user_meta(get_current_user_id(), '_manager_location_name', $manager_location_name);
 	update_user_meta(get_current_user_id(), 'user_location', $manager_location_1);
 	update_user_meta(get_current_user_id(), 'user_location_lat', $manager_location_lat_1);
 	update_user_meta(get_current_user_id(), 'user_location_long', $manager_location_long_1);
@@ -1917,36 +1550,56 @@ function nursery_ajax_register_inventory()
 	$delivery_days_arr = array();
 	foreach ($input_delivery_days_1 as $days) {
 		if ($days == 'Sunday') {
-			$delivery_days_arr[$days] = array('start_time' => $_POST['delivery_days_sunday_start_time'], 'end_time' => $_POST['delivery_days_sunday_end_time']);
+			$delivery_days_arr[$days] = array('morning' => $_POST['delivery_days_sunday_morning'], 'afternoon' => $_POST['delivery_days_sunday_afternoon'], 'evening' => $_POST['delivery_days_sunday_evening']);
 		}
 		if ($days == 'Monday') {
-			$delivery_days_arr[$days] = array('start_time' => $_POST['delivery_days_monday_start_time'], 'end_time' => $_POST['delivery_days_monday_end_time']);
+			$delivery_days_arr[$days] = array('morning' => $_POST['delivery_days_monday_morning'], 'afternoon' => $_POST['delivery_days_monday_afternoon'], 'evening' => $_POST['delivery_days_monday_evening']);
 		}
 		if ($days == 'Tuesday') {
-			$delivery_days_arr[$days] = array('start_time' => $_POST['delivery_days_tuesday_start_time'], 'end_time' => $_POST['delivery_days_tuesday_end_time']);
+			$delivery_days_arr[$days] = array('morning' => $_POST['delivery_days_tuesday_morning'], 'afternoon' => $_POST['delivery_days_tuesday_afternoon'], 'evening' => $_POST['delivery_days_tuesday_evening']);
 		}
 		if ($days == 'Wednesday') {
-			$delivery_days_arr[$days] = array('start_time' => $_POST['delivery_days_wednesday_start_time'], 'end_time' => $_POST['delivery_days_wednesday_end_time']);
+			$delivery_days_arr[$days] = array('morning' => $_POST['delivery_days_wednesday_morning'], 'afternoon' => $_POST['delivery_days_wednesday_afternoon'], 'evening' => $_POST['delivery_days_wednesday_evening']);
 		}
 		if ($days == 'Thursday') {
-			$delivery_days_arr[$days] = array('start_time' => $_POST['delivery_days_thursday_start_time'], 'end_time' => $_POST['delivery_days_thursday_end_time']);
+			$delivery_days_arr[$days] = array('morning' => $_POST['delivery_days_thursday_morning'], 'afternoon' => $_POST['delivery_days_thursday_afternoon'], 'evening' => $_POST['delivery_days_thursday_evening']);
 		}
 		if ($days == 'Friday') {
-			$delivery_days_arr[$days] = array('start_time' => $_POST['delivery_days_friday_start_time'], 'end_time' => $_POST['delivery_days_friday_end_time']);
+			$delivery_days_arr[$days] = array('morning' => $_POST['delivery_days_friday_morning'], 'afternoon' => $_POST['delivery_days_friday_afternoon'], 'evening' => $_POST['delivery_days_friday_evening']);
 		}
 		if ($days == 'Saturday') {
-			$delivery_days_arr[$days] = array('start_time' => $_POST['delivery_days_saturday_start_time'], 'end_time' => $_POST['delivery_days_saturday_end_time']);
+			$delivery_days_arr[$days] = array('morning' => $_POST['delivery_days_saturday_morning'], 'afternoon' => $_POST['delivery_days_saturday_afternoon'], 'evening' => $_POST['delivery_days_saturday_evening']);
 		}
+
 	}
 	update_user_meta(get_current_user_id(), '_select_delivery_days', serialize($delivery_days_arr));
 
 	update_user_meta(get_current_user_id(), '_inventory_sumbit_status', '1');
 
+	// insurance file upload
+	$file = $_FILES['files'];
+	if (!empty ($_FILES['files']['name'][0]) && !empty ($_FILES['files']['tmp_name'])) {
+		// Load upload-related and other required functions.
+		require_once ABSPATH . 'wp-admin/includes/file.php';
+		require_once ABSPATH . 'wp-admin/includes/image.php';
+		require_once ABSPATH . 'wp-admin/includes/media.php';
+
+		$post_id = 0;   // set to the proper post ID, if attaching to a post
+		foreach ($_FILES as $file => $array) {
+			if ($_FILES[$file]['error'] !== UPLOAD_ERR_OK) {
+				echo "upload error : " . $_FILES[$file]['error'];
+				die();
+			}
+			$attach_id = media_handle_upload($file, $post_id);
+		}
+
+		update_user_meta(get_current_user_id(), '_insurance_file_id', $attach_id);
+	}
 
 	///send Email
 	$from = get_field("sender_email", "option"); // Set whatever you want like mail@yourdomain.com
 
-	if (!(isset($from) && is_email($from))) {
+	if (!(isset ($from) && is_email($from))) {
 		$sitename = strtolower($_SERVER['SERVER_NAME']);
 		if (substr($sitename, 0, 4) == 'www.') {
 			$sitename = substr($sitename, 4);
@@ -1979,11 +1632,11 @@ function nursery_reg_status_change()
 
 	///Stage 1 approved
 
-	if ($in_status == 1 && !empty($user_id) && is_numeric($user_id)) {
+	if ($in_status == 1 && !empty ($user_id) && is_numeric($user_id)) {
 
 		$from = get_field("sender_email", "option"); // Set whatever you want like mail@yourdomain.com
 
-		if (!(isset($from) && is_email($from))) {
+		if (!(isset ($from) && is_email($from))) {
 			$sitename = strtolower($_SERVER['SERVER_NAME']);
 			if (substr($sitename, 0, 4) == 'www.') {
 				$sitename = substr($sitename, 4);
@@ -2007,14 +1660,15 @@ function nursery_reg_status_change()
 		update_user_meta($user_id, '_member_status', 'active');
 		delete_user_meta($user_id, 'code_to_be_activated');
 		echo $user_info->first_name . " Stage 1 Approved";
+
 	}
 	///Stage 2 approved
 
-	if ($in_status == '2' && !empty($user_id) && is_numeric($user_id)) {
+	if ($in_status == '2' && !empty ($user_id) && is_numeric($user_id)) {
 
 		$from = get_field("sender_email", "option"); // Set whatever you want like mail@yourdomain.com
 
-		if (!(isset($from) && is_email($from))) {
+		if (!(isset ($from) && is_email($from))) {
 			$sitename = strtolower($_SERVER['SERVER_NAME']);
 			if (substr($sitename, 0, 4) == 'www.') {
 				$sitename = substr($sitename, 4);
@@ -2036,15 +1690,16 @@ function nursery_reg_status_change()
 
 		update_user_meta($user_id, '_stage_status', $in_status);
 		echo $user_info->first_name . " Stage 2 Approved";
+
 	}
 
 	///Stage 1 Decline
 
-	if ($in_status == 11 && !empty($user_id) && is_numeric($user_id)) {
+	if ($in_status == 11 && !empty ($user_id) && is_numeric($user_id)) {
 
 		$from = get_field("sender_email", "option"); // Set whatever you want like mail@yourdomain.com
 
-		if (!(isset($from) && is_email($from))) {
+		if (!(isset ($from) && is_email($from))) {
 			$sitename = strtolower($_SERVER['SERVER_NAME']);
 			if (substr($sitename, 0, 4) == 'www.') {
 				$sitename = substr($sitename, 4);
@@ -2071,11 +1726,11 @@ function nursery_reg_status_change()
 
 	///Stage 2 Decline
 
-	if ($in_status == 22 && !empty($user_id) && is_numeric($user_id)) {
+	if ($in_status == 22 && !empty ($user_id) && is_numeric($user_id)) {
 
 		$from = get_field("sender_email", "option"); // Set whatever you want like mail@yourdomain.com
 
-		if (!(isset($from) && is_email($from))) {
+		if (!(isset ($from) && is_email($from))) {
 			$sitename = strtolower($_SERVER['SERVER_NAME']);
 			if (substr($sitename, 0, 4) == 'www.') {
 				$sitename = substr($sitename, 4);
@@ -2102,11 +1757,11 @@ function nursery_reg_status_change()
 
 	///Deactive Account
 
-	if ($in_status == 'inactive' && !empty($user_id) && is_numeric($user_id)) {
+	if ($in_status == 'inactive' && !empty ($user_id) && is_numeric($user_id)) {
 
 		$from = get_field("sender_email", "option"); // Set whatever you want like mail@yourdomain.com
 
-		if (!(isset($from) && is_email($from))) {
+		if (!(isset ($from) && is_email($from))) {
 			$sitename = strtolower($_SERVER['SERVER_NAME']);
 			if (substr($sitename, 0, 4) == 'www.') {
 				$sitename = substr($sitename, 4);
@@ -2133,6 +1788,7 @@ function nursery_reg_status_change()
 		echo $user_info->first_name . " Deactivated";
 	}
 
+	// Todo
 	die();
 }
 
@@ -2143,13 +1799,13 @@ function nursery_reg_add_inv()
 
 	$search_plant = $_POST['search_plant'];
 	$post_id = $_POST['plant_id'];
-	if (empty($post_id)) {
+	if (empty ($post_id)) {
 		$args = array(
 			'posts_per_page' => -1,
 			'post_type' => 'product',
 			'orderby' => 'title',
 			'order' => 'ASC',
-			's'     => $search_plant,
+			's' => $search_plant,
 			'meta_query' => array(
 				array(
 					'key' => 'product_acquirable',
@@ -2165,7 +1821,7 @@ function nursery_reg_add_inv()
 			'orderby' => 'title',
 			'order' => 'ASC',
 			'post__in' => array($post_id),
-			's'     => $search_plant,
+			's' => $search_plant,
 			'meta_query' => array(
 				array(
 					'key' => 'product_acquirable',
@@ -2176,8 +1832,9 @@ function nursery_reg_add_inv()
 		);
 	}
 	$products = new WP_Query($args);
-	if ($products->have_posts()) :
-		while ($products->have_posts()) : $products->the_post();
+	if ($products->have_posts()):
+		while ($products->have_posts()):
+			$products->the_post();
 			$user_avaliable_plant = get_user_meta(get_current_user_id(), '_avaliable_plant', true);
 			// print_r(unserialize($user_avaliable_plant));
 			$plant_id = get_the_ID();
@@ -2186,16 +1843,23 @@ function nursery_reg_add_inv()
 			$product = wc_get_product($plant_id);
 
 			if ($product->is_type('variable')) {
-				if (!empty($attributes)) {
+				if (!empty ($attributes)) {
 					$available_variations = $product->get_available_variations();
 					//echo "<pre>"; print_r($available_variations);
-	?>
+					?>
 					<div class="pn_block">
 						<div class="plant-name">
-							<h5><?php the_title(); ?></h5>
-							<input name="select_product_name_1[]" type="hidden" <?php if (in_array($plant_id, unserialize($user_avaliable_plant))) {
-																					echo "checked";
-																				} ?> value="<?php echo get_the_ID(); ?>" class="plant-name" id="product<?php echo get_the_ID(); ?>">
+							<h5>
+								<?php the_title(); ?>
+							</h5>
+							<?php
+							$unserialized_user_plant = unserialize($user_avaliable_plant);
+							$checked_plant = '';
+							if (is_array($unserialized_user_plant) && in_array($plant_id, $unserialized_user_plant)) {
+								$checked_plant = 'checked';
+							} ?>
+							<input name="select_product_name_1[]" type="hidden" value="<?php echo get_the_ID(); ?>" class="plant-name"
+								id="product<?php echo get_the_ID(); ?>" <?php echo $checked_plant; ?> />
 						</div>
 						<div class="content-wrapper">
 							<div class="lft-wrap">
@@ -2214,25 +1878,35 @@ function nursery_reg_add_inv()
 									$pa_pot_size_meta = get_post_meta($available_variation['variation_id'], 'attribute_' . $pa_pot_size_, true);
 									$pa_pot_size_term = get_term_by('slug', $pa_pot_size_meta, $pa_pot_size_);
 									$pa_pot_size_term_name = $pa_pot_size_term->name;
-									$pa_pot_size_term_id =  $pa_pot_size_term->term_id;
+									$pa_pot_size_term_id = $pa_pot_size_term->term_id;
 									$field_price = '_nursery_product_plant_variation_retail_price_' . get_current_user_id();
 									$select_product_pot_size_price = get_post_meta($varible_id, $field_price, true);
-									if (!empty($select_product_pot_size_price)) {
+									if (!empty ($select_product_pot_size_price)) {
 										$display_price = $select_product_pot_size_price;
 									}
-								?>
+
+									$unserialized_pot_size = unserialize($select_product_pot_size);
+									$checked_pot_size = '';
+									if (is_array($unserialized_pot_size) && in_array($varible_id, $unserialized_pot_size)) {
+										$checked_pot_size = 'checked';
+									}
+									?>
 									<div class="flx-box">
-										<label><input type="checkbox" name="select_product_pot_size_1_<?php echo get_the_ID(); ?>[]" <?php if (in_array($varible_id, unserialize($select_product_pot_size))) {
-																																			echo "checked";
-																																		} ?> value="<?php echo $varible_id; ?>" id="product_attr_<?php echo get_the_ID(); ?>_<?php echo $pa_pot_size_term_name; ?>" class="product_attr_<?php echo get_the_ID(); ?>"> <?php echo $pa_pot_size_term_name; ?></label>
-										<input type="number" placeholder="Your retail price" name="select_product_pot_size_retail_price_1_<?php echo get_the_ID(); ?>_<?php echo $varible_id; ?>" class="form-control" value="<?php echo $display_price; ?>" />
+										<label><input type="checkbox" name="select_product_pot_size_1_<?php echo get_the_ID(); ?>[]" <?php echo $checked_pot_size; ?> value="<?php echo $varible_id; ?>"
+												id="product_attr_<?php echo get_the_ID(); ?>_<?php echo $pa_pot_size_term_name; ?>"
+												class="product_attr_<?php echo get_the_ID(); ?>">
+											<?php echo $pa_pot_size_term_name; ?>
+										</label>
+										<input type="number" placeholder="Your retail price"
+											name="select_product_pot_size_retail_price_1_<?php echo get_the_ID(); ?>_<?php echo $varible_id; ?>"
+											class="form-control" value="<?php echo $display_price; ?>" />
 										<!-- <input type="hidden" name="select_product_pot_size_variation_id_1_<?php echo get_the_ID(); ?>[]" class="form-control" value="<?php echo $varible_id; ?>" /> -->
 									</div>
 								<?php } ?>
 							</div>
 						</div>
 					</div>
-	<?php
+					<?php
 				}
 			}
 		endwhile;
@@ -2245,26 +1919,26 @@ function nursery_reg_add_inv()
 add_action('init', 'nursery_add_inventory');
 function nursery_add_inventory()
 {
-	if (isset($_POST['all_done']) && isset($_POST['select_product_name_1'])) {
+	if (isset ($_POST['all_done']) && isset ($_POST['select_product_name_1'])) {
 
 		$avaliable_plant = serialize($_POST['select_product_name_1']);
+		update_user_meta(get_current_user_id(), '_avaliable_plant', $avaliable_plant);
 		foreach ($_POST['select_product_name_1'] as $plant_id) {
 			//$plant_id;
-			foreach ($_POST['select_product_pot_size_1_' . $plant_id] as $vaiation_id) {
-				// echo $vaiation_id."   "."  ".$_POST['select_product_pot_size_retail_price_1_'.$plant_id.'_'.$vaiation_id]."<br>";
+			foreach ($_POST['select_product_pot_size_1_' . $plant_id] as $variation_id) {
+				// echo $variation_id."   "."  ".$_POST['select_product_pot_size_retail_price_1_'.$plant_id.'_'.$variation_id]."<br>";
 				$field_price = '_nursery_product_plant_variation_retail_price_' . get_current_user_id();
 				$field_status = '_nursery_product_plant_variation_status_' . get_current_user_id();
 				$field_insert = '_nursery_product_plant_variation_add_' . get_current_user_id();
-				update_post_meta($vaiation_id, $field_price, $_POST['select_product_pot_size_retail_price_1_' . $plant_id . '_' . $vaiation_id]);
-				update_post_meta($vaiation_id, $field_status, 'Yes');
-				update_post_meta($vaiation_id, $field_insert, 'Yes');
+				update_post_meta($variation_id, $field_price, $_POST['select_product_pot_size_retail_price_1_' . $plant_id . '_' . $variation_id]);
+				update_post_meta($variation_id, $field_status, 'Yes');
+				update_post_meta($variation_id, $field_insert, 'Yes');
 			}
 			$field_list = '_nursery_product_plant_list' . get_current_user_id();
 			//echo "<pre>"; print_r($_POST['select_product_pot_size_1_'.$plant_id]);
 			update_post_meta($plant_id, $field_list, serialize($_POST['select_product_pot_size_1_' . $plant_id]));
 		}
 
-		update_user_meta(get_current_user_id(), '_avaliable_plant', $avaliable_plant);
 		//die();
 		wp_redirect(esc_url(get_page_link(1529)));
 	}
@@ -2274,7 +1948,7 @@ function nursery_add_inventory()
 	global $wpdb;
 	$wpdb->show_errors();
 	$charset_collate = $wpdb->get_charset_collate();
-	require_once(ABSPATH . 'wp-admin/includes/upgrade.php'); // TODO: Why are we including from wp-admin?
+	require_once (ABSPATH . 'wp-admin/includes/upgrade.php'); // TODO: Why are we including from wp-admin?
 	define('WP_NURSERY_MARKETS_DB_VERSION', '7.0');
 	if (get_option("nursery_markets_db_version") != WP_NURSERY_MARKETS_DB_VERSION) {
 
@@ -2296,7 +1970,7 @@ function nursery_add_inventory()
 	}
 
 	/////Add Market
-	if (isset($_POST['added_market']) && isset($_POST['market_name'])) {
+	if (isset ($_POST['added_market']) && isset ($_POST['market_name'])) {
 
 		$market_tablename = $wpdb->prefix . "nurser_market_table";
 		$market_name = $_POST['market_name'];
@@ -2307,23 +1981,26 @@ function nursery_add_inventory()
 		$zipcode = $_POST['zipcode'];
 		$take_rate = $_POST['take_rate'];
 
-		$wpdb->insert($market_tablename, array(
-			'market_name' => $market_name,
-			'full_address' => $fulladdress,
-			'location' => '',
-			'miles' => $radious_miles,
-			'latitude' => $latitude,
-			'longitude' => $longitude,
-			'zipcode' => $zipcode,
-			'take_rate' => $take_rate,
-			//'upd_date'=> date('Y-m-d'),
-		));
+		$wpdb->insert(
+			$market_tablename,
+			array(
+				'market_name' => $market_name,
+				'full_address' => $fulladdress,
+				'location' => '',
+				'miles' => $radious_miles,
+				'latitude' => $latitude,
+				'longitude' => $longitude,
+				'zipcode' => $zipcode,
+				'take_rate' => $take_rate,
+				//'upd_date'=> date('Y-m-d'),
+			)
+		);
 		wp_redirect(esc_url(get_page_link(205)));
 	}
 
 	////update market
 
-	if (isset($_POST['update_market']) && isset($_POST['latitude1'])) {
+	if (isset ($_POST['update_market']) && isset ($_POST['latitude1'])) {
 		$market_tablename = $wpdb->prefix . "nurser_market_table";
 		$market_id = $_POST['market_id'];
 		$market_name = $_POST['market_name1'];
@@ -2335,6 +2012,7 @@ function nursery_add_inventory()
 		//$zipcode = $_POST['zipcode1'];
 		$wpdb->update($market_tablename, array('market_name' => $market_name, 'full_address' => $fulladdress, 'miles' => $radious_miles, 'latitude' => $latitude, 'longitude' => $longitude, 'take_rate' => $take_rate1), array('id' => $market_id));
 		wp_redirect(esc_url(get_page_link(205)));
+
 	}
 
 	//update_user_meta(get_current_user_id(), '_inventory_sumbit_status', '');
@@ -2356,9 +2034,9 @@ function nursery_add_inventory()
 			$miles = $market_list['miles'];
 			$nurser_count = $market_list['nurser_count'];
 			$args = array(
-				'role'    => 'nursery',
+				'role' => 'nursery',
 				'orderby' => 'user_nicename',
-				'order'   => 'ASC'
+				'order' => 'ASC'
 			);
 			$users = get_users($args);
 
@@ -2374,6 +2052,7 @@ function nursery_add_inventory()
 				$customer_delivery_zone = get_distances_miles($location_lat1, $location_long1, $location_lat2, $location_long2, "M");
 				if ($customer_delivery_zone <= $miles) {
 					$market_list_nurser_count = $market_list_nurser_count + 1;
+
 				}
 			}
 			$wpdb->update($tablename, array('nurser_count' => $market_list_nurser_count), array('id' => $market_id));
@@ -2381,381 +2060,43 @@ function nursery_add_inventory()
 	}
 }
 
-
+get_template_part('inc/functions/nursery_inventory_active_inactive');
 add_action('wp_ajax_nursery_inventory_active_inactive', 'nursery_inventory_active_inactive');
 // add_action('wp_ajax_nopriv_nursery_inventory_active_inactive', 'nursery_inventory_active_inactive');
-function nursery_inventory_active_inactive()
-{
-	$vaiation_id = $_POST['varible_id'];
-	$status = $_POST['status'];
-	$field_status = '_nursery_product_plant_variation_status_' . get_current_user_id();
-	update_post_meta($vaiation_id, $field_status, $status);
-	if ($status == 'Yes') {
-		echo "Your plants is Activated";
-	} else {
-		echo "Your plants is Deactivated";
-	}
 
-	die();
-}
-
-
+get_template_part('inc/functions/get_market_nursery_view');
 add_action('wp_ajax_get_market_nursery_view', 'get_market_nursery_view');
-function get_market_nursery_view()
-{
-
-	global $wpdb;
-	$tablename = $wpdb->prefix . "nurser_market_table";
-
-
-	$location_lat2 = $_POST['lat'];
-	$location_long2 = $_POST['long'];
-	$miles = $_POST['miles'];
-	$market_id = $_POST['market_id'];
-	$market_name = $_POST['market_name'];
-	$take_rate = $_POST['take_rate'];
-	if (empty($take_rate)) {
-		$take_rate = 5;
-	}
-	?>
-	<h3><?php echo $market_name; ?></h3>
-	<ul class="accordion-content">
-		<?php
-		$args = array(
-			'role'    => 'nursery',
-			'orderby' => 'user_nicename',
-			'order'   => 'ASC'
-		);
-		$users = get_users($args);
-
-		$market_list_nurser_count = 0;
-		foreach ($users as $user) {
-			$user_id = $user->ID;
-			$user_avaliable_plant = get_user_meta($user_id, '_avaliable_plant', true);
-			$location_lat1 = get_user_meta($user_id, 'user_location_lat', true);
-			$location_long1 = get_user_meta($user_id, 'user_location_long', true);
-			$nursery_name = get_user_meta($user_id, 'nursery_name', true);
-			//if(in_array($plant_id, unserialize($user_avaliable_plant))){
-
-			$customer_delivery_zone = get_distances_miles($location_lat1, $location_long1, $location_lat2, $location_long2, "M");
-			if ($customer_delivery_zone <= $miles) {
-				$market_list_nurser_count = $market_list_nurser_count + 1;
-		?>
-				<li class="nursery-nm"><a href="#" class="accordion-toggle "><button><i class="fa-solid fa-chevron-down"></i></button><span><?php echo $nursery_name; ?></span></a>
-					<div class="accordion-content">
-						<div class="table-responsive">
-							<table class="table">
-								<tr>
-									<th>Plant</th>
-									<th>Size</th>
-									<th>Nursery Price</th>
-									<th>MSRP Price</th>
-									<th>Take Rate(<?php echo $take_rate; ?>%)</th>
-									<th>Gross Profit</th>
-								</tr>
-								<?php $args = array(
-									'posts_per_page' => -1,
-									'post_type' => 'product',
-									'orderby' => 'title',
-									'order' => 'ASC',
-									's'     => $search_plant,
-									'meta_query' => array(
-										array(
-											'key' => 'product_acquirable',
-											'value' => 'For Sale',
-											'compare' => '=',
-										)
-									),
-								);
-								$products = new WP_Query($args);
-								if ($products->have_posts()) :
-									while ($products->have_posts()) : $products->the_post();
-										$user_avaliable_plant = get_user_meta($user_id, '_avaliable_plant', true);
-										// print_r(unserialize($user_avaliable_plant));
-										$plant_id = get_the_ID();
-										$attributes = wc_get_product_terms(get_the_ID(), 'pa_nursery-pot-size');
-										$select_product_pot_size = get_post_meta(get_the_ID(), '_nursery_product_plant_list' . $user_id, true);
-										$product = wc_get_product($plant_id);
-
-										if ($product->is_type('variable')) {
-											if (!empty($attributes)) {
-												$available_variations = $product->get_available_variations();
-								?>
-												<?php foreach ($available_variations as $available_variation) {
-													$pot_size_slug = $available_variation['attributes']['attribute_pa_nursery-pot-size'];
-													$varible_id = $available_variation['variation_id'];
-													$display_price = $available_variation['display_price'];
-													$pa_pot_size_ = 'pa_nursery-pot-size';
-													$pa_pot_size_meta = get_post_meta($available_variation['variation_id'], 'attribute_' . $pa_pot_size_, true);
-													$pa_pot_size_term = get_term_by('slug', $pa_pot_size_meta, $pa_pot_size_);
-													$pa_pot_size_term_name = $pa_pot_size_term->name;
-													$pa_pot_size_term_id =  $pa_pot_size_term->term_id;
-													$field_add = '_nursery_product_plant_variation_add_' . $user_id;
-													$field_price = '_nursery_product_plant_variation_retail_price_' . $user_id;
-													$field_status = '_nursery_product_plant_variation_status_' . $user_id;
-													$select_product_pot_size_price = get_post_meta($varible_id, $field_price, true);
-													if (!empty($select_product_pot_size_price)) {
-														$vendor_price = $select_product_pot_size_price;
-													}
-
-
-													//update_post_meta( $varible_id, $field_status , '' );
-													$select_product_pot_status = get_post_meta($varible_id, $field_status, true);
-													$select_product_pot_add = get_post_meta($varible_id, $field_add, true);
-													$select_product_pot_size_price = get_post_meta($varible_id, $field_price, true);
-													if ($select_product_pot_add == 'Yes') {
-														//echo the_title().'  '.$pa_pot_size_term_name."<br>";
-														$currency_symbol =  get_woocommerce_currency_symbol();
-												?>
-														<tr>
-															<td><?php the_title(); ?></td>
-															<td><?php echo $pa_pot_size_term_name; ?></td>
-															<td><?php echo $currency_symbol . $vendor_price; ?></td>
-															<td><?php echo $currency_symbol . $display_price; ?></td>
-															<td><?php echo $currency_symbol . ($vendor_price * $take_rate) / 100; ?></td>
-															<td><?php echo $currency_symbol;
-																$commission = ($vendor_price * $take_rate) / 100;
-																echo ($display_price - ($vendor_price - $commission));
-																?></td>
-														</tr>
-								<?php
-													}
-												}
-											}
-										}
-									endwhile;
-								endif;
-								wp_reset_postdata();
-								?>
-							</table>
-						</div>
-					</div>
-				</li>
-			<?php }
-		}
-		$wpdb->update($tablename, array('nurser_count' => $market_list_nurser_count), array('id' => $market_id));
-		if ($market_list_nurser_count == 0) {
-			?>
-			<li class="nursery-nm-no">There are no nurseries within this market</li>
-		<?php } ?>
-	</ul>
-<?php
-
-	die();
-}
 
 
 //////get market details
 
+get_template_part('inc/functions/get_market_details_edit');
 add_action('wp_ajax_get_market_details_edit', 'get_market_details_edit');
-function get_market_details_edit()
-{
-
-	$market_id = $_POST['market_id'];
-	global $wpdb;
-	$tablename = $wpdb->prefix . "nurser_market_table";
-	$market_table = $wpdb->get_results("SELECT * FROM $tablename WHERE id = $market_id", ARRAY_A);
-	if (count($market_table) > 0) {
-		foreach ($market_table as $market_list) {
-			$market_name = $market_list['market_name'];
-			$market_id = $market_list['id'];
-			$location_lat2 = $market_list['latitude'];
-			$location_long2 = $market_list['longitude'];
-			$miles = $market_list['miles'];
-			$nurser_count = $market_list['nurser_count'];
-			$full_address = $market_list['full_address'];
-			$take_rate = $market_list['take_rate'];
-
-			echo $market_name . '!' . $location_lat2 . '!' . $location_long2 . '!' . $miles . '!' . $full_address . '!' . $take_rate;
-		}
-	}
-
-	die();
-}
 
 
+// forgot password
 
+get_template_part('inc/functions/user/forgot_password');
+add_action('wp_ajax_nopriv_send_email_otp', 'send_email_otp');
+add_action('wp_ajax_send_email_otp', 'send_email_otp');
 
+add_action('wp_ajax_nopriv_verify_email_otp', 'verify_email_otp');
+add_action('wp_ajax_verify_email_otp', 'verify_email_otp');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+add_action('wp_ajax_nopriv_change_user_password', 'change_user_password');
+add_action('wp_ajax_change_user_password', 'change_user_password');
 
 
 ///add custom fee
+
+get_template_part('inc/functions/custom_fee_based_on_nursery_select_delivery_zone');
 add_action('woocommerce_before_calculate_totals', 'custom_fee_based_on_nursery_select_delivery_zone');
 //add_action( 'woocommerce_cart_calculate_fees', 'custom_fee_based_on_nursery_select_delivery_zone', 10, 1 );
-function custom_fee_based_on_nursery_select_delivery_zone($cart)
-{
-
-	//if ( is_admin() && ! defined( 'DOING_AJAX' ) ) return;
-
-	if (!empty($_COOKIE['customer_usda_zip'])) {
-		//$customer_usda_zip_array = $_COOKIE['customer_usda_zip'];
-		$customer_usda_zip_array = json_decode(stripslashes($_COOKIE['customer_usda_zip']), true);
-		$location_lat2 = $customer_usda_zip_array['coordinates']['lat'];
-		$location_long2 = $customer_usda_zip_array['coordinates']['lon'];
-	} else {
-		$customer_usda_zip_array = unserialize(get_user_meta(get_current_user_id(), '_customer_usda_zip', true));
-		if (!empty($customer_usda_zip_array)) {
-			$location_lat2 = $customer_usda_zip_array['coordinates']['lat'];
-			$location_long2 = $customer_usda_zip_array['coordinates']['lon'];
-		} else {
-			$location_lat2 = '34.09';
-			$location_long2 = '-118.406';
-		}
-	}
-	$args = array(
-		'role'    => 'nursery',
-		'orderby' => 'user_nicename',
-		'order'   => 'ASC'
-	);
-	$users = get_users($args);
-
-
-	$delivery_fee = 0;
-	foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
-
-		$plant_id = $cart_item['product_id'];
-
-
-		foreach ($users as $user) {
-			$user_id = $user->ID;
-			$location_lat1 = get_user_meta($user_id, 'user_location_lat', true);
-			$location_long1 = get_user_meta($user_id, 'user_location_long', true);
-			$user_avaliable_plant = get_user_meta($user_id, '_avaliable_plant', true);
-			if (in_array($plant_id, unserialize($user_avaliable_plant))) {
-
-				$customer_delivery_zone = get_distances_miles($location_lat1, $location_long1, $location_lat2, $location_long2, "M");
-
-				// $select_delivery_zone = get_user_meta( $user_id, '_select_delivery_zone' , true );
-				//$customer_delivery_zone = 10;
-				if ($customer_delivery_zone >= 6 && $customer_delivery_zone <= 10.99) {
-					$delivery_fee = 15;
-					break;
-				} else if ($customer_delivery_zone >= 11 && $customer_delivery_zone <= 15) {
-					$delivery_fee = 30;
-					break;
-				} else {
-					$delivery_fee = 0;
-				}
-			} else {
-
-				$delivery_fee = 0;
-			}
-		}
-
-
-		$cart_item_price = $cart_item['data']->price + $delivery_fee;
-		$cart_item['data']->set_price($cart_item_price);
-	}
-
-	//$fee = 15;
-	if ($delivery_fee == 0) {
-		$delivery_fee = "Free Delivery";
-	}
-
-	if ($delivery_fee != 0) {
-		$cart->add_fee(__("Delivery fee", "woocommerce"), $delivery_fee, false);
-	}
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //add_filter('woocommerce_enable_order_notes_field', '__return_false');
 //add_filter('woocommerce_ship_to_different_address_checked', '__return_true', 999);
 
-
+// Todo: Redirect should be active for launch (uncomment) - maybe check for prod and disable in dev?
+get_template_part('inc/redirect');
 //add_action( 'template_redirect', 'redirect' );
-function redirect()
-{
-	$user = wp_get_current_user();
-	if (is_user_logged_in()) {
-		if (in_array('administrator', (array) $user->roles) || in_array('customer', (array) $user->roles)) {
-			wp_safe_redirect(home_url('/my-account'));
-			exit;
-		} else if (in_array('nursery', (array) $user->roles)) {
-			wp_safe_redirect(home_url('/vendor-dashboard'));
-			exit;
-		} else {
-			wp_safe_redirect(home_url());
-			exit;
-		}
-	}
-	//die();
-}
