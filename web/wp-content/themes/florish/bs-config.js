@@ -18,11 +18,10 @@ module.exports = {
 	},
 	files: [
 		'*.php',
-		'inc/**/*.php',
-		'vendor/**/*.php',
-		// 'assets/css/*.css',
+		'assets/css/*.css',
 		// 'assets/js/*.js',
-		'assets/dist/**/*', // This is js and styles
+		'assets/dist/**/*',
+		'components/**/*.php',
 		// {
 		// 	match: ['components/helpers/**/*.php'],
 		// 	fn(event, file) {

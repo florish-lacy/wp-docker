@@ -23,8 +23,7 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 		<div class="container py-5 ps-lg-10 mt-5">
 			<h1 class="">Congratulations!</h1>
 			<p class="col-lg-8 mx-auto lead">
-				Your application has been approved to become a Florish Nursery Partner. Complete the following setup
-				steps
+				Your application has been approved to become a Florish Nursery Partner. Complete the following setup steps
 				to connect your inventory with florish
 			</p>
 		</div>
@@ -47,8 +46,7 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 					<div class="col-2 col-lg-1 d-flex justify-content-center align-items-center">
 						<div
 							class="fl-aspect-square w-100 p-2 rounded-circle bg-dark text-white d-flex justify-content-center align-items-center">
-							<i class="fa-solid fa-check"></i>
-						</div>
+							<i class="fa-solid fa-check"></i></div>
 					</div>
 					<div class="col">
 						<div class="disabled list-group-item list-group-item-action gap-3 py-3 rounded-1">
@@ -67,8 +65,7 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 					<div class="col-2 col-lg-1 d-flex justify-content-center align-items-center">
 						<div
 							class="fl-aspect-square w-100 p-2 rounded-circle bg-primary text-white d-flex justify-content-center align-items-center">
-							<i class="fa-solid fa-van-shuttle"></i>
-						</div>
+							<i class="fa-solid fa-van-shuttle"></i></div>
 					</div>
 					<div class="col">
 						<div class="active list-group-item list-group-item-action gap-3 py-3 rounded-1">
@@ -87,8 +84,7 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 					<div class="col-2 col-lg-1 d-flex justify-content-center align-items-center">
 						<div
 							class="fl-aspect-square w-100 p-2 rounded-circle border border-primary text-primary d-flex justify-content-center align-items-center">
-							<i class="fa-solid fa-credit-card"></i>
-						</div>
+							<i class="fa-solid fa-credit-card"></i></div>
 					</div>
 					<div class="col">
 						<div class="list-group-item list-group-item-action gap-3 py-3 rounded-1">
@@ -107,8 +103,7 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 					<div class="col-2 col-lg-1 d-flex justify-content-center align-items-center">
 						<div
 							class="fl-aspect-square w-100 p-2 rounded-circle border border-primary text-primary d-flex justify-content-center align-items-center">
-							<i class="fa-solid fa-file-invoice"></i>
-						</div>
+							<i class="fa-solid fa-file-invoice"></i></div>
 					</div>
 					<div class="col">
 						<div class="list-group-item list-group-item-action gap-3 py-3 rounded-1">
@@ -127,8 +122,7 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 					<div class="col-2 col-lg-1 d-flex justify-content-center align-items-center">
 						<div
 							class="fl-aspect-square w-100 p-2 rounded-circle border border-primary text-primary d-flex justify-content-center align-items-center">
-							<i class="fa-solid fa-seedling"></i>
-						</div>
+							<i class="fa-solid fa-seedling"></i></div>
 					</div>
 					<div class="col">
 						<div class="list-group-item list-group-item-action gap-3 py-3 rounded-1">
@@ -170,12 +164,12 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 					<li <?php if ($status == 'active' && $stage_status >= 1) { ?> class="active" <?php } ?>>
 						<span>2</span>Florish Initial Review
 					</li>
-					<li <?php if ($status == 'active' && $inventory_sumbit_status == 1 && $stage_status == 2) { ?>
-							class="active" <?php } ?>><span>3</span>Confirm Inventory + Delivery</li>
-					<li <?php if ($status == 'active' && $inventory_sumbit_status == 1 && $stage_status == 2) { ?>
-							class="active" <?php } ?>><span>4</span>Sign Agreements</li>
-					<li <?php if ($status == 'active' && $inventory_sumbit_status == 1 && $stage_status == 2) { ?>
-							class="active" <?php } ?>><span>5</span>Go Live!</li>
+					<li <?php if ($status == 'active' && $inventory_sumbit_status == 1 && $stage_status == 2) { ?> class="active"
+						<?php } ?>><span>3</span>Confirm Inventory + Delivery</li>
+					<li <?php if ($status == 'active' && $inventory_sumbit_status == 1 && $stage_status == 2) { ?> class="active"
+						<?php } ?>><span>4</span>Sign Agreements</li>
+					<li <?php if ($status == 'active' && $inventory_sumbit_status == 1 && $stage_status == 2) { ?> class="active"
+						<?php } ?>><span>5</span>Go Live!</li>
 				</ul>
 				<?php if (is_user_logged_in() && $status == 'active' && $inventory_sumbit_status == '' && $stage_status == 1) { ?>
 					<form action="" id="NurseryInventoryForm" method="post" enctype="multipart/form-data"
@@ -196,9 +190,8 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 													<div class="col-md-6 col-sm-12">
 														<div class="form-group">
 															<label for="account_owner_name">Account Owner Name *</label>
-															<input id="account_owner_name" type="text"
-																name="account_owner_name" class="form-control"
-																placeholder="Account Owner Name *" required>
+															<input id="account_owner_name" type="text" name="account_owner_name"
+																class="form-control" placeholder="Account Owner Name *" required>
 														</div>
 													</div>
 													<div class="col-md-6 col-sm-12">
@@ -211,9 +204,8 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 														?>
 														<div class="form-group">
 															<label for="account_owner_email">Email Address *</label>
-															<input id="account_owner_email" type="email"
-																name="account_owner_email" class="form-control"
-																placeholder="Account Owner email *"
+															<input id="account_owner_email" type="email" name="account_owner_email"
+																class="form-control" placeholder="Account Owner email *"
 																value="<?php echo $owner_email; ?>" required>
 														</div>
 													</div>
@@ -227,18 +219,16 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 												</div> -->
 													<div class="col-md-6 col-sm-12">
 														<div class="form-group">
-															<label for="corporate_entity_name">Legal Business Name / Entity
-																Name *</label>
-															<input id="corporate_entity_name" type="text"
-																name="corporate_entity_name" class="form-control"
-																placeholder="Corporate Entity Name *" required>
+															<label for="corporate_entity_name">Legal Business Name / Entity Name *</label>
+															<input id="corporate_entity_name" type="text" name="corporate_entity_name"
+																class="form-control" placeholder="Corporate Entity Name *" required>
 														</div>
 													</div>
 													<div class="col-md-6 col-sm-12">
 														<div class="form-group">
 															<label for="ein_name">EIN</label>
-															<input id="ein_name" type="text" name="ein_name"
-																class="form-control" placeholder="EIN">
+															<input id="ein_name" type="text" name="ein_name" class="form-control"
+																placeholder="EIN">
 														</div>
 													</div>
 													<div class="col-md-6 col-sm-12">
@@ -253,9 +243,8 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 													<div class="col-md-6 col-sm-12">
 														<div class="form-group">
 															<label for="manager_location_name">Location Name *</label>
-															<input id="manager_location_name" type="text"
-																name="manager_location_name" class="form-control"
-																placeholder="Location Name *" required>
+															<input id="manager_location_name" type="text" name="manager_location_name"
+																class="form-control" placeholder="Location Name *" required>
 														</div>
 													</div>
 													<div class="col-md-6 col-sm-12">
@@ -266,16 +255,13 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 															$user_location_lat = get_user_meta(get_current_user_id(), 'user_location_lat', true);
 															$user_location_long = get_user_meta(get_current_user_id(), 'user_location_long', true);
 															?>
-															<input id="manager_location_1" type="text"
-																name="manager_location_1"
+															<input id="manager_location_1" type="text" name="manager_location_1"
 																value="<?php echo $user_location; ?>" class="form-control"
 																placeholder="Location Address *" required>
-															<input type="hidden" id="manager_location_lat_1"
-																name="manager_location_lat_1"
+															<input type="hidden" id="manager_location_lat_1" name="manager_location_lat_1"
 																value="<?php echo $user_location_lat; ?>">
 															<input type="hidden" id="manager_location_long_1"
-																name="manager_location_long_1"
-																value="<?php echo $user_location_long; ?>">
+																name="manager_location_long_1" value="<?php echo $user_location_long; ?>">
 														</div>
 													</div>
 													<!-- <div class="col-md-6 col-sm-12">
@@ -297,27 +283,23 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 														<div class="form-group">
 															<label for="manager_email">Nursery Email Address *</label>
 															<input id="manager_email" type="email" name="manager_email_1"
-																class="form-control" placeholder="Nursery Email Address *"
-																required>
+																class="form-control" placeholder="Nursery Email Address *" required>
 														</div>
 													</div>
 													<div class="col-md-6 col-sm-12">
 														<div class="form-group">
-															<label for="manager_full_name">Nursery Manager Full Name
-																*</label>
-															<input id="manager_full_name" type="text"
-																name="manager_full_name_1" class="form-control"
-																placeholder="Nursery Manager Full Name *" required>
+															<label for="manager_full_name">Nursery Manager Full Name *</label>
+															<input id="manager_full_name" type="text" name="manager_full_name_1"
+																class="form-control" placeholder="Nursery Manager Full Name *" required>
 														</div>
 													</div>
 
 													<div class="col-md-6 col-sm-12">
 														<div class="form-group">
-															<label for="manager_phone_number_1">Nursery Manager Direct
-																Number?</label>
-															<input id="manager_phone_number_1" type="text"
-																name="manager_phone_number_1" class="form-control"
-																placeholder="Nursery Manager Direct Number *" required>
+															<label for="manager_phone_number_1">Nursery Manager Direct Number?</label>
+															<input id="manager_phone_number_1" type="text" name="manager_phone_number_1"
+																class="form-control" placeholder="Nursery Manager Direct Number *"
+																required>
 														</div>
 													</div>
 												</div>
@@ -331,19 +313,16 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 												<div class="row">
 													<div class="col-md-12 col-sm-12">
 														<div class="form-group delivery-miles-distance">
-															<label for="manager_delivery_radius_1"><strong>Delivery
-																	Distance</strong>
+															<label for="manager_delivery_radius_1"><strong>Delivery Distance</strong>
 															</label>
-															<p>Select delivery distance for this location and accept prices
-															</p>
-															<div class="select_miles"><strong><span
-																		class="miles-number">5</span>
+															<p>Select delivery distance for this location and accept prices</p>
+															<div class="select_miles"><strong><span class="miles-number">5</span>
 																	Miles</strong></div>
 															<div class="input-range">
-																<span>0</span><input id="manager_delivery_radius_1"
-																	type="range" name="manager_delivery_radius_1" min="0"
-																	max="15" value="5" class="change-delivery-radious"
-																	placeholder="Delivery Distance" required><span>15</span>
+																<span>0</span><input id="manager_delivery_radius_1" type="range"
+																	name="manager_delivery_radius_1" min="0" max="15" value="5"
+																	class="change-delivery-radious" placeholder="Delivery Distance"
+																	required><span>15</span>
 															</div>
 															<ul>
 																<li>0-5 miles = Florish Pays $15</li>
@@ -354,56 +333,48 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 													</div>
 													<div class="col-md-12 col-sm-12">
 														<div class="form-group dd-date-time">
-															<label for="manager_delivery_days_1">Delivery Days and
-																Times</label>
+															<label for="manager_delivery_days_1">Delivery Days and Times</label>
 															<p>Select delivery days and time for this location</p>
 															<div class="gfield_checkbox" id="input_9_18">
 																<div class="gchoice gchoice_9_18_1">
-																	<input class="form-control require-one"
-																		name="input_delivery_days_1[]" type="checkbox"
-																		value="Sunday" id="choice_9_18_1" required>
+																	<input class="form-control require-one" name="input_delivery_days_1[]"
+																		type="checkbox" value="Sunday" id="choice_9_18_1" required>
 																	<label for="choice_9_18_1" id="label_9_18_1"
 																		class="gform-field-label gform-field-label--type-inline">Sunday</label>
 																</div>
 																<div class="gchoice gchoice_9_18_2">
-																	<input class="form-control require-one"
-																		name="input_delivery_days_1[]" type="checkbox"
-																		value="Monday" id="choice_9_18_2" required>
+																	<input class="form-control require-one" name="input_delivery_days_1[]"
+																		type="checkbox" value="Monday" id="choice_9_18_2" required>
 																	<label for="choice_9_18_2" id="label_9_18_2"
 																		class="gform-field-label gform-field-label--type-inline">Monday</label>
 																</div>
 																<div class="gchoice gchoice_9_18_3">
-																	<input class="form-control require-one"
-																		name="input_delivery_days_1[]" type="checkbox"
-																		value="Tuesday" id="choice_9_18_3" required>
+																	<input class="form-control require-one" name="input_delivery_days_1[]"
+																		type="checkbox" value="Tuesday" id="choice_9_18_3" required>
 																	<label for="choice_9_18_3" id="label_9_18_3"
 																		class="gform-field-label gform-field-label--type-inline">Tuesday</label>
 																</div>
 																<div class="gchoice gchoice_9_18_4">
-																	<input class="form-control require-one"
-																		name="input_delivery_days_1[]" type="checkbox"
-																		value="Wednesday" id="choice_9_18_4" required>
+																	<input class="form-control require-one" name="input_delivery_days_1[]"
+																		type="checkbox" value="Wednesday" id="choice_9_18_4" required>
 																	<label for="choice_9_18_4" id="label_9_18_4"
 																		class="gform-field-label gform-field-label--type-inline">Wednesday</label>
 																</div>
 																<div class="gchoice gchoice_9_18_5">
-																	<input class="form-control require-one"
-																		name="input_delivery_days_1[]" type="checkbox"
-																		value="Thursday" id="choice_9_18_5" required>
+																	<input class="form-control require-one" name="input_delivery_days_1[]"
+																		type="checkbox" value="Thursday" id="choice_9_18_5" required>
 																	<label for="choice_9_18_5" id="label_9_18_5"
 																		class="gform-field-label gform-field-label--type-inline">Thursday</label>
 																</div>
 																<div class="gchoice gchoice_9_18_6">
-																	<input class="form-control require-one"
-																		name="input_delivery_days_1[]" type="checkbox"
-																		value="Friday" id="choice_9_18_6" required>
+																	<input class="form-control require-one" name="input_delivery_days_1[]"
+																		type="checkbox" value="Friday" id="choice_9_18_6" required>
 																	<label for="choice_9_18_6" id="label_9_18_6"
 																		class="gform-field-label gform-field-label--type-inline">Friday</label>
 																</div>
 																<div class="gchoice gchoice_9_18_7">
-																	<input class="form-control require-one"
-																		name="input_delivery_days_1[]" type="checkbox"
-																		value="Saturday" id="choice_9_18_7" required>
+																	<input class="form-control require-one" name="input_delivery_days_1[]"
+																		type="checkbox" value="Saturday" id="choice_9_18_7" required>
 																	<label for="choice_9_18_7" id="label_9_18_7"
 																		class="gform-field-label gform-field-label--type-inline">Saturday</label>
 																</div>
@@ -419,30 +390,24 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 																<div class="accordion-content">
 																	<ul class="select-days">
 																		<li>
-																			<input class=""
-																				name="delivery_days_sunday_morning"
-																				id="delivery_days_sunday_morning"
-																				type="checkbox" value="Morning" required>
-																			<label
-																				for="delivery_days_sunday_morning">Morning</label>
+																			<input class="" name="delivery_days_sunday_morning"
+																				id="delivery_days_sunday_morning" type="checkbox"
+																				value="Morning" required>
+																			<label for="delivery_days_sunday_morning">Morning</label>
 
 																		</li>
 																		<li>
-																			<input class=""
-																				name="delivery_days_sunday_afternoon"
-																				id="delivery_days_sunday_afternoon"
-																				type="checkbox" value="Afternoon" required>
-																			<label
-																				for="delivery_days_sunday_afternoon">Afternoon</label>
+																			<input class="" name="delivery_days_sunday_afternoon"
+																				id="delivery_days_sunday_afternoon" type="checkbox"
+																				value="Afternoon" required>
+																			<label for="delivery_days_sunday_afternoon">Afternoon</label>
 
 																		</li>
 																		<li>
-																			<input class=""
-																				name="delivery_days_sunday_evening"
-																				id="delivery_days_sunday_evening"
-																				type="checkbox" value="Evening" required>
-																			<label
-																				for="delivery_days_sunday_evening">Evening</label>
+																			<input class="" name="delivery_days_sunday_evening"
+																				id="delivery_days_sunday_evening" type="checkbox"
+																				value="Evening" required>
+																			<label for="delivery_days_sunday_evening">Evening</label>
 
 																		</li>
 																	</ul>
@@ -456,30 +421,24 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 																<div class="accordion-content">
 																	<ul class="select-days">
 																		<li class="select-days">
-																			<input class=""
-																				name="delivery_days_monday_morning"
-																				id="delivery_days_monday_morning"
-																				type="checkbox" value="Morning" required>
-																			<label
-																				for="delivery_days_monday_morning">Morning</label>
+																			<input class="" name="delivery_days_monday_morning"
+																				id="delivery_days_monday_morning" type="checkbox"
+																				value="Morning" required>
+																			<label for="delivery_days_monday_morning">Morning</label>
 
 																		</li>
 																		<li>
-																			<input class=""
-																				name="delivery_days_monday_afternoon"
-																				id="delivery_days_monday_afternoon"
-																				type="checkbox" value="Afternoon" required>
-																			<label
-																				for="delivery_days_monday_afternoon">Afternoon</label>
+																			<input class="" name="delivery_days_monday_afternoon"
+																				id="delivery_days_monday_afternoon" type="checkbox"
+																				value="Afternoon" required>
+																			<label for="delivery_days_monday_afternoon">Afternoon</label>
 
 																		</li>
 																		<li>
-																			<input class=""
-																				name="delivery_days_monday_evening"
-																				id="delivery_days_monday_evening"
-																				type="checkbox" value="Evening" required>
-																			<label
-																				for="delivery_days_monday_evening">Evening</label>
+																			<input class="" name="delivery_days_monday_evening"
+																				id="delivery_days_monday_evening" type="checkbox"
+																				value="Evening" required>
+																			<label for="delivery_days_monday_evening">Evening</label>
 
 																		</li>
 																	</ul>
@@ -492,30 +451,24 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 																<div class="accordion-content">
 																	<ul class="select-days">
 																		<li>
-																			<input class=""
-																				name="delivery_days_tuesday_morning"
-																				id="delivery_days_tuesday_morning"
-																				type="checkbox" value="Morning" required>
-																			<label
-																				for="delivery_days_tuesday_morning">Morning</label>
+																			<input class="" name="delivery_days_tuesday_morning"
+																				id="delivery_days_tuesday_morning" type="checkbox"
+																				value="Morning" required>
+																			<label for="delivery_days_tuesday_morning">Morning</label>
 
 																		</li>
 																		<li>
-																			<input class=""
-																				name="delivery_days_tuesday_afternoon"
-																				id="delivery_days_tuesday_afternoon"
-																				type="checkbox" value="Afternoon" required>
-																			<label
-																				for="delivery_days_tuesday_afternoon">Afternoon</label>
+																			<input class="" name="delivery_days_tuesday_afternoon"
+																				id="delivery_days_tuesday_afternoon" type="checkbox"
+																				value="Afternoon" required>
+																			<label for="delivery_days_tuesday_afternoon">Afternoon</label>
 
 																		</li>
 																		<li>
-																			<input class=""
-																				name="delivery_days_tuesday_evening"
-																				id="delivery_days_tuesday_evening"
-																				type="checkbox" value="Evening" required>
-																			<label
-																				for="delivery_days_tuesday_evening">Evening</label>
+																			<input class="" name="delivery_days_tuesday_evening"
+																				id="delivery_days_tuesday_evening" type="checkbox"
+																				value="Evening" required>
+																			<label for="delivery_days_tuesday_evening">Evening</label>
 
 																		</li>
 																	</ul>
@@ -528,31 +481,24 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 																<div class="accordion-content">
 																	<ul class="select-days">
 																		<li>
-																			<input class=""
-																				name="delivery_days_wednesday_morning"
+																			<input class="" name="delivery_days_wednesday_morning"
 																				type="checkbox" value="Morning"
-																				id="delivery_days_wednesday_morning"
-																				required>
-																			<label
-																				for="delivery_days_wednesday_morning">Morning</label>
+																				id="delivery_days_wednesday_morning" required>
+																			<label for="delivery_days_wednesday_morning">Morning</label>
 
 																		</li>
 																		<li>
-																			<input class=""
-																				name="delivery_days_wednesday_afternoon"
-																				id="delivery_days_wednesday_afternoon"
-																				type="checkbox" value="Afternoon" required>
-																			<label
-																				for="delivery_days_wednesday_afternoon">Afternoon</label>
+																			<input class="" name="delivery_days_wednesday_afternoon"
+																				id="delivery_days_wednesday_afternoon" type="checkbox"
+																				value="Afternoon" required>
+																			<label for="delivery_days_wednesday_afternoon">Afternoon</label>
 
 																		</li>
 																		<li>
-																			<input class=""
-																				name="delivery_days_wednesday_evening"
-																				id="delivery_days_wednesday_evening"
-																				type="checkbox" value="Evening" required>
-																			<label
-																				for="delivery_days_wednesday_evening">Evening</label>
+																			<input class="" name="delivery_days_wednesday_evening"
+																				id="delivery_days_wednesday_evening" type="checkbox"
+																				value="Evening" required>
+																			<label for="delivery_days_wednesday_evening">Evening</label>
 
 																		</li>
 																	</ul>
@@ -565,30 +511,24 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 																<div class="accordion-content">
 																	<ul class="select-days">
 																		<li>
-																			<input class=""
-																				name="delivery_days_thursday_morning"
-																				id="delivery_days_thursday_morning"
-																				type="checkbox" value="Morning" required>
-																			<label
-																				for="delivery_days_thursday_morning">Morning</label>
+																			<input class="" name="delivery_days_thursday_morning"
+																				id="delivery_days_thursday_morning" type="checkbox"
+																				value="Morning" required>
+																			<label for="delivery_days_thursday_morning">Morning</label>
 
 																		</li>
 																		<li>
-																			<input class=""
-																				name="delivery_days_thursday_afternoon"
-																				id="delivery_days_thursday_afternoon"
-																				type="checkbox" value="Afternoon" required>
-																			<label
-																				for="delivery_days_thursday_afternoon">Afternoon</label>
+																			<input class="" name="delivery_days_thursday_afternoon"
+																				id="delivery_days_thursday_afternoon" type="checkbox"
+																				value="Afternoon" required>
+																			<label for="delivery_days_thursday_afternoon">Afternoon</label>
 
 																		</li>
 																		<li>
-																			<input class=""
-																				name="delivery_days_thursday_evening"
-																				id="delivery_days_thursday_evening"
-																				type="checkbox" value="Evening" required>
-																			<label
-																				for="delivery_days_thursday_evening">Evening</label>
+																			<input class="" name="delivery_days_thursday_evening"
+																				id="delivery_days_thursday_evening" type="checkbox"
+																				value="Evening" required>
+																			<label for="delivery_days_thursday_evening">Evening</label>
 
 																		</li>
 																	</ul>
@@ -601,30 +541,24 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 																<div class="accordion-content">
 																	<ul class="select-days">
 																		<li>
-																			<input class=""
-																				name="delivery_days_friday_morning"
-																				id="delivery_days_friday_morning"
-																				type="checkbox" value="Morning" required>
-																			<label
-																				for="delivery_days_friday_morning">Morning</label>
+																			<input class="" name="delivery_days_friday_morning"
+																				id="delivery_days_friday_morning" type="checkbox"
+																				value="Morning" required>
+																			<label for="delivery_days_friday_morning">Morning</label>
 
 																		</li>
 																		<li>
-																			<input class=""
-																				name="delivery_days_friday_afternoon"
-																				id="delivery_days_friday_afternoon"
-																				type="checkbox" value="Afternoon" required>
-																			<label
-																				for="delivery_days_friday_afternoon">Afternoon</label>
+																			<input class="" name="delivery_days_friday_afternoon"
+																				id="delivery_days_friday_afternoon" type="checkbox"
+																				value="Afternoon" required>
+																			<label for="delivery_days_friday_afternoon">Afternoon</label>
 
 																		</li>
 																		<li>
-																			<input class=""
-																				name="delivery_days_friday_evening"
-																				id="delivery_days_friday_evening"
-																				type="checkbox" value="Evening" required>
-																			<label
-																				for="delivery_days_friday_evening">Evening</label>
+																			<input class="" name="delivery_days_friday_evening"
+																				id="delivery_days_friday_evening" type="checkbox"
+																				value="Evening" required>
+																			<label for="delivery_days_friday_evening">Evening</label>
 
 																		</li>
 																	</ul>
@@ -637,28 +571,22 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 																<div class="accordion-content">
 																	<ul class="select-days">
 																		<li>
-																			<label
-																				for="delivery_days_saturday_morning">Morning</label>
-																			<input class=""
-																				name="delivery_days_saturday_morning"
-																				id="delivery_days_saturday_morning"
-																				type="checkbox" value="Morning" required>
+																			<label for="delivery_days_saturday_morning">Morning</label>
+																			<input class="" name="delivery_days_saturday_morning"
+																				id="delivery_days_saturday_morning" type="checkbox"
+																				value="Morning" required>
 																		</li>
 																		<li>
-																			<label
-																				for="delivery_days_saturday_afternoon">Afternoon</label>
-																			<input class=""
-																				name="delivery_days_saturday_afternoon"
-																				id="delivery_days_saturday_afternoon"
-																				type="checkbox" value="Afternoon" required>
+																			<label for="delivery_days_saturday_afternoon">Afternoon</label>
+																			<input class="" name="delivery_days_saturday_afternoon"
+																				id="delivery_days_saturday_afternoon" type="checkbox"
+																				value="Afternoon" required>
 																		</li>
 																		<li>
-																			<label
-																				for="delivery_days_saturday_evening">Evening</label>
-																			<input class=""
-																				name="delivery_days_saturday_evening"
-																				id="delivery_days_saturday_evening"
-																				type="checkbox" value="Evening" required>
+																			<label for="delivery_days_saturday_evening">Evening</label>
+																			<input class="" name="delivery_days_saturday_evening"
+																				id="delivery_days_saturday_evening" type="checkbox"
+																				value="Evening" required>
 																		</li>
 																	</ul>
 																</div>
@@ -673,16 +601,14 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 												<h3>Insurance and agreements:</h3>
 											</a>
 											<div class="accordion-content">
-												<p><strong>Confirm Insurance (proof to be uploaded within 30 days)</strong>
-												</p>
+												<p><strong>Confirm Insurance (proof to be uploaded within 30 days)</strong></p>
 												<div class="row">
 													<div class="col-md-12 col-sm-12">
 														<div class="form-group upload-insurance">
-															<input class="box__file form-control" type="file" name="files"
-																id="file" data-multiple-caption="{count} files selected" />
+															<input class="box__file form-control" type="file" name="files" id="file"
+																data-multiple-caption="{count} files selected" />
 															<label for="file"><i
-																	class="fa-solid fa-arrow-up-from-bracket"></i><strong>Click
-																	to
+																	class="fa-solid fa-arrow-up-from-bracket"></i><strong>Click to
 																	upload</strong><span class="box__dragndrop"> or drag and
 																	drop</span>.</label>
 														</div>
@@ -691,8 +617,8 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 														<ul class="acflch_box">
 															<li>
 
-																<input class="" name="insurance_file_caption"
-																	id="insurance_file_caption" type="checkbox" value="Yes">
+																<input class="" name="insurance_file_caption" id="insurance_file_caption"
+																	type="checkbox" value="Yes">
 																<label for="insurance_file_caption">Caption here</label>
 															</li>
 														</ul>
@@ -702,34 +628,26 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 														<ul class="acflch_box">
 															<li> <label for="insurance_file_caption"><a
 																		href="<?php echo esc_url(get_page_link(1576)); ?>"
-																		target="_blank"><u>Vendor Agreement</u></a> - read
-																	and sign</label>
+																		target="_blank"><u>Vendor Agreement</u></a> - read and sign</label>
 															</li>
 															<li><label for="insurance_file_caption"><a
 																		href="<?php echo esc_url(get_page_link(3)); ?>"
-																		target="_blank"><u>Privacy Policy</u></a> - read and
-																	sign</label>
+																		target="_blank"><u>Privacy Policy</u></a> - read and sign</label>
 															</li>
 														</ul>
 														<ul class="acflch_box">
-															<li><input class="" name="" id="" type="checkbox" value="Yes" />
-																I agree to
+															<li><input class="" name="" id="" type="checkbox" value="Yes" /> I agree to
 																update inventory as soon as it sells out</li>
-															<li><input class="" name="" id="" type="checkbox" value="Yes" />
-																I agree to
-																claim orders by the end of the business day they are
-																received</li>
-															<li><input class="" name="" id="" type="checkbox" value="Yes" />
-																I agree to
+															<li><input class="" name="" id="" type="checkbox" value="Yes" /> I agree to
+																claim orders by the end of the business day they are received</li>
+															<li><input class="" name="" id="" type="checkbox" value="Yes" /> I agree to
 																deliver within 5 days of claiming order</li>
 														</ul>
 														<label><strong>Accept Florish Service Fee</strong></label>
 														<ul class="acflch_box">
-															<li><input class="" name="" id="" type="checkbox" value="Yes" />
-																Florish
+															<li><input class="" name="" id="" type="checkbox" value="Yes" /> Florish
 																charges a nursery service fee of X% in your market</li>
-															<li><input class="" name="" id="" type="checkbox" value="Yes" />
-																I accept
+															<li><input class="" name="" id="" type="checkbox" value="Yes" /> I accept
 																checkbox</li>
 														</ul>
 													</div>
@@ -795,18 +713,17 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 																					<?php if (has_post_thumbnail($plant_id)) { ?>
 																						<img src="<?php echo $featured_img_url; ?>" alt="" />
 																					<?php } else { ?>
-																						<img src="https://florishstaging.ideatosteer.com/wp-content/uploads/2023/09/SilversnakeProduct2-1.jpg"
+																						<img
+																							src="https://florishstaging.ideatosteer.com/wp-content/uploads/2023/09/SilversnakeProduct2-1.jpg"
 																							alt="" />
 																					<?php } ?>
 																				</div>
-																				<a class="title" href="<?php get_permalink($plant_id); ?>"
-																					terget="_blank">
+																				<a class="title" href="<?php get_permalink($plant_id); ?>" terget="_blank">
 																					<?php echo the_title() . '  ' . $pa_pot_size_term_name . ' (' . $currency_symbol . $select_product_pot_size_price . ')'; ?>
 																				</a>
 																				<div class="tog-btn">
 																					<input type="checkbox" <?php if ($select_product_pot_status == 'Yes') { ?>checked<?php } ?> data-varible_id="<?php echo $varible_id; ?>"
-																						class="variation-status" data-toggle="toggle"
-																						data-size="sm">
+																						class="variation-status" data-toggle="toggle" data-size="sm">
 																				</div>
 																				<a class="size add-more-size" data-id="<?php echo $plant_id; ?>"
 																					href="javascript:void(0)">Add More Sizes</a>
@@ -825,8 +742,7 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 													<div class="col-md-12 col-sm-12">
 														<div class="form-group">
 															<!-- <a href="#view-nursery-inventory-popup"  class="open-popup-link btn btn-primary">Add Plants +</a> -->
-															<a href="javascript:void(0)"
-																class="btn btn-primary add-nursery-plants">Add
+															<a href="javascript:void(0)" class="btn btn-primary add-nursery-plants">Add
 																Plants +</a>
 														</div>
 													</div>
@@ -855,8 +771,7 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 											</div>
 											</div> -->
 											<div class="col-md-2 col-sm-6">
-												<button type="submit" name="submit"
-													class="sub-field sub-info-btn">Submit</button>
+												<button type="submit" name="submit" class="sub-field sub-info-btn">Submit</button>
 											</div>
 										</div>
 									</div>
@@ -927,7 +842,8 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 														<?php if (has_post_thumbnail($plant_id)) { ?>
 															<img src="<?php echo $featured_img_url; ?>" alt="" />
 														<?php } else { ?>
-															<img src="https://florishstaging.ideatosteer.com/wp-content/uploads/2023/09/SilversnakeProduct2-1.jpg"
+															<img
+																src="https://florishstaging.ideatosteer.com/wp-content/uploads/2023/09/SilversnakeProduct2-1.jpg"
 																alt="" />
 														<?php } ?>
 													</div>
@@ -937,8 +853,7 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 													<div class="tog-btn">
 														<input type="checkbox" checked data-toggle="toggle" data-size="sm">
 													</div>
-													<a class="size add-more-size" data-id="<?php echo $plant_id; ?>"
-														href="javascript:void(0)">Add More
+													<a class="size add-more-size" data-id="<?php echo $plant_id; ?>" href="javascript:void(0)">Add More
 														Sizes</a>
 												</div>
 											</div>
@@ -960,6 +875,6 @@ Florish\add_body_class('fl-nav--floating fl-nav--light fl-footer--sm fl-footer--
 </div>
 </div>
 
-<?php get_template_part('inc/components/sections/faq') ?>
+<?php get_template_part('components/sections/faq') ?>
 
 <?php get_footer(); ?>

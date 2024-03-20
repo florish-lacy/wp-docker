@@ -1,5 +1,4 @@
 <?php
-// TODO: Organize this
 
 function nursery_inventory_active_inactive()
 {

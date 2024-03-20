@@ -1,5 +1,4 @@
 <?php
-// TODO: Organize this
 
 function get_market_nursery_view()
 {
@@ -38,7 +37,7 @@ function get_market_nursery_view()
 			$location_long1 = get_user_meta($user_id, 'user_location_long', true);
 			$nursery_name = get_user_meta($user_id, 'nursery_name', true);
 			//if(in_array($plant_id, unserialize($user_avaliable_plant))){
-
+	
 			$customer_delivery_zone = get_distances_miles($location_lat1, $location_long1, $location_lat2, $location_long2, "M");
 			if ($customer_delivery_zone <= $miles) {
 				$market_list_nurser_count = $market_list_nurser_count + 1;

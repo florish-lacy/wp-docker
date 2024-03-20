@@ -29,7 +29,7 @@
 			<div class="d-flex align-items-center justify-content-end gap-3">
 
 				<div class="d-xl-none">
-					<?php get_template_part('inc/components/growing-zone/growing-zone-button'); ?>
+					<?php get_template_part('components/growing-zone/growing-zone-button'); ?>
 				</div>
 
 				<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
@@ -59,7 +59,7 @@
 					?>
 
 					<div class="d-none d-xl-block">
-						<?php get_template_part('inc/components/growing-zone/growing-zone-button'); ?>
+						<?php get_template_part('components/growing-zone/growing-zone-button'); ?>
 					</div>
 
 					<!-- Search -->
@@ -128,8 +128,9 @@
 									$items_count = WC()->cart->get_cart_contents_count();
 									$items_count = $items_count ? $items_count : '';
 									?>
-									<a href="<?php echo wc_get_cart_url() ?>" class="position-relative flex-grow-1 text-center nav-link <?php if ($items_count)
-										   echo 'text-primary'; ?>">
+									<a href="<?php echo wc_get_cart_url() ?>"
+										class="position-relative flex-grow-1 text-center nav-link <?php if ($items_count)
+											echo 'text-primary'; ?>">
 										<i class="fa-solid fa-cart-shopping"></i>
 
 										<?php if ($items_count) { ?>
