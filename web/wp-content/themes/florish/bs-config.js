@@ -18,9 +18,10 @@ module.exports = {
 	},
 	files: [
 		'*.php',
+		'inc/**/*.php',
+		'vendor/**/*.php',
 		'assets/css/*.css',
 		'assets/js/*.js',
-		'components/**/*.php',
 		// {
 		// 	match: ['components/helpers/**/*.php'],
 		// 	fn(event, file) {
