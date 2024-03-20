@@ -20,8 +20,9 @@ module.exports = {
 		'*.php',
 		'inc/**/*.php',
 		'vendor/**/*.php',
-		'assets/css/*.css',
-		'assets/js/*.js',
+		// 'assets/css/*.css',
+		// 'assets/js/*.js',
+		'assets/dist/**/*', // This is js and styles
 		// {
 		// 	match: ['components/helpers/**/*.php'],
 		// 	fn(event, file) {
