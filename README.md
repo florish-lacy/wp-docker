@@ -122,12 +122,6 @@ The theme files are located in the `wp-content/themes/florish` folder.
 
 The easiest way to develop the theme is to use the `npm run dev` command. This starts the development server and watches for changes to the theme files.
 
-### PHP
-
-Use full PHP tags `<?php ?>` instead of short tags `<? ?>`.
-
-
-
 
 #### Styles
 
@@ -220,7 +214,7 @@ We use composer to manage PHP resources and custom theme functions/classes. File
 - Class filenames should correspond to the Class name.
 - Files with individual functions must be added to `composer.json`
 
-After changing files in the `inc/helpers/` directory, run the following command (`composer dump-autoload`) to generate autoload files:
+After changing files in the `components/helpers/` directory, run the following command (`composer dump-autoload`) to generate autoload files:
 
 `docker exec -w /var/www/html/wp-content/themes/florish florish-wordpress-1 composer dump-autoload`
 
@@ -251,6 +245,7 @@ myFunction();
 
 - Break PHP, JS, and SCSS into separate files and folders.
 - `functions.php` is getting too large. Break it into smaller files.
+- `assets/js/functions.js` is getting too large. Break it into smaller files.
 - Spellcheck!
 
 ##### PHP

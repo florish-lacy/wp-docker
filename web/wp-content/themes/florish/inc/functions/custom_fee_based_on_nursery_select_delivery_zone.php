@@ -1,5 +1,5 @@
 <?php
-// TODO: Organize this
+
 function custom_fee_based_on_nursery_select_delivery_zone($cart)
 {
 
