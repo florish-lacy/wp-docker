@@ -14,9 +14,10 @@ function get_market_nursery_view()
 	$market_id = $_POST['market_id'];
 	$market_name = $_POST['market_name'];
 	$take_rate = $_POST['take_rate'];
-	if (empty($take_rate)) {
+	if (empty ($take_rate)) {
 		$take_rate = 5;
 	}
+
 	?>
 	<h3>
 		<?php echo $market_name; ?>
@@ -56,7 +57,8 @@ function get_market_nursery_view()
 									<th>Nursery Price</th>
 									<th>MSRP Price</th>
 									<th>Take Rate(
-										<?php echo $take_rate; ?>%)
+										<?php echo $take_rate; ?>
+										%)
 									</th>
 									<th>Gross Profit</th>
 								</tr>
@@ -86,7 +88,7 @@ function get_market_nursery_view()
 										$product = wc_get_product($plant_id);
 
 										if ($product->is_type('variable')) {
-											if (!empty($attributes)) {
+											if (!empty ($attributes)) {
 												$available_variations = $product->get_available_variations();
 
 												foreach ($available_variations as $available_variation) {
@@ -102,7 +104,7 @@ function get_market_nursery_view()
 													$field_price = '_nursery_product_plant_variation_retail_price_' . $user_id;
 													$field_status = '_nursery_product_plant_variation_status_' . $user_id;
 													$select_product_pot_size_price = get_post_meta($varible_id, $field_price, true);
-													if (!empty($select_product_pot_size_price)) {
+													if (!empty ($select_product_pot_size_price)) {
 														$vendor_price = $select_product_pot_size_price;
 													}
 
