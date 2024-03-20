@@ -63,6 +63,10 @@ function florish_scripts()
 	///map js
 	wp_enqueue_script('florish-map-place-js', get_template_directory_uri() . '/assets/js/map.js', array('jquery'), '20468768711', true);
 
+
+
+
+
 	// todo?
 	global $wp;
 	wp_localize_script('florish-main-script', 'ajax_florish_object', array('ajax_url' => admin_url('admin-ajax.php'), 'home_url' => site_url(), 'vendor_url' => get_page_link(1529), 'current_url' => home_url($wp->request)));

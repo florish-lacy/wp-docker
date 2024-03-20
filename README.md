@@ -2,30 +2,58 @@
 
 ## Quick Start
 
-- Install [Docker Engine](https://docs.docker.com/engine/install/) or Docker Desktop. Make sure Docker is running.
+1. Install [Docker Engine](https://docs.docker.com/engine/install/) or [Docker Desktop](https://www.docker.com/products/docker-desktop/). Make sure Docker is running.
 
-- Clone this repo and navigate (`cd`) to the root directory.
 
-- Create a copy of the `.env.example` file and rename it to `.env`. This file contains the environment variables for the services.
+2. Clone this repo and navigate to the root directory. (`cd WordPress`)
+
+
+3. Create a copy of the `.env.example` file and rename it to `.env`. This file contains the environment variables for the services. You can view the allowable environment variables in the `docker-compose.yml` file.
 
 ```bash
-MYSQL_ROOT_PASSWORD=rootwordpress
 MYSQL_DATABASE=florish
 MYSQL_USER=wordpress
 MYSQL_PASSWORD=wordpress
+MYSQL_ROOT_PASSWORD=wordpress
 ```
 
-**Run the following commands to start the containers and watch for changes to the theme files:**
+
+4. **Run the following commands to start the containers and watch for changes to the theme files:**
 
 ```sh
 # Install dependencies in the theme and root directory
 npm install
 
 # Start the docker container and sass compiler, then watch for changes
-npm start # or `npm run dev` to run docker in the background
+npm start # or `npm run dev` to run docker in the foreground
+
+# To stop the docker container
+npm run stop
 ```
 
-Open your browser and navigate to `http://localhost:3000` to access the WordPress installation with BrowserSync enabled.
+**Hint: to end the process, use `Ctrl + C` to stop the development server.** The docker container will continue running in the background. Use `npm run stop` to stop the docker container.
+
+> A window will open in your default browser with the BrowserSync proxy at http://localhost:3000. While developing, this URL will automatically update when changes are made to the theme files. **The first time you run the `npm start` command, the BrowserSync window may need to be refreshed after the docker container finishes building**
+
+**At this point, you should have a fresh WordPress installation running on `http://localhost`.**
+
+
+5. Import the db.sql file into the database. This file contains the WordPress database schema and data.
+
+Login to the PHPMyAdmin at `http://localhost:8080` with the credentials MYSQL_USER and MYSQL_PASSWORD you set in the `.env` file.
+
+In PHPMyAdmin, click on the `Import` tab. Click on the `Choose File` button and select the `db.sql` file. Click the `Import` button at the bottom to import the database.
+
+**The WordPress installation is now complete.**
+
+You can now start developing the theme. The theme files are located in the `wp-content/themes/florish` folder. The `npm start` command starts the development server and watches for changes to the theme files.
+
+- Access the WordPress installation at `http://localhost`.
+- Login to the WordPress admin dashboard at `http://localhost/wp-admin` with your WordPress credentials (not from the `.env` file).
+- See the database schema and data in PHPMyAdmin at `http://localhost:8080`.
+- While running `npm start` or `npm run dev`, the BrowserSync proxy is available at `http://localhost:3000`. This will immediately update when changes are made to the theme SCSS or PHP files.
+
+> Note: Logging into the WordPress dashboard may not work on the BrowserSync proxy (`http://localhost:3000/wp-admin`). Use the `http://localhost/wp-admin` URL to login to the WordPress dashboard.
 
 
 ### Docker
@@ -66,21 +94,25 @@ npm install
 npm run dev
 ```
 
-### Workspaces
+### NPM
 
-The theme lives as it's own package with it's own `package.json` and `node_modules` folder. To make development easier, we use [`npm workspaces`](https://docs.npmjs.com/cli/v10/using-npm/workspaces#running-commands-in-the-context-of-workspaces) to manage the theme and plugin dependencies from the repo root directory.
+The theme lives as it's own package with it's own `package.json` and `node_modules` folder. 
+Some scripts are provided in the root `package.json` to run commands in the theme directory.
 
-**NPM scripts in the theme directory can be run from the root directory using the `--workspace` flag:**
+#### `npm run` an NPM script in the theme directory
+
+Use `npm run x -- <command>` from the root directory to run an NPM script in the theme directory. For example, to run the `css` script in the theme directory:
 
 ```sh
-# These are equivalent...
-cd web/wp-content/themes/florish && npm run css
-
-# ...to
-npm run css --workspace florish
-
-# ...or, using prefixed commands
 npm run x -- css
+```
+
+#### `npm install` a package in the theme directory
+
+Use `npm run i -- <package>` from the root directory to install a package in the theme directory. For example, to install `bootstrap` in the theme directory:
+
+```sh
+npm run i -- --save-dev bootstrap
 ```
 
 
@@ -89,8 +121,6 @@ npm run x -- css
 The theme files are located in the `wp-content/themes/florish` folder. 
 
 The easiest way to develop the theme is to use the `npm run dev` command. This starts the development server and watches for changes to the theme files.
-
-
 
 
 #### Styles
@@ -184,7 +214,7 @@ We use composer to manage PHP resources and custom theme functions/classes. File
 - Class filenames should correspond to the Class name.
 - Files with individual functions must be added to `composer.json`
 
-After changing files in the `components/helpers/` directory, run the following command (`composer dump-autoload`) to generate autoload files:
+After changing files in the `inc/helpers/` directory, run the following command (`composer dump-autoload`) to generate autoload files:
 
 `docker exec -w /var/www/html/wp-content/themes/florish florish-wordpress-1 composer dump-autoload`
 
@@ -210,3 +240,13 @@ myFunction();
 ?>
 
 ```
+
+#### To Refactor:
+
+- Break PHP, JS, and SCSS into separate files and folders.
+- `functions.php` is getting too large. Break it into smaller files.
+- Spellcheck!
+
+##### PHP
+
+- Do not use `if():` and `endif;`, `while():` and `endwhile;`, etc. syntax. Use `{}` instead.
