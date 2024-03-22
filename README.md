@@ -18,13 +18,13 @@ MYSQL_ROOT_PASSWORD=wordpress
 ```
 
 
-4. **Run the following commands to start the containers and watch for changes to the theme files:**
+4. **Run the following commands to build and start the containers, import the db, and watch for changes to the theme files:**
 
 ```sh
 # Install dependencies in the theme and root directory
 npm install
 
-# Start the docker container and sass compiler, then watch for changes
+# Build and start the docker container, build and watch js/sass, then watch for changes
 npm start # or `npm run dev` to run docker in the foreground
 
 # To stop the docker container
@@ -35,16 +35,7 @@ npm run stop
 
 > A window will open in your default browser with the BrowserSync proxy at http://localhost:3000. While developing, this URL will automatically update when changes are made to the theme files. **The first time you run the `npm start` command, the BrowserSync window may need to be refreshed after the docker container finishes building**
 
-**At this point, you should have a fresh WordPress installation running on `http://localhost`.**
-
-
-5. Import the db.sql file into the database. This file contains the WordPress database schema and data.
-
-Login to the PHPMyAdmin at `http://localhost:8080` with the credentials MYSQL_USER and MYSQL_PASSWORD you set in the `.env` file.
-
-In PHPMyAdmin, click on the `Import` tab. Click on the `Choose File` button and select the `db.sql` file. Click the `Import` button at the bottom to import the database.
-
-**The WordPress installation is now complete.**
+**At this point, you should have the WordPress installation running on `http://localhost`.**
 
 You can now start developing the theme. The theme files are located in the `wp-content/themes/florish` folder. The `npm start` command starts the development server and watches for changes to the theme files.
 
@@ -114,6 +105,16 @@ Use `npm run i -- <package>` from the root directory to install a package in the
 ```sh
 npm run i -- --save-dev bootstrap
 ```
+
+## Manually importing the database
+
+Import the db.sql file into the database. This file contains the WordPress database schema and data.
+
+Login to the PHPMyAdmin at `http://localhost:8080` with the credentials MYSQL_USER and MYSQL_PASSWORD you set in the `.env` file.
+
+In PHPMyAdmin, click on the `Import` tab. Click on the `Choose File` button and select the `db.sql` file. Click the `Import` button at the bottom to import the database.
+
+**The WordPress installation is now complete.**
 
 
 ### Theme Development

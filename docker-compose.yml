@@ -16,7 +16,7 @@ services:
 
     # This allows docker containers to connect to localhost on your machine, we may need this for vite HMR loading (not currently working, page reloads)
     # extra_hosts:
-      # - "host.docker.internal:host-gateway"
+    # - "host.docker.internal:host-gateway"
 
     depends_on:
       - db
@@ -73,6 +73,7 @@ services:
     command: "--default-authentication-plugin=mysql_native_password"
     volumes:
       - db_data:/var/lib/mysql
+      - ./db-dump/db.sql:/docker-entrypoint-initdb.d/db.sql
     restart: always
     env_file: .env
     environment:
