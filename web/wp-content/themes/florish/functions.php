@@ -5,17 +5,35 @@
  */
 require get_template_directory() . '/vendor/autoload.php';
 
-get_template_part('inc/functions/theme/setup');
+/* Server */
+
+
+// Todo: Setup CORS headers - allow reactpress apps to load assets (fontawesome, etc)
+get_template_part('inc/functions/setup/cors');
+add_action('init', 'fl_add_cors_headers');
+
+add_action('send_headers', function () {
+	if (!did_action('rest_api_init') && $_SERVER['REQUEST_METHOD'] == 'HEAD') {
+		header('Access-Control-Allow-Origin: *');
+		header('Access-Control-Expose-Headers: Link');
+		header('Access-Control-Allow-Methods: HEAD');
+	}
+});
+
+
+/* Theme */
+
+get_template_part('inc/functions/setup/setup');
 add_action('after_setup_theme', 'florish_theme_setup');
 
-get_template_part('inc/functions/theme/widgets');
+get_template_part('inc/functions/setup/widgets');
 add_action('widgets_init', 'florish_widgets_init');
 
 /**
  * Enqueue scripts and styles.
  */
 
-get_template_part('inc/functions/theme/scripts');
+get_template_part('inc/functions/setup/scripts');
 add_action('wp_enqueue_scripts', 'florish_scripts');
 
 /////////////CUSTOMIZER REGISTER START////////////////
@@ -44,7 +62,7 @@ if (function_exists('acf_add_options_page')) {
 // 	'manage_categories' => true,
 // 	));
 
-get_template_part('inc/functions/theme/customizer');
+get_template_part('inc/functions/setup/customizer');
 add_action('customize_register', 'sorciere_social_share_customize_register');
 add_action('init', 'change_role_name');
 add_action('after_setup_theme', 'remove_admin_bar');
@@ -697,7 +715,7 @@ function nursery_profile_view()
 			<ul class="order_desc accordion-content">
 				<li>
 					<?php foreach (unserialize(get_user_meta($user_id, '_select_delivery_days', true)) as $key => $value) {
-						// print_r($key); print_r($value['start_time']); echo ',';                                        ?>
+						// print_r($key); print_r($value['start_time']); echo ',';                                                  ?>
 						<ul>
 							<li><span>
 									<?php echo $key; ?>:

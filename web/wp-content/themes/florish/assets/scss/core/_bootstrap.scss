@@ -15,7 +15,6 @@
 // $enable-button-pointers: false;
 // $enable-gradients: true;
 $enable-shadows: true;
-
 $offcanvas-box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
 
 // Include bootstrap functions first
@@ -27,34 +26,36 @@ $offcanvas-box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/variables-dark";
 
+$enable-important-utilities: false; // Add !important to all utilities
+
 // Add new breakpoints
 $new-breakpoints: (
-  xl: 1280px,
-  xxl: 1600px,
+	xl: 1280px,
+	xxl: 1600px,
 );
 
 $grid-breakpoints: map-merge($grid-breakpoints, $new-breakpoints);
 
 // Add new container max widths
 $new-container-max-widths: (
-  xl: 1220px,
-  xxl: 1520px,
+	xl: 1220px,
+	xxl: 1520px,
 );
 
 $container-max-widths: map-merge(
-  $container-max-widths,
-  $new-container-max-widths
+	$container-max-widths,
+	$new-container-max-widths
 );
 
 // Add new spacer sizes
 $new-spacer-sizes: (
-  6: $spacer * 3.25,
-  7: $spacer * 3.5,
-  8: $spacer * 3.75,
-  9: $spacer * 4,
-  10: $spacer * 4.25,
-  11: $spacer * 4.5,
-  12: $spacer * 4.75,
+	6: $spacer * 3.25,
+	7: $spacer * 3.5,
+	8: $spacer * 3.75,
+	9: $spacer * 4,
+	10: $spacer * 4.25,
+	11: $spacer * 4.5,
+	12: $spacer * 4.75,
 );
 
 $spacers: map-merge($spacers, $new-spacer-sizes);
