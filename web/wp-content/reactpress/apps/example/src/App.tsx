@@ -1,12 +1,15 @@
-import { Link, RouterProvider, createHashRouter } from "react-router-dom";
+import { RouterProvider, createHashRouter } from "react-router-dom";
 
+import { slugs } from "./config/slugs";
+import { Dashboard } from "./routes/dashboard/Dashboard";
 import ErrorPage from "./routes/error/ErrorPage";
-import Root, { rootAction, rootLoader } from "./routes/root/RootPage";
+import Root from "./routes/root/RootPage";
+import { rootAction } from "./routes/root/rootAction";
+import { rootLoader } from "./routes/root/rootLoader";
+import VendorInformation from "./routes/signup/VendorInformation";
+import NewUser from "./routes/users/New";
 import Contact, { userLoader } from "./routes/users/User";
-
-export const slugs = {
-	user: "users",
-};
+import { newAction } from "./routes/users/newAction";
 
 const router = createHashRouter([
 	{
@@ -18,19 +21,27 @@ const router = createHashRouter([
 		children: [
 			{
 				index: true,
-				element: <h1>h1</h1>,
+				element: <Dashboard />,
+			},
+			{
+				path: slugs.user,
+				element: <Root />,
+				loader: rootLoader,
 			},
 			{
 				path: `${slugs.user}/:id`,
 				loader: userLoader,
-				element: (
-					<>
-						<Contact />
-						<div>
-							Hola WordPress!<Link to="/">hi</Link>
-						</div>
-					</>
-				),
+				element: <Contact />,
+			},
+			{
+				path: `${slugs.user}/new`,
+				action: newAction,
+				element: <NewUser />,
+			},
+			{
+				path: `${slugs.user}/edit`,
+				action: newAction,
+				element: <VendorInformation />,
 			},
 		],
 	},

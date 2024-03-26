@@ -1,18 +1,14 @@
+import { slugs } from "@/config/slugs";
 import { useEffect } from "react";
 import {
 	Form,
 	NavLink,
 	Outlet,
-	redirect,
 	useLoaderData,
 	useNavigation,
 	useSubmit,
 } from "react-router-dom";
 import reactPress from "../../lib/reactpress";
-
-export async function rootAction() {
-	return redirect(`/contacts/new`);
-}
 
 export default function Root() {
 	const { contacts, q } = useLoaderData();
@@ -79,7 +75,7 @@ export default function Root() {
 												isActive ? "active" : isPending ? "bg-secondary" : ""
 											}`
 										}
-										to={`contacts/${contact.id}`}
+										to={`${slugs.user}/${contact.id}`}
 									>
 										{contact.name ? <>{contact.name}</> : <i>No Name</i>}{" "}
 										{contact.favorite && <span>★</span>}
