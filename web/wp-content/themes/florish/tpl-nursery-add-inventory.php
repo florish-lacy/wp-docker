@@ -10,6 +10,10 @@ $status = get_user_meta($user_id, '_member_status', true);
 $inventory_sumbit_status = get_user_meta($user_id, '_inventory_sumbit_status', true);
 $stage_status = get_user_meta($user_id, '_stage_status', true);
 
+// Todo:
+$status = 'active';
+$inventory_sumbit_status = '';
+$stage_status = 1;
 
 // Add body class to the header: Makes the header float above the content
 // use .fl-nav__offset to give the header a top margin

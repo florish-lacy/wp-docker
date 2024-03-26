@@ -107,6 +107,13 @@ $table_prefix = getenv_docker('WORDPRESS_TABLE_PREFIX', 'wp_');
  *
  * @link https://wordpress.org/documentation/article/debugging-in-wordpress/
  */
+
+// https://developer.wordpress.org/apis/wp-config-php
+
+// WordPress 5.2 introduced Recovery Mode which displays error message instead of white screen when plugins causes fatal error.
+// https://make.wordpress.org/core/2019/04/16/fatal-error-recovery-mode-in-5-2/
+define('WP_DISABLE_FATAL_ERROR_HANDLER', !!getenv_docker('WORDPRESS_DEBUG', ''));
+
 define('WP_DEBUG', !!getenv_docker('WORDPRESS_DEBUG', ''));
 define('WP_DEBUG_LOG', !!getenv_docker('WORDPRESS_DEBUG_LOG', ''));
 define('WP_DEBUG_DISPLAY', !!getenv_docker('WORDPRESS_DEBUG_DISPLAY', ''));
@@ -115,13 +122,13 @@ define('WP_DEBUG_DISPLAY', !!getenv_docker('WORDPRESS_DEBUG_DISPLAY', ''));
 
 // If we're behind a proxy server and using HTTPS, we need to alert WordPress of that fact
 // see also https://wordpress.org/support/article/administration-over-ssl/#using-a-reverse-proxy
-if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'https') !== false) {
+if (isset ($_SERVER['HTTP_X_FORWARDED_PROTO']) && strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'https') !== false) {
 	$_SERVER['HTTPS'] = 'on';
 }
 // (we include this by default because reverse proxying is extremely common in container environments)
 
 if ($configExtra = getenv_docker('WORDPRESS_CONFIG_EXTRA', '')) {
-	eval($configExtra);
+	eval ($configExtra);
 }
 
 /* That's all, stop editing! Happy publishing. */

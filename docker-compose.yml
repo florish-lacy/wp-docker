@@ -50,6 +50,7 @@ services:
         /* development parameters */
         define('WP_CACHE', false);
         define('ENVIRONMENT', 'local');
+        define( 'WP_ENVIRONMENT_TYPE', 'local' );
 
         /* add anymore custom configs here... */
     volumes:
