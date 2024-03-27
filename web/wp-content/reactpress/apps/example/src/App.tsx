@@ -6,6 +6,7 @@ import ErrorPage from "./routes/error/ErrorPage";
 import Root from "./routes/root/RootPage";
 import { rootAction } from "./routes/root/rootAction";
 import { rootLoader } from "./routes/root/rootLoader";
+import DeliveryDetails from "./routes/signup/DeliveryDetails";
 import VendorInformation from "./routes/signup/VendorInformation";
 import NewUser from "./routes/users/New";
 import Contact, { userLoader } from "./routes/users/User";
@@ -22,6 +23,11 @@ const router = createHashRouter([
 			{
 				index: true,
 				element: <Dashboard />,
+			},
+			{
+				path: `approval`,
+
+				element: <DeliveryDetails />,
 			},
 			{
 				path: slugs.user,
