@@ -10,7 +10,7 @@ get_header();
 
 ?>
 
-<div class="nursery-landing">
+<div class="fl-page">
 
 	<!-- HERO -->
 	<div class="fl-nav__offset fl-bg-pattern bg-repeat-x bg-body-tertiary">
@@ -21,18 +21,21 @@ get_header();
 
 				<div class="col-lg-8 mx-auto py-2">
 					<p class="lead">
-						Receive sales when your doors are closed, deliver them within 7 days, increase your revenue with no marketing and website costs.
+						Receive sales when your doors are closed, deliver them within 7 days, increase your revenue with
+						no marketing and website costs.
 					</p>
 				</div>
 
 				<div class="d-flex justify-content-center my-3">
 					<a href="#signup" class="d-block p-2 fl-w-100">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/templates/nursery-landing/button-signup.png" class="" alt="Apply now button" loading="lazy">
+						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/templates/nursery-landing/button-signup.png"
+							class="" alt="Apply now button" loading="lazy">
 					</a>
 				</div>
 
 				<div class="d-block">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/templates/nursery-landing/section-hero.png" class="img-fluid mb-4" alt="Happy healthy plants in a row" loading="lazy">
+					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/templates/nursery-landing/section-hero.png"
+						class="img-fluid mb-4" alt="Happy healthy plants in a row" loading="lazy">
 				</div>
 			</div>
 		</div>
@@ -88,7 +91,8 @@ get_header();
 	<div class="container py-5">
 		<div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
 			<div class="col-6 col-lg mx-auto d-flex flex-column align-items-start">
-				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/templates/nursery-landing/section-how.png" class="img-fluid mb-4" alt="" loading="lazy">
+				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/templates/nursery-landing/section-how.png"
+					class="img-fluid mb-4" alt="" loading="lazy">
 			</div>
 
 			<div class="col">
@@ -146,9 +150,11 @@ get_header();
 	<div class="px-4 pt-5 my-5 text-center bg-body-tertiary">
 		<h2 class="col-lg-8 mx-auto display-4 fw-bold text-body-emphasis">Requirements to apply</h2>
 		<div class="col-lg-6 mx-auto">
-			<p class="lead mb-4">Must have own truck and deliver and carry at least 10 of the plants listed for sale on the Florish Marketplace.</p>
+			<p class="lead mb-4">Must have own truck and deliver and carry at least 10 of the plants listed for sale on
+				the Florish Marketplace.</p>
 		</div>
-		<img src="<?php echo get_template_directory_uri(); ?>/assets/images/templates/nursery-landing/section-requirements.png" class="img-fluid" alt="Delivery van dropping packages from the rear" width="650" loading="lazy">
+		<img src="<?php echo get_template_directory_uri(); ?>/assets/images/templates/nursery-landing/section-requirements.png"
+			class="img-fluid" alt="Delivery van dropping packages from the rear" width="650" loading="lazy">
 	</div>
 
 	<!-- SIGN-UP -->
@@ -166,7 +172,8 @@ get_header();
 			</div>
 
 			<div class="feature col-lg-8 bg-body-tertiary">
-				<div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+				<div
+					class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
 					<svg class="bi" width="1em" height="1em">
 						<use xlink:href="#collection"></use>
 					</svg>
