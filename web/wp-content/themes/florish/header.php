@@ -138,7 +138,7 @@
 												<span id="mini-cart-count">
 													<?php echo $items_count; ?>
 												</span>
-												<span class="visually-hidden">items in cart</span>
+												<span class="sr-only">items in cart</span>
 											</span>
 										<?php } ?>
 									</a>
