@@ -25,5 +25,10 @@ export default defineConfig({
 	// Todo: SCSS sourcemaps don't work, so browsersync reloads on scss changes (instead of HMR)
 	css: {
 		devSourcemap: true,
+		preprocessorOptions: {
+			scss: {
+				//
+			},
+		},
 	},
 });

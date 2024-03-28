@@ -1,7 +1,56 @@
 {
+  "assets/images/background/pattern-1-20.svg": {
+    "file": "pattern-1-20.svg",
+    "src": "assets/images/background/pattern-1-20.svg"
+  },
+  "assets/images/background/pattern-1-light.svg": {
+    "file": "pattern-1-light.svg",
+    "src": "assets/images/background/pattern-1-light.svg"
+  },
+  "assets/images/background/pattern-2.svg": {
+    "file": "pattern-2.svg",
+    "src": "assets/images/background/pattern-2.svg"
+  },
+  "assets/images/blog-back.png": {
+    "file": "blog-back.png",
+    "src": "assets/images/blog-back.png"
+  },
+  "assets/images/bnr-back.png": {
+    "file": "bnr-back.png",
+    "src": "assets/images/bnr-back.png"
+  },
+  "assets/images/bnr-sape.png": {
+    "file": "bnr-sape.png",
+    "src": "assets/images/bnr-sape.png"
+  },
+  "assets/images/contbg1.png": {
+    "file": "contbg1.png",
+    "src": "assets/images/contbg1.png"
+  },
+  "assets/images/contbg2.png": {
+    "file": "contbg2.png",
+    "src": "assets/images/contbg2.png"
+  },
+  "assets/images/create-back.png": {
+    "file": "create-back.png",
+    "src": "assets/images/create-back.png"
+  },
+  "assets/images/footerbg.jpg": {
+    "file": "footerbg.jpg",
+    "src": "assets/images/footerbg.jpg"
+  },
+  "assets/images/hm-ab-back.png": {
+    "file": "hm-ab-back.png",
+    "src": "assets/images/hm-ab-back.png"
+  },
   "assets/js/index.ts": {
     "file": "main.js",
     "src": "assets/js/index.ts",
+    "isEntry": true
+  },
+  "assets/scss/style.scss": {
+    "file": "style.css",
+    "src": "assets/scss/style.scss",
     "isEntry": true
   }
 }
