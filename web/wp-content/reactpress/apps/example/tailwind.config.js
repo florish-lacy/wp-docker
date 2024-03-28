@@ -1,8 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	corePlugins: {
-		// This prevents Tailwind from overwriting the bootstrap styles
-		// preflight: false,
+		// This prevents Tailwind from overwriting the bootstrap styles with it's own reset
+		// we load tailwind with bootstrap in the theme
+		preflight: false,
 	},
   darkMode: ["class"],
   content: [
