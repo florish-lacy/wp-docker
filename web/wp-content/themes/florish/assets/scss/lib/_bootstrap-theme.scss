@@ -1,28 +1,53 @@
+/*
+ * Theme Overrides
+ */
 
-// THIS DEFINES THE BOOTSTRAP THEME: https://getbootstrap.com/docs/5.3/customize/ sass/#variable-defaults
-// They are available as the bootstrap css variables
 // THESE OVERRIDE BOOTSTRAP DEFAULTS
+// THIS DEFINES THE BOOTSTRAP THEME: https://getbootstrap.com/docs/5.3/customize/sass/#variable-defaults
+
+// Bootstrap's default variables are defined in `scss/_variables.scss`.
+
+// Nearly all variables in Bootstrap are written with the `!default` flag.
+// This allows you to override the default values of those variables before
+// you import Bootstrap's source Sass files.
+//
+// Overriding the default variable values is the best way to customize your
+// CSS without writing _new_ styles. For example, you can either change
+// `$body-color` or write more CSS that override's Bootstrap's CSS like so:
+// `body { color: red; }`.
 
 /* Sizing */
-
 // Navbar height
 $nav-height: 80px;
 
 // Spacing used for margins and padding
 $spacer: 1rem;
 
+// $border-radius: 0.4rem;
 
 // Change all inputs to pill shape
 // $btn-border-radius: 50px;
 // $input-border-radius: 50px;
 
 /* Colors */
-
 $primary: #648863;
 // $body-bg: #f5f6f2;
+// $body-color: #333;
 $body-tertiary-bg: #f5f6f2;
 
 // $body-emphasis-color: #648863; // Some heading use
 
 $navbar-light-color: #7b7b7b;
 // $navbar-light-hover-color: $primary;
+
+// Global Options
+$enable-important-utilities: false; // Add !important to all utilities
+// $enable-button-pointers: false; // Should buttons have a pointer cursor?
+$enable-gradients: true;
+$enable-shadows: true;
+
+// Disable underline in links <a>
+$link-decoration: none;
+
+// Set a nice shadow for the mobile nav
+$offcanvas-box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);

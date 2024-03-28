@@ -1,4 +1,4 @@
-@import "lib/bootstrap";
+@import "lib/bootstrap"; // This imports lib/_bootstrap-extend.scss and lib/_bootstrap-theme.scss as well
 @import "lib/tailwind";
 
 @import "core/fonts";
@@ -38,4 +38,4 @@
 @import "pages/nursery";
 @import "pages/customer-registration";
 
-@import "woocommerce";
+@import "components/woocommerce";
