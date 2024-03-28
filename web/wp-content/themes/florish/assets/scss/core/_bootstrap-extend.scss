@@ -1,53 +1,54 @@
 // Extend bootstrap classes into Wordpress classes
+// Todo: Remove this, extending is bad usually, but it's a quick way to get bootstrap classes into Wordpress classes
 
 .button {
-  @extend .btn;
+	@extend .btn;
 }
 
 .gform_button[type="submit"] {
-  @extend .btn;
-  @extend .btn-primary;
+	@extend .btn;
+	@extend .btn-primary;
 }
 
 .gform_anchor {
-  width: 100%;
+	width: 100%;
 }
 
 .gform_wrapper {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
+	display: flex;
+	gap: 0.5rem;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
 }
 
 .gform_body {
-  flex-grow: 1;
+	flex-grow: 1;
 }
 
 .ginput_container input {
-  @extend .form-control;
+	@extend .form-control;
 }
 
 .ginput_container select {
-  @extend .form-select;
+	@extend .form-select;
 }
 
 .ginput_container textarea {
-  @extend .form-control;
+	@extend .form-control;
 }
 
 // Menu items extend bootstrap nav items
 .menu {
-  @extend .nav;
+	@extend .nav;
 }
 
 .menu-item {
-  & > a {
-    @extend .nav-link;
-  }
+	& > a {
+		@extend .nav-link;
+	}
 
-  &.current-menu-item > a {
-    @extend .active;
-  }
+	&.current-menu-item > a {
+		@extend .active;
+	}
 }

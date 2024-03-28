@@ -33,6 +33,12 @@ h6,
 
 /* Sizing */
 /* Colors */
+/*!
+Tailwind
+*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 :root,
 [data-bs-theme=light] {
   --bs-blue: #0d6efd;
