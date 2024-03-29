@@ -715,7 +715,7 @@ function nursery_profile_view()
 			<ul class="order_desc accordion-content">
 				<li>
 					<?php foreach (unserialize(get_user_meta($user_id, '_select_delivery_days', true)) as $key => $value) {
-						// print_r($key); print_r($value['start_time']); echo ',';                                                  ?>
+						// print_r($key); print_r($value['start_time']); echo ',';                                                   ?>
 						<ul>
 							<li><span>
 									<?php echo $key; ?>:

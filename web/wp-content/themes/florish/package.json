@@ -8,6 +8,7 @@
 		"Theme"
 	],
 	"devDependencies": {
+		"@csstools/postcss-sass": "^5.1.1",
 		"@wordpress/scripts": "^27.2.0",
 		"autoprefixer": "^10.4.19",
 		"bootstrap": "^5.3.3",
@@ -15,10 +16,12 @@
 		"dir-archiver": "^2.1.0",
 		"eslint": "^8.57.0",
 		"htmlhint": "^1.1.4",
+		"nodemon": "^3.1.0",
 		"npm-run-all": "^4.1.5",
-		"postcss": "^8.4.35",
+		"postcss": "^8.4.38",
 		"postcss-cli": "^11.0.0",
 		"postcss-load-config": "^5.0.3",
+		"postcss-scss": "^4.0.9",
 		"prettier": "^3.2.5",
 		"rtlcss": "^4.1.1",
 		"sass": "^1.71.1",
@@ -43,13 +46,14 @@
 	},
 	"scripts": {
 		"dev": "npm-run-all build:scss watch",
-		"build": "npm-run-all --parallel build:css build:vite build:php",
+		"build": "npm-run-all --parallel build:css:prod build:vite build:php",
 		"build:vite": "vite build",
-		"build:css": "npm-run-all build:scss:prod build:css:prefix build:css:rtl",
-		"build:css:prefix": "postcss --replace assets/dist/style.css --verbose --map",
+		"build:css": "npm-run-all build:scss build:scss:postcss",
+		"build:css:prod": "npm-run-all build:scss:prod build:scss:postcss build:css:rtl",
 		"build:css:rtl": "rtlcss assets/dist/style.css assets/dist/style-rtl.css",
-		"build:scss": "sass assets/scss/:assets/dist --load-path=node_modules",
+		"build:scss": "sass assets/scss:assets/dist/css --load-path=node_modules",
 		"build:scss:prod": "npm run build:scss -- --no-source-map --style compressed",
+		"build:scss:postcss": "postcss assets/dist/css/style.css --output assets/dist/style.css --verbose --map",
 		"build:scss:watch": "npm run build:scss -- --watch",
 		"build:php": "npm-run-all --continue-on-error --parallel build:php:*",
 		"build:php:composer": "composer dump-autoload",
@@ -57,10 +61,13 @@
 		"lint:js": "wp-scripts lint-js 'assets/js/*.js'",
 		"lint:scss": "stylelint 'assets/scss/**/*.scss' --fix",
 		"watch": "npm-run-all --parallel watch:*",
-		"watch:scss": "npm run build:scss -- --watch",
+		"watch:scss": "nodemon -x \"npm run build:css\"",
 		"watch:build": "vite build --watch --config ./vite.config.ts",
 		"watch:sync": "browser-sync start --config bs-config.js",
 		"zip": "dir-archiver --src . --dest ../theme.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map yarn.lock"
+	},
+	"nodemonConfig": {
+		"ext": "scss,php"
 	},
 	"browserslist": [
 		"last 4 versions",

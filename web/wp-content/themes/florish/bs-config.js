@@ -23,6 +23,8 @@ module.exports = {
 		// 'assets/css/*.css',
 		// 'assets/js/*.js',
 		'assets/dist/**/*',
+		'!assets/dist/**/*.map',
+		'!assets/dist/css/style.css',
 		// 'components/**/*.php',
 		// {
 		// 	match: ['components/helpers/**/*.php'],
