@@ -45,15 +45,15 @@
 		"map": false
 	},
 	"scripts": {
-		"dev": "npm-run-all build:scss watch",
+		"dev": "npm-run-all watch",
 		"build": "npm-run-all --parallel build:css:prod build:vite build:php",
 		"build:vite": "vite build",
 		"build:css": "npm-run-all build:scss build:scss:postcss",
 		"build:css:prod": "npm-run-all build:scss:prod build:scss:postcss build:css:rtl",
 		"build:css:rtl": "rtlcss assets/dist/style.css assets/dist/style-rtl.css",
-		"build:scss": "sass assets/scss:assets/dist/css --load-path=node_modules",
+		"build:scss": "sass assets/scss:assets/dist/tmp --load-path=node_modules",
 		"build:scss:prod": "npm run build:scss -- --no-source-map --style compressed",
-		"build:scss:postcss": "postcss assets/dist/css/style.css --output assets/dist/style.css --verbose --map",
+		"build:scss:postcss": "postcss assets/dist/tmp/style.css --output assets/dist/style.css --verbose --map",
 		"build:scss:watch": "npm run build:scss -- --watch",
 		"build:php": "npm-run-all --continue-on-error --parallel build:php:*",
 		"build:php:composer": "composer dump-autoload",

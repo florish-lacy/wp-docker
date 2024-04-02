@@ -1,6 +1,9 @@
 <?php /* Template Name: User Signup */ ?>
 <?php
-$current_user = wp_get_current_user();
+
+global $current_user;
+wp_get_current_user();
+
 ?>
 <?php get_header(); ?>
 
@@ -8,32 +11,22 @@ $current_user = wp_get_current_user();
 // If user is logged in, show a message
 if (is_user_logged_in()) { ?>
 	<div class="container my-5">
-		<div class="position-relative p-5 text-center text-muted bg-body border border-dashed rounded-5">
-			<svg class="bi mt-5 mb-3" width="48" height="48">
-				<use xlink:href="#check2-circle"></use>
-			</svg>
-			<h1 class="text-body-emphasis h-4">You are already signed in.</h1>
-			<p class="col-lg-6 mx-auto mb-4">
-				This faded back jumbotron is useful for placeholder content. It's also a great way to add a bit of context
-				to a page or section when no content is available and to encourage visitors to take a specific action.
-			</p>
+		<div class="position-relative p-20 text-center text-muted bg-body border border-dashed rounded-5">
+			<h1 class="text-body-emphasis text-2xl my-5">You are already signed in.</h1>
+
 			<div class="d-flex gap-3 justify-content-center lead fw-normal">
-				<a class="icon-link" href="#">
-					Learn more
-					<svg class="bi">
-						<use xlink:href="#chevron-right"></use>
-					</svg>
+				<a class="icon-link" href="<?php echo home_url(); ?>">
+					Continue to your dashboard
 				</a>
-				<a class="icon-link" href="#">
-					Buy
-					<svg class="bi">
-						<use xlink:href="#chevron-right"></use>
-					</svg>
+
+				<a class="icon-link" href="<?php echo wp_logout_url(home_url()); ?>">
+					Log out
 				</a>
 			</div>
 		</div>
 	</div>
 <?php } else { ?>
+
 	<div class="container col-xl-10 col-xxl-8 px-4 py-5">
 		<div class="row align-items-center g-lg-5 py-5">
 			<div class="col-lg-7 text-center text-lg-start">
@@ -41,7 +34,14 @@ if (is_user_logged_in()) { ?>
 				<p class="col-lg-10 fs-4">Sign up to use Florish</p>
 			</div>
 			<div class="col-md-10 mx-auto col-lg-5">
-				<form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" data-bitwarden-watching="1">
+
+				<div class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
+					<?php echo do_shortcode('[gravityform id="10" title="false" description="false" ajax="true"]'); ?>
+				</div>
+
+				<form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" action="<?php echo $_SERVER['REQUEST_URI'] ?>"
+					method="post">
+
 					<div class="form-floating mb-3">
 						<input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
 						<label for="floatingInput">Email address</label>

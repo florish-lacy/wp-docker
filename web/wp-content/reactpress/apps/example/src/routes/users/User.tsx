@@ -1,14 +1,7 @@
-import { Form, LoaderFunctionArgs, useLoaderData } from "react-router-dom";
-import { getContact } from "../../api/users";
-
-export async function userLoader({ params }: LoaderFunctionArgs) {
-	const users = await getContact(parseInt(params.id || "", 10));
-	return { users };
-}
+import { Form, useLoaderData } from "react-router-dom";
 
 export default function User() {
-	const data: any = useLoaderData();
-	console.log(data);
+	const { user: data }: any = useLoaderData();
 
 	return (
 		<div id="contact" className="d-flex">

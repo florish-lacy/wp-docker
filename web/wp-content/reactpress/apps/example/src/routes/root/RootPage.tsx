@@ -8,10 +8,9 @@ import {
 	useNavigation,
 	useSubmit,
 } from "react-router-dom";
-import reactPress from "../../lib/reactpress";
 
 export default function Root() {
-	const { contacts, q } = useLoaderData();
+	const { isAdmin, users, q, ...data } = useLoaderData();
 	const navigation = useNavigation();
 	const submit = useSubmit();
 
@@ -41,7 +40,7 @@ export default function Root() {
 						<i className="fa fa-search" aria-hidden="true"></i>
 						<input
 							id="q"
-							aria-label="Search contacts"
+							aria-label="Search users"
 							placeholder="Search"
 							type="search"
 							name="q"
@@ -56,7 +55,7 @@ export default function Root() {
 						<div className="sr-only" aria-live="polite"></div>
 					</Form>
 					{searching && <p>Searching...</p>}
-					{reactPress?.user?.roles?.includes("administrator") && (
+					{isAdmin && (
 						<Form method="post">
 							<button className="btn hopeui_style-button" type="submit">
 								New
@@ -65,9 +64,9 @@ export default function Root() {
 					)}
 				</div>
 				<nav>
-					{contacts.length ? (
-						<ul className="nav nav-pills nav-fill flex-column">
-							{contacts.map((contact) => (
+					{users.length ? (
+						<ul className="nav nav-pills nav-fill flex">
+							{users.map((contact) => (
 								<li key={contact.id} className="nav-item text-start">
 									<NavLink
 										className={({ isActive, isPending }) =>
@@ -85,7 +84,7 @@ export default function Root() {
 						</ul>
 					) : (
 						<p>
-							<i>No contacts</i>
+							<i>No users</i>
 						</p>
 					)}
 				</nav>

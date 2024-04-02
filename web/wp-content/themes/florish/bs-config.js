@@ -24,7 +24,7 @@ module.exports = {
 		// 'assets/js/*.js',
 		'assets/dist/**/*',
 		'!assets/dist/**/*.map',
-		'!assets/dist/css/style.css',
+		'!assets/dist/tmp/**/*',
 		// 'components/**/*.php',
 		// {
 		// 	match: ['components/helpers/**/*.php'],
